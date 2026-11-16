@@ -1,0 +1,178 @@
+{
+  "project": "sample-frozen",
+  "clips": {
+    "demo-sample": {
+      "id": "demo-sample",
+      "src": "footage/ready/sample-frozen/demo-sample.mp4",
+      "original": "footage/raw/sample-frozen/demo-sample.mp4",
+      "duration": 12.01,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "hasAudio": true,
+      "loudnessLufs": -20.49,
+      "createdAt": null,
+      "location": null,
+      "device": null,
+      "meta": {
+        "originalCodec": "h264",
+        "originalSize": "1080x1920",
+        "rotation": 0,
+        "fps": 30,
+        "variableFrameRate": false,
+        "audio": {
+          "codec": "aac",
+          "channels": 1,
+          "sampleRate": 48000
+        },
+        "fileSizeMB": 38.7
+      },
+      "analysis": {
+        "speech": [
+          {
+            "from": 0,
+            "to": 12
+          }
+        ],
+        "silences": [],
+        "scenes": [],
+        "contactSheet": "footage/ready/sample-frozen/demo-sample.sheet.jpg"
+      }
+    },
+    "talking-sample": {
+      "id": "talking-sample",
+      "src": "footage/ready/sample-frozen/talking-sample.mp4",
+      "original": "footage/raw/sample-frozen/talking-sample.mp4",
+      "duration": 38.567,
+      "width": 1080,
+      "height": 1920,
+      "fps": 30,
+      "hasAudio": true,
+      "loudnessLufs": -19.09,
+      "createdAt": null,
+      "location": null,
+      "device": null,
+      "meta": {
+        "originalCodec": "hevc",
+        "originalSize": "1080x1920",
+        "rotation": 0,
+        "fps": 60,
+        "variableFrameRate": false,
+        "audio": {
+          "codec": "aac",
+          "channels": 1,
+          "sampleRate": 48000
+        },
+        "fileSizeMB": 18.2
+      },
+      "analysis": {
+        "speech": [
+          {
+            "from": 0.8,
+            "to": 2.38
+          },
+          {
+            "from": 2.76,
+            "to": 3.71
+          },
+          {
+            "from": 5.13,
+            "to": 8.71
+          },
+          {
+            "from": 10.5,
+            "to": 11.69
+          },
+          {
+            "from": 12.84,
+            "to": 14.68
+          },
+          {
+            "from": 16.22,
+            "to": 17.85
+          },
+          {
+            "from": 18.84,
+            "to": 21.92
+          },
+          {
+            "from": 23.98,
+            "to": 24.4
+          },
+          {
+            "from": 24.8,
+            "to": 26.76
+          },
+          {
+            "from": 28.16,
+            "to": 30.88
+          },
+          {
+            "from": 31.33,
+            "to": 32.87
+          },
+          {
+            "from": 34.58,
+            "to": 37.16
+          }
+        ],
+        "silences": [
+          {
+            "from": 0,
+            "to": 0.8
+          },
+          {
+            "from": 2.38,
+            "to": 2.76
+          },
+          {
+            "from": 3.71,
+            "to": 5.13
+          },
+          {
+            "from": 8.71,
+            "to": 10.5
+          },
+          {
+            "from": 11.69,
+            "to": 12.84
+          },
+          {
+            "from": 14.68,
+            "to": 16.22
+          },
+          {
+            "from": 17.85,
+            "to": 18.84
+          },
+          {
+            "from": 21.92,
+            "to": 23.98
+          },
+          {
+            "from": 24.4,
+            "to": 24.8
+          },
+          {
+            "from": 26.76,
+            "to": 28.16
+          },
+          {
+            "from": 30.88,
+            "to": 31.33
+          },
+          {
+            "from": 32.87,
+            "to": 34.58
+          },
+          {
+            "from": 37.16,
+            "to": 38.55
+          }
+        ],
+        "scenes": [],
+        "contactSheet": "footage/ready/sample-frozen/talking-sample.sheet.jpg"
+      }
+    }
+  }
+}

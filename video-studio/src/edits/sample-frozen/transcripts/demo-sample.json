@@ -1,0 +1,9 @@
+{
+ "clip": "demo-sample",
+ "source": "whisper",
+ "language": "ms",
+ "model": "large-v3",
+ "dialectPrompt": true,
+ "createdAt": "2026-11-16T11:17:33",
+ "segments": []
+}

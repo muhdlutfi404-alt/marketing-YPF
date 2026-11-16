@@ -1,0 +1,443 @@
+{
+  "_readme": "SAMPLE edit built from docs/examples/sample-frozen-direction.md. Times in seconds; effects anchored to spoken words. See docs/STORY-EDITING.md.",
+  "project": "sample-frozen",
+  "brand": "yapakcik-frozen",
+  "title": "Sample — documentary-style product demo",
+  "shots": [
+    {
+      "id": "s1",
+      "label": "greeting",
+      "clip": "talking-sample",
+      "in": 0.53,
+      "out": 3.85,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "zooms": [
+        {
+          "at": 0,
+          "type": "push",
+          "scale": 1.08
+        },
+        {
+          "at": {
+            "quote": "Ambo Pak Cik"
+          },
+          "type": "punch-in",
+          "scale": 1.25
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "label": "intro",
+      "clip": "talking-sample",
+      "in": 4.69,
+      "out": 8.77,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "zooms": [
+        {
+          "at": {
+            "quote": "demo produk"
+          },
+          "type": "punch-in",
+          "scale": 1.2
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "label": "product (covered by b-roll)",
+      "clip": "talking-sample",
+      "in": 10.06,
+      "out": 11.84,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      }
+    },
+    {
+      "id": "s4",
+      "label": "easy",
+      "clip": "talking-sample",
+      "in": 12.41,
+      "out": 14.79,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "transition": {
+        "type": "zoom-punch",
+        "duration": 0.25
+      },
+      "zooms": [
+        {
+          "at": 0,
+          "type": "punch-in",
+          "scale": 1.18,
+          "duration": 0.01
+        },
+        {
+          "at": 0.1,
+          "type": "zoom-out",
+          "scale": 1.0,
+          "duration": 2.0
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "label": "step 1",
+      "clip": "talking-sample",
+      "in": 15.79,
+      "out": 17.67,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "zooms": [
+        {
+          "at": 0,
+          "type": "push",
+          "scale": 1.1
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "label": "step 2 + timer",
+      "clip": "talking-sample",
+      "in": 18.45,
+      "out": 22.07,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "zooms": [
+        {
+          "at": 0,
+          "type": "punch-in",
+          "scale": 1.14,
+          "duration": 0.01
+        }
+      ]
+    },
+    {
+      "id": "s7",
+      "label": "result",
+      "clip": "talking-sample",
+      "in": 23.56,
+      "out": 26.85,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "transition": {
+        "type": "flash",
+        "duration": 0.2
+      },
+      "zooms": [
+        {
+          "at": {
+            "quote": "Siap"
+          },
+          "type": "punch-in",
+          "scale": 1.25
+        },
+        {
+          "at": {
+            "quote": "Rangup luar"
+          },
+          "type": "zoom-out",
+          "scale": 1.05,
+          "duration": 1.4
+        }
+      ]
+    },
+    {
+      "id": "s8",
+      "label": "growth",
+      "clip": "talking-sample",
+      "in": 27.69,
+      "out": 32.85,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "transition": {
+        "type": "frost-dissolve",
+        "duration": 0.3
+      },
+      "zooms": [
+        {
+          "at": 0,
+          "type": "zoom-in",
+          "scale": 1.12,
+          "duration": 4
+        }
+      ]
+    },
+    {
+      "id": "s9",
+      "label": "call to action",
+      "clip": "talking-sample",
+      "in": 34.15,
+      "out": 38.45,
+      "audio": "keep",
+      "focus": {
+        "x": 0.5,
+        "y": 0.45
+      },
+      "zooms": [
+        {
+          "at": {
+            "quote": "Hubungi ambo"
+          },
+          "type": "punch-in",
+          "scale": 1.22
+        }
+      ]
+    }
+  ],
+  "layers": [
+    {
+      "id": "name",
+      "type": "lowerThird",
+      "at": 0.4,
+      "duration": 2.8,
+      "source": "facts",
+      "evidence": {
+        "fact": "presenterName"
+      },
+      "props": {
+        "name": "Pak Cik (sample)",
+        "role": "YaPakCik Frozen"
+      }
+    },
+    {
+      "id": "chapter-demo",
+      "type": "chapter",
+      "at": {
+        "quote": "demo produk frozen"
+      },
+      "duration": 1.7,
+      "source": "transcript",
+      "evidence": {
+        "quote": "demo produk frozen"
+      },
+      "props": {
+        "kicker": "Hari ni",
+        "title": "Demo produk frozen",
+        "plate": "blur"
+      }
+    },
+    {
+      "id": "broll-product",
+      "type": "broll",
+      "at": {
+        "quote": "Ini nugget ayam",
+        "offset": -0.1
+      },
+      "duration": 2.6,
+      "source": "design",
+      "props": {
+        "clip": "demo-sample",
+        "in": 1.0,
+        "focus": {
+          "x": 0.5,
+          "y": 0.55
+        },
+        "zooms": [
+          {
+            "at": 0,
+            "type": "push",
+            "scale": 1.15
+          }
+        ],
+        "volume": 0.15
+      }
+    },
+    {
+      "id": "callout-nugget",
+      "type": "callout",
+      "at": {
+        "quote": "nugget ayam"
+      },
+      "duration": 2.0,
+      "source": "transcript",
+      "evidence": {
+        "quote": "nugget ayam"
+      },
+      "props": {
+        "text": "Nugget ayam",
+        "x": 0.42,
+        "y": 0.55,
+        "side": "right"
+      }
+    },
+    {
+      "id": "kw-senang",
+      "type": "keyword",
+      "at": {
+        "quote": "senang jah"
+      },
+      "duration": 1.6,
+      "source": "transcript",
+      "evidence": {
+        "quote": "senang jah"
+      },
+      "props": {
+        "text": "Senang jah",
+        "highlight": [
+          "senang"
+        ],
+        "animation": "slam",
+        "position": "upper"
+      }
+    },
+    {
+      "id": "steps",
+      "type": "steps",
+      "at": {
+        "quote": "Panaskan air fryer",
+        "offset": -0.2
+      },
+      "duration": 4.0,
+      "source": "transcript",
+      "evidence": {
+        "quote": "Panaskan air fryer dulu. Lepastu masuk nugget"
+      },
+      "props": {
+        "title": "Cara masak",
+        "items": [
+          "Panaskan air fryer",
+          "Masuk nugget"
+        ],
+        "revealQuotes": [
+          "Panaskan air fryer",
+          "masuk nugget"
+        ]
+      }
+    },
+    {
+      "id": "timer",
+      "type": "counter",
+      "at": {
+        "quote": "Tunggu lapan minit"
+      },
+      "duration": "quote",
+      "source": "transcript",
+      "evidence": {
+        "quote": "Tunggu lapan minit"
+      },
+      "props": {
+        "value": 8,
+        "suffix": "minit",
+        "label": "Tunggu",
+        "fullscreen": true,
+        "plate": "blur"
+      }
+    },
+    {
+      "id": "kw-rangup",
+      "type": "keyword",
+      "at": {
+        "quote": "Rangup luar"
+      },
+      "duration": 2.0,
+      "source": "transcript",
+      "evidence": {
+        "quote": "Rangup luar, lembut dalam"
+      },
+      "props": {
+        "text": "Rangup luar, lembut dalam",
+        "highlight": [
+          "rangup",
+          "lembut"
+        ],
+        "animation": "pop",
+        "position": "upper"
+      }
+    },
+    {
+      "id": "chart-growth",
+      "type": "chart",
+      "at": {
+        "quote": "Dulu ambo jual"
+      },
+      "duration": "quote",
+      "source": "transcript",
+      "evidence": {
+        "quote": "Dulu ambo jual limo puluh pek sebulan. Kini dah dua ratus pek"
+      },
+      "props": {
+        "title": "Pek sebulan",
+        "unit": "pek",
+        "items": [
+          {
+            "label": "Dulu",
+            "value": 50
+          },
+          {
+            "label": "Kini",
+            "value": 200,
+            "highlight": true
+          }
+        ],
+        "plate": "blur"
+      }
+    },
+    {
+      "id": "cta",
+      "type": "cta",
+      "at": {
+        "quote": "Hubungi ambo",
+        "offset": 0.3
+      },
+      "duration": 3.0,
+      "source": "transcript",
+      "evidence": {
+        "quote": "Kalu demo nok order. Hubungi ambo"
+      },
+      "props": {
+        "headline": "Nok order? Hubungi ambo",
+        "button": "Order",
+        "plate": "blur"
+      }
+    }
+  ],
+  "captions": {
+    "enabled": true,
+    "style": "bold",
+    "combineMs": 1200,
+    "uppercase": false,
+    "position": 0.72
+  },
+  "look": {
+    "grade": "warm-commercial",
+    "gradeIntensity": 0.8,
+    "grain": true,
+    "vignette": true,
+    "breathing": 0.03
+  },
+  "audio": {
+    "music": "music/story-documentary-bed.mp3",
+    "musicVolume": 0.5,
+    "duckTo": 0.22,
+    "sfx": "auto",
+    "sfxVolume": 0.8,
+    "voiceTargetLufs": -16
+  }
+}

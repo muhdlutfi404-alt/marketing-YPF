@@ -15,6 +15,8 @@ import {
 } from "./brands/yapakcik-frozen/templates/FrozenCommercial";
 import { amSampleEpisode } from "./projects/am-sample-episode";
 import { frozenSampleReelBM } from "./projects/frozen-sample-reel-bm";
+import { StoryEdit, calculateStoryMetadata } from "./story/StoryEdit";
+import { sampleBundle } from "./story/sampleBundle";
 
 /**
  * THE MENU OF VIDEOS shown in Remotion Studio's left sidebar.
@@ -89,6 +91,21 @@ export const RemotionRoot: React.FC = () => {
           schema={frozenCommercialSchema}
           defaultProps={frozenSampleReelBM}
           calculateMetadata={calculateFrozenMetadata}
+          durationInFrames={FPS * 30}
+          fps={FPS}
+          {...FORMATS.vertical}
+        />
+      </Folder>
+
+      {/* RAW-FOOTAGE STORY EDITS — one composition for every project.
+          `npm run story:render -- <project>` passes that project's edit as props.
+          In the Studio it previews the sample project. */}
+      <Folder name="Story-Edits">
+        <Composition
+          id="StoryEdit"
+          component={StoryEdit}
+          defaultProps={sampleBundle}
+          calculateMetadata={calculateStoryMetadata}
           durationInFrames={FPS * 30}
           fps={FPS}
           {...FORMATS.vertical}

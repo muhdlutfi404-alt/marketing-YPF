@@ -2,12 +2,12 @@
   "name": "yapakcik-video-studio",
   "version": "0.1.0",
   "private": true,
-  "description": "Ya PakCik Video Studio — Remotion templates for Project A.M and YaPakCik Frozen",
+  "description": "Ya PakCik Video Studio \u2014 Remotion templates for Project A.M and YaPakCik Frozen",
   "type": "module",
   "scripts": {
     "studio": "remotion studio",
     "typecheck": "tsc --noEmit",
-    "test": "npm run typecheck && node scripts/smoke-test.mjs",
+    "test": "npm run typecheck && node scripts/story/test-guardrails.mjs && node scripts/smoke-test.mjs",
     "compositions": "remotion compositions",
     "render": "remotion render",
     "render:am": "remotion render ProjectAM-Documentary-Landscape out/project-am-landscape.mp4",
@@ -18,7 +18,17 @@
     "inspect": "bash scripts/inspect.sh",
     "prepare-footage": "bash scripts/prepare.sh",
     "extract-audio": "bash scripts/extract-audio.sh",
-    "samples": "bash scripts/make-samples.sh"
+    "samples": "bash scripts/make-samples.sh",
+    "story:sample": "node scripts/story/make-sample-footage.mjs sample-frozen && node scripts/story/ingest.mjs sample-frozen",
+    "story:import": "node scripts/story/import.mjs",
+    "story:ingest": "node scripts/story/ingest.mjs",
+    "story:transcribe": "bash scripts/story/transcribe.sh",
+    "story:srt": "node scripts/story/import-srt.mjs",
+    "story:fix": "node scripts/story/fix.mjs",
+    "story:suggest": "node scripts/story/suggest.mjs",
+    "story:check": "node scripts/story/check.mjs",
+    "story:render": "node scripts/story/render.mjs",
+    "story:test": "node scripts/story/test-guardrails.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

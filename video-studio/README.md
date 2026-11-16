@@ -12,6 +12,24 @@ Both include **sound design**: whooshes synced to every transition, impacts, ris
 
 ---
 
+## 🎞️ NEW: Raw-footage story editing (works from an Android phone)
+
+Edit **your real footage, face and voice** into a documentary-style vertical video:
+word-accurate Malay/Kelantanese subtitles, jump cuts, punch-ins, motion graphics, charts and sound design.
+A built-in **safety check** blocks any price, certification, number or claim you didn't actually say or confirm.
+
+👉 Full guide, phone workflow and ChatGPT brief template: **[docs/STORY-EDITING.md](docs/STORY-EDITING.md)**
+
+```bash
+npm run story:import -- my-video --url "<Google Drive link>"   # or --uploads
+npm run story:ingest -- my-video
+npm run story:transcribe -- my-video
+npm run story:render -- my-video --draft --stills              # preview
+npm run story:render -- my-video                               # final 1080×1920
+```
+
+---
+
 ## 1. One-time setup (on your computer)
 
 You need:

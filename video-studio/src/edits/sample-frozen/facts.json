@@ -1,0 +1,9 @@
+{
+  "_readme": "SAMPLE PROJECT facts. Real projects: only facts confirmed by the business owner, confirmed=true. Graphics with source 'facts' can only show these exact values.",
+  "brandName": { "value": "YaPakCik Frozen", "label": "Brand", "confirmed": true },
+  "presenterName": { "value": "Pak Cik (sample)", "label": "Presenter name", "confirmed": true, "note": "sample presenter — test footage" },
+  "productName": { "value": "", "label": "Product name", "confirmed": false },
+  "price": { "value": "", "label": "Price", "confirmed": false },
+  "halal": { "value": "", "label": "Halal certification", "confirmed": false },
+  "contact": { "value": "", "label": "WhatsApp / order contact", "confirmed": false }
+}

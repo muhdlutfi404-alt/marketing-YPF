@@ -13,7 +13,7 @@
  */
 import { bundle } from "@remotion/bundler";
 import { getCompositions, renderMedia, renderStill } from "@remotion/renderer";
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -22,7 +22,15 @@ const args = process.argv.slice(2);
 const FULL = args.includes("--full");
 const SCALE = Number((args.find((a) => a.startsWith("--scale=")) ?? "--scale=1").split("=")[1]);
 const ONLY = (args.find((a) => a.startsWith("--only=")) ?? "").split("=")[1];
-const browserExecutable = process.env.REMOTION_BROWSER_EXECUTABLE || null;
+const findBrowser = () => {
+  if (process.env.REMOTION_BROWSER_EXECUTABLE) return process.env.REMOTION_BROWSER_EXECUTABLE;
+  const base = "/opt/pw-browsers"; // cloud sessions: reuse the pre-installed browser
+  if (!existsSync(base)) return null;
+  const dir = readdirSync(base).filter((d) => d.startsWith("chromium_headless_shell-")).sort().pop();
+  const exe = dir && path.join(base, dir, "chrome-headless-shell-linux64", "chrome-headless-shell");
+  return exe && existsSync(exe) ? exe : null;
+};
+const browserExecutable = findBrowser();
 
 const EXPECTED = {
   "ProjectAM-Documentary-Landscape": { width: 1920, height: 1080 },
@@ -31,7 +39,10 @@ const EXPECTED = {
   "YaPakCikFrozen-Commercial-Vertical": { width: 1080, height: 1920 },
   "Sample-AM-Episode-Landscape": { width: 1920, height: 1080, needsFootage: true },
   "Sample-Frozen-Reel-BM-Vertical": { width: 1080, height: 1920, needsFootage: true },
+  StoryEdit: { width: 1080, height: 1920, needsStoryFootage: true },
 };
+const STORY_FILES = ["talking-sample.mp4", "demo-sample.mp4"].map((f) => path.join(root, "public/footage/ready/sample-frozen", f));
+const haveStory = STORY_FILES.every((f) => existsSync(f));
 const SAMPLE_FILES = ["sample-landscape-60fps.mp4", "sample-vertical-phone.mp4", "sample-kitchen.mp4"].map((f) =>
   path.join(root, "public/footage/ready", f),
 );
@@ -66,6 +77,10 @@ const targets = comps.filter((c) => {
   const exp = EXPECTED[c.id];
   if (!exp) return false;
   if (ONLY && !c.id.includes(ONLY)) return false;
+  if (exp.needsStoryFootage && !haveStory) {
+    console.log(`  • skipping ${c.id} (run "npm run story:sample" to include it)`);
+    return false;
+  }
   if (exp.needsFootage && !haveSamples) {
     console.log(`  • skipping ${c.id} (run "npm run samples && npm run prepare-footage" to include it)`);
     return false;

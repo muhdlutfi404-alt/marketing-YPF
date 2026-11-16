@@ -17,6 +17,7 @@ export const SFX = {
 export const MUSIC = {
   amCinematicDrone: "music/am-cinematic-drone.mp3",
   frozenUpbeatGroove: "music/frozen-upbeat-groove.mp3",
+  storyDocumentaryBed: "music/story-documentary-bed.mp3",
 } as const;
 
 export type SfxName = keyof typeof SFX;

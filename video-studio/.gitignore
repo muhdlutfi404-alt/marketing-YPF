@@ -35,3 +35,13 @@ Thumbs.db
 .env
 .env.*
 .remotion/
+
+# ── Raw-footage editor ──
+.venv/
+.models/
+public/footage/audio/
+# footage.json may contain GPS location from your phone → keep it local (re-created by story:ingest)
+src/edits/*/footage.json
+!src/edits/sample-frozen/footage.json
+src/edits/*/edit.suggested.json
+src/edits/*/transcripts/.*.wav

@@ -1,0 +1,410 @@
+{
+  "clip": "talking-sample",
+  "source": "whisper",
+  "language": "ms",
+  "model": "large-v3",
+  "dialectPrompt": true,
+  "createdAt": "2026-11-16T11:18:03",
+  "segments": [
+    {
+      "start": 0.65,
+      "end": 36.99,
+      "text": "Assalamualaikum semua. Ambo Pak Cik. Hari ni ambo nok tunjuk demo produk frozen Kito. Ini nugget ayam. Cara masak dio senang jah. Panaskan air fryer dulu. Lepastu masuk nugget. Tunggu lapan minit. Siap. Rangup luar, lembut dalam. Dulu ambo jual limo puluh pek sebulan. Kini dah dua ratus pek. Kalu demo nok order. Hubungi ambo.",
+      "words": [
+        {
+          "text": " Assalamualaikum",
+          "start": 0.65,
+          "end": 1.61,
+          "prob": 0.956
+        },
+        {
+          "text": " semua.",
+          "start": 1.61,
+          "end": 2.09,
+          "prob": 0.987
+        },
+        {
+          "text": " Ambo",
+          "start": 2.35,
+          "end": 2.95,
+          "prob": 0.892
+        },
+        {
+          "text": " Pak",
+          "start": 2.95,
+          "end": 3.25,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " Cik.",
+          "start": 3.25,
+          "end": 3.65,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " Hari",
+          "start": 4.81,
+          "end": 5.29,
+          "prob": 0.947
+        },
+        {
+          "text": " ni",
+          "start": 5.29,
+          "end": 5.57,
+          "prob": 0.825
+        },
+        {
+          "text": " ambo",
+          "start": 5.57,
+          "end": 5.99,
+          "prob": 0.79
+        },
+        {
+          "text": " nok",
+          "start": 5.99,
+          "end": 6.15,
+          "prob": 0.045
+        },
+        {
+          "text": " tunjuk",
+          "start": 6.15,
+          "end": 6.63,
+          "prob": 0.389
+        },
+        {
+          "text": " demo",
+          "start": 6.63,
+          "end": 6.99,
+          "prob": 0.74
+        },
+        {
+          "text": " produk",
+          "start": 6.99,
+          "end": 7.29,
+          "prob": 0.831
+        },
+        {
+          "text": " frozen",
+          "start": 7.29,
+          "end": 7.93,
+          "prob": 0.599
+        },
+        {
+          "text": " Kito.",
+          "start": 7.93,
+          "end": 8.57,
+          "prob": 0.347
+        },
+        {
+          "text": " Ini",
+          "start": 10.18,
+          "end": 10.56,
+          "prob": 0.946
+        },
+        {
+          "text": " nugget",
+          "start": 10.56,
+          "end": 11.1,
+          "prob": 0.833
+        },
+        {
+          "text": " ayam.",
+          "start": 11.1,
+          "end": 11.64,
+          "prob": 0.88
+        },
+        {
+          "text": " Cara",
+          "start": 12.53,
+          "end": 12.912,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " masak",
+          "start": 12.912,
+          "end": 13.39,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " dio",
+          "start": 13.39,
+          "end": 13.677,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " senang",
+          "start": 13.677,
+          "end": 14.25,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " jah.",
+          "start": 14.25,
+          "end": 14.59,
+          "prob": 0.735
+        },
+        {
+          "text": " Panaskan",
+          "start": 15.91,
+          "end": 16.73,
+          "prob": 0.909
+        },
+        {
+          "text": " air",
+          "start": 16.73,
+          "end": 16.89,
+          "prob": 0.996
+        },
+        {
+          "text": " fryer",
+          "start": 16.89,
+          "end": 17.23,
+          "prob": 0.917
+        },
+        {
+          "text": " dulu.",
+          "start": 17.23,
+          "end": 17.47,
+          "prob": 0.971
+        },
+        {
+          "text": " Lepastu",
+          "start": 18.57,
+          "end": 19.33,
+          "prob": 0.89
+        },
+        {
+          "text": " masuk",
+          "start": 19.33,
+          "end": 19.77,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " nugget.",
+          "start": 19.77,
+          "end": 20.31,
+          "prob": 0.998
+        },
+        {
+          "text": " Tunggu",
+          "start": 20.43,
+          "end": 20.95,
+          "prob": 0.883
+        },
+        {
+          "text": " lapan",
+          "start": 20.95,
+          "end": 21.35,
+          "prob": 0.539
+        },
+        {
+          "text": " minit.",
+          "start": 21.35,
+          "end": 21.87,
+          "prob": 0.932
+        },
+        {
+          "text": " Siap.",
+          "start": 23.68,
+          "end": 24.38,
+          "prob": 0.978
+        },
+        {
+          "text": " Rangup",
+          "start": 24.47,
+          "end": 25.11,
+          "prob": 0.301
+        },
+        {
+          "text": " luar,",
+          "start": 25.11,
+          "end": 25.55,
+          "prob": 0.998
+        },
+        {
+          "text": " lembut",
+          "start": 25.55,
+          "end": 26.15,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " dalam.",
+          "start": 26.15,
+          "end": 26.65,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " Dulu",
+          "start": 27.81,
+          "end": 28.33,
+          "prob": 0.984
+        },
+        {
+          "text": " ambo",
+          "start": 28.33,
+          "end": 28.69,
+          "prob": 0.967
+        },
+        {
+          "text": " jual",
+          "start": 28.69,
+          "end": 29.01,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " limo",
+          "start": 29.01,
+          "end": 29.49,
+          "prob": 0.856
+        },
+        {
+          "text": " puluh",
+          "start": 29.49,
+          "end": 29.85,
+          "prob": 0.945
+        },
+        {
+          "text": " pek",
+          "start": 29.85,
+          "end": 30.132,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " sebulan.",
+          "start": 30.132,
+          "end": 30.79,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " Kini",
+          "start": 31.01,
+          "end": 31.49,
+          "prob": 0.766
+        },
+        {
+          "text": " dah",
+          "start": 31.49,
+          "end": 31.75,
+          "prob": 0.946
+        },
+        {
+          "text": " dua",
+          "start": 31.75,
+          "end": 31.99,
+          "prob": 0.951
+        },
+        {
+          "text": " ratus",
+          "start": 31.99,
+          "end": 32.49,
+          "prob": 0.993
+        },
+        {
+          "text": " pek.",
+          "start": 32.49,
+          "end": 32.65,
+          "prob": 1,
+          "fixed": true
+        },
+        {
+          "text": " Kalu",
+          "start": 34.27,
+          "end": 34.77,
+          "prob": 0.783
+        },
+        {
+          "text": " demo",
+          "start": 34.77,
+          "end": 35.03,
+          "prob": 0.958
+        },
+        {
+          "text": " nok",
+          "start": 35.03,
+          "end": 35.31,
+          "prob": 0.697
+        },
+        {
+          "text": " order.",
+          "start": 35.31,
+          "end": 35.65,
+          "prob": 0.648
+        },
+        {
+          "text": " Hubungi",
+          "start": 35.99,
+          "end": 36.57,
+          "prob": 0.914
+        },
+        {
+          "text": " ambo.",
+          "start": 36.57,
+          "end": 36.99,
+          "prob": 0.999
+        }
+      ]
+    }
+  ],
+  "fixes": [
+    {
+      "from": "paci",
+      "to": "Pak Cik.",
+      "at": 2.95,
+      "date": "2026-11-16T11:18:33.778Z"
+    },
+    {
+      "from": "Caramasa diosenan",
+      "to": "Cara masak dio senang",
+      "at": 12.53,
+      "date": "2026-11-16T11:18:33.783Z"
+    },
+    {
+      "from": "maso",
+      "to": "masuk",
+      "at": 19.33,
+      "date": "2026-11-16T11:18:33.783Z"
+    },
+    {
+      "from": "lembot talam",
+      "to": "lembut dalam",
+      "at": 25.55,
+      "date": "2026-11-16T11:18:33.783Z"
+    },
+    {
+      "from": "dual",
+      "to": "jual",
+      "at": 28.69,
+      "date": "2026-11-16T11:18:33.783Z"
+    },
+    {
+      "from": "pesa bulan",
+      "to": "pek sebulan",
+      "at": 29.85,
+      "date": "2026-11-16T11:18:33.783Z"
+    },
+    {
+      "from": "pe",
+      "to": "pek",
+      "at": 32.49,
+      "date": "2026-11-16T11:18:33.783Z"
+    },
+    {
+      "from": "Pak Cik",
+      "to": "Pak Cik.",
+      "at": 2.95,
+      "date": "2026-11-16T11:18:41.395Z"
+    }
+  ]
+}

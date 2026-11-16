@@ -53,4 +53,9 @@ $FF -f lavfi -i "aevalsrc='0.9*sin(2*PI*(48+90*exp(-mod(t,0.5)*30))*mod(t,0.5))*
   -f lavfi -i "anoisesrc=d=32:c=white:a=1" \
   -filter_complex "[1]highpass=f=7000,asetnsamples=64,volume='0.35*exp(-mod(t+0.25,0.5)*60)':eval=frame[hat];[0][hat]amix=inputs=2:normalize=0,highpass=f=30,afade=t=in:d=0.5,afade=t=out:st=30:d=2,alimiter=limit=0.9" $ENC "$MUSIC/frozen-upbeat-groove.mp3"
 
+echo "→ music: documentary story bed (raw-footage edits, 110s @ 92bpm)"
+# warm pad that swells each bar (Am–F–C–G), soft plucked arpeggio, gentle half-time pulse
+$FF -f lavfi -i "aevalsrc='0.09*(sin(2*PI*(110*eq(floor(mod(t,10.4348)/2.6087),0)+87.31*eq(floor(mod(t,10.4348)/2.6087),1)+130.81*eq(floor(mod(t,10.4348)/2.6087),2)+98*eq(floor(mod(t,10.4348)/2.6087),3))*t)+0.7*sin(2*PI*(110*eq(floor(mod(t,10.4348)/2.6087),0)+87.31*eq(floor(mod(t,10.4348)/2.6087),1)+130.81*eq(floor(mod(t,10.4348)/2.6087),2)+98*eq(floor(mod(t,10.4348)/2.6087),3))*1.5*t)+0.5*sin(2*PI*(110*eq(floor(mod(t,10.4348)/2.6087),0)+87.31*eq(floor(mod(t,10.4348)/2.6087),1)+130.81*eq(floor(mod(t,10.4348)/2.6087),2)+98*eq(floor(mod(t,10.4348)/2.6087),3))*2*t))*pow(sin(PI*mod(t,2.6087)/2.6087),0.6)+0.11*sin(2*PI*(110*eq(floor(mod(t,10.4348)/2.6087),0)+87.31*eq(floor(mod(t,10.4348)/2.6087),1)+130.81*eq(floor(mod(t,10.4348)/2.6087),2)+98*eq(floor(mod(t,10.4348)/2.6087),3))*(2*eq(mod(floor(mod(t,2.6087)/0.32609),4),0)+3*eq(mod(floor(mod(t,2.6087)/0.32609),4),1)+4*eq(mod(floor(mod(t,2.6087)/0.32609),4),2)+3*eq(mod(floor(mod(t,2.6087)/0.32609),4),3))*mod(t,0.32609))*exp(-mod(t,0.32609)*8)*(1-exp(-mod(t,0.32609)*400))+0.45*sin(2*PI*(45+60*exp(-mod(t,1.30435)*30))*mod(t,1.30435))*exp(-mod(t,1.30435)*7)':d=110:s=44100" \
+  -af "lowpass=f=3800,aecho=0.8:0.6:350|600:0.25|0.18,afade=t=in:d=2,afade=t=out:st=106:d=4,volume=2.4,alimiter=limit=0.9" $ENC "$MUSIC/story-documentary-bed.mp3"
+
 echo "✓ Sound library ready:"; ls -lh "$SFX" "$MUSIC"
