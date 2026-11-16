@@ -108,6 +108,8 @@ if (FULL) {
         composition: c,
         serveUrl,
         codec: "h264",
+        colorSpace: "bt709",
+        pixelFormat: "yuv420p",
         crf: 20,
         outputLocation: output,
         scale: SCALE,

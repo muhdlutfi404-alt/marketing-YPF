@@ -9,6 +9,10 @@ Config.setCodec("h264");
 // CRF = quality. Lower = better & bigger. 18 is visually lossless for social media.
 Config.setCrf(18);
 Config.setPixelFormat("yuv420p");
+// Standard BT.709 "TV range" colour — what phones, YouTube, TikTok & Instagram expect.
+// (Remotion 4's default writes untagged full-range "yuvj420p", which some Android
+// players and upload pipelines show with washed-out or crushed colours.)
+Config.setColorSpace("bt709");
 // JPEG frames render faster than PNG and are fine for non-transparent videos.
 Config.setVideoImageFormat("jpeg");
 Config.setJpegQuality(92);

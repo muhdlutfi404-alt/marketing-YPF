@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { AnimatedText } from "../../../shared/components/AnimatedText";
 import { AnimatedCounter } from "../../../shared/infographics/AnimatedCounter";
+import { CinematicZoom } from "../../../shared/components/CinematicZoom";
 import { LineChart } from "../../../shared/infographics/LineChart";
 import { SfxTrack } from "../../../shared/audio/SoundEffect";
 import { useLayout } from "../../../shared/hooks/useLayout";
@@ -14,8 +15,10 @@ export const ClimbStats: React.FC<{
   heading: string;
   elevationM: number[];
   stats: JourneyStat[];
+  /** Scene length — used for the slow cinematic drift so the board never sits still */
+  durationInFrames?: number;
   sfxVolume?: number;
-}> = ({ heading, elevationM, stats, sfxVolume = 1 }) => {
+}> = ({ heading, elevationM, stats, durationInFrames = 195, sfxVolume = 1 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { width, height, px, safe, isVertical } = useLayout();
@@ -28,6 +31,7 @@ export const ClimbStats: React.FC<{
 
   return (
     <AbsoluteFill style={{ background: `linear-gradient(160deg, #1b2119 0%, ${colors.ink} 70%)` }}>
+      <CinematicZoom durationInFrames={durationInFrames} direction="in" amount={0.06} pan={{ x: -0.6, y: -0.4 }}>
       <div
         style={{
           position: "absolute",
@@ -84,6 +88,7 @@ export const ClimbStats: React.FC<{
           })}
         </div>
       </div>
+      </CinematicZoom>
       <SfxTrack masterVolume={sfxVolume} cues={stats.map((_, i) => ({ sfx: "tick", at: statsDelay + i * statStagger, volume: 0.6 }))} />
     </AbsoluteFill>
   );

@@ -267,7 +267,7 @@ export const ProjectAMDocumentary: React.FC<ProjectAMProps> = (props) => {
         {/* 5 · ELEVATION + STATS infographic */}
         <TransitionSeries.Transition presentation={makePresentation("slide", { width, height }, 1)} timing={makeTiming(T)} />
         <TransitionSeries.Sequence durationInFrames={dur("climb")} name="Climb stats">
-          <ClimbStats heading={props.climb.heading} elevationM={props.climb.elevationM} stats={props.climb.stats} sfxVolume={props.audio.sfxVolume} />
+          <ClimbStats heading={props.climb.heading} elevationM={props.climb.elevationM} stats={props.climb.stats} durationInFrames={dur("climb")} sfxVolume={props.audio.sfxVolume} />
         </TransitionSeries.Sequence>
 
         {/* 6 · QUOTE */}
