@@ -7,8 +7,8 @@
   {
    "id": "s1",
    "label": "HOOK: problem",
-   "clip": "lv_0_20261116212800",
-   "in": 0.0,
+   "clip": "lv_0_20261116225603",
+   "in": 0,
    "out": 7.25,
    "audio": "keep",
    "focus": {
@@ -54,7 +54,7 @@
   {
    "id": "s2",
    "label": "intro",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 7.6,
    "out": 9.95,
    "audio": "keep",
@@ -74,7 +74,7 @@
   {
    "id": "s3a",
    "label": "solution",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 10.5,
    "out": 15.9,
    "audio": "keep",
@@ -101,7 +101,7 @@
   {
    "id": "s3b",
    "label": "gred A",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 16.4,
    "out": 19.25,
    "audio": "keep",
@@ -128,7 +128,7 @@
   {
    "id": "s4",
    "label": "use cases",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 19.35,
    "out": 24.7,
    "audio": "keep",
@@ -151,7 +151,7 @@
   {
    "id": "s5a",
    "label": "pain",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 27.6,
    "out": 31.0,
    "audio": "keep",
@@ -179,7 +179,7 @@
   {
    "id": "s5b",
    "label": "consistency",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 32.1,
    "out": 35.9,
    "audio": "keep",
@@ -199,7 +199,7 @@
   {
    "id": "s6",
    "label": "proof: gred A",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 57.15,
    "out": 66.15,
    "audio": "keep",
@@ -236,7 +236,7 @@
   {
    "id": "s7a",
    "label": "price intro",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 66.15,
    "out": 69.4,
    "audio": "keep",
@@ -256,7 +256,7 @@
   {
    "id": "s7b",
    "label": "retail price",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 70.5,
    "out": 72.3,
    "audio": "keep",
@@ -276,7 +276,7 @@
   {
    "id": "s8",
    "label": "wholesale",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 72.3,
    "out": 80.3,
    "audio": "keep",
@@ -310,7 +310,7 @@
   {
    "id": "s9",
    "label": "CTA",
-   "clip": "lv_0_20261116212800",
+   "clip": "lv_0_20261116225603",
    "in": 80.3,
    "out": 84.15,
    "audio": "keep",
@@ -703,7 +703,7 @@
   "position": 0.765,
   "hide": [
    {
-    "clip": "lv_0_20261116212800",
+    "clip": "lv_0_20261116225603",
     "from": 21.95,
     "to": 22.65,
     "reason": "unclear speech — audio kept, no subtitle (owner instruction)"
@@ -716,15 +716,7 @@
   "grain": true,
   "vignette": true,
   "breathing": 0.02,
-  "coverBands": [
-   {
-    "y0": 0.68,
-    "y1": 0.855,
-    "clips": [
-     "lv_0_20261116212800"
-    ]
-   }
-  ]
+  "coverBands": []
  },
  "audio": {
   "music": "music/story-documentary-bed.mp3",
