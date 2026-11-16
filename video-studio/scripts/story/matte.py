@@ -41,6 +41,10 @@ def guided(I, p, r=8, eps=1e-4):
 def main():
     project, clip = sys.argv[1], sys.argv[2]
     t_from, t_to, K = arg("--from", 0.0), arg("--to", 1e9), arg("--key-every", 15)
+    # --lower-real Y : SET EXTENSION — keep the original footage below height Y (0–1, e.g. the top of the
+    # product box) completely real; only the area above gets the new environment. No product cut-out needed.
+    lower_real = arg("--lower-real", -1.0)
+    feather = arg("--feather", 0.025)
     fp = json.loads((ROOT / "src/edits" / project / "footage.json").read_text())["clips"][clip]
     src = ROOT / "public" / fp["src"]
     W, H, fps = fp["width"], fp["height"], fp["fps"]
@@ -54,7 +58,7 @@ def main():
     so.enable_cpu_mem_arena = False
     so.enable_mem_pattern = False
     modnet = ort.InferenceSession(str(ROOT / ".models/modnet/model.onnx"), so, providers=["CPUExecutionProvider"])
-    biref = ort.InferenceSession(str(ROOT / ".models/birefnet/model.onnx"), so, providers=["CPUExecutionProvider"])
+    biref = None if "--lower-real" in sys.argv else ort.InferenceSession(str(ROOT / ".models/birefnet/model.onnx"), so, providers=["CPUExecutionProvider"])
     mh = 512; mw = int(round(W * mh / H / 32) * 32)
 
     def run_modnet(rgb):
@@ -78,7 +82,6 @@ def main():
                             "-auto-alt-ref", "0", str(fg_path)], stdin=subprocess.PIPE)
 
     product = np.zeros((H, W), np.float32)
-    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (31, 31))
     buf = []  # (rgb, alpha) for the 3-frame median
     stats, review = [], []
     t0 = time.time()
@@ -105,19 +108,33 @@ def main():
             n = i; break
         rgb = np.frombuffer(raw, np.uint8).reshape(H, W, 3)
         person = run_modnet(rgb)
-        if i % K == 0:
+        if lower_real < 0 and i % K == 0:
             full = run_biref(rgb)
-            # what BiRefNet sees beyond the (dilated) person = the product on the table / in hand
-            extra = np.clip(full - cv2.dilate(person, kernel), 0, 1)
-            extra = cv2.morphologyEx((extra > 0.5).astype(np.uint8), cv2.MORPH_OPEN, np.ones((9, 9), np.uint8))
+            # PRODUCT (rigid box): take BiRefNet's subject mask in the lower part of the frame, find the
+            # big pieces the person model misses, and keep their FILLED outline (convex hull). Inside the
+            # outline everything is foreground (box, hands, pack — all real pixels), so hands moving over
+            # the box can never punch holes into it. No hull found → keep the previous one.
+            fm = (full > 0.5).astype(np.uint8)
+            extra = cv2.morphologyEx(fm & (person < 0.5).astype(np.uint8), cv2.MORPH_OPEN, np.ones((9, 9), np.uint8))
             num, lab, st, _ = cv2.connectedComponentsWithStats(extra)
-            keep = np.zeros((H, W), np.float32)
-            for c in range(1, num):
-                if st[c, cv2.CC_STAT_AREA] > W * H * 0.004:   # ignore specks
-                    keep[lab == c] = 1
-            product = np.maximum(keep * full, 0)
-            product = cv2.GaussianBlur(product, (0, 0), 1.2)
-        a = np.maximum(person, product)
+            pts = [np.column_stack(np.nonzero(lab == c))[:, ::-1] for c in range(1, num)
+                   if st[c, cv2.CC_STAT_AREA] > W * H * 0.004 and st[c, cv2.CC_STAT_TOP] + st[c, cv2.CC_STAT_HEIGHT] > H * 0.55]
+            if pts:
+                hull = cv2.convexHull(np.vstack(pts).astype(np.int32))
+                prod = np.zeros((H, W), np.uint8)
+                cv2.fillConvexPoly(prod, hull, 1)
+                x, y, w, h = cv2.boundingRect(hull)
+                # include box flaps / pack edges BiRefNet sees just outside the hull
+                zone = np.zeros((H, W), np.uint8)
+                zone[max(0, y - 60): min(H, y + h + 20), max(0, x - 40): min(W, x + w + 40)] = 1
+                prod = np.maximum(prod, fm & zone)
+                product = cv2.GaussianBlur(prod.astype(np.float32), (0, 0), 1.5)
+        if lower_real >= 0:
+            yy = (np.arange(H, dtype=np.float32) / H)[:, None]
+            ramp = np.clip((yy - (lower_real - feather)) / (2 * feather), 0, 1) * np.ones((1, W), np.float32)
+            a = np.maximum(person, ramp)
+        else:
+            a = np.maximum(person, product)
         gray = cv2.cvtColor(rgb, cv2.COLOR_RGB2GRAY).astype(np.float32) / 255
         a = np.clip(guided(gray, a.astype(np.float32)), 0, 1)
         buf.append((rgb, a))
@@ -136,7 +153,7 @@ def main():
 
     # jumps in subject area between frames = likely mask errors
     jumps = [s["t"] for a, s in zip(stats, stats[1:]) if a["area"] > 0 and abs(s["area"] - a["area"]) / a["area"] > 0.12]
-    meta = {"clip": clip, "from": t_from, "to": t_from + n / fps, "fps": fps, "frames": n, "keyEvery": K,
+    meta = {"mode": "set-extension" if lower_real >= 0 else "cutout", "lowerReal": lower_real if lower_real >= 0 else None, "clip": clip, "from": t_from, "to": t_from + n / fps, "fps": fps, "frames": n, "keyEvery": K,
             "fg": f"footage/matte/{project}/{clip}.fg.webm", "suspectJumps": jumps, "stats": stats,
             "models": {"person": "MODNet (Apache-2.0)", "product": "BiRefNet_lite (MIT)"}}
     (out_dir / f"{clip}.matte.json").write_text(json.dumps(meta))
