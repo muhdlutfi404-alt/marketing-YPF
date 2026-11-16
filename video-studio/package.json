@@ -29,7 +29,10 @@
     "story:check": "node scripts/story/check.mjs",
     "story:render": "node scripts/story/render.mjs",
     "story:test": "node scripts/story/test-guardrails.mjs",
-    "story:align": "bash scripts/story/align.sh"
+    "story:align": "bash scripts/story/align.sh",
+    "story:matte": "bash -c 'cd \"$(dirname \"$0\")\" && .venv/bin/python scripts/story/matte.py \"$@\"' .",
+    "story:plates": "HF_HOME=.models .venv-gen/bin/python scripts/story/generate-plates.py",
+    "story:review": "node scripts/story/review-asset.mjs"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",

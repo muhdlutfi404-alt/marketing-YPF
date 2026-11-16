@@ -1,5 +1,6 @@
 import React from "react";
-import { AbsoluteFill, Easing, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, Img, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { resolveMedia } from "../../shared/utils/media";
 import { FrostBackdrop } from "../../brands/yapakcik-frozen/components/FrostBackdrop";
 import type { ClipInfo, Focus } from "../engine";
 import { FramedVideo } from "../FramedVideo";
@@ -56,7 +57,7 @@ export type PlateSource = { clip: ClipInfo; trimBeforeSec: number; focus?: Focus
  *  "brand" — animated brand backdrop
  *  "dark"  — plain dark
  */
-export const Plate: React.FC<{ kind: "blur" | "brand" | "dark"; source: PlateSource; style: StoryStyle; fps: number; width: number; height: number }> = ({
+export const Plate: React.FC<{ kind: "blur" | "brand" | "dark" | string; source: PlateSource; style: StoryStyle; fps: number; width: number; height: number }> = ({
   kind,
   source,
   style,
@@ -64,6 +65,15 @@ export const Plate: React.FC<{ kind: "blur" | "brand" | "dark"; source: PlateSou
   width,
   height,
 }) => {
+  if (kind.startsWith("generated/")) {
+    // AI-generated environment (supporting visual only)
+    return (
+      <AbsoluteFill>
+        <Img src={resolveMedia(kind)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: "blur(4px) brightness(0.7)", transform: "scale(1.08)" }} />
+        <AbsoluteFill style={{ background: `linear-gradient(180deg, ${style.colors.dark}88 0%, transparent 45%, ${style.colors.dark}cc 100%)` }} />
+      </AbsoluteFill>
+    );
+  }
   if (kind === "blur" && source) {
     return (
       <AbsoluteFill>

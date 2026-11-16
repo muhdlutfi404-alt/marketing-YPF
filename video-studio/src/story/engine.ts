@@ -88,6 +88,18 @@ export type Shot = {
   breathing?: number;
   /** transition INTO this shot from the previous one */
   transition?: ShotTransition;
+  /** CINEMATIC COMPOSITE: real subject (matte) over a generated environment. Omit = original background. */
+  composite?: {
+    plate: string;
+    dof?: number;
+    plateTint?: string;
+    plateBrightness?: number;
+    light?: { exposure?: number; warmth?: number; saturation?: number };
+    rim?: string;
+    shadow?: boolean;
+    atmosphere?: "frost" | "warm" | "none";
+    parallax?: number;
+  };
 };
 
 export type Evidence = { quote?: string; fact?: string; note?: string };
@@ -108,7 +120,8 @@ export type Layer = {
     | "badge"
     | "cta"
     | "chapter"
-    | "progress";
+    | "progress"
+    | "dial";
   at: TimeRef;
   /** seconds, or "quote" = until the anchored words finish (+ 0.6s) */
   duration?: number | "quote";
@@ -147,8 +160,12 @@ export type EditFile = {
     /** Bars that cover text burned into the source footage (e.g. old app captions).
         y0/y1 = 0–1 of the SOURCE frame height; they move with every zoom. */
     coverBands?: { y0: number; y1: number; clips?: string[] }[];
+    /** small "LATAR: VISUAL AI" disclosure on scenes with generated backgrounds */
+    aiLabel?: boolean;
   };
   audio: {
+    /** extra hand-placed sound effects, e.g. { "sfx": "riser", "at": { "quote": "Offal Exp" }, "volume": 0.4 } */
+    cues?: { sfx: string; at: TimeRef; volume?: number; playbackRate?: number }[];
     /** path in /public or null for no music */
     music: string | null;
     musicVolume: number;
@@ -161,11 +178,18 @@ export type EditFile = {
   };
 };
 
+export type MatteInfo = { clip: string; from: number; to: number; fg: string; suspectJumps: number[]; stats: { t: number; area: number; bottom?: number; left?: number; right?: number; top?: number }[] };
+export type GeneratedAsset = { file: string; prompt: string; model: string; license: string; reviewed: boolean; reviewNote?: string };
+
 export type StoryBundle = {
   edit: EditFile;
   clips: Record<string, ClipInfo>;
   transcripts: Record<string, ClipTranscript>;
   facts: Facts;
+  /** cut-outs made by scripts/story/matte.py, by clip id */
+  mattes?: Record<string, MatteInfo>;
+  /** AI-generated supporting visuals (public/generated/<project>/manifest.json), by name */
+  generated?: Record<string, GeneratedAsset>;
 };
 
 /* ───────────────────────────── TEXT HELPERS ───────────────────────────── */
@@ -527,7 +551,7 @@ export const layerTexts = (l: Layer): string[] => {
     else if (Array.isArray(v)) v.forEach(walk);
     else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => {
       // non-visible technical fields
-      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals"].includes(k)) return;
+      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size"].includes(k)) return;
       walk(x);
     });
   };
@@ -647,6 +671,32 @@ export const checkBundle = (bundle: StoryBundle, opts: { final: boolean }): Issu
         if (isClaim(t)) add("error", where, `"${t}" looks like a claim (number/price/certification/spec/superlative) — use source "transcript" or "facts" with evidence`);
       }
     }
+  }
+
+  // ── CINEMATIC COMPOSITING RULES ──
+  const genFiles = new Map(Object.values(bundle.generated ?? {}).map((g) => [g.file, g]));
+  for (const s of edit.shots) {
+    if (!s.composite) continue;
+    const where = `shot ${s.id} (composite)`;
+    const g = genFiles.get(s.composite.plate);
+    if (!g) add("error", where, `background "${s.composite.plate}" is not in the generated-assets manifest`);
+    else if (!g.reviewed) add(opts.final ? "error" : "warning", where, `background "${s.composite.plate}" has not been reviewed yet (must contain no people, food or products)`);
+    const m = bundle.mattes?.[s.clip];
+    if (!m) add("error", where, `no cut-out for clip "${s.clip}" — run story:matte first`);
+    else {
+      if (s.in < m.from - 0.05 || s.out > m.to + 0.05) add("error", where, `cut-out covers ${m.from}–${m.to.toFixed(2)}s but the shot needs ${s.in}–${s.out}s`);
+      const bad = m.suspectJumps.filter((t) => t >= s.in && t <= s.out);
+      if (bad.length) add("warning", where, `${bad.length} frame(s) with sudden mask changes at ${bad.slice(0, 5).map((t) => t.toFixed(2) + "s").join(", ")} — check edges, or use the original background for this shot`);
+    }
+    const L = s.composite.light ?? {};
+    if (Math.abs(L.exposure ?? 0) > 0.3) add("error", where, `subject exposure ${L.exposure} is outside the natural range (±0.3)`);
+    if (Math.abs(L.warmth ?? 0) > 0.3) add("error", where, `subject warmth ${L.warmth} is outside the natural range (±0.3)`);
+    if (L.saturation !== undefined && (L.saturation < 0.85 || L.saturation > 1.15)) add("error", where, `subject saturation ${L.saturation} is outside the natural range (0.85–1.15)`);
+  }
+  for (const l of edit.layers) {
+    const img: string | undefined = l.props?.image;
+    if (l.type === "broll" && img && (img.startsWith("generated/") || genFiles.has(img)))
+      add("error", `layer ${l.id}`, `b-roll must be REAL footage/photos — "${img}" is AI-generated (use it only as a background plate)`);
   }
 
   // overlapping full-picture layers

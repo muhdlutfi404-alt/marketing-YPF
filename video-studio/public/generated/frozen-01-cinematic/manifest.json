@@ -1,0 +1,24 @@
+{
+ "hook-frost": {
+  "file": "generated/frozen-01-cinematic/hook-frost.png",
+  "prompt": "cinematic empty dark room with frosted stainless steel walls, cold blue backlight rays through thin fog, tiny ice crystals floating, deep shadows, moody, shallow depth of field, anamorphic film still",
+  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+  "seed": 11,
+  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "license": "CreativeML OpenRAIL-M",
+  "kind": "AI-generated background (supporting visual, not real footage)",
+  "created": "2026-11-16T17:42:47",
+  "reviewed": false
+ },
+ "brand-glow": {
+  "file": "generated/frozen-01-cinematic/brand-glow.png",
+  "prompt": "cinematic empty dark studio, cold blue fog low on the floor, warm golden light glowing softly from behind, elegant, shallow depth of field, film still",
+  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+  "seed": 5,
+  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "license": "CreativeML OpenRAIL-M",
+  "kind": "AI-generated background (supporting visual, not real footage)",
+  "created": "2026-11-16T17:49:29",
+  "reviewed": false
+ }
+}

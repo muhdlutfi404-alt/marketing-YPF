@@ -60,7 +60,18 @@ export const loadBundle = (p) => {
   }
   // strip documentation keys that start with "_"
   const clean = (o) => Object.fromEntries(Object.entries(o).filter(([k]) => !k.startsWith("_")));
-  return { edit, clips: footage.clips, transcripts, facts: clean(facts) };
+  const mattes = {};
+  const matteDir = path.join(ROOT, "public/footage/matte", p.project);
+  if (existsSync(matteDir)) {
+    for (const f of readdirSync(matteDir).filter((x) => x.endsWith(".matte.json"))) {
+      const m = readJson(path.join(matteDir, f));
+      // keep stats light: one sample per 0.1s is plenty for shadows/checks
+      m.stats = m.stats.filter((_, i) => i % 3 === 0);
+      mattes[m.clip] = m;
+    }
+  }
+  const generated = readJson(path.join(ROOT, "public/generated", p.project, "manifest.json"), {});
+  return { edit, clips: footage.clips, transcripts, facts: clean(facts), mattes, generated };
 };
 
 export const fmtTime = (s) => {

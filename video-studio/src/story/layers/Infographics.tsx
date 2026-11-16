@@ -148,3 +148,46 @@ export const ProgressBar: React.FC<{ dur: number; style: StoryStyle; props: { la
     </AbsoluteFill>
   );
 };
+
+/* ───────── DIAL — conceptual gauge (no numbers): the needle settles in a labelled zone ───────── */
+export const Dial: React.FC<
+  { dur: number; style: StoryStyle; props: { title?: string; zone: string; caption?: string; plate?: string } } & PlateProps
+> = ({ dur, style, props, plate, fps, width, height }) => {
+  const { frame, enter, exit } = useInOut(dur, 10);
+  const R = 360;
+  // needle wobbles through the left (inconsistent) area, then settles in the zone
+  const settle = spring({ frame: frame - 18, fps, config: { damping: 9, stiffness: 60 } });
+  const wobble = Math.sin(frame / 3) * 18 * (1 - Math.min(1, frame / 18));
+  const angle = interpolate(settle, [0, 1], [-70, 52]) + wobble; // degrees from vertical
+  const arc = (a0: number, a1: number) => {
+    const p = (a: number) => [R + R * 0.86 * Math.sin((a * Math.PI) / 180), R - R * 0.86 * Math.cos((a * Math.PI) / 180)];
+    const [x0, y0] = p(a0);
+    const [x1, y1] = p(a1);
+    return `M ${x0} ${y0} A ${R * 0.86} ${R * 0.86} 0 0 1 ${x1} ${y1}`;
+  };
+  return (
+    <AbsoluteFill style={{ opacity: Math.min(enter * 2, exit) }}>
+      <Plate kind={props.plate ?? "blur"} source={plate} style={style} fps={fps} width={width} height={height} />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", marginTop: -140 }}>
+        {props.title ? <div style={{ fontFamily: style.fonts.body, fontWeight: 800, fontSize: 40, letterSpacing: 10, color: style.colors.secondary, marginBottom: 30 }}>{props.title.toUpperCase()}</div> : null}
+        <svg width={R * 2} height={R * 1.25} style={{ overflow: "visible", transform: `scale(${0.85 + 0.15 * enter})` }}>
+          <path d={arc(-90, 90)} stroke="rgba(255,255,255,0.14)" strokeWidth={46} fill="none" strokeLinecap="round" />
+          <path d={arc(-90, 20)} stroke="rgba(255,255,255,0.22)" strokeWidth={46} fill="none" strokeLinecap="round" />
+          <path d={arc(30, 82)} stroke={style.colors.accent} strokeWidth={46} fill="none" strokeLinecap="round" style={{ filter: `drop-shadow(0 0 22px ${style.colors.accent})` }} opacity={0.4 + 0.6 * settle} />
+          {Array.from({ length: 19 }, (_, i) => {
+            const a = -90 + i * 10;
+            const x0 = R + R * 0.62 * Math.sin((a * Math.PI) / 180), y0 = R - R * 0.62 * Math.cos((a * Math.PI) / 180);
+            const x1 = R + R * 0.68 * Math.sin((a * Math.PI) / 180), y1 = R - R * 0.68 * Math.cos((a * Math.PI) / 180);
+            return <line key={i} x1={x0} y1={y0} x2={x1} y2={y1} stroke="rgba(255,255,255,0.4)" strokeWidth={i % 3 === 0 ? 5 : 2} />;
+          })}
+          <g transform={`rotate(${angle} ${R} ${R})`}>
+            <path d={`M ${R - 14} ${R} L ${R} ${R - R * 0.78} L ${R + 14} ${R} Z`} fill="#fff" style={{ filter: "drop-shadow(0 0 12px rgba(255,255,255,0.6))" }} />
+          </g>
+          <circle cx={R} cy={R} r={34} fill={style.colors.dark} stroke="#fff" strokeWidth={6} />
+        </svg>
+        <div style={{ marginTop: -40, fontFamily: style.fonts.headline, fontSize: 150, color: style.colors.text, textTransform: "uppercase", opacity: settle, transform: `translateY(${(1 - settle) * 30}px)` }}>{props.zone}</div>
+        {props.caption ? <div style={{ fontFamily: style.fonts.body, fontWeight: 700, fontSize: 44, color: style.colors.highlight, opacity: settle }}>{props.caption}</div> : null}
+      </AbsoluteFill>
+    </AbsoluteFill>
+  );
+};

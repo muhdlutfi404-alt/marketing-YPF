@@ -1,0 +1,8 @@
+{
+ "hook-frost": { "seed": 11, "prompt": "cinematic empty dark room with frosted stainless steel walls, cold blue backlight rays through thin fog, tiny ice crystals floating, deep shadows, moody, shallow depth of field, anamorphic film still" },
+ "brand-glow": { "seed": 5, "prompt": "cinematic empty dark studio, cold blue fog low on the floor, warm golden light glowing softly from behind, elegant, shallow depth of field, film still" },
+ "kitchen-bokeh": { "seed": 3, "prompt": "completely out of focus warm kitchen interior, soft golden bokeh lights, cozy evening atmosphere, extremely shallow depth of field, cinematic" },
+ "studio-teal": { "seed": 21, "prompt": "minimal dark teal seamless studio backdrop, soft circular spotlight glow on the wall, subtle gradient, clean, cinematic lighting" },
+ "price-counter": { "seed": 9, "prompt": "empty dark walnut wood counter top in the foreground, warm orange spotlight from above, dark moody background with soft bokeh, cinematic stage, nothing on the counter" },
+ "abstract-navy": { "seed": 4, "prompt": "abstract dark navy background with soft blue light streaks and fine glowing particles, cinematic, minimal, elegant" }
+}

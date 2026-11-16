@@ -13,22 +13,24 @@ const isHighlighted = (word: string, highlight: string[] = []) => {
 export const KeywordPop: React.FC<{
   dur: number;
   style: StoryStyle;
-  props: { text: string; highlight?: string[]; animation?: "slam" | "pop" | "rise" | "tracking"; position?: "top" | "upper" | "center"; bar?: boolean };
+  props: { text: string; highlight?: string[]; animation?: "slam" | "pop" | "rise" | "tracking"; position?: "top" | "upper" | "center"; bar?: boolean; behind?: boolean; size?: "normal" | "giant"; sub?: string };
 }> = ({ dur, style, props }) => {
   const { frame, fps, exit } = useInOut(dur, 8);
   const words = props.text.split(/\s+/).filter(Boolean);
   const anim = props.animation ?? "slam";
-  const size = fitSize(props.text, 150, 72, 10);
-  const top = props.position === "center" ? "40%" : props.position === "top" ? "11%" : "20%";
+  // giant = cinematic type that sits BEHIND the real subject (depth layering)
+  const giant = props.size === "giant" || !!props.behind;
+  const size = giant ? fitSize(props.text, 340, 150, 5) : fitSize(props.text, 150, 72, 10);
+  const top = props.position === "center" ? "40%" : props.position === "top" ? (giant ? "8.5%" : "11%") : "20%";
   const bar = spring({ frame: frame - 2, fps, config: { damping: 18, stiffness: 160 } });
   return (
     <AbsoluteFill style={{ opacity: exit }}>
       <div style={{ position: "absolute", top, left: 60, right: 60, display: "flex", justifyContent: "center" }}>
         <div style={{ position: "relative", padding: "10px 34px", textAlign: "center" }}>
-          {props.bar !== false ? (
+          {props.bar !== false && !giant ? (
             <div style={{ position: "absolute", inset: 0, background: style.colors.dark, opacity: 0.82, transform: `scaleX(${bar}) skewX(-6deg)`, transformOrigin: "left", borderRadius: 10 }} />
           ) : null}
-          <div style={{ position: "relative", fontFamily: style.fonts.headline, fontSize: size, lineHeight: 1.02, color: style.colors.text, textTransform: "uppercase" }}>
+          <div style={{ position: "relative", fontFamily: style.fonts.headline, fontSize: size, lineHeight: giant ? 0.92 : 1.02, color: style.colors.text, textTransform: "uppercase", textShadow: giant ? "0 20px 60px rgba(0,0,0,0.35)" : undefined }}>
             {words.map((w, i) => {
               const d = 3 + i * (anim === "slam" ? 4 : 3);
               const p = spring({ frame: frame - d, fps, config: anim === "slam" ? { damping: 13, stiffness: 230, mass: 0.7 } : { damping: 12, stiffness: 170 } });
@@ -57,6 +59,9 @@ export const KeywordPop: React.FC<{
               );
             })}
           </div>
+          {props.sub ? (
+            <div style={{ position: "relative", fontFamily: style.fonts.body, fontWeight: 900, fontSize: 64, letterSpacing: 14, color: style.colors.text, textAlign: "right", marginTop: 4, opacity: Math.min(1, Math.max(0, (frame - 10) / 8)) }}>{props.sub.toUpperCase()}</div>
+          ) : null}
         </div>
       </div>
     </AbsoluteFill>

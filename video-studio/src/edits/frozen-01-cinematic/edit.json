@@ -13,7 +13,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -49,7 +49,22 @@
      "type": "punch-in",
      "scale": 1.24
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/hook-frost.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(20,70,130,0.55) 0%, rgba(4,10,24,0.65) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": -0.1,
+     "warmth": -0.12,
+     "saturation": 0.95
+    },
+    "rim": "rgba(150,205,255,0.55)",
+    "shadow": true,
+    "atmosphere": "frost",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s2",
@@ -60,7 +75,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -69,7 +84,22 @@
      "scale": 1.16,
      "duration": 0.01
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/brand-glow.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(30,60,110,0.35) 0%, rgba(120,70,20,0.25) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": -0.1,
+     "warmth": -0.12,
+     "saturation": 0.95
+    },
+    "rim": "rgba(170,210,255,0.45)",
+    "shadow": true,
+    "atmosphere": "frost",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s3a",
@@ -80,7 +110,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -96,7 +126,22 @@
      "type": "punch-in",
      "scale": 1.22
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/brand-glow.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(30,60,110,0.35) 0%, rgba(120,70,20,0.25) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": -0.05,
+     "warmth": 0.0,
+     "saturation": 1.0
+    },
+    "rim": "rgba(255,200,140,0.40)",
+    "shadow": true,
+    "atmosphere": "frost",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s3b",
@@ -107,7 +152,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -123,7 +168,22 @@
      "type": "punch-in",
      "scale": 1.24
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/brand-glow.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(30,60,110,0.35) 0%, rgba(120,70,20,0.25) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": -0.05,
+     "warmth": 0.0,
+     "saturation": 1.0
+    },
+    "rim": "rgba(255,200,140,0.40)",
+    "shadow": true,
+    "atmosphere": "none",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s4",
@@ -134,7 +194,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -146,6 +206,21 @@
    "transition": {
     "type": "zoom-punch",
     "duration": 0.25
+   },
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/kitchen-bokeh.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(120,60,20,0.25) 0%, rgba(20,10,5,0.5) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": 0.0,
+     "warmth": 0.15,
+     "saturation": 1.03
+    },
+    "rim": "rgba(255,190,120,0.40)",
+    "shadow": true,
+    "atmosphere": "warm",
+    "parallax": 0.6
    }
   },
   {
@@ -157,7 +232,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -174,7 +249,22 @@
      "type": "punch-in",
      "scale": 1.28
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/studio-teal.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(10,70,80,0.35) 0%, rgba(4,12,18,0.55) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": -0.05,
+     "warmth": 0.0,
+     "saturation": 1.0
+    },
+    "rim": "rgba(140,230,230,0.35)",
+    "shadow": true,
+    "atmosphere": "none",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s5b",
@@ -185,7 +275,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -205,7 +295,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -231,6 +321,21 @@
    "transition": {
     "type": "frost-dissolve",
     "duration": 0.3
+   },
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/studio-teal.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(10,70,80,0.35) 0%, rgba(4,12,18,0.55) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": -0.05,
+     "warmth": 0.0,
+     "saturation": 1.0
+    },
+    "rim": "rgba(140,230,230,0.35)",
+    "shadow": true,
+    "atmosphere": "none",
+    "parallax": 0.6
    }
   },
   {
@@ -242,7 +347,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -251,7 +356,22 @@
      "scale": 1.14,
      "duration": 0.01
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/price-counter.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(120,60,20,0.25) 0%, rgba(20,10,5,0.5) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": 0.0,
+     "warmth": 0.15,
+     "saturation": 1.03
+    },
+    "rim": "rgba(255,180,110,0.45)",
+    "shadow": true,
+    "atmosphere": "warm",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s7b",
@@ -262,7 +382,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -271,7 +391,22 @@
      "scale": 1.26,
      "duration": 0.01
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/price-counter.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(120,60,20,0.25) 0%, rgba(20,10,5,0.5) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": 0.0,
+     "warmth": 0.15,
+     "saturation": 1.03
+    },
+    "rim": "rgba(255,180,110,0.45)",
+    "shadow": true,
+    "atmosphere": "warm",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s8",
@@ -282,7 +417,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -305,7 +440,22 @@
      "type": "punch-in",
      "scale": 1.28
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/price-counter.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(120,60,20,0.25) 0%, rgba(20,10,5,0.5) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": 0.0,
+     "warmth": 0.15,
+     "saturation": 1.03
+    },
+    "rim": "rgba(255,180,110,0.45)",
+    "shadow": true,
+    "atmosphere": "warm",
+    "parallax": 0.6
+   }
   },
   {
    "id": "s9",
@@ -316,7 +466,7 @@
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.7
+    "y": 0.45
    },
    "zooms": [
     {
@@ -326,8 +476,8 @@
     }
    ],
    "transition": {
-    "type": "flash",
-    "duration": 0.2
+    "type": "light-leak",
+    "duration": 0.6
    }
   }
  ],
@@ -349,7 +499,9 @@
     "position": "top",
     "highlight": [
      "pahit"
-    ]
+    ],
+    "behind": true,
+    "size": "giant"
    }
   },
   {
@@ -369,7 +521,9 @@
     "position": "top",
     "highlight": [
      "empuk"
-    ]
+    ],
+    "behind": true,
+    "size": "giant"
    }
   },
   {
@@ -402,7 +556,7 @@
    "props": {
     "kicker": "Perut muda",
     "title": "Offal Exp",
-    "plate": "blur"
+    "plate": "generated/frozen-01-cinematic/brand-glow.png"
    }
   },
   {
@@ -460,12 +614,16 @@
      {
       "at": 0,
       "type": "punch-in",
-      "scale": 1.95,
+      "scale": 1.55,
       "duration": 0.01
      }
     ],
     "breathing": 0.04,
-    "volume": 0
+    "volume": 0,
+    "card": {
+     "plate": "generated/frozen-01-cinematic/kitchen-bokeh.png",
+     "tilt": -5
+    }
    }
   },
   {
@@ -506,7 +664,11 @@
       "type": "push",
       "scale": 1.12
      }
-    ]
+    ],
+    "card": {
+     "plate": "generated/frozen-01-cinematic/kitchen-bokeh.png",
+     "tilt": 5
+    }
    }
   },
   {
@@ -530,7 +692,7 @@
    "id": "kw-konsisten",
    "type": "keyword",
    "at": {
-    "quote": "konsisten ni"
+    "quote": "yang konsisten ni"
    },
    "duration": 1.4,
    "source": "transcript",
@@ -540,33 +702,51 @@
    "props": {
     "text": "Konsisten?",
     "animation": "slam",
-    "position": "top"
+    "position": "top",
+    "behind": true,
+    "size": "giant"
+   }
+  },
+  {
+   "id": "dial-konsisten",
+   "type": "dial",
+   "at": {
+    "quote": "konsisten dari segi rasa"
+   },
+   "duration": 1.9,
+   "source": "transcript",
+   "evidence": {
+    "quote": "konsisten dari segi rasa"
+   },
+   "props": {
+    "title": "Perut muda Offal Exp",
+    "zone": "Konsisten",
+    "caption": "dari segi rasa",
+    "plate": "generated/frozen-01-cinematic/abstract-navy.png"
    }
   },
   {
    "id": "stmt-konsisten",
    "type": "statement",
    "at": {
-    "quote": "konsisten dari segi rasa"
+    "quote": "tak pahit, muda lembut"
    },
    "duration": "quote",
    "source": "transcript",
    "evidence": {
-    "quote": "konsisten dari segi rasa, tak pahit, muda lembut"
+    "quote": "tak pahit, muda lembut"
    },
    "props": {
     "kicker": "Perut muda Offal Exp",
     "lines": [
-     "Konsisten rasa",
      "Tak pahit",
      "Muda lembut"
     ],
     "highlight": [
-     "konsisten",
      "pahit",
      "lembut"
     ],
-    "plate": "blur"
+    "plate": "generated/frozen-01-cinematic/abstract-navy.png"
    }
   },
   {
@@ -596,27 +776,6 @@
    }
   },
   {
-   "id": "price-retail",
-   "type": "counter",
-   "at": {
-    "quote": "RM21 sahaja"
-   },
-   "duration": "quote",
-   "source": "facts",
-   "evidence": {
-    "fact": "priceRetail"
-   },
-   "props": {
-    "value": 21,
-    "prefix": "RM",
-    "suffix": "/ kg",
-    "label": "Harga runcit",
-    "fullscreen": true,
-    "plate": "blur",
-    "count": false
-   }
-  },
-  {
    "id": "callout-10kg",
    "type": "callout",
    "at": {
@@ -635,27 +794,6 @@
    }
   },
   {
-   "id": "price-box",
-   "type": "counter",
-   "at": {
-    "quote": "RM200 sahaja"
-   },
-   "duration": 1.7,
-   "source": "facts",
-   "evidence": {
-    "fact": "priceWholesale"
-   },
-   "props": {
-    "value": 200,
-    "prefix": "RM",
-    "suffix": "/ kotak 10kg",
-    "label": "Harga borong",
-    "fullscreen": true,
-    "plate": "blur",
-    "count": false
-   }
-  },
-  {
    "id": "kw-rm20",
    "type": "keyword",
    "at": {
@@ -667,12 +805,15 @@
     "fact": "priceWholesale"
    },
    "props": {
-    "text": "RM20 / kg",
+    "text": "RM20",
     "animation": "slam",
     "position": "top",
     "highlight": [
      "RM20"
-    ]
+    ],
+    "behind": true,
+    "size": "giant",
+    "sub": "Sekilo · borong"
    }
   },
   {
@@ -691,7 +832,51 @@
     "lines": [
      "Perut muda Offal Exp"
     ],
-    "plate": "blur"
+    "fullscreen": false
+   }
+  },
+  {
+   "id": "price-retail-giant",
+   "type": "keyword",
+   "at": {
+    "quote": "RM21 sahaja"
+   },
+   "duration": 2.2,
+   "source": "facts",
+   "evidence": {
+    "fact": "priceRetail"
+   },
+   "props": {
+    "text": "RM21",
+    "sub": "Sekilo",
+    "behind": true,
+    "size": "giant",
+    "position": "top",
+    "highlight": [
+     "RM21"
+    ]
+   }
+  },
+  {
+   "id": "price-box-giant",
+   "type": "keyword",
+   "at": {
+    "quote": "RM200 sahaja"
+   },
+   "duration": 2.0,
+   "source": "facts",
+   "evidence": {
+    "fact": "priceWholesale"
+   },
+   "props": {
+    "text": "RM200",
+    "sub": "Sekotak 10kg",
+    "behind": true,
+    "size": "giant",
+    "position": "top",
+    "highlight": [
+     "RM200"
+    ]
    }
   }
  ],
@@ -712,11 +897,12 @@
  },
  "look": {
   "grade": "warm-commercial",
-  "gradeIntensity": 0.6,
+  "gradeIntensity": 0.55,
   "grain": true,
   "vignette": true,
   "breathing": 0.02,
-  "coverBands": []
+  "coverBands": [],
+  "aiLabel": true
  },
  "audio": {
   "music": "music/story-documentary-bed.mp3",
@@ -724,6 +910,32 @@
   "duckTo": 0.2,
   "sfx": "auto",
   "sfxVolume": 0.8,
-  "voiceTargetLufs": -16
+  "voiceTargetLufs": -16,
+  "cues": [
+   {
+    "sfx": "impact",
+    "at": {
+     "quote": "RM21 sahaja"
+    },
+    "volume": 0.55,
+    "playbackRate": 0.9
+   },
+   {
+    "sfx": "impact",
+    "at": {
+     "quote": "RM200 sahaja"
+    },
+    "volume": 0.6,
+    "playbackRate": 0.85
+   },
+   {
+    "sfx": "riser",
+    "at": {
+     "quote": "bagi siapa-siapa",
+     "offset": -1.4
+    },
+    "volume": 0.3
+   }
+  ]
  }
 }
