@@ -1,0 +1,44 @@
+{
+  "name": "yapakcik-video-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ya PakCik Video Studio — Remotion templates for Project A.M and YaPakCik Frozen",
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run typecheck && node scripts/smoke-test.mjs",
+    "compositions": "remotion compositions",
+    "render": "remotion render",
+    "render:am": "remotion render ProjectAM-Documentary-Landscape out/project-am-landscape.mp4",
+    "render:am:vertical": "remotion render ProjectAM-Documentary-Vertical out/project-am-vertical.mp4",
+    "render:frozen": "remotion render YaPakCikFrozen-Commercial-Landscape out/yapakcik-frozen-landscape.mp4",
+    "render:frozen:vertical": "remotion render YaPakCikFrozen-Commercial-Vertical out/yapakcik-frozen-vertical.mp4",
+    "render:all": "npm run render:am && npm run render:am:vertical && npm run render:frozen && npm run render:frozen:vertical",
+    "inspect": "bash scripts/inspect.sh",
+    "prepare-footage": "bash scripts/prepare.sh",
+    "extract-audio": "bash scripts/extract-audio.sh",
+    "samples": "bash scripts/make-samples.sh"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.539",
+    "@remotion/fonts": "4.0.539",
+    "@remotion/media": "4.0.539",
+    "@remotion/media-utils": "4.0.539",
+    "@remotion/noise": "4.0.539",
+    "@remotion/paths": "4.0.539",
+    "@remotion/transitions": "4.0.539",
+    "@remotion/zod-types": "4.0.539",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.539",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@remotion/bundler": "4.0.539",
+    "@remotion/renderer": "4.0.539",
+    "@types/node": "22.18.0",
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}

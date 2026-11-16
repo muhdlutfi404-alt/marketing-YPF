@@ -1,0 +1,37 @@
+# ── Installed packages (re-created by `npm install`) ──
+node_modules/
+
+# ── Finished renders ──
+out/
+
+# ── RAW & PREPARED FOOTAGE — never uploaded to GitHub ──
+# Keep your MP4s on your computer / external drive / Google Drive.
+public/footage/**
+!public/footage/
+!public/footage/raw/
+!public/footage/ready/
+!public/footage/**/.gitkeep
+!public/footage/README.md
+
+# Safety net: block big video files anywhere in this project
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.m4v
+*.mkv
+*.avi
+*.mxf
+*.braw
+*.r3d
+*.insv
+*.lrv
+*.thm
+
+# ── Misc ──
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+.remotion/
