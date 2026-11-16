@@ -63,7 +63,9 @@
     "rim": "rgba(150,205,255,0.55)",
     "shadow": false,
     "atmosphere": "frost",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -98,7 +100,9 @@
     "rim": "rgba(170,210,255,0.45)",
     "shadow": false,
     "atmosphere": "frost",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -140,7 +144,9 @@
     "rim": "rgba(255,200,140,0.40)",
     "shadow": false,
     "atmosphere": "frost",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -182,7 +188,9 @@
     "rim": "rgba(255,200,140,0.40)",
     "shadow": false,
     "atmosphere": "none",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -220,7 +228,9 @@
     "rim": "rgba(255,190,120,0.40)",
     "shadow": false,
     "atmosphere": "warm",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -263,7 +273,9 @@
     "rim": "rgba(140,230,230,0.35)",
     "shadow": false,
     "atmosphere": "none",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -284,7 +296,24 @@
      "scale": 1.0,
      "duration": 2
     }
-   ]
+   ],
+   "composite": {
+    "plate": "generated/frozen-01-cinematic/studio-teal.png",
+    "dof": 7,
+    "plateTint": "linear-gradient(180deg, rgba(10,70,80,0.35) 0%, rgba(4,12,18,0.55) 100%)",
+    "plateBrightness": 0.85,
+    "light": {
+     "exposure": -0.05,
+     "warmth": 0.0,
+     "saturation": 1.0
+    },
+    "rim": "rgba(140,230,230,0.35)",
+    "shadow": false,
+    "atmosphere": "none",
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
+   }
   },
   {
    "id": "s6",
@@ -335,7 +364,9 @@
     "rim": "rgba(140,230,230,0.35)",
     "shadow": false,
     "atmosphere": "none",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -370,7 +401,9 @@
     "rim": "rgba(255,180,110,0.45)",
     "shadow": false,
     "atmosphere": "warm",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -405,7 +438,9 @@
     "rim": "rgba(255,180,110,0.45)",
     "shadow": false,
     "atmosphere": "warm",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
@@ -413,7 +448,7 @@
    "label": "wholesale",
    "clip": "lv_0_20261116225603",
    "in": 72.3,
-   "out": 80.3,
+   "out": 80.4,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -454,14 +489,16 @@
     "rim": "rgba(255,180,110,0.45)",
     "shadow": false,
     "atmosphere": "warm",
-    "parallax": 0.6
+    "parallax": 0.6,
+    "floorShadeFrom": 0.85,
+    "floorShade": 0.45
    }
   },
   {
    "id": "s9",
    "label": "CTA",
    "clip": "lv_0_20261116225603",
-   "in": 80.3,
+   "in": 80.4,
    "out": 84.15,
    "audio": "keep",
    "focus": {
@@ -477,7 +514,8 @@
    ],
    "transition": {
     "type": "light-leak",
-    "duration": 0.6
+    "duration": 0.5,
+    "continuous": true
    }
   }
  ],
@@ -516,14 +554,15 @@
     "quote": "payah nak empuk"
    },
    "props": {
-    "text": "Payah nak empuk?",
+    "text": "Empuk?",
     "animation": "slam",
     "position": "top",
     "highlight": [
      "empuk"
     ],
     "behind": true,
-    "size": "giant"
+    "size": "giant",
+    "kicker": "Payah nak"
    }
   },
   {
@@ -694,7 +733,7 @@
    "at": {
     "quote": "yang konsisten ni"
    },
-   "duration": 1.4,
+   "duration": 0.8,
    "source": "transcript",
    "evidence": {
     "quote": "yang konsisten ni"
@@ -799,7 +838,7 @@
    "at": {
     "quote": "RM20 sahaja"
    },
-   "duration": 1.8,
+   "duration": 0.62,
    "source": "facts",
    "evidence": {
     "fact": "priceWholesale"
@@ -813,7 +852,7 @@
     ],
     "behind": true,
     "size": "giant",
-    "sub": "Sekilo · borong"
+    "kicker": "Borong · sekilo"
    }
   },
   {
@@ -848,13 +887,13 @@
    },
    "props": {
     "text": "RM21",
-    "sub": "Sekilo",
     "behind": true,
     "size": "giant",
     "position": "top",
     "highlight": [
      "RM21"
-    ]
+    ],
+    "kicker": "Sekilo"
    }
   },
   {
@@ -870,13 +909,13 @@
    },
    "props": {
     "text": "RM200",
-    "sub": "Sekotak 10kg",
     "behind": true,
     "size": "giant",
     "position": "top",
     "highlight": [
      "RM200"
-    ]
+    ],
+    "kicker": "Sekotak 10kg"
    }
   }
  ],

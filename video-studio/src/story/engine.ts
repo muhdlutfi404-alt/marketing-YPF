@@ -70,6 +70,9 @@ export type Focus = { x: number; y: number };
 export type ShotTransition = {
   type: "cut" | "fade" | "slide" | "wipe" | "flash" | "zoom-punch" | "light-leak" | "frost-dissolve" | "iris" | "clock-wipe";
   duration?: number;
+  /** The two shots are back-to-back in the original recording: crossfade between the SAME moment
+      in both (one continuous voice, nothing overlaps or repeats) instead of overlapping two moments. */
+  continuous?: boolean;
 };
 
 export type Shot = {
@@ -99,6 +102,8 @@ export type Shot = {
     shadow?: boolean;
     atmosphere?: "frost" | "warm" | "none";
     parallax?: number;
+    floorShadeFrom?: number;
+    floorShade?: number;
   };
 };
 
@@ -222,8 +227,14 @@ export const resolveShots = (shots: Shot[]): { shots: ResolvedShot[]; total: num
     const t = i === 0 || !s.transition || s.transition.type === "cut" ? 0 : (s.transition.duration ?? DEFAULT_TRANSITION_SEC);
     const transitionSec = Math.min(t, duration / 2, i > 0 ? out[i - 1].duration / 2 : 0);
     const start = Math.max(0, cursor - transitionSec);
-    out.push({ ...s, start, duration, transitionSec });
-    cursor = start + duration;
+    if (s.transition?.continuous && transitionSec > 0 && i > 0) {
+      // begin this shot transitionSec earlier in the source so both shots show the same moment during the blend
+      out.push({ ...s, in: Math.max(0, s.in - transitionSec), start, duration: duration + transitionSec, transitionSec });
+      cursor = start + duration + transitionSec;
+    } else {
+      out.push({ ...s, start, duration, transitionSec });
+      cursor = start + duration;
+    }
   });
   return { shots: out, total: cursor };
 };
@@ -249,8 +260,9 @@ export const timelineWords = (bundle: StoryBundle, shots: ResolvedShot[]): Timel
       }
     }
   }
-  // words can repeat at shot overlaps (transitions) — keep timeline order
-  return out.sort((a, b) => a.t0 - b.t0);
+  // continuous transitions show the same moment twice → keep one copy of each word; keep timeline order
+  out.sort((a, b) => a.t0 - b.t0);
+  return out.filter((w, i) => !out.slice(Math.max(0, i - 6), i).some((p) => p.norm === w.norm && p.shot !== w.shot && Math.abs(p.t0 - w.t0) < 0.3));
 };
 
 /** Finds where a quote is spoken. Returns timeline seconds of its first/last word. */
@@ -551,7 +563,7 @@ export const layerTexts = (l: Layer): string[] => {
     else if (Array.isArray(v)) v.forEach(walk);
     else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => {
       // non-visible technical fields
-      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size"].includes(k)) return;
+      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size", "floorShadeFrom", "floorShade"].includes(k)) return;
       walk(x);
     });
   };

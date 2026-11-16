@@ -13,14 +13,16 @@ const isHighlighted = (word: string, highlight: string[] = []) => {
 export const KeywordPop: React.FC<{
   dur: number;
   style: StoryStyle;
-  props: { text: string; highlight?: string[]; animation?: "slam" | "pop" | "rise" | "tracking"; position?: "top" | "upper" | "center"; bar?: boolean; behind?: boolean; size?: "normal" | "giant"; sub?: string };
+  props: { text: string; highlight?: string[]; animation?: "slam" | "pop" | "rise" | "tracking"; position?: "top" | "upper" | "center"; bar?: boolean; behind?: boolean; size?: "normal" | "giant"; sub?: string; kicker?: string };
 }> = ({ dur, style, props }) => {
   const { frame, fps, exit } = useInOut(dur, 8);
   const words = props.text.split(/\s+/).filter(Boolean);
   const anim = props.animation ?? "slam";
   // giant = cinematic type that sits BEHIND the real subject (depth layering)
   const giant = props.size === "giant" || !!props.behind;
-  const size = giant ? fitSize(props.text, 340, 150, 5) : fitSize(props.text, 150, 72, 10);
+  // giant type must fit the 1080px frame: Anton is ~0.5em per character
+  const longest = Math.max(...props.text.split(/\s+/).map((w) => w.length), 1);
+  const size = giant ? Math.max(150, Math.min(340, 960 / (longest * 0.52))) : fitSize(props.text, 150, 72, 10);
   const top = props.position === "center" ? "40%" : props.position === "top" ? (giant ? "8.5%" : "11%") : "20%";
   const bar = spring({ frame: frame - 2, fps, config: { damping: 18, stiffness: 160 } });
   return (
@@ -29,6 +31,9 @@ export const KeywordPop: React.FC<{
         <div style={{ position: "relative", padding: "10px 34px", textAlign: "center" }}>
           {props.bar !== false && !giant ? (
             <div style={{ position: "absolute", inset: 0, background: style.colors.dark, opacity: 0.82, transform: `scaleX(${bar}) skewX(-6deg)`, transformOrigin: "left", borderRadius: 10 }} />
+          ) : null}
+          {props.kicker ? (
+            <div style={{ position: "relative", fontFamily: style.fonts.body, fontWeight: 900, fontSize: giant ? 62 : 40, letterSpacing: giant ? 16 : 8, color: style.colors.text, textTransform: "uppercase", marginBottom: giant ? 6 : 2, opacity: Math.min(1, Math.max(0, frame / 6)), textShadow: "0 4px 20px rgba(0,0,0,0.5)" }}>{props.kicker}</div>
           ) : null}
           <div style={{ position: "relative", fontFamily: style.fonts.headline, fontSize: size, lineHeight: giant ? 0.92 : 1.02, color: style.colors.text, textTransform: "uppercase", textShadow: giant ? "0 20px 60px rgba(0,0,0,0.35)" : undefined }}>
             {words.map((w, i) => {

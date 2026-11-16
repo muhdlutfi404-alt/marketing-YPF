@@ -26,6 +26,9 @@ export type CompositeSpec = {
   shadow?: boolean; // contact shadow under the subject/product
   atmosphere?: "frost" | "warm" | "none";
   parallax?: number; // 0 = background moves with the subject, 1 = background still
+  /** SET EXTENSION: darken only the real floor below this height (0–1 of the source frame) so it sits in the new light */
+  floorShadeFrom?: number;
+  floorShade?: number;
   matteStats?: { t: number; bottom?: number; left?: number; right?: number }[];
 };
 
@@ -196,6 +199,10 @@ export const CompositeForeground: React.FC<{ shot: ResolvedShot; next?: Resolved
           trimBefore={Math.max(0, Math.round((shot.in - spec.fg.from) * fps))}
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: `${(shot.focus?.x ?? 0.5) * 100}% ${(shot.focus?.y ?? 0.5) * 100}%`, filter }}
         />
+        {spec.floorShadeFrom !== undefined ? (
+          // environment shadow on the real FLOOR only (starts below the product), moves with the zoom
+          <div style={{ position: "absolute", left: 0, right: 0, top: `${spec.floorShadeFrom * 100}%`, bottom: 0, background: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,${spec.floorShade ?? 0.45}) 55%, rgba(0,0,0,${(spec.floorShade ?? 0.45) + 0.15}) 100%)` }} />
+        ) : null}
       </AbsoluteFill>
       {spec.atmosphere && spec.atmosphere !== "none" ? <Atmosphere kind={spec.atmosphere} front /> : null}
     </AbsoluteFill>
