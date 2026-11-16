@@ -1142,19 +1142,21 @@
     {
       "start": 63.1,
       "end": 66.2,
-      "text": "Mudah pohu, dia rasa pun sedap",
+      "text": "Mudah empuk, dia rasa pun sedap",
       "words": [
         {
           "text": " Mudah",
           "start": 63.1,
-          "end": 63.78,
-          "prob": 0.891
+          "end": 63.545,
+          "prob": 1,
+          "fixed": true
         },
         {
-          "text": " pohu,",
-          "start": 63.78,
+          "text": " empuk,",
+          "start": 63.545,
           "end": 64.08,
-          "prob": 0.625
+          "prob": 1,
+          "fixed": true
         },
         {
           "text": " dia",
@@ -1708,6 +1710,12 @@
       "to": "1 kotak",
       "at": 77.58,
       "date": "2026-11-16T14:31:20.958Z"
+    },
+    {
+      "from": "Mudah pohu",
+      "to": "Mudah empuk,",
+      "at": 63.1,
+      "date": "2026-11-16T14:54:17.208Z"
     }
   ]
 }

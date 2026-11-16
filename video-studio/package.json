@@ -28,7 +28,8 @@
     "story:suggest": "node scripts/story/suggest.mjs",
     "story:check": "node scripts/story/check.mjs",
     "story:render": "node scripts/story/render.mjs",
-    "story:test": "node scripts/story/test-guardrails.mjs"
+    "story:test": "node scripts/story/test-guardrails.mjs",
+    "story:align": "bash scripts/story/align.sh"
   },
   "dependencies": {
     "@remotion/cli": "4.0.539",
