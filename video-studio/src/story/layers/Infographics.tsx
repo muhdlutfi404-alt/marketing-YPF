@@ -9,7 +9,7 @@ type PlateProps = { plate: PlateSource; fps: number; width: number; height: numb
 
 /* ───────── COUNTER — a spoken number, animated (e.g. "8 MINIT") ───────── */
 export const Counter: React.FC<
-  { dur: number; style: StoryStyle; props: { value: number; from?: number; decimals?: number; prefix?: string; suffix?: string; label?: string; fullscreen?: boolean; plate?: "blur" | "brand" | "dark" } } & PlateProps
+  { dur: number; style: StoryStyle; props: { value: number; from?: number; count?: boolean; decimals?: number; prefix?: string; suffix?: string; label?: string; fullscreen?: boolean; plate?: "blur" | "brand" | "dark" } } & PlateProps
 > = ({ dur, style, props, plate, fps, width, height }) => {
   const { frame, enter, exit } = useInOut(dur, 10);
   const full = props.fullscreen ?? false;
@@ -20,7 +20,7 @@ export const Counter: React.FC<
         <ProgressRing size={ring} stroke={full ? 26 : 18} value={100} color={style.colors.accent} trackColor="rgba(255,255,255,0.15)" delay={2} durationInFrames={Math.min(40, dur - 10)}>
           <div style={{ textAlign: "center", lineHeight: 0.95 }}>
             <AnimatedCounter
-              from={props.from ?? 0}
+              from={props.count === false ? props.value : props.from ?? 0}
               to={props.value}
               decimals={props.decimals ?? 0}
               prefix={props.prefix ?? ""}
@@ -92,7 +92,7 @@ export const Chart: React.FC<
 
 /* ───────── STEPS — a spoken how-to, ticked off as the presenter says each step ───────── */
 export const Steps: React.FC<
-  { dur: number; style: StoryStyle; props: { title?: string; items: string[]; revealAt?: number[]; fullscreen?: boolean; plate?: "blur" | "brand" | "dark" } } & PlateProps
+  { dur: number; style: StoryStyle; props: { title?: string; items: string[]; revealAt?: number[]; fullscreen?: boolean; position?: "top" | "middle"; plate?: "blur" | "brand" | "dark" } } & PlateProps
 > = ({ dur, style, props, plate, fps, width, height }) => {
   const { frame, enter, exit } = useInOut(dur, 10);
   const full = props.fullscreen ?? false;
@@ -105,7 +105,8 @@ export const Steps: React.FC<
           position: "absolute",
           left: 60,
           right: 60,
-          top: full ? 330 : 170,
+          // "middle" keeps the presenter's face clear (panel sits at chest height)
+          top: full ? 330 : props.position === "middle" ? 880 : 170,
           background: full ? "transparent" : `${style.colors.dark}e6`,
           borderRadius: 28,
           padding: full ? 0 : "34px 40px",

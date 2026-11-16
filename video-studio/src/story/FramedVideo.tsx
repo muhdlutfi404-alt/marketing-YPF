@@ -20,7 +20,9 @@ export const FramedVideo: React.FC<{
   fps: number;
   frameWidth: number;
   frameHeight: number;
-}> = ({ clip, trimBeforeSec, focus = { x: 0.5, y: 0.4 }, scale = 1, muted = false, volume = 1, fps, frameWidth, frameHeight }) => {
+  /** drawn in SOURCE-frame coordinates, so it zooms together with the footage */
+  children?: React.ReactNode;
+}> = ({ clip, trimBeforeSec, focus = { x: 0.5, y: 0.4 }, scale = 1, muted = false, volume = 1, fps, frameWidth, frameHeight, children }) => {
   const srcAR = clip.width / clip.height;
   const frameAR = frameWidth / frameHeight;
   let w: number;
@@ -44,6 +46,7 @@ export const FramedVideo: React.FC<{
           volume={volume}
           style={{ position: "absolute", left, top, width: w, height: h, objectFit: "fill" }}
         />
+        {children ? <div style={{ position: "absolute", left, top, width: w, height: h }}>{children}</div> : null}
       </AbsoluteFill>
     </AbsoluteFill>
   );

@@ -135,6 +135,8 @@ export type EditFile = {
     uppercase?: boolean;
     /** 0–1 from top */
     position?: number;
+    /** Unclear speech: audio kept, NO subtitles. Clip-time ranges. */
+    hide?: { clip: string; from: number; to: number; reason?: string }[];
   };
   look: {
     grade: string;
@@ -142,6 +144,9 @@ export type EditFile = {
     grain?: boolean;
     vignette?: boolean;
     breathing?: number;
+    /** Bars that cover text burned into the source footage (e.g. old app captions).
+        y0/y1 = 0–1 of the SOURCE frame height; they move with every zoom. */
+    coverBands?: { y0: number; y1: number; clips?: string[] }[];
   };
   audio: {
     /** path in /public or null for no music */
@@ -171,7 +176,8 @@ export const normalize = (s: string): string =>
     .normalize("NFKD")
     .replace(/[̀-ͯ]/g, "")
     .replace(/[^\p{L}\p{N}\s'-]/gu, " ")
-    .replace(/[-']/g, "")
+    .replace(/'/g, "")
+    .replace(/-/g, " ")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -198,7 +204,7 @@ export const resolveShots = (shots: Shot[]): { shots: ResolvedShot[]; total: num
   return { shots: out, total: cursor };
 };
 
-export type TimelineWord = Word & { shot: string; t0: number; t1: number; norm: string };
+export type TimelineWord = Word & { shot: string; clip: string; t0: number; t1: number; norm: string };
 
 /** Every spoken word, mapped from clip time to timeline time (muted shots excluded). */
 export const timelineWords = (bundle: StoryBundle, shots: ResolvedShot[]): TimelineWord[] => {
@@ -215,7 +221,7 @@ export const timelineWords = (bundle: StoryBundle, shots: ResolvedShot[]): Timel
         const t1 = s.start + Math.min(s.duration, w.end - s.in);
         const norm = normalize(w.text);
         if (!norm) continue;
-        out.push({ ...w, shot: s.id, t0, t1, norm });
+        out.push({ ...w, shot: s.id, clip: s.clip, t0, t1, norm });
       }
     }
   }
@@ -393,7 +399,12 @@ export const buildCaptionPages = (
       cur = { start: w.t0, end: w.t1, words: [] };
       pages.push(cur);
     }
-    cur!.words.push({ text, t0: w.t0, t1: w.t1 });
+    // reduplication written by Whisper as "siapa" + "-siapa" → show "siapa-siapa"
+    const last = cur!.words[cur!.words.length - 1];
+    if (text.startsWith("-") && last && !brk) {
+      last.text += text;
+      last.t1 = w.t1;
+    } else cur!.words.push({ text, t0: w.t0, t1: w.t1 });
     cur!.end = w.t1;
   }
   // keep each page on screen until the next one starts (max +0.5s)
@@ -516,7 +527,7 @@ export const layerTexts = (l: Layer): string[] => {
     else if (Array.isArray(v)) v.forEach(walk);
     else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => {
       // non-visible technical fields
-      if (["clip", "src", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals"].includes(k)) return;
+      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals"].includes(k)) return;
       walk(x);
     });
   };
@@ -582,7 +593,7 @@ export const checkBundle = (bundle: StoryBundle, opts: { final: boolean }): Issu
   for (const l of layers) {
     const where = `layer ${l.id} (${l.type})`;
     if (!l.anchorFound) add("error", where, `quote "${(l.at as Anchor).quote}" not found in the transcript — check the exact words`);
-    if (l.type === "broll") {
+    if (l.type === "broll" && !l.props.image) {
       const c = clips[l.props.clip];
       if (!c) add("error", where, `b-roll clip "${l.props.clip}" not found`);
       else if ((l.props.in ?? 0) + l.dur > c.duration + 0.05) add("error", where, `b-roll needs ${l.dur.toFixed(1)}s from ${l.props.in ?? 0}s but "${l.props.clip}" is only ${c.duration.toFixed(1)}s`);
@@ -652,9 +663,18 @@ export const checkBundle = (bundle: StoryBundle, opts: { final: boolean }): Issu
     if (tr.estimatedWordTiming) add("info", `transcript ${clip}`, `word timing estimated from SRT lines (karaoke highlight approximate)`);
   }
   if (edit.captions.enabled && words.length === 0) add("warning", "captions", "captions are on but no spoken words were found");
+  const hidden = words.length - captionWords(words, edit.captions.hide).length;
+  if (hidden) add("info", "captions", `${hidden} unclear word(s) have NO subtitles (audio kept): ${(edit.captions.hide ?? []).map((h) => `${h.clip}@${h.from}-${h.to}s${h.reason ? " (" + h.reason + ")" : ""}`).join(", ")}`);
+  for (const l of layers.filter((x) => x.type === "broll" && x.props.image)) {
+    if (!/\.(jpe?g|png|webp)$/i.test(l.props.image)) add("error", `layer ${l.id}`, `image "${l.props.image}" must be a .jpg/.png/.webp inside public/`);
+  }
 
   return issues;
 };
+
+/** Words shown as subtitles (timeline words minus ranges marked unclear in captions.hide). */
+export const captionWords = (words: TimelineWord[], hide: EditFile["captions"]["hide"] = []): TimelineWord[] =>
+  words.filter((w) => !hide.some((h) => h.clip === w.clip && (w.start + w.end) / 2 >= h.from && (w.start + w.end) / 2 <= h.to));
 
 /** Everything the video component needs, computed once. */
 export const resolveStory = (bundle: StoryBundle) => {

@@ -4,7 +4,7 @@ import { MusicBed } from "../shared/audio/MusicBed";
 import { SfxTrack, type SfxCue } from "../shared/audio/SoundEffect";
 import { FilmGrain, Vignette } from "../shared/components/CinematicLook";
 import { FPS } from "../shared/constants";
-import { buildCaptionPages, resolveRevealTimes, resolveStory, resolveZoomTime, type ResolvedLayer, type StoryBundle } from "./engine";
+import { buildCaptionPages, captionWords, resolveRevealTimes, resolveStory, resolveZoomTime, type ResolvedLayer, type StoryBundle } from "./engine";
 import { Annotations } from "./layers/index";
 import { Broll } from "./layers/Broll";
 import { PlaceholderRibbon, type PlateSource } from "./layers/common";
@@ -35,7 +35,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
   const { edit, clips } = bundle;
   const style = STORY_STYLES[edit.brand] ?? STORY_STYLES["yapakcik-frozen"];
   const story = useMemo(() => resolveStory(bundle), [bundle]);
-  const pages = useMemo(() => buildCaptionPages(story.words), [story.words]);
+  const pages = useMemo(() => buildCaptionPages(captionWords(story.words, edit.captions.hide)), [story.words, edit.captions.hide]);
   const f = (sec: number) => Math.round(sec * fps);
 
   // the real footage that is on screen at time t (for blurred plates behind full-screen graphics)
@@ -137,7 +137,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
         if (!clip) return null;
         return (
           <Sequence key={s.id} from={f(s.start)} durationInFrames={Math.max(1, f(s.duration))} name={`Shot ${s.id}${s.label ? " · " + s.label : ""}`} premountFor={fps}>
-            <ShotView shot={s} next={story.shots[i + 1]} clip={clip} words={story.words} grade={edit.look.grade} gradeIntensity={edit.look.gradeIntensity ?? 0.8} breathing={edit.look.breathing ?? 0} />
+            <ShotView shot={s} next={story.shots[i + 1]} clip={clip} words={story.words} grade={edit.look.grade} gradeIntensity={edit.look.gradeIntensity ?? 0.8} breathing={edit.look.breathing ?? 0} coverBands={(edit.look.coverBands ?? []).filter((b) => !b.clips || b.clips.includes(s.clip))} coverColor={style.colors.dark} />
           </Sequence>
         );
       })}

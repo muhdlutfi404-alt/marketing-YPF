@@ -3,6 +3,7 @@ import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remo
 import { resolveZoomTime, zoomScaleAt, type ClipInfo, type ResolvedShot, type TimelineWord } from "./engine";
 import { FramedVideo } from "./FramedVideo";
 import { FootageGradeLayer } from "./grades";
+import { CoverBands } from "./CoverBand";
 
 /**
  * One shot of the REAL footage with its original audio.
@@ -17,7 +18,9 @@ export const ShotView: React.FC<{
   grade: string;
   gradeIntensity: number;
   breathing: number;
-}> = ({ shot, next, clip, words, grade, gradeIntensity, breathing }) => {
+  coverBands?: { y0: number; y1: number }[];
+  coverColor?: string;
+}> = ({ shot, next, clip, words, grade, gradeIntensity, breathing, coverBands = [], coverColor = "#06182f" }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
   const t = frame / fps;
@@ -60,7 +63,9 @@ export const ShotView: React.FC<{
   return (
     <AbsoluteFill style={style}>
       <FootageGradeLayer grade={grade} intensity={gradeIntensity}>
-        <FramedVideo clip={clip} trimBeforeSec={shot.in} focus={shot.focus} scale={scale} muted={shot.audio === "mute"} volume={volume} fps={fps} frameWidth={width} frameHeight={height} />
+        <FramedVideo clip={clip} trimBeforeSec={shot.in} focus={shot.focus} scale={scale} muted={shot.audio === "mute"} volume={volume} fps={fps} frameWidth={width} frameHeight={height}>
+          {coverBands.length ? <CoverBands bands={coverBands} color={coverColor} /> : null}
+        </FramedVideo>
       </FootageGradeLayer>
       {overlay}
     </AbsoluteFill>

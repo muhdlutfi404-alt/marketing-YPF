@@ -1,5 +1,6 @@
 import React from "react";
-import { AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Img, interpolate, useCurrentFrame, useVideoConfig } from "remotion";
+import { resolveMedia } from "../../shared/utils/media";
 import { zoomScaleAt, type ClipInfo, type Focus, type Zoom } from "../engine";
 import { FramedVideo } from "../FramedVideo";
 import { FootageGradeLayer } from "../grades";
@@ -14,12 +15,12 @@ export const Broll: React.FC<{
   clip: ClipInfo | undefined;
   grade: string;
   gradeIntensity: number;
-  props: { clip: string; in?: number; focus?: Focus; zooms?: Zoom[]; volume?: number; transition?: "cut" | "fade" | "flash" | "zoom-punch" | "slide"; breathing?: number };
+  props: { clip?: string; image?: string; in?: number; focus?: Focus; zooms?: Zoom[]; volume?: number; transition?: "cut" | "fade" | "flash" | "zoom-punch" | "slide"; breathing?: number };
 }> = ({ dur, clip, grade, gradeIntensity, props }) => {
   const frame = useCurrentFrame();
   const { fps, width, height } = useVideoConfig();
-  if (!clip) return null;
   const t = frame / fps;
+  if (!clip && !props.image) return null;
   const events = (props.zooms ?? []).filter((z) => typeof z.at === "number").map((z) => ({ ...z, at: z.at as number }));
   const scale = zoomScaleAt(t, events, dur / fps, props.breathing ?? 0.06);
   const tin = Math.min(8, dur / 3);
@@ -37,8 +38,16 @@ export const Broll: React.FC<{
   return (
     <AbsoluteFill style={style}>
       <FootageGradeLayer grade={grade} intensity={gradeIntensity}>
+        {props.image ? (
+          <AbsoluteFill style={{ overflow: "hidden" }}>
+            <Img
+              src={resolveMedia(props.image)}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: `${(props.focus?.x ?? 0.5) * 100}% ${(props.focus?.y ?? 0.5) * 100}%`, transform: `scale(${scale})`, transformOrigin: `${(props.focus?.x ?? 0.5) * 100}% ${(props.focus?.y ?? 0.5) * 100}%` }}
+            />
+          </AbsoluteFill>
+        ) : (
         <FramedVideo
-          clip={clip}
+          clip={clip!}
           trimBeforeSec={props.in ?? 0}
           focus={props.focus}
           scale={scale}
@@ -48,6 +57,7 @@ export const Broll: React.FC<{
           frameWidth={width}
           frameHeight={height}
         />
+        )}
       </FootageGradeLayer>
       {tr === "flash" ? <AbsoluteFill style={{ background: "#fff", opacity: interpolate(frame, [0, 2, 7], [0.9, 0.9, 0], { extrapolateRight: "clamp" }) }} /> : null}
     </AbsoluteFill>
