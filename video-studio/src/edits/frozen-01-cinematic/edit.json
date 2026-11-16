@@ -358,7 +358,7 @@
     }
    ],
    "composite": {
-    "plate": "generated/frozen-01-cinematic/price-counter.png",
+    "plate": "generated/frozen-01-cinematic/price-counter-b.png",
     "dof": 7,
     "plateTint": "linear-gradient(180deg, rgba(120,60,20,0.25) 0%, rgba(20,10,5,0.5) 100%)",
     "plateBrightness": 0.85,
@@ -393,7 +393,7 @@
     }
    ],
    "composite": {
-    "plate": "generated/frozen-01-cinematic/price-counter.png",
+    "plate": "generated/frozen-01-cinematic/price-counter-b.png",
     "dof": 7,
     "plateTint": "linear-gradient(180deg, rgba(120,60,20,0.25) 0%, rgba(20,10,5,0.5) 100%)",
     "plateBrightness": 0.85,
@@ -442,7 +442,7 @@
     }
    ],
    "composite": {
-    "plate": "generated/frozen-01-cinematic/price-counter.png",
+    "plate": "generated/frozen-01-cinematic/price-counter-b.png",
     "dof": 7,
     "plateTint": "linear-gradient(180deg, rgba(120,60,20,0.25) 0%, rgba(20,10,5,0.5) 100%)",
     "plateBrightness": 0.85,

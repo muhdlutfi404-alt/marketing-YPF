@@ -50,6 +50,9 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     so = ort.SessionOptions(); so.intra_op_num_threads = 4
+    # fixed-size inputs: no growing memory arena (prevents RAM creeping up over thousands of frames)
+    so.enable_cpu_mem_arena = False
+    so.enable_mem_pattern = False
     modnet = ort.InferenceSession(str(ROOT / ".models/modnet/model.onnx"), so, providers=["CPUExecutionProvider"])
     biref = ort.InferenceSession(str(ROOT / ".models/birefnet/model.onnx"), so, providers=["CPUExecutionProvider"])
     mh = 512; mw = int(round(W * mh / H / 32) * 32)

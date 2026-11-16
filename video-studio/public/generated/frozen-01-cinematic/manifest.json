@@ -1,24 +1,86 @@
 {
- "hook-frost": {
-  "file": "generated/frozen-01-cinematic/hook-frost.png",
-  "prompt": "cinematic empty dark room with frosted stainless steel walls, cold blue backlight rays through thin fog, tiny ice crystals floating, deep shadows, moody, shallow depth of field, anamorphic film still",
-  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
-  "seed": 11,
-  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
-  "license": "CreativeML OpenRAIL-M",
-  "kind": "AI-generated background (supporting visual, not real footage)",
-  "created": "2026-11-16T17:42:47",
-  "reviewed": false
- },
- "brand-glow": {
-  "file": "generated/frozen-01-cinematic/brand-glow.png",
-  "prompt": "cinematic empty dark studio, cold blue fog low on the floor, warm golden light glowing softly from behind, elegant, shallow depth of field, film still",
-  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
-  "seed": 5,
-  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
-  "license": "CreativeML OpenRAIL-M",
-  "kind": "AI-generated background (supporting visual, not real footage)",
-  "created": "2026-11-16T17:49:29",
-  "reviewed": false
- }
+  "hook-frost": {
+    "file": "generated/frozen-01-cinematic/hook-frost.png",
+    "prompt": "cinematic empty dark room with frosted stainless steel walls, cold blue backlight rays through thin fog, tiny ice crystals floating, deep shadows, moody, shallow depth of field, anamorphic film still",
+    "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+    "seed": 11,
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "license": "CreativeML OpenRAIL-M",
+    "kind": "AI-generated background (supporting visual, not real footage)",
+    "created": "2026-11-16T17:42:47",
+    "reviewed": true,
+    "reviewNote": "APPROVED: frosted surface, cold fog, light; no people/food/products/text (2026-11-16T18:22)"
+  },
+  "brand-glow": {
+    "file": "generated/frozen-01-cinematic/brand-glow.png",
+    "prompt": "cinematic empty dark studio, cold blue fog low on the floor, warm golden light glowing softly from behind, elegant, shallow depth of field, film still",
+    "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+    "seed": 5,
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "license": "CreativeML OpenRAIL-M",
+    "kind": "AI-generated background (supporting visual, not real footage)",
+    "created": "2026-11-16T17:49:29",
+    "reviewed": true,
+    "reviewNote": "APPROVED: plain textured wall under spotlight; no people/food/products/text (quality to judge in composite) (2026-11-16T18:22)"
+  },
+  "kitchen-bokeh": {
+    "file": "generated/frozen-01-cinematic/kitchen-bokeh.png",
+    "prompt": "completely out of focus warm kitchen interior, soft golden bokeh lights, cozy evening atmosphere, extremely shallow depth of field, cinematic",
+    "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+    "seed": 3,
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "license": "CreativeML OpenRAIL-M",
+    "kind": "AI-generated background (supporting visual, not real footage)",
+    "created": "2026-11-16T17:58:34",
+    "reviewed": true,
+    "reviewNote": "APPROVED: generic kitchen with pendant lamps, used blurred behind cards; small decorative figurine only; no people/food/products/text (2026-11-16T18:22)"
+  },
+  "studio-teal": {
+    "file": "generated/frozen-01-cinematic/studio-teal.png",
+    "prompt": "minimal dark teal seamless studio backdrop, soft circular spotlight glow on the wall, subtle gradient, clean, cinematic lighting",
+    "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+    "seed": 21,
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "license": "CreativeML OpenRAIL-M",
+    "kind": "AI-generated background (supporting visual, not real footage)",
+    "created": "2026-11-16T18:06:42",
+    "reviewed": true,
+    "reviewNote": "APPROVED: teal studio wall, wooden floor, pendant lamps; no people/food/products/text (2026-11-16T18:22)"
+  },
+  "price-counter": {
+    "file": "generated/frozen-01-cinematic/price-counter.png",
+    "prompt": "wide shot of a dark moody empty room, a warm orange spotlight cone falling from above, the top edge of an empty dark wooden table visible across the bottom third of the frame, deep perspective, soft bokeh in the dark background, cinematic film still",
+    "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+    "seed": 31,
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "license": "CreativeML OpenRAIL-M",
+    "kind": "AI-generated background (supporting visual, not real footage)",
+    "created": "2026-11-16T18:26:20",
+    "reviewed": false,
+    "reviewNote": "REJECTED: seed 31: empty room with an orange traffic cone — distracting object (2026-11-16T18:30)"
+  },
+  "abstract-navy": {
+    "file": "generated/frozen-01-cinematic/abstract-navy.png",
+    "prompt": "abstract dark navy background with soft blue light streaks and fine glowing particles, cinematic, minimal, elegant",
+    "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+    "seed": 4,
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "license": "CreativeML OpenRAIL-M",
+    "kind": "AI-generated background (supporting visual, not real footage)",
+    "created": "2026-11-16T18:21:56",
+    "reviewed": true,
+    "reviewNote": "APPROVED: abstract blue light and particles; nothing photoreal (2026-11-16T18:22)"
+  },
+  "price-counter-b": {
+    "file": "generated/frozen-01-cinematic/price-counter-b.png",
+    "prompt": "wide shot of a dark moody empty room, a warm orange spotlight cone falling from above, the top edge of an empty dark wooden table visible across the bottom third of the frame, deep perspective, soft bokeh in the dark background, cinematic film still",
+    "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+    "seed": 77,
+    "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+    "license": "CreativeML OpenRAIL-M",
+    "kind": "AI-generated background (supporting visual, not real footage)",
+    "created": "2026-11-16T18:30:01",
+    "reviewed": true,
+    "reviewNote": "APPROVED: neutral grey studio with perspective floor; no people/food/products/text (2026-11-16T18:30)"
+  }
 }
