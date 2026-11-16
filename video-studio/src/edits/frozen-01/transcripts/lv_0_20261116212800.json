@@ -1,0 +1,1580 @@
+{
+ "clip": "lv_0_20261116212800",
+ "source": "whisper",
+ "language": "ms",
+ "model": "large-v3",
+ "dialectPrompt": true,
+ "createdAt": "2026-11-16T13:58:09",
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 7.11,
+   "text": "Adat saya awak jumpa perut, beli perut, ataupun awak beli tu, awak jenis pahit, ataupun rebus tu payah nak rebuk.",
+   "words": [
+    {
+     "text": " Adat",
+     "start": 0.0,
+     "end": 0.12,
+     "prob": 0.087
+    },
+    {
+     "text": " saya",
+     "start": 0.12,
+     "end": 0.26,
+     "prob": 0.877
+    },
+    {
+     "text": " awak",
+     "start": 0.26,
+     "end": 0.44,
+     "prob": 0.48
+    },
+    {
+     "text": " jumpa",
+     "start": 0.44,
+     "end": 0.86,
+     "prob": 0.77
+    },
+    {
+     "text": " perut,",
+     "start": 0.86,
+     "end": 1.04,
+     "prob": 0.941
+    },
+    {
+     "text": " beli",
+     "start": 1.12,
+     "end": 1.32,
+     "prob": 0.984
+    },
+    {
+     "text": " perut,",
+     "start": 1.32,
+     "end": 1.64,
+     "prob": 0.996
+    },
+    {
+     "text": " ataupun",
+     "start": 1.66,
+     "end": 2.0,
+     "prob": 0.932
+    },
+    {
+     "text": " awak",
+     "start": 2.0,
+     "end": 2.74,
+     "prob": 0.891
+    },
+    {
+     "text": " beli",
+     "start": 2.74,
+     "end": 3.08,
+     "prob": 0.996
+    },
+    {
+     "text": " tu,",
+     "start": 3.08,
+     "end": 3.24,
+     "prob": 0.717
+    },
+    {
+     "text": " awak",
+     "start": 3.32,
+     "end": 3.62,
+     "prob": 0.249
+    },
+    {
+     "text": " jenis",
+     "start": 3.62,
+     "end": 3.88,
+     "prob": 0.969
+    },
+    {
+     "text": " pahit,",
+     "start": 3.88,
+     "end": 4.2,
+     "prob": 0.955
+    },
+    {
+     "text": " ataupun",
+     "start": 4.47,
+     "end": 5.51,
+     "prob": 0.996
+    },
+    {
+     "text": " rebus",
+     "start": 5.51,
+     "end": 6.11,
+     "prob": 0.462
+    },
+    {
+     "text": " tu",
+     "start": 6.11,
+     "end": 6.25,
+     "prob": 0.992
+    },
+    {
+     "text": " payah",
+     "start": 6.25,
+     "end": 6.53,
+     "prob": 0.941
+    },
+    {
+     "text": " nak",
+     "start": 6.53,
+     "end": 6.67,
+     "prob": 0.997
+    },
+    {
+     "text": " rebuk.",
+     "start": 6.67,
+     "end": 7.11,
+     "prob": 0.649
+    }
+   ]
+  },
+  {
+   "start": 7.67,
+   "end": 9.81,
+   "text": "Sini ada perjelasan saya.",
+   "words": [
+    {
+     "text": " Sini",
+     "start": 7.67,
+     "end": 8.15,
+     "prob": 0.771
+    },
+    {
+     "text": " ada",
+     "start": 8.15,
+     "end": 8.35,
+     "prob": 0.987
+    },
+    {
+     "text": " perjelasan",
+     "start": 8.35,
+     "end": 9.65,
+     "prob": 0.438
+    },
+    {
+     "text": " saya.",
+     "start": 9.65,
+     "end": 9.81,
+     "prob": 0.986
+    }
+   ]
+  },
+  {
+   "start": 10.59,
+   "end": 13.79,
+   "text": "Iaitu awak kena ambil perut muda by Ofol ni.",
+   "words": [
+    {
+     "text": " Iaitu",
+     "start": 10.59,
+     "end": 11.07,
+     "prob": 0.982
+    },
+    {
+     "text": " awak",
+     "start": 11.07,
+     "end": 11.23,
+     "prob": 0.896
+    },
+    {
+     "text": " kena",
+     "start": 11.23,
+     "end": 11.49,
+     "prob": 1.0
+    },
+    {
+     "text": " ambil",
+     "start": 11.49,
+     "end": 11.75,
+     "prob": 0.977
+    },
+    {
+     "text": " perut",
+     "start": 11.75,
+     "end": 12.07,
+     "prob": 0.997
+    },
+    {
+     "text": " muda",
+     "start": 12.07,
+     "end": 12.41,
+     "prob": 0.989
+    },
+    {
+     "text": " by",
+     "start": 12.41,
+     "end": 12.63,
+     "prob": 0.847
+    },
+    {
+     "text": " Ofol",
+     "start": 12.63,
+     "end": 13.57,
+     "prob": 0.676
+    },
+    {
+     "text": " ni.",
+     "start": 13.57,
+     "end": 13.79,
+     "prob": 0.857
+    }
+   ]
+  },
+  {
+   "start": 14.13,
+   "end": 15.83,
+   "text": "Brand Ofol ASP ni.",
+   "words": [
+    {
+     "text": " Brand",
+     "start": 14.13,
+     "end": 14.61,
+     "prob": 0.716
+    },
+    {
+     "text": " Ofol",
+     "start": 14.61,
+     "end": 15.07,
+     "prob": 0.996
+    },
+    {
+     "text": " ASP",
+     "start": 15.07,
+     "end": 15.49,
+     "prob": 0.872
+    },
+    {
+     "text": " ni.",
+     "start": 15.49,
+     "end": 15.83,
+     "prob": 0.999
+    }
+   ]
+  },
+  {
+   "start": 16.49,
+   "end": 19.09,
+   "text": "Perut ni, perut kategori hot grade A lah.",
+   "words": [
+    {
+     "text": " Perut",
+     "start": 16.49,
+     "end": 16.97,
+     "prob": 0.999
+    },
+    {
+     "text": " ni,",
+     "start": 16.97,
+     "end": 17.19,
+     "prob": 1.0
+    },
+    {
+     "text": " perut",
+     "start": 17.23,
+     "end": 17.61,
+     "prob": 0.999
+    },
+    {
+     "text": " kategori",
+     "start": 17.61,
+     "end": 18.17,
+     "prob": 0.991
+    },
+    {
+     "text": " hot",
+     "start": 18.17,
+     "end": 18.35,
+     "prob": 0.594
+    },
+    {
+     "text": " grade",
+     "start": 18.35,
+     "end": 18.63,
+     "prob": 0.987
+    },
+    {
+     "text": " A",
+     "start": 18.63,
+     "end": 18.93,
+     "prob": 0.994
+    },
+    {
+     "text": " lah.",
+     "start": 18.93,
+     "end": 19.09,
+     "prob": 0.989
+    }
+   ]
+  },
+  {
+   "start": 19.44,
+   "end": 24.67,
+   "text": "Kalau nak buat sup kor, nak jual minceluk kor, garp kor kor, ambil perut berang ni.",
+   "words": [
+    {
+     "text": " Kalau",
+     "start": 19.44,
+     "end": 19.84,
+     "prob": 0.999
+    },
+    {
+     "text": " nak",
+     "start": 19.84,
+     "end": 20.1,
+     "prob": 0.743
+    },
+    {
+     "text": " buat",
+     "start": 20.1,
+     "end": 20.28,
+     "prob": 0.515
+    },
+    {
+     "text": " sup",
+     "start": 20.28,
+     "end": 20.6,
+     "prob": 0.447
+    },
+    {
+     "text": " kor,",
+     "start": 20.6,
+     "end": 20.84,
+     "prob": 0.342
+    },
+    {
+     "text": " nak",
+     "start": 20.92,
+     "end": 21.06,
+     "prob": 0.999
+    },
+    {
+     "text": " jual",
+     "start": 21.06,
+     "end": 21.28,
+     "prob": 0.998
+    },
+    {
+     "text": " minceluk",
+     "start": 21.28,
+     "end": 21.8,
+     "prob": 0.62
+    },
+    {
+     "text": " kor,",
+     "start": 21.8,
+     "end": 21.96,
+     "prob": 0.924
+    },
+    {
+     "text": " garp",
+     "start": 22.0,
+     "end": 22.26,
+     "prob": 0.401
+    },
+    {
+     "text": " kor",
+     "start": 22.26,
+     "end": 22.4,
+     "prob": 0.811
+    },
+    {
+     "text": " kor,",
+     "start": 22.4,
+     "end": 22.64,
+     "prob": 0.401
+    },
+    {
+     "text": " ambil",
+     "start": 22.68,
+     "end": 23.36,
+     "prob": 0.996
+    },
+    {
+     "text": " perut",
+     "start": 23.99,
+     "end": 24.33,
+     "prob": 1.0
+    },
+    {
+     "text": " berang",
+     "start": 24.33,
+     "end": 24.57,
+     "prob": 0.427
+    },
+    {
+     "text": " ni.",
+     "start": 24.57,
+     "end": 24.67,
+     "prob": 0.812
+    }
+   ]
+  },
+  {
+   "start": 24.67,
+   "end": 31.1,
+   "text": "Perkara biasa dari perut muda ni, biasanya adalah kita payah nak jumpa perut yang konsisten ni",
+   "words": [
+    {
+     "text": " Perkara",
+     "start": 24.67,
+     "end": 25.41,
+     "prob": 0.795
+    },
+    {
+     "text": " biasa",
+     "start": 25.41,
+     "end": 25.87,
+     "prob": 0.841
+    },
+    {
+     "text": " dari",
+     "start": 25.87,
+     "end": 26.03,
+     "prob": 0.496
+    },
+    {
+     "text": " perut",
+     "start": 26.03,
+     "end": 26.23,
+     "prob": 0.746
+    },
+    {
+     "text": " muda",
+     "start": 26.23,
+     "end": 26.55,
+     "prob": 0.934
+    },
+    {
+     "text": " ni,",
+     "start": 26.55,
+     "end": 26.71,
+     "prob": 0.725
+    },
+    {
+     "text": " biasanya",
+     "start": 26.75,
+     "end": 27.21,
+     "prob": 0.945
+    },
+    {
+     "text": " adalah",
+     "start": 27.21,
+     "end": 27.67,
+     "prob": 0.892
+    },
+    {
+     "text": " kita",
+     "start": 27.67,
+     "end": 28.33,
+     "prob": 0.797
+    },
+    {
+     "text": " payah",
+     "start": 28.44,
+     "end": 29.1,
+     "prob": 0.791
+    },
+    {
+     "text": " nak",
+     "start": 29.1,
+     "end": 29.24,
+     "prob": 0.971
+    },
+    {
+     "text": " jumpa",
+     "start": 29.24,
+     "end": 29.64,
+     "prob": 0.668
+    },
+    {
+     "text": " perut",
+     "start": 29.64,
+     "end": 30.06,
+     "prob": 0.995
+    },
+    {
+     "text": " yang",
+     "start": 30.06,
+     "end": 30.18,
+     "prob": 0.67
+    },
+    {
+     "text": " konsisten",
+     "start": 30.18,
+     "end": 30.8,
+     "prob": 0.922
+    },
+    {
+     "text": " ni",
+     "start": 30.8,
+     "end": 31.1,
+     "prob": 0.187
+    }
+   ]
+  },
+  {
+   "start": 31.1,
+   "end": 35.78,
+   "text": "Perut yang konsisten ni, konsisten dari segi rasa, tak pahit, muda lembut",
+   "words": [
+    {
+     "text": " Perut",
+     "start": 31.1,
+     "end": 31.34,
+     "prob": 0.709
+    },
+    {
+     "text": " yang",
+     "start": 31.34,
+     "end": 31.46,
+     "prob": 0.852
+    },
+    {
+     "text": " konsisten",
+     "start": 31.46,
+     "end": 31.92,
+     "prob": 0.995
+    },
+    {
+     "text": " ni,",
+     "start": 31.92,
+     "end": 32.18,
+     "prob": 0.969
+    },
+    {
+     "text": " konsisten",
+     "start": 32.18,
+     "end": 32.92,
+     "prob": 0.958
+    },
+    {
+     "text": " dari",
+     "start": 32.92,
+     "end": 33.18,
+     "prob": 0.734
+    },
+    {
+     "text": " segi",
+     "start": 33.18,
+     "end": 33.52,
+     "prob": 0.998
+    },
+    {
+     "text": " rasa,",
+     "start": 33.52,
+     "end": 33.88,
+     "prob": 0.731
+    },
+    {
+     "text": " tak",
+     "start": 34.12,
+     "end": 34.4,
+     "prob": 0.948
+    },
+    {
+     "text": " pahit,",
+     "start": 34.4,
+     "end": 34.9,
+     "prob": 0.98
+    },
+    {
+     "text": " muda",
+     "start": 35.02,
+     "end": 35.42,
+     "prob": 0.653
+    },
+    {
+     "text": " lembut",
+     "start": 35.42,
+     "end": 35.78,
+     "prob": 0.88
+    }
+   ]
+  },
+  {
+   "start": 37.33,
+   "end": 41.34,
+   "text": "Banyak lah orang nak cari perut muda-perut muda ni, orang ramah punya agar micheluk",
+   "words": [
+    {
+     "text": " Banyak",
+     "start": 37.33,
+     "end": 37.85,
+     "prob": 0.932
+    },
+    {
+     "text": " lah",
+     "start": 37.85,
+     "end": 37.99,
+     "prob": 0.575
+    },
+    {
+     "text": " orang",
+     "start": 37.99,
+     "end": 38.11,
+     "prob": 0.947
+    },
+    {
+     "text": " nak",
+     "start": 38.11,
+     "end": 38.27,
+     "prob": 0.544
+    },
+    {
+     "text": " cari",
+     "start": 38.27,
+     "end": 38.49,
+     "prob": 0.999
+    },
+    {
+     "text": " perut",
+     "start": 38.49,
+     "end": 38.61,
+     "prob": 0.991
+    },
+    {
+     "text": " muda",
+     "start": 38.61,
+     "end": 38.87,
+     "prob": 0.997
+    },
+    {
+     "text": "-perut",
+     "start": 38.87,
+     "end": 39.01,
+     "prob": 0.823
+    },
+    {
+     "text": " muda",
+     "start": 39.01,
+     "end": 39.39,
+     "prob": 0.953
+    },
+    {
+     "text": " ni,",
+     "start": 39.39,
+     "end": 39.59,
+     "prob": 0.689
+    },
+    {
+     "text": " orang",
+     "start": 39.71,
+     "end": 40.21,
+     "prob": 0.374
+    },
+    {
+     "text": " ramah",
+     "start": 40.32,
+     "end": 40.7,
+     "prob": 0.741
+    },
+    {
+     "text": " punya",
+     "start": 40.7,
+     "end": 40.86,
+     "prob": 0.595
+    },
+    {
+     "text": " agar",
+     "start": 40.86,
+     "end": 41.08,
+     "prob": 0.577
+    },
+    {
+     "text": " micheluk",
+     "start": 41.08,
+     "end": 41.34,
+     "prob": 0.649
+    }
+   ]
+  },
+  {
+   "start": 41.34,
+   "end": 45.42,
+   "text": "Di Kelantan ni, sohulah, micheluk ni, sohul dengan micheluk",
+   "words": [
+    {
+     "text": " Di",
+     "start": 41.34,
+     "end": 41.5,
+     "prob": 0.091
+    },
+    {
+     "text": " Kelantan",
+     "start": 41.5,
+     "end": 41.88,
+     "prob": 0.893
+    },
+    {
+     "text": " ni,",
+     "start": 41.88,
+     "end": 42.02,
+     "prob": 0.997
+    },
+    {
+     "text": " sohulah,",
+     "start": 42.06,
+     "end": 42.72,
+     "prob": 0.405
+    },
+    {
+     "text": " micheluk",
+     "start": 42.74,
+     "end": 43.84,
+     "prob": 0.81
+    },
+    {
+     "text": " ni,",
+     "start": 44.06,
+     "end": 44.24,
+     "prob": 0.938
+    },
+    {
+     "text": " sohul",
+     "start": 44.26,
+     "end": 44.86,
+     "prob": 0.951
+    },
+    {
+     "text": " dengan",
+     "start": 44.94,
+     "end": 45.02,
+     "prob": 0.469
+    },
+    {
+     "text": " micheluk",
+     "start": 45.02,
+     "end": 45.42,
+     "prob": 1.0
+    }
+   ]
+  },
+  {
+   "start": 45.42,
+   "end": 48.04,
+   "text": "Jadi orang nak cari perut muda, perut muda kenapa kalau nak tahu",
+   "words": [
+    {
+     "text": " Jadi",
+     "start": 45.42,
+     "end": 45.62,
+     "prob": 0.969
+    },
+    {
+     "text": " orang",
+     "start": 45.62,
+     "end": 45.8,
+     "prob": 0.95
+    },
+    {
+     "text": " nak",
+     "start": 45.8,
+     "end": 45.92,
+     "prob": 0.989
+    },
+    {
+     "text": " cari",
+     "start": 45.92,
+     "end": 46.1,
+     "prob": 1.0
+    },
+    {
+     "text": " perut",
+     "start": 46.1,
+     "end": 46.26,
+     "prob": 0.999
+    },
+    {
+     "text": " muda,",
+     "start": 46.26,
+     "end": 46.72,
+     "prob": 1.0
+    },
+    {
+     "text": " perut",
+     "start": 46.72,
+     "end": 46.9,
+     "prob": 0.99
+    },
+    {
+     "text": " muda",
+     "start": 46.9,
+     "end": 47.14,
+     "prob": 1.0
+    },
+    {
+     "text": " kenapa",
+     "start": 47.14,
+     "end": 47.36,
+     "prob": 0.68
+    },
+    {
+     "text": " kalau",
+     "start": 47.36,
+     "end": 47.6,
+     "prob": 0.805
+    },
+    {
+     "text": " nak",
+     "start": 47.6,
+     "end": 47.76,
+     "prob": 0.913
+    },
+    {
+     "text": " tahu",
+     "start": 47.76,
+     "end": 48.04,
+     "prob": 0.973
+    }
+   ]
+  },
+  {
+   "start": 48.04,
+   "end": 55.05,
+   "text": "Orang nak tahu perut muda yang boleh, yang konsisten, kualiti dia, rasa dia adalah perut muda brand awful ni",
+   "words": [
+    {
+     "text": " Orang",
+     "start": 48.04,
+     "end": 48.72,
+     "prob": 0.503
+    },
+    {
+     "text": " nak",
+     "start": 48.72,
+     "end": 48.8,
+     "prob": 0.904
+    },
+    {
+     "text": " tahu",
+     "start": 48.8,
+     "end": 48.94,
+     "prob": 0.998
+    },
+    {
+     "text": " perut",
+     "start": 48.94,
+     "end": 49.1,
+     "prob": 0.998
+    },
+    {
+     "text": " muda",
+     "start": 49.1,
+     "end": 49.38,
+     "prob": 1.0
+    },
+    {
+     "text": " yang",
+     "start": 49.38,
+     "end": 49.44,
+     "prob": 0.81
+    },
+    {
+     "text": " boleh,",
+     "start": 49.44,
+     "end": 49.74,
+     "prob": 0.759
+    },
+    {
+     "text": " yang",
+     "start": 49.94,
+     "end": 50.26,
+     "prob": 0.47
+    },
+    {
+     "text": " konsisten,",
+     "start": 50.47,
+     "end": 51.09,
+     "prob": 0.998
+    },
+    {
+     "text": " kualiti",
+     "start": 51.31,
+     "end": 52.19,
+     "prob": 0.975
+    },
+    {
+     "text": " dia,",
+     "start": 52.19,
+     "end": 52.47,
+     "prob": 0.993
+    },
+    {
+     "text": " rasa",
+     "start": 52.61,
+     "end": 52.85,
+     "prob": 0.99
+    },
+    {
+     "text": " dia",
+     "start": 52.85,
+     "end": 53.15,
+     "prob": 1.0
+    },
+    {
+     "text": " adalah",
+     "start": 53.15,
+     "end": 53.61,
+     "prob": 0.694
+    },
+    {
+     "text": " perut",
+     "start": 53.61,
+     "end": 53.93,
+     "prob": 1.0
+    },
+    {
+     "text": " muda",
+     "start": 53.93,
+     "end": 54.25,
+     "prob": 1.0
+    },
+    {
+     "text": " brand",
+     "start": 54.25,
+     "end": 54.43,
+     "prob": 0.906
+    },
+    {
+     "text": " awful",
+     "start": 54.43,
+     "end": 54.73,
+     "prob": 0.628
+    },
+    {
+     "text": " ni",
+     "start": 54.73,
+     "end": 55.05,
+     "prob": 0.999
+    }
+   ]
+  },
+  {
+   "start": 55.23,
+   "end": 57.17,
+   "text": "Haa, perut muda ni, perut muda",
+   "words": [
+    {
+     "text": " Haa,",
+     "start": 55.23,
+     "end": 55.81,
+     "prob": 0.539
+    },
+    {
+     "text": " perut",
+     "start": 55.93,
+     "end": 56.27,
+     "prob": 0.861
+    },
+    {
+     "text": " muda",
+     "start": 56.27,
+     "end": 56.59,
+     "prob": 0.983
+    },
+    {
+     "text": " ni,",
+     "start": 56.59,
+     "end": 56.71,
+     "prob": 0.993
+    },
+    {
+     "text": " perut",
+     "start": 56.75,
+     "end": 56.83,
+     "prob": 0.995
+    },
+    {
+     "text": " muda",
+     "start": 56.83,
+     "end": 57.17,
+     "prob": 0.997
+    }
+   ]
+  },
+  {
+   "start": 57.17,
+   "end": 59.61,
+   "text": "Kelah kategori gred A lah",
+   "words": [
+    {
+     "text": " Kelah",
+     "start": 57.17,
+     "end": 58.45,
+     "prob": 0.361
+    },
+    {
+     "text": " kategori",
+     "start": 58.45,
+     "end": 58.91,
+     "prob": 0.996
+    },
+    {
+     "text": " gred",
+     "start": 58.91,
+     "end": 59.19,
+     "prob": 0.069
+    },
+    {
+     "text": " A",
+     "start": 59.19,
+     "end": 59.41,
+     "prob": 0.939
+    },
+    {
+     "text": " lah",
+     "start": 59.41,
+     "end": 59.61,
+     "prob": 0.919
+    }
+   ]
+  },
+  {
+   "start": 59.61,
+   "end": 61.02,
+   "text": "Gred A ni, yang",
+   "words": [
+    {
+     "text": " Gred",
+     "start": 59.61,
+     "end": 60.07,
+     "prob": 0.97
+    },
+    {
+     "text": " A",
+     "start": 60.38,
+     "end": 60.62,
+     "prob": 1.0
+    },
+    {
+     "text": " ni,",
+     "start": 60.62,
+     "end": 60.82,
+     "prob": 1.0
+    },
+    {
+     "text": " yang",
+     "start": 60.86,
+     "end": 61.02,
+     "prob": 0.802
+    }
+   ]
+  },
+  {
+   "start": 61.02,
+   "end": 63.1,
+   "text": "Maksudnya, dia tak pahit",
+   "words": [
+    {
+     "text": " Maksudnya,",
+     "start": 61.02,
+     "end": 61.96,
+     "prob": 0.893
+    },
+    {
+     "text": " dia",
+     "start": 62.02,
+     "end": 62.54,
+     "prob": 0.911
+    },
+    {
+     "text": " tak",
+     "start": 62.54,
+     "end": 62.78,
+     "prob": 0.998
+    },
+    {
+     "text": " pahit",
+     "start": 62.78,
+     "end": 63.1,
+     "prob": 0.987
+    }
+   ]
+  },
+  {
+   "start": 63.1,
+   "end": 66.2,
+   "text": "Mudah pohu, dia rasa pun sedap",
+   "words": [
+    {
+     "text": " Mudah",
+     "start": 63.1,
+     "end": 63.78,
+     "prob": 0.891
+    },
+    {
+     "text": " pohu,",
+     "start": 63.78,
+     "end": 64.08,
+     "prob": 0.625
+    },
+    {
+     "text": " dia",
+     "start": 64.18,
+     "end": 64.58,
+     "prob": 0.999
+    },
+    {
+     "text": " rasa",
+     "start": 65.08,
+     "end": 65.66,
+     "prob": 0.999
+    },
+    {
+     "text": " pun",
+     "start": 65.66,
+     "end": 65.86,
+     "prob": 0.917
+    },
+    {
+     "text": " sedap",
+     "start": 65.86,
+     "end": 66.2,
+     "prob": 0.98
+    }
+   ]
+  },
+  {
+   "start": 66.2,
+   "end": 68.32,
+   "text": "Haa, harga lo ni, kita jual perut ni",
+   "words": [
+    {
+     "text": " Haa,",
+     "start": 66.2,
+     "end": 66.64,
+     "prob": 0.881
+    },
+    {
+     "text": " harga",
+     "start": 66.64,
+     "end": 67.08,
+     "prob": 0.984
+    },
+    {
+     "text": " lo",
+     "start": 67.08,
+     "end": 67.22,
+     "prob": 0.141
+    },
+    {
+     "text": " ni,",
+     "start": 67.22,
+     "end": 67.36,
+     "prob": 1.0
+    },
+    {
+     "text": " kita",
+     "start": 67.38,
+     "end": 67.54,
+     "prob": 0.999
+    },
+    {
+     "text": " jual",
+     "start": 67.54,
+     "end": 67.9,
+     "prob": 0.999
+    },
+    {
+     "text": " perut",
+     "start": 67.9,
+     "end": 68.1,
+     "prob": 0.919
+    },
+    {
+     "text": " ni",
+     "start": 68.1,
+     "end": 68.32,
+     "prob": 0.998
+    }
+   ]
+  },
+  {
+   "start": 68.32,
+   "end": 69.36,
+   "text": "Adalah dengan harga",
+   "words": [
+    {
+     "text": " Adalah",
+     "start": 68.32,
+     "end": 68.64,
+     "prob": 0.977
+    },
+    {
+     "text": " dengan",
+     "start": 68.64,
+     "end": 68.86,
+     "prob": 0.893
+    },
+    {
+     "text": " harga",
+     "start": 68.86,
+     "end": 69.36,
+     "prob": 1.0
+    }
+   ]
+  },
+  {
+   "start": 70.6,
+   "end": 72.32,
+   "text": "RM21 sahaja 1kg",
+   "words": [
+    {
+     "text": " RM21",
+     "start": 70.6,
+     "end": 71.28,
+     "prob": 0.727
+    },
+    {
+     "text": " sahaja",
+     "start": 71.28,
+     "end": 71.9,
+     "prob": 0.642
+    },
+    {
+     "text": " 1kg",
+     "start": 71.9,
+     "end": 72.32,
+     "prob": 0.641
+    }
+   ]
+  },
+  {
+   "start": 72.32,
+   "end": 74.56,
+   "text": "Dia bawa kotak-kotak ni je",
+   "words": [
+    {
+     "text": " Dia",
+     "start": 72.32,
+     "end": 73.06,
+     "prob": 0.805
+    },
+    {
+     "text": " bawa",
+     "start": 73.3,
+     "end": 73.54,
+     "prob": 0.738
+    },
+    {
+     "text": " kotak",
+     "start": 73.54,
+     "end": 73.94,
+     "prob": 0.976
+    },
+    {
+     "text": "-kotak",
+     "start": 73.94,
+     "end": 74.36,
+     "prob": 0.853
+    },
+    {
+     "text": " ni",
+     "start": 74.36,
+     "end": 74.46,
+     "prob": 0.991
+    },
+    {
+     "text": " je",
+     "start": 74.46,
+     "end": 74.56,
+     "prob": 0.275
+    }
+   ]
+  },
+  {
+   "start": 74.56,
+   "end": 76.6,
+   "text": "10kg lah, 10kg ni",
+   "words": [
+    {
+     "text": " 10kg",
+     "start": 74.56,
+     "end": 75.02,
+     "prob": 0.675
+    },
+    {
+     "text": " lah,",
+     "start": 75.02,
+     "end": 75.24,
+     "prob": 0.99
+    },
+    {
+     "text": " 10kg",
+     "start": 75.26,
+     "end": 76.26,
+     "prob": 0.964
+    },
+    {
+     "text": " ni",
+     "start": 76.26,
+     "end": 76.6,
+     "prob": 1.0
+    }
+   ]
+  },
+  {
+   "start": 76.6,
+   "end": 78.12,
+   "text": "RM200 sahaja 1kotak",
+   "words": [
+    {
+     "text": " RM200",
+     "start": 76.6,
+     "end": 77.12,
+     "prob": 0.954
+    },
+    {
+     "text": " sahaja",
+     "start": 77.12,
+     "end": 77.58,
+     "prob": 0.998
+    },
+    {
+     "text": " 1kotak",
+     "start": 77.58,
+     "end": 78.12,
+     "prob": 0.809
+    }
+   ]
+  },
+  {
+   "start": 78.37,
+   "end": 80.33,
+   "text": "Haa, dia jatuhkan RM20 sahaja 1kg",
+   "words": [
+    {
+     "text": " Haa,",
+     "start": 78.37,
+     "end": 78.79,
+     "prob": 0.797
+    },
+    {
+     "text": " dia",
+     "start": 78.83,
+     "end": 78.91,
+     "prob": 0.491
+    },
+    {
+     "text": " jatuhkan",
+     "start": 78.91,
+     "end": 79.25,
+     "prob": 0.881
+    },
+    {
+     "text": " RM20",
+     "start": 79.25,
+     "end": 79.63,
+     "prob": 0.924
+    },
+    {
+     "text": " sahaja",
+     "start": 79.63,
+     "end": 79.97,
+     "prob": 0.842
+    },
+    {
+     "text": " 1kg",
+     "start": 79.97,
+     "end": 80.33,
+     "prob": 0.974
+    }
+   ]
+  },
+  {
+   "start": 80.33,
+   "end": 82.43,
+   "text": "Haa, bagi siapa-siapa berminat, boleh",
+   "words": [
+    {
+     "text": " Haa,",
+     "start": 80.33,
+     "end": 80.97,
+     "prob": 0.847
+    },
+    {
+     "text": " bagi",
+     "start": 81.01,
+     "end": 81.31,
+     "prob": 1.0
+    },
+    {
+     "text": " siapa",
+     "start": 81.31,
+     "end": 81.49,
+     "prob": 0.979
+    },
+    {
+     "text": "-siapa",
+     "start": 81.49,
+     "end": 81.61,
+     "prob": 0.998
+    },
+    {
+     "text": " berminat,",
+     "start": 81.61,
+     "end": 82.09,
+     "prob": 0.889
+    },
+    {
+     "text": " boleh",
+     "start": 82.15,
+     "end": 82.43,
+     "prob": 0.999
+    }
+   ]
+  },
+  {
+   "start": 82.43,
+   "end": 84.11,
+   "text": "Mari di Apokcik Plaza dah",
+   "words": [
+    {
+     "text": " Mari",
+     "start": 82.43,
+     "end": 82.77,
+     "prob": 0.681
+    },
+    {
+     "text": " di",
+     "start": 82.77,
+     "end": 83.19,
+     "prob": 0.703
+    },
+    {
+     "text": " Apokcik",
+     "start": 83.19,
+     "end": 83.67,
+     "prob": 0.572
+    },
+    {
+     "text": " Plaza",
+     "start": 83.67,
+     "end": 83.83,
+     "prob": 0.098
+    },
+    {
+     "text": " dah",
+     "start": 83.83,
+     "end": 84.11,
+     "prob": 0.579
+    }
+   ]
+  },
+  {
+   "start": 84.19,
+   "end": 86.45,
+   "text": "Haa, kita antara bestseller",
+   "words": [
+    {
+     "text": " Haa,",
+     "start": 84.19,
+     "end": 84.87,
+     "prob": 0.928
+    },
+    {
+     "text": " kita",
+     "start": 84.87,
+     "end": 85.21,
+     "prob": 0.997
+    },
+    {
+     "text": " antara",
+     "start": 85.21,
+     "end": 86.01,
+     "prob": 0.948
+    },
+    {
+     "text": " bestseller",
+     "start": 86.01,
+     "end": 86.45,
+     "prob": 0.855
+    }
+   ]
+  },
+  {
+   "start": 86.45,
+   "end": 89.41,
+   "text": "Salah produk kita ni adalah buruk muda lah orang nombor 1 kali.",
+   "words": [
+    {
+     "text": " Salah",
+     "start": 86.45,
+     "end": 86.57,
+     "prob": 0.603
+    },
+    {
+     "text": " produk",
+     "start": 86.57,
+     "end": 86.73,
+     "prob": 0.813
+    },
+    {
+     "text": " kita",
+     "start": 86.73,
+     "end": 87.05,
+     "prob": 0.963
+    },
+    {
+     "text": " ni",
+     "start": 87.05,
+     "end": 87.21,
+     "prob": 0.963
+    },
+    {
+     "text": " adalah",
+     "start": 87.21,
+     "end": 87.41,
+     "prob": 0.968
+    },
+    {
+     "text": " buruk",
+     "start": 87.41,
+     "end": 87.85,
+     "prob": 0.931
+    },
+    {
+     "text": " muda",
+     "start": 87.85,
+     "end": 88.15,
+     "prob": 0.726
+    },
+    {
+     "text": " lah",
+     "start": 88.15,
+     "end": 88.19,
+     "prob": 0.978
+    },
+    {
+     "text": " orang",
+     "start": 88.19,
+     "end": 88.77,
+     "prob": 0.402
+    },
+    {
+     "text": " nombor",
+     "start": 88.77,
+     "end": 88.99,
+     "prob": 0.929
+    },
+    {
+     "text": " 1",
+     "start": 88.99,
+     "end": 89.07,
+     "prob": 0.554
+    },
+    {
+     "text": " kali.",
+     "start": 89.07,
+     "end": 89.41,
+     "prob": 0.986
+    }
+   ]
+  }
+ ]
+}
