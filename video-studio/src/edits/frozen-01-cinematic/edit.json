@@ -1,0 +1,729 @@
+{
+ "_readme": "EXPERIMENT — copy of the approved frozen-01 edit (same cut, audio, subtitles, prices). Visual treatment upgrade pending owner approval of PLAN.md. Never overwrite src/edits/frozen-01.",
+ "project": "frozen-01-cinematic",
+ "brand": "yapakcik-frozen",
+ "title": "EXPERIMENTAL cinematic compositing version of frozen-01 (approved original untouched)",
+ "shots": [
+  {
+   "id": "s1",
+   "label": "HOOK: problem",
+   "clip": "lv_0_20261116225603",
+   "in": 0,
+   "out": 7.25,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "push",
+     "scale": 1.06
+    },
+    {
+     "at": {
+      "quote": "beli perut"
+     },
+     "type": "punch-in",
+     "scale": 1.14
+    },
+    {
+     "at": {
+      "quote": "jenis pahit"
+     },
+     "type": "punch-in",
+     "scale": 1.26
+    },
+    {
+     "at": {
+      "quote": "rebus tu"
+     },
+     "type": "punch-out",
+     "scale": 1.08
+    },
+    {
+     "at": {
+      "quote": "payah nak empuk"
+     },
+     "type": "punch-in",
+     "scale": 1.24
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "label": "intro",
+   "clip": "lv_0_20261116225603",
+   "in": 7.6,
+   "out": 9.95,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.16,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "s3a",
+   "label": "solution",
+   "clip": "lv_0_20261116225603",
+   "in": 10.5,
+   "out": 15.9,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "zoom-in",
+     "scale": 1.12,
+     "duration": 3
+    },
+    {
+     "at": {
+      "quote": "Brand Offal Exp"
+     },
+     "type": "punch-in",
+     "scale": 1.22
+    }
+   ]
+  },
+  {
+   "id": "s3b",
+   "label": "gred A",
+   "clip": "lv_0_20261116225603",
+   "in": 16.4,
+   "out": 19.25,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.1,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "hok gred A"
+     },
+     "type": "punch-in",
+     "scale": 1.24
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "label": "use cases",
+   "clip": "lv_0_20261116225603",
+   "in": 19.35,
+   "out": 24.7,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "push",
+     "scale": 1.08
+    }
+   ],
+   "transition": {
+    "type": "zoom-punch",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "s5a",
+   "label": "pain",
+   "clip": "lv_0_20261116225603",
+   "in": 27.6,
+   "out": 31.0,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.18,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "konsisten",
+      "shot": "s5a"
+     },
+     "type": "punch-in",
+     "scale": 1.28
+    }
+   ]
+  },
+  {
+   "id": "s5b",
+   "label": "consistency",
+   "clip": "lv_0_20261116225603",
+   "in": 32.1,
+   "out": 35.9,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "zoom-out",
+     "scale": 1.0,
+     "duration": 2
+    }
+   ]
+  },
+  {
+   "id": "s6",
+   "label": "proof: gred A",
+   "clip": "lv_0_20261116225603",
+   "in": 57.15,
+   "out": 66.15,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "push",
+     "scale": 1.1
+    },
+    {
+     "at": {
+      "quote": "dia tak pahit"
+     },
+     "type": "punch-in",
+     "scale": 1.2
+    },
+    {
+     "at": {
+      "quote": "rasa pun sedap"
+     },
+     "type": "punch-in",
+     "scale": 1.26
+    }
+   ],
+   "transition": {
+    "type": "frost-dissolve",
+    "duration": 0.3
+   }
+  },
+  {
+   "id": "s7a",
+   "label": "price intro",
+   "clip": "lv_0_20261116225603",
+   "in": 66.15,
+   "out": 69.4,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.14,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "s7b",
+   "label": "retail price",
+   "clip": "lv_0_20261116225603",
+   "in": 70.5,
+   "out": 72.3,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.26,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "s8",
+   "label": "wholesale",
+   "clip": "lv_0_20261116225603",
+   "in": 72.3,
+   "out": 80.3,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "zoom-out",
+     "scale": 1.0,
+     "duration": 1.5
+    },
+    {
+     "at": {
+      "quote": "RM200 sahaja"
+     },
+     "type": "punch-in",
+     "scale": 1.2
+    },
+    {
+     "at": {
+      "quote": "RM20 sahaja"
+     },
+     "type": "punch-in",
+     "scale": 1.28
+    }
+   ]
+  },
+  {
+   "id": "s9",
+   "label": "CTA",
+   "clip": "lv_0_20261116225603",
+   "in": 80.3,
+   "out": 84.15,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.7
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "push",
+     "scale": 1.12
+    }
+   ],
+   "transition": {
+    "type": "flash",
+    "duration": 0.2
+   }
+  }
+ ],
+ "layers": [
+  {
+   "id": "kw-pahit",
+   "type": "keyword",
+   "at": {
+    "quote": "jenis pahit"
+   },
+   "duration": 1.4,
+   "source": "transcript",
+   "evidence": {
+    "quote": "jenis pahit"
+   },
+   "props": {
+    "text": "Pahit?",
+    "animation": "slam",
+    "position": "top",
+    "highlight": [
+     "pahit"
+    ]
+   }
+  },
+  {
+   "id": "kw-empuk",
+   "type": "keyword",
+   "at": {
+    "quote": "payah nak empuk"
+   },
+   "duration": 1.3,
+   "source": "transcript",
+   "evidence": {
+    "quote": "payah nak empuk"
+   },
+   "props": {
+    "text": "Payah nak empuk?",
+    "animation": "slam",
+    "position": "top",
+    "highlight": [
+     "empuk"
+    ]
+   }
+  },
+  {
+   "id": "name",
+   "type": "lowerThird",
+   "at": {
+    "quote": "Sini ada Ayoh Mad"
+   },
+   "duration": 2.2,
+   "source": "facts",
+   "evidence": {
+    "fact": "presenterName"
+   },
+   "props": {
+    "name": "Ayoh Mad",
+    "role": "YaPakCik Frozen"
+   }
+  },
+  {
+   "id": "chapter-brand",
+   "type": "chapter",
+   "at": {
+    "quote": "perut muda by Offal Exp"
+   },
+   "duration": 1.9,
+   "source": "transcript",
+   "evidence": {
+    "quote": "perut muda by Offal Exp"
+   },
+   "props": {
+    "kicker": "Perut muda",
+    "title": "Offal Exp",
+    "plate": "blur"
+   }
+  },
+  {
+   "id": "callout-box",
+   "type": "callout",
+   "at": {
+    "quote": "Brand Offal Exp"
+   },
+   "duration": 1.6,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Brand Offal Exp"
+   },
+   "props": {
+    "text": "Offal Exp",
+    "x": 0.5,
+    "y": 0.66,
+    "side": "right"
+   }
+  },
+  {
+   "id": "badge-gred",
+   "type": "badge",
+   "at": {
+    "quote": "hok gred A"
+   },
+   "duration": 1.5,
+   "source": "transcript",
+   "evidence": {
+    "quote": "kategori hok gred A"
+   },
+   "props": {
+    "text": "Gred A",
+    "icon": "star",
+    "position": "top-right"
+   }
+  },
+  {
+   "id": "broll-pot",
+   "type": "broll",
+   "at": {
+    "quote": "buat sup ke",
+    "offset": -0.1
+   },
+   "duration": 0.75,
+   "source": "design",
+   "props": {
+    "clip": "vid-20261116-wa0043",
+    "in": 0.6,
+    "focus": {
+     "x": 0.47,
+     "y": 0.5
+    },
+    "zooms": [
+     {
+      "at": 0,
+      "type": "punch-in",
+      "scale": 1.95,
+      "duration": 0.01
+     }
+    ],
+    "breathing": 0.04,
+    "volume": 0
+   }
+  },
+  {
+   "id": "kw-sup",
+   "type": "keyword",
+   "at": {
+    "quote": "buat sup ke"
+   },
+   "duration": 1.3,
+   "source": "transcript",
+   "evidence": {
+    "quote": "buat sup ke"
+   },
+   "props": {
+    "text": "Sup",
+    "animation": "pop",
+    "position": "upper"
+   }
+  },
+  {
+   "id": "broll-photo",
+   "type": "broll",
+   "at": {
+    "quote": "nak jual mee celup",
+    "offset": -0.1
+   },
+   "duration": 1.7,
+   "source": "design",
+   "props": {
+    "image": "footage/raw/frozen-01/IMG-20261116-WA0036.jpg",
+    "focus": {
+     "x": 0.4,
+     "y": 0.45
+    },
+    "zooms": [
+     {
+      "at": 0,
+      "type": "push",
+      "scale": 1.12
+     }
+    ]
+   }
+  },
+  {
+   "id": "kw-mee",
+   "type": "keyword",
+   "at": {
+    "quote": "mee celup ke"
+   },
+   "duration": 1.5,
+   "source": "transcript",
+   "evidence": {
+    "quote": "mee celup ke"
+   },
+   "props": {
+    "text": "Mee celup",
+    "animation": "pop",
+    "position": "upper"
+   }
+  },
+  {
+   "id": "kw-konsisten",
+   "type": "keyword",
+   "at": {
+    "quote": "konsisten ni"
+   },
+   "duration": 1.4,
+   "source": "transcript",
+   "evidence": {
+    "quote": "yang konsisten ni"
+   },
+   "props": {
+    "text": "Konsisten?",
+    "animation": "slam",
+    "position": "top"
+   }
+  },
+  {
+   "id": "stmt-konsisten",
+   "type": "statement",
+   "at": {
+    "quote": "konsisten dari segi rasa"
+   },
+   "duration": "quote",
+   "source": "transcript",
+   "evidence": {
+    "quote": "konsisten dari segi rasa, tak pahit, muda lembut"
+   },
+   "props": {
+    "kicker": "Perut muda Offal Exp",
+    "lines": [
+     "Konsisten rasa",
+     "Tak pahit",
+     "Muda lembut"
+    ],
+    "highlight": [
+     "konsisten",
+     "pahit",
+     "lembut"
+    ],
+    "plate": "blur"
+   }
+  },
+  {
+   "id": "steps-gred",
+   "type": "steps",
+   "at": {
+    "quote": "Gred A ni"
+   },
+   "duration": 7.4,
+   "source": "transcript",
+   "evidence": {
+    "quote": "dia tak pahit Mudah empuk, dia rasa pun sedap"
+   },
+   "props": {
+    "title": "Gred A",
+    "items": [
+     "Tak pahit",
+     "Mudah empuk",
+     "Rasa pun sedap"
+    ],
+    "revealQuotes": [
+     "dia tak pahit",
+     "Mudah empuk",
+     "rasa pun sedap"
+    ],
+    "position": "middle"
+   }
+  },
+  {
+   "id": "price-retail",
+   "type": "counter",
+   "at": {
+    "quote": "RM21 sahaja"
+   },
+   "duration": "quote",
+   "source": "facts",
+   "evidence": {
+    "fact": "priceRetail"
+   },
+   "props": {
+    "value": 21,
+    "prefix": "RM",
+    "suffix": "/ kg",
+    "label": "Harga runcit",
+    "fullscreen": true,
+    "plate": "blur",
+    "count": false
+   }
+  },
+  {
+   "id": "callout-10kg",
+   "type": "callout",
+   "at": {
+    "quote": "10kg lah"
+   },
+   "duration": 1.8,
+   "source": "facts",
+   "evidence": {
+    "fact": "priceWholesale"
+   },
+   "props": {
+    "text": "Sekotak 10kg",
+    "x": 0.5,
+    "y": 0.66,
+    "side": "right"
+   }
+  },
+  {
+   "id": "price-box",
+   "type": "counter",
+   "at": {
+    "quote": "RM200 sahaja"
+   },
+   "duration": 1.7,
+   "source": "facts",
+   "evidence": {
+    "fact": "priceWholesale"
+   },
+   "props": {
+    "value": 200,
+    "prefix": "RM",
+    "suffix": "/ kotak 10kg",
+    "label": "Harga borong",
+    "fullscreen": true,
+    "plate": "blur",
+    "count": false
+   }
+  },
+  {
+   "id": "kw-rm20",
+   "type": "keyword",
+   "at": {
+    "quote": "RM20 sahaja"
+   },
+   "duration": 1.8,
+   "source": "facts",
+   "evidence": {
+    "fact": "priceWholesale"
+   },
+   "props": {
+    "text": "RM20 / kg",
+    "animation": "slam",
+    "position": "top",
+    "highlight": [
+     "RM20"
+    ]
+   }
+  },
+  {
+   "id": "cta",
+   "type": "cta",
+   "at": {
+    "quote": "bagi siapa-siapa berminat"
+   },
+   "duration": 3.5,
+   "source": "transcript",
+   "evidence": {
+    "quote": "boleh mari di YaPakCik Frozen"
+   },
+   "props": {
+    "headline": "Mari di YaPakCik Frozen",
+    "lines": [
+     "Perut muda Offal Exp"
+    ],
+    "plate": "blur"
+   }
+  }
+ ],
+ "captions": {
+  "enabled": true,
+  "style": "bold",
+  "combineMs": 1200,
+  "uppercase": false,
+  "position": 0.765,
+  "hide": [
+   {
+    "clip": "lv_0_20261116225603",
+    "from": 21.95,
+    "to": 22.65,
+    "reason": "unclear speech — audio kept, no subtitle (owner instruction)"
+   }
+  ]
+ },
+ "look": {
+  "grade": "warm-commercial",
+  "gradeIntensity": 0.6,
+  "grain": true,
+  "vignette": true,
+  "breathing": 0.02,
+  "coverBands": []
+ },
+ "audio": {
+  "music": "music/story-documentary-bed.mp3",
+  "musicVolume": 0.45,
+  "duckTo": 0.2,
+  "sfx": "auto",
+  "sfxVolume": 0.8,
+  "voiceTargetLufs": -16
+ }
+}

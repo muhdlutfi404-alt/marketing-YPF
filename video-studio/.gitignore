@@ -46,3 +46,4 @@ src/edits/*/footage.json
 !src/edits/sample-frozen/footage.json
 src/edits/*/edit.suggested.json
 src/edits/*/transcripts/.*.wav
+.venv-gen/

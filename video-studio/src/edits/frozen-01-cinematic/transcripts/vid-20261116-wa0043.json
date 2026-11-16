@@ -1,0 +1,59 @@
+{
+ "clip": "vid-20261116-wa0043",
+ "source": "whisper",
+ "language": "ms",
+ "model": "large-v3",
+ "dialectPrompt": true,
+ "createdAt": "2026-11-16T13:58:29",
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 2.76,
+   "text": "Ina fatah nalaka fatah mubinah, semoga rehat.",
+   "words": [
+    {
+     "text": " Ina",
+     "start": 0.0,
+     "end": 0.24,
+     "prob": 0.637
+    },
+    {
+     "text": " fatah",
+     "start": 0.24,
+     "end": 0.66,
+     "prob": 0.806
+    },
+    {
+     "text": " nalaka",
+     "start": 0.66,
+     "end": 1.0,
+     "prob": 0.734
+    },
+    {
+     "text": " fatah",
+     "start": 1.0,
+     "end": 1.38,
+     "prob": 0.602
+    },
+    {
+     "text": " mubinah,",
+     "start": 1.38,
+     "end": 2.04,
+     "prob": 0.896
+    },
+    {
+     "text": " semoga",
+     "start": 2.04,
+     "end": 2.64,
+     "prob": 0.998
+    },
+    {
+     "text": " rehat.",
+     "start": 2.64,
+     "end": 2.76,
+     "prob": 0.398
+    }
+   ]
+  }
+ ]
+}

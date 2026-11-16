@@ -1,0 +1,10 @@
+{
+  "_readme": "Only facts confirmed by the business owner. Graphics with source 'facts' may ONLY show these values.",
+  "brandName": { "value": "YaPakCik Frozen", "label": "Brand / place", "confirmed": true, "note": "confirmed 16 Nov 2026" },
+  "productBrand": { "value": "Offal Exp", "label": "Product brand (perut muda)", "confirmed": true, "note": "spelling confirmed 16 Nov 2026" },
+  "presenterName": { "value": "Ayoh Mad", "label": "Presenter", "confirmed": true, "note": "spelling confirmed 16 Nov 2026" },
+  "priceRetail": { "value": "RM21/kg", "label": "Retail price", "confirmed": true, "note": "confirmed valid 16 Nov 2026" },
+  "priceWholesale": { "value": "RM200 per 10kg box (RM20/kg)", "label": "Wholesale price", "confirmed": true, "note": "confirmed valid 16 Nov 2026" },
+  "halal": { "value": "", "label": "Halal certification", "confirmed": false },
+  "contact": { "value": "", "label": "WhatsApp / order contact", "confirmed": false }
+}
