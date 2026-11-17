@@ -1,0 +1,302 @@
+<title>Studio Upload</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+<style>
+/* Layout: one phone-width column — project switch, pick button, storage meter, then one card per clip. */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --fg:#17201c; --muted:#5d6a64; --line:#d9e0dc;
+  --accent:#0f7a5f; --accent-ink:#ffffff; --track:#e2e8e5; --warn:#b4570b; --bad:#b42318; --good:#0f7a5f;
+  --display:"Space Grotesk",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1513; --surface:#17201c; --fg:#e7eeea; --muted:#9aaba3; --line:#2a3631;
+  --accent:#3fc59d; --accent-ink:#06120d; --track:#24302b; --warn:#f0a35b; --bad:#ff7b72; --good:#3fc59d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1513; --surface:#17201c; --fg:#e7eeea; --muted:#9aaba3; --line:#2a3631;
+  --accent:#3fc59d; --accent-ink:#06120d; --track:#24302b; --warn:#f0a35b; --bad:#ff7b72; --good:#3fc59d; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.45}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:grid;gap:16px}
+h1{font-family:var(--display);font-size:26px;margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);margin:2px 0 0}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--track);padding:4px;border-radius:12px}
+.seg button{border:0;background:transparent;color:var(--fg);font:600 14px var(--body);padding:10px 8px;border-radius:9px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.pick{display:block;text-align:center;background:var(--accent);color:var(--accent-ink);font:700 17px var(--body);padding:16px;border-radius:14px;cursor:pointer}
+.pick:focus-within{outline:3px solid var(--fg);outline-offset:2px}
+.pick input{position:absolute;opacity:0;width:1px;height:1px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--fg);font:600 14px var(--body);padding:9px 14px;border-radius:10px;cursor:pointer}
+.btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.btn.danger{color:var(--bad)}
+.meter{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:8px}
+.meter .lbl{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:8px;background:var(--track);border-radius:99px;overflow:hidden}
+.bar > i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.note{font-size:13px;color:var(--muted)}
+.note.warn{color:var(--warn)}
+.list{display:grid;gap:10px}
+.clip{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px;display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:start}
+.thumb{width:96px;aspect-ratio:9/16;max-width:100%;border-radius:9px;background:var(--track);object-fit:cover;display:block}
+.meta{min-width:0;display:grid;gap:6px}
+.name{font-weight:600;word-break:break-all;font-size:14px}
+.facts{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.state{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.state.done{color:var(--good)} .state.err{color:var(--bad)} .state.paused{color:var(--warn)}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px}
+.empty{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:22px;text-align:center;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.bar > i{transition:none}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Studio Upload</h1>
+    <p class="sub">Feasibility test · upload phone videos straight into Ya PakCik Video Studio</p>
+  </header>
+
+  <div class="seg" role="group" aria-label="Project">
+    <button id="p-am" type="button" aria-pressed="true" data-project="am-hiking-test-01">Project A.M<br><small>Hiking Test 01</small></button>
+    <button id="p-fz" type="button" aria-pressed="false" data-project="frozen-uploads">YaPakCik Frozen<br><small>Uploads</small></button>
+  </div>
+
+  <label class="pick" id="pickLabel">
+    <input id="picker" type="file" accept="video/*,.mp4,.mov" multiple>
+    Choose videos from gallery
+  </label>
+
+  <div class="row">
+    <button class="btn" id="resumeAll" type="button" hidden>Resume all</button>
+    <button class="btn" id="pauseAll" type="button" hidden>Pause</button>
+    <span class="note" id="netNote"></span>
+  </div>
+
+  <section class="meter" aria-label="Storage">
+    <div class="lbl"><span>Permanent storage used</span><span id="usageText">checking…</span></div>
+    <div class="bar"><i id="usageBar"></i></div>
+    <div class="note" id="capNote">Keep this page open and the screen on while uploading. If the connection drops, uploading continues on its own; to resume later, choose the same videos again — finished parts are skipped.</div>
+  </section>
+
+  <section class="list" id="list" aria-live="polite">
+    <div class="empty" id="empty">No videos in this project yet. Tap <b>Choose videos from gallery</b> and select one or many.</div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const CHUNK = 15 * 1024 * 1024;            // 15 MiB pieces (platform limit is 20 MiB per stored file)
+  const MAGIC = [0x59, 0x50, 0x46, 0x43];    // "YPFC" piece header
+  const $ = (id) => document.getElementById(id);
+  let db = null, assets = null, project = "am-hiking-test-01";
+  let paused = false, running = false, unsub = null;
+  const rows = new Map();        // key -> { doc data from db }
+  const local = new Map();       // key -> { file, progress, state, speed }
+  const queue = [];
+
+  const fmtBytes = (b) => b >= 1e9 ? (b / 1e9).toFixed(2) + " GB" : b >= 1e6 ? (b / 1e6).toFixed(1) + " MB" : Math.round(b / 1e3) + " KB";
+  const fmtDur = (s) => !isFinite(s) || !s ? "–" : `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}`;
+  const keyOf = (f) => (f.name.replace(/[^A-Za-z0-9._-]+/g, "_").slice(0, 80) + "-" + f.size + "-" + (f.lastModified || 0)).replace(/\./g, "_");
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+
+  /* ── video facts + thumbnail, read on the phone ── */
+  function probe(file) {
+    return new Promise((resolve) => {
+      const v = document.createElement("video");
+      const url = URL.createObjectURL(file);
+      let done = false;
+      const finish = (out) => { if (done) return; done = true; URL.revokeObjectURL(url); resolve(out); };
+      v.muted = true; v.preload = "metadata"; v.playsInline = true; v.src = url;
+      setTimeout(() => finish({}), 8000);
+      v.onloadedmetadata = () => {
+        const info = { duration: v.duration, width: v.videoWidth, height: v.videoHeight };
+        v.currentTime = Math.min(1, (v.duration || 2) / 2);
+        v.onseeked = () => {
+          try {
+            const w = 240, h = Math.round(w * (v.videoHeight || 16) / (v.videoWidth || 9));
+            const c = document.createElement("canvas"); c.width = w; c.height = h;
+            c.getContext("2d").drawImage(v, 0, 0, w, h);
+            c.toBlob((b) => finish({ ...info, thumbBlob: b }), "image/jpeg", 0.72);
+          } catch { finish(info); }
+        };
+      };
+      v.onerror = () => finish({});
+    });
+  }
+
+  /* ── one store call with patient retries (network drops, rate limits) ── */
+  async function withRetry(fn, label) {
+    let wait = 2000;
+    for (let attempt = 1; ; attempt++) {
+      while (paused) await sleep(500);
+      if (!navigator.onLine) { setNet("Offline — will continue when the connection returns"); await new Promise((r) => addEventListener("online", r, { once: true })); setNet(""); }
+      try { return await fn(); }
+      catch (e) {
+        const code = e && e.code;
+        if (["too_large", "unsupported_type", "invalid_request", "quota_or_state", "not_granted", "capability_disabled"].includes(code) || attempt >= 6) throw e;
+        setNet(`${label}: retrying (${code || "network"})…`);
+        await sleep(code === "rate_limited" ? Math.max(wait, 8000) : wait);
+        wait = Math.min(wait * 2, 30000);
+      }
+    }
+  }
+  const setNet = (t) => { $("netNote").textContent = t; };
+
+  /* ── upload one file piece by piece; finished pieces are skipped on resume ── */
+  async function uploadFile(file) {
+    const key = keyOf(file);
+    const ref = db.doc("clips/" + key);
+    const L = local.get(key) || { file }; L.file = file; local.set(key, L);
+    let snap = await withRetry(() => ref.get(), "Reading");
+    const total = Math.ceil(file.size / CHUNK);
+    if (!snap.exists) {
+      L.state = "Reading video…"; render();
+      const info = await probe(file);
+      let thumb = null;
+      if (info.thumbBlob) { try { thumb = (await withRetry(() => assets.upload(info.thumbBlob, { type: "image/jpeg" }), "Thumbnail")).id; } catch {} }
+      await withRetry(() => ref.set({
+        project, name: file.name, size: file.size, type: file.type || "video/mp4", lastModified: file.lastModified || 0,
+        chunkSize: CHUNK, total, chunks: {}, done: 0, status: "uploading", createdAt: new Date().toISOString(),
+        meta: { duration: info.duration || null, width: info.width || null, height: info.height || null }, thumb,
+        format: "YPFC1: 16-byte header (magic YPFC, u32 version=1, u32 index, u32 total) + raw bytes",
+      }), "Saving");
+      snap = await ref.get();
+    }
+    const have = (snap.data() && snap.data().chunks) || {};
+    let doneCount = Object.keys(have).length;
+    for (let i = 0; i < total; i++) {
+      if (have[i]) continue;                      // RESUME: this piece is already stored
+      while (paused) await sleep(500);
+      const slice = file.slice(i * CHUNK, Math.min(file.size, (i + 1) * CHUNK));
+      const body = await slice.arrayBuffer();
+      const sha = hex(await crypto.subtle.digest("SHA-256", body));
+      const head = new DataView(new ArrayBuffer(16));
+      MAGIC.forEach((b, j) => head.setUint8(j, b));
+      head.setUint32(4, 1); head.setUint32(8, i); head.setUint32(12, total);
+      const blob = new Blob([head.buffer, body], { type: "video/mp4" });
+      L.state = `Uploading part ${i + 1} of ${total}`; render();
+      const t0 = performance.now();
+      const res = await withRetry(() => assets.upload(blob, { type: "video/mp4" }), `Part ${i + 1}`);
+      L.speed = body.byteLength / ((performance.now() - t0) / 1000);
+      await withRetry(() => ref.update({ chunks: { [i]: { id: res.id, sha256: sha, bytes: body.byteLength } }, done: ++doneCount }), "Saving progress");
+      L.progress = doneCount / total; render();
+    }
+    await withRetry(() => ref.update({ status: "uploaded", uploadedAt: new Date().toISOString() }), "Finishing");
+    L.state = "Uploaded ✓"; L.progress = 1; render(); refreshUsage();
+  }
+
+  async function runQueue() {
+    if (running) return; running = true;
+    $("pauseAll").hidden = false; requestWake();
+    while (queue.length) {
+      const f = queue.shift();
+      const key = keyOf(f);
+      try { await uploadFile(f); }
+      catch (e) {
+        const L = local.get(key) || {}; L.state = e && e.code === "quota_or_state" ? "Storage full — remove clips or ask Claude" : `Stopped (${(e && e.code) || "error"}) — choose the file again to resume`;
+        L.error = true; local.set(key, L); render();
+      }
+    }
+    running = false; $("pauseAll").hidden = true; releaseWake(); setNet("");
+  }
+
+  /* ── keep the screen awake while uploading, where allowed ── */
+  let wake = null;
+  async function requestWake() { try { wake = await navigator.wakeLock.request("screen"); } catch {} }
+  function releaseWake() { try { wake && wake.release(); } catch {} wake = null; }
+  document.addEventListener("visibilitychange", () => { if (running && document.visibilityState === "visible") requestWake(); });
+
+  /* ── storage meter ── */
+  async function refreshUsage() {
+    if (!assets) return;
+    try {
+      const { usage } = await assets.list();
+      const pct = usage.maxBytes ? usage.bytes / usage.maxBytes : 0;
+      $("usageText").textContent = `${fmtBytes(usage.bytes)} of ${fmtBytes(usage.maxBytes)} · ${usage.files}/${usage.maxFiles} files`;
+      $("usageBar").style.width = Math.min(100, pct * 100).toFixed(1) + "%";
+    } catch (e) { $("usageText").textContent = "unavailable"; }
+  }
+
+  /* ── list ── */
+  function render() {
+    const list = $("list");
+    const items = [...rows.entries()].filter(([, d]) => d.project === project);
+    for (const [k, L] of local) if (!rows.has(k) && L.project === project) items.push([k, { name: L.file.name, size: L.file.size, project, meta: {} }]);
+    $("empty").hidden = items.length > 0;
+    [...list.querySelectorAll(".clip")].forEach((el) => { if (!items.find(([k]) => k === el.dataset.key)) el.remove(); });
+    for (const [k, d] of items) {
+      let el = list.querySelector(`.clip[data-key="${CSS.escape(k)}"]`);
+      if (!el) {
+        el = document.createElement("article"); el.className = "clip"; el.dataset.key = k;
+        el.innerHTML = `<img class="thumb" alt=""><div class="meta"><div class="name"></div><div class="facts"></div><div class="bar"><i></i></div><div class="state"></div><div class="row"><button class="btn danger" type="button">Remove</button></div><div class="confirm" hidden><span>Remove this clip and its stored parts?</span><button class="btn danger" type="button" data-yes>Remove</button><button class="btn" type="button" data-no>Keep</button></div></div>`;
+        el.querySelector(".row .btn").onclick = () => { el.querySelector(".confirm").hidden = false; };
+        el.querySelector("[data-no]").onclick = () => { el.querySelector(".confirm").hidden = true; };
+        el.querySelector("[data-yes]").onclick = () => removeClip(k);
+        list.appendChild(el);
+      }
+      const L = local.get(k) || {};
+      const m = d.meta || {};
+      el.querySelector(".name").textContent = d.name;
+      el.querySelector(".facts").textContent = [fmtBytes(d.size), m.width ? `${m.width}×${m.height}` : null, fmtDur(m.duration)].filter(Boolean).join(" · ");
+      if (d.thumb) el.querySelector(".thumb").src = "/_blob/" + d.thumb;
+      const prog = L.progress ?? (d.total ? (d.done || 0) / d.total : 0);
+      el.querySelector(".bar > i").style.width = (prog * 100).toFixed(1) + "%";
+      const st = el.querySelector(".state");
+      const uploaded = d.status === "uploaded";
+      st.className = "state " + (uploaded ? "done" : L.error ? "err" : !L.state && d.status === "uploading" ? "paused" : "");
+      st.textContent = uploaded ? "Uploaded ✓ · stored permanently" : L.state ? L.state + (L.speed ? ` · ${fmtBytes(L.speed)}/s` : "") : `Paused at ${d.done || 0}/${d.total} parts — choose the file again to resume`;
+    }
+  }
+
+  async function removeClip(key) {
+    const d = rows.get(key);
+    try {
+      if (d) {
+        for (const c of Object.values(d.chunks || {})) { try { await assets.delete(c.id); } catch {} }
+        if (d.thumb) { try { await assets.delete(d.thumb); } catch {} }
+        await db.doc("clips/" + key).delete();
+      }
+      local.delete(key); rows.delete(key); render(); refreshUsage();
+    } catch (e) { setNet("Could not remove: " + ((e && e.code) || "error")); }
+  }
+
+  /* ── wiring ── */
+  $("picker").addEventListener("change", (ev) => {
+    const files = [...ev.target.files];
+    ev.target.value = "";
+    if (!db || !assets) { setNet("Uploading needs you to be signed in as the page owner."); return; }
+    for (const f of files) {
+      const k = keyOf(f);
+      local.set(k, { ...(local.get(k) || {}), file: f, project, state: "Waiting…", error: false });
+      if (!queue.find((q) => keyOf(q) === k)) queue.push(f);
+    }
+    render(); runQueue();
+  });
+  $("pauseAll").onclick = () => { paused = !paused; $("pauseAll").textContent = paused ? "Continue" : "Pause"; };
+  document.querySelectorAll(".seg button").forEach((b) => b.onclick = () => {
+    project = b.dataset.project;
+    document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    render();
+  });
+  addEventListener("offline", () => setNet("Offline — uploading will continue when the connection returns"));
+
+  /* ── connect to the platform ── */
+  (async () => {
+    const loading = setTimeout(() => setNet("Still connecting to storage…"), 10000);
+    [db, assets] = await Promise.all([claude.use("db"), claude.use("assets")]);
+    if (!db || !assets) {
+      clearTimeout(loading);
+      $("pickLabel").style.opacity = .5;
+      setNet("Open this page signed in as its owner to upload.");
+      $("usageText").textContent = "unavailable";
+      return;
+    }
+    refreshUsage();
+    unsub = db.collection("clips").onSnapshot((snap) => {
+      clearTimeout(loading);
+      rows.clear();
+      snap.docs.forEach((d) => rows.set(d.id, d.data()));
+      render();
+    }, (e) => { clearTimeout(loading); setNet("Storage unavailable: " + e.code); });
+  })();
+})();
+</script>
