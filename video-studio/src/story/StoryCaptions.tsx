@@ -1,6 +1,7 @@
 import React from "react";
 import { spring, useCurrentFrame, useVideoConfig } from "remotion";
-import type { CaptionPage } from "./engine";
+import { normalize, type CaptionPage } from "./engine";
+import { FONT_STACKS } from "../shared/fonts";
 import type { StoryStyle } from "./styles";
 
 /**
@@ -15,7 +16,8 @@ export const StoryCaptions: React.FC<{
   uppercase?: boolean;
   position?: number;
   hiddenRanges?: { from: number; to: number }[];
-}> = ({ pages, style, variant, uppercase = false, position = 0.7, hiddenRanges = [] }) => {
+  emphasis?: Record<string, "big" | "script">;
+}> = ({ pages, style, variant, uppercase = false, position = 0.7, hiddenRanges = [], emphasis = {} }) => {
   const frame = useCurrentFrame();
   const { fps, height } = useVideoConfig();
   const t = frame / fps;
@@ -30,7 +32,14 @@ export const StoryCaptions: React.FC<{
       ? { fontFamily: style.fonts.caption, fontWeight: 900, fontSize: 76, lineHeight: 1.12, color: "#fff", WebkitTextStroke: `10px ${style.captionStroke}`, paintOrder: "stroke fill", textShadow: "0 6px 16px rgba(0,0,0,0.45)" }
       : variant === "documentary"
         ? { fontFamily: style.fonts.caption, fontWeight: 600, fontSize: 54, lineHeight: 1.25, color: "#fff", textShadow: "0 2px 10px rgba(0,0,0,0.85), 0 0 2px rgba(0,0,0,0.9)" }
-        : { fontFamily: style.fonts.caption, fontWeight: 600, fontSize: 48, lineHeight: 1.25, color: "#fff", background: "rgba(0,0,0,0.55)", padding: "8px 20px", borderRadius: 10 };
+        : { fontFamily: FONT_STACKS.inter, fontWeight: 600, fontSize: 46, lineHeight: 1.1, color: "#fff", textShadow: "0 2px 14px rgba(0,0,0,0.55), 0 0 2px rgba(0,0,0,0.6)", letterSpacing: 0.2 };
+  const emph = (w: string): React.CSSProperties | undefined => {
+    const e = emphasis[normalize(w)];
+    if (variant !== "minimal" || !e) return undefined;
+    return e === "script"
+      ? { fontFamily: FONT_STACKS.playfairItalic, fontStyle: "italic", fontWeight: 400, fontSize: 70, letterSpacing: 0 }
+      : { fontWeight: 800, fontSize: 74, letterSpacing: -1 };
+  };
 
   return (
     <div style={{ position: "absolute", left: 70, right: 70, top: height * position, display: "flex", justifyContent: "center", transform: `translateY(-50%) scale(${0.9 + 0.1 * pop})`, opacity: Math.min(1, pop * 1.5) }}>
@@ -44,7 +53,8 @@ export const StoryCaptions: React.FC<{
               style={{
                 display: "inline-block",
                 marginRight: "0.25em",
-                color: active ? style.colors.highlight : variant === "documentary" && !spoken ? "rgba(255,255,255,0.75)" : "#fff",
+                ...emph(w.text),
+                color: variant === "minimal" ? (spoken ? "#fff" : "rgba(255,255,255,0.55)") : active ? style.colors.highlight : variant === "documentary" && !spoken ? "rgba(255,255,255,0.75)" : "#fff",
                 transform: active && variant === "bold" ? "scale(1.08)" : undefined,
                 borderBottom: active && variant === "documentary" ? `4px solid ${style.colors.highlight}` : "4px solid transparent",
               }}

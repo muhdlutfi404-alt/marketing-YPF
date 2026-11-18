@@ -3,6 +3,7 @@ import { AbsoluteFill, Img, interpolate, OffthreadVideo, random, useCurrentFrame
 import { Audio } from "@remotion/media";
 import { resolveMedia } from "../shared/utils/media";
 import { resolveZoomTime, zoomScaleAt, type ClipInfo, type ResolvedShot, type TimelineWord } from "./engine";
+import { FramedVideo } from "./FramedVideo";
 
 /**
  * CINEMATIC COMPOSITE — the REAL presenter + REAL product (cut out by scripts/story/matte.py,
@@ -30,6 +31,8 @@ export type CompositeSpec = {
   floorShadeFrom?: number;
   floorShade?: number;
   matteStats?: { t: number; bottom?: number; left?: number; right?: number }[];
+  /** grade filter applied identically to background and cut-out (so they match) */
+  gradeFilter?: string;
 };
 
 const useShotScale = (shot: ResolvedShot, words: TimelineWord[], breathing: number) => {
@@ -129,6 +132,16 @@ export const CompositeBackground: React.FC<{ shot: ResolvedShot; spec: Composite
     y: focus.y * height + (top0 + y * h - focus.y * height) * scale,
   });
 
+  if (spec.plate === "original") {
+    // depth layering over the REAL footage: same frame, same zoom as the cut-out in front
+    return (
+      <AbsoluteFill style={{ background: "#000", ...enterStyle(shot, frame, fps) }}>
+        <AbsoluteFill style={{ filter: spec.gradeFilter }}>
+          <FramedVideo clip={clip} trimBeforeSec={shot.in} focus={shot.focus} scale={scale} muted fps={fps} frameWidth={width} frameHeight={height} />
+        </AbsoluteFill>
+      </AbsoluteFill>
+    );
+  }
   return (
     <AbsoluteFill style={{ background: "#05070c", ...enterStyle(shot, frame, fps) }}>
       <AbsoluteFill style={{ transform: `scale(${bgScale})`, transformOrigin: `${focus.x * 100}% ${focus.y * 100}%` }}>
@@ -176,7 +189,7 @@ export const CompositeForeground: React.FC<{ shot: ResolvedShot; next?: Resolved
   const id = `lm-${shot.id}`;
   const warm = L.warmth ?? 0;
   // global light match only (no local/face edits)
-  const filter = `url(#${id}) brightness(${Math.pow(2, L.exposure ?? 0)}) saturate(${L.saturation ?? 1})${spec.rim ? ` drop-shadow(0 0 14px ${spec.rim})` : ""}`;
+  const filter = `${spec.gradeFilter ? spec.gradeFilter + " " : ""}url(#${id}) brightness(${Math.pow(2, L.exposure ?? 0)}) saturate(${L.saturation ?? 1})${spec.rim ? ` drop-shadow(0 0 14px ${spec.rim})` : ""}`;
   const fadeIn = Math.max(2, Math.round(shot.transitionSec * fps));
   const fadeOut = Math.max(2, next ? Math.round(next.transitionSec * fps) : 2);
   const gain = Math.min(1, Math.pow(10, (shot.gainDb ?? 0) / 20));

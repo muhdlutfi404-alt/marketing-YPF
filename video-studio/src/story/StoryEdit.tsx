@@ -13,6 +13,9 @@ import { Annotations } from "./layers/index";
 import { Broll } from "./layers/Broll";
 import { PlaceholderRibbon, type PlateSource } from "./layers/common";
 import { Chart, Counter, Dial, ProgressBar, Steps } from "./layers/Infographics";
+import { Board } from "./layers/Board";
+import { Typeset } from "./layers/Typeset";
+import { gradeFilter } from "./grades";
 import { Chapter, KeywordPop, Statement } from "./layers/Typography";
 import { ShotView } from "./ShotView";
 import { StoryCaptions } from "./StoryCaptions";
@@ -30,7 +33,7 @@ export const calculateStoryMetadata: CalculateMetadataFunction<StoryEditProps> =
   return { durationInFrames: Math.max(1, Math.ceil(total * FPS)), fps: FPS, width: 1080, height: 1920 };
 };
 
-const FULLSCREEN_TYPES = new Set(["fullscreen", "statement", "chapter", "chart", "cta", "dial"]);
+const FULLSCREEN_TYPES = new Set(["fullscreen", "statement", "chapter", "chart", "cta", "dial", "board"]);
 
 export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
   const fps = FPS;
@@ -39,7 +42,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
   const { edit, clips } = bundle;
   const style = STORY_STYLES[edit.brand] ?? STORY_STYLES["yapakcik-frozen"];
   const story = useMemo(() => resolveStory(bundle), [bundle]);
-  const pages = useMemo(() => buildCaptionPages(captionWords(story.words, edit.captions.hide)), [story.words, edit.captions.hide]);
+  const pages = useMemo(() => buildCaptionPages(captionWords(story.words, edit.captions.hide), edit.captions.style === "minimal" ? { maxWords: 3, maxChars: 20, maxPageSec: 1.6 } : {}), [story.words, edit.captions.hide, edit.captions.style]);
   const f = (sec: number) => Math.round(sec * fps);
 
   // the real footage that is on screen at time t (for blurred plates behind full-screen graphics)
@@ -53,13 +56,15 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
   const compositeOf = (s: ResolvedShot): CompositeSpec | null => {
     const m = bundle.mattes?.[s.clip];
     if (!s.composite || !m) return null;
-    return { ...s.composite, fg: { src: m.fg, from: m.from }, matteStats: m.stats };
+    return { ...s.composite, fg: { src: m.fg, from: m.from }, matteStats: m.stats, gradeFilter: s.composite.plate === "original" ? gradeFilter(edit.look.grade, edit.look.gradeIntensity ?? 0.8) : undefined };
   };
   const compShots = story.shots.filter((s) => compositeOf(s));
 
   const isFull = (l: ResolvedLayer) => FULLSCREEN_TYPES.has(l.type) || (l.type === "counter" && l.props.fullscreen) || (l.type === "steps" && l.props.fullscreen);
   // captions hide while a full-screen statement shows the same words in big type
-  const captionHidden = story.layers.filter((l) => l.type === "statement" || l.type === "chapter" || l.props.hideCaptions).map((l) => ({ from: l.start, to: l.start + l.dur }));
+  const captionHidden = story.layers
+    .filter((l) => l.type === "statement" || l.type === "chapter" || l.type === "board" || (l.type === "typeset" && (l.props.plate ?? "none") !== "none") || l.props.hideCaptions)
+    .map((l) => ({ from: l.start, to: l.start + l.dur }));
 
   const renderLayer = (l: ResolvedLayer) => {
     const dur = f(l.dur);
@@ -93,6 +98,10 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
         return <Annotations.CTA {...common} props={l.props as never} />;
       case "dial":
         return <Dial {...common} props={l.props as never} />;
+      case "board":
+        return <Board dur={dur} style={style} props={{ ...l.props, revealAt: l.props.revealAt ?? resolveRevealTimes(l, story.words)?.map((x) => x ?? 0) } as never} />;
+      case "typeset":
+        return <Typeset {...common} props={{ ...l.props, revealAt: l.props.revealAt ?? resolveRevealTimes(l, story.words)?.map((x) => x ?? 0) } as never} />;
       default:
         return null;
     }
@@ -139,6 +148,11 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
       if (l.type === "badge") cues.push({ sfx: brandSparkle, at, volume: 0.6 });
       if (l.type === "cta") cues.push({ sfx: brandSparkle, at: at + 4, volume: 0.7 });
       if (l.type === "lowerThird") cues.push({ sfx: "whoosh", at, volume: 0.22, playbackRate: 1.6 });
+      if (l.type === "board" || (l.type === "typeset" && l.props.plate && l.props.plate !== "none")) {
+        cues.push({ sfx: "whoosh", at: at - 2, volume: 0.22, playbackRate: 1.4 });
+        const rv = l.props.revealAt ?? resolveRevealTimes(l, story.words);
+        (rv ?? []).forEach((r: number | null, i: number) => r !== null && r > 0.15 && cues.push({ sfx: "pop", at: at + Math.round(r * fps), volume: 0.28, playbackRate: 1.15 + i * 0.05 }));
+      }
     }
   }
   // hand-placed cues (anchored to spoken words or seconds)
@@ -226,7 +240,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
 
       {/* 5 · Subtitles from the real transcript */}
       {edit.captions.enabled ? (
-        <StoryCaptions pages={pages} style={style} variant={edit.captions.style} uppercase={edit.captions.uppercase} position={edit.captions.position} hiddenRanges={captionHidden} />
+        <StoryCaptions pages={pages} style={style} variant={edit.captions.style} uppercase={edit.captions.uppercase} position={edit.captions.position} hiddenRanges={captionHidden} emphasis={edit.captions.emphasis} />
       ) : null}
 
       {/* 6 · Music (ducked under the voice) + sound design */}

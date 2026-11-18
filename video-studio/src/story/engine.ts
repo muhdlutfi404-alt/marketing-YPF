@@ -126,7 +126,9 @@ export type Layer = {
     | "cta"
     | "chapter"
     | "progress"
-    | "dial";
+    | "dial"
+    | "board"
+    | "typeset";
   at: TimeRef;
   /** seconds, or "quote" = until the anchored words finish (+ 0.6s) */
   duration?: number | "quote";
@@ -148,6 +150,8 @@ export type EditFile = {
   captions: {
     enabled: boolean;
     style: "bold" | "documentary" | "minimal";
+    /** minimal style: words to set larger ("big") or in elegant italic ("script") */
+    emphasis?: Record<string, "big" | "script">;
     /** words grouped on screen within this many ms */
     combineMs?: number;
     uppercase?: boolean;
@@ -563,7 +567,7 @@ export const layerTexts = (l: Layer): string[] => {
     else if (Array.isArray(v)) v.forEach(walk);
     else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => {
       // non-visible technical fields
-      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size", "floorShadeFrom", "floorShade"].includes(k)) return;
+      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size", "floorShadeFrom", "floorShade", "variant", "dark", "image", "dim"].includes(k)) return;
       walk(x);
     });
   };
@@ -691,7 +695,9 @@ export const checkBundle = (bundle: StoryBundle, opts: { final: boolean }): Issu
     if (!s.composite) continue;
     const where = `shot ${s.id} (composite)`;
     const g = genFiles.get(s.composite.plate);
-    if (!g) add("error", where, `background "${s.composite.plate}" is not in the generated-assets manifest`);
+    if (s.composite.plate === "original") {
+      /* depth layering over the real footage itself — nothing generated */
+    } else if (!g) add("error", where, `background "${s.composite.plate}" is not in the generated-assets manifest`);
     else if (!g.reviewed) add(opts.final ? "error" : "warning", where, `background "${s.composite.plate}" has not been reviewed yet (must contain no people, food or products)`);
     const m = bundle.mattes?.[s.clip];
     if (!m) add("error", where, `no cut-out for clip "${s.clip}" — run story:matte first`);

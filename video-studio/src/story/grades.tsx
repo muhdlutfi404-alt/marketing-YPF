@@ -8,6 +8,8 @@ import { AbsoluteFill } from "remotion";
  */
 export const FOOTAGE_GRADES = {
   natural: { contrast: 0.04, saturate: 0.04, warmth: 0, tint: null, lift: 0 },
+  /** premium-explainer mood: darker, more contrast, colours kept true (no tint overlay, product colour unchanged) */
+  "moody-true": { contrast: 0.1, saturate: -0.05, warmth: 0, tint: null, lift: 0, brightness: -0.08 },
   "warm-commercial": {
     contrast: 0.08,
     saturate: 0.1,
@@ -39,6 +41,13 @@ export const FOOTAGE_GRADES = {
 } as const;
 export type FootageGrade = keyof typeof FOOTAGE_GRADES;
 
+/** CSS filter for a grade — also used on cut-out foregrounds so composites match exactly */
+export const gradeFilter = (grade: string, intensity = 1) => {
+  const g = FOOTAGE_GRADES[(grade in FOOTAGE_GRADES ? grade : "natural") as FootageGrade] as { contrast: number; saturate: number; warmth: number; brightness?: number };
+  const k = Math.max(0, Math.min(1, intensity));
+  return `contrast(${1 + g.contrast * k}) saturate(${1 + g.saturate * k}) brightness(${1 + (g.brightness ?? 0) * k}) sepia(${Math.max(0, g.warmth) * k}) hue-rotate(${Math.min(0, g.warmth) * 60 * k}deg)`;
+};
+
 export const FootageGradeLayer: React.FC<{ grade: string; intensity?: number; children: React.ReactNode }> = ({
   grade,
   intensity = 1,
@@ -46,7 +55,7 @@ export const FootageGradeLayer: React.FC<{ grade: string; intensity?: number; ch
 }) => {
   const g = FOOTAGE_GRADES[(grade in FOOTAGE_GRADES ? grade : "natural") as FootageGrade];
   const k = Math.max(0, Math.min(1, intensity));
-  const filter = `contrast(${1 + g.contrast * k}) saturate(${1 + g.saturate * k}) sepia(${Math.max(0, g.warmth) * k}) hue-rotate(${Math.min(0, g.warmth) * 60 * k}deg)`;
+  const filter = gradeFilter(grade, intensity);
   return (
     <AbsoluteFill>
       <AbsoluteFill style={{ filter }}>{children}</AbsoluteFill>
