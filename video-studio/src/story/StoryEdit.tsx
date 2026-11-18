@@ -195,7 +195,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
         const i = story.shots.indexOf(s);
         return (
           <Sequence key={`fg-${s.id}`} from={f(s.start)} durationInFrames={Math.max(1, f(s.duration))} name={`Shot ${s.id} · real subject`} premountFor={fps}>
-            <CompositeForeground shot={s} next={story.shots[i + 1]} spec={compositeOf(s)!} words={story.words} breathing={edit.look.breathing ?? 0} clip={clips[s.clip]} />
+            <CompositeForeground shot={s} next={story.shots[i + 1]} spec={compositeOf(s)!} words={story.words} breathing={edit.look.breathing ?? 0} clip={clips[s.clip]} coverBands={(edit.look.coverBands ?? []).filter((b) => !b.clips || b.clips.includes(s.clip))} coverColor={style.colors.dark} />
           </Sequence>
         );
       })}

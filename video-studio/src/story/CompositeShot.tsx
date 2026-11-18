@@ -4,6 +4,7 @@ import { Audio } from "@remotion/media";
 import { resolveMedia } from "../shared/utils/media";
 import { resolveZoomTime, zoomScaleAt, type ClipInfo, type ResolvedShot, type TimelineWord } from "./engine";
 import { FramedVideo } from "./FramedVideo";
+import { CoverBands } from "./CoverBand";
 
 /**
  * CINEMATIC COMPOSITE — the REAL presenter + REAL product (cut out by scripts/story/matte.py,
@@ -180,7 +181,7 @@ export const CompositeBackground: React.FC<{ shot: ResolvedShot; spec: Composite
 };
 
 /** Foreground half: the REAL subject (transparent video, pixels untouched) + rim light + front particles. */
-export const CompositeForeground: React.FC<{ shot: ResolvedShot; next?: ResolvedShot; spec: CompositeSpec; words: TimelineWord[]; breathing: number; clip: ClipInfo }> = ({ shot, next, spec, words, breathing, clip }) => {
+export const CompositeForeground: React.FC<{ shot: ResolvedShot; next?: ResolvedShot; spec: CompositeSpec; words: TimelineWord[]; breathing: number; clip: ClipInfo; coverBands?: { y0: number; y1: number }[]; coverColor?: string }> = ({ shot, next, spec, words, breathing, clip, coverBands = [], coverColor = "#06182f" }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const scale = useShotScale(shot, words, breathing);
@@ -216,6 +217,7 @@ export const CompositeForeground: React.FC<{ shot: ResolvedShot; next?: Resolved
           // environment shadow on the real FLOOR only (starts below the product), moves with the zoom
           <div style={{ position: "absolute", left: 0, right: 0, top: `${spec.floorShadeFrom * 100}%`, bottom: 0, background: `linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,${spec.floorShade ?? 0.45}) 55%, rgba(0,0,0,${(spec.floorShade ?? 0.45) + 0.15}) 100%)` }} />
         ) : null}
+        {coverBands.length ? <CoverBands bands={coverBands} color={coverColor} /> : null}
       </AbsoluteFill>
       {spec.atmosphere && spec.atmosphere !== "none" ? <Atmosphere kind={spec.atmosphere} front /> : null}
     </AbsoluteFill>

@@ -607,7 +607,7 @@
    "at": {
     "quote": "awak boleh kata sama ada"
    },
-   "duration": 6.4,
+   "duration": 5.6,
    "source": "transcript",
    "evidence": {
     "quote": "awak nak perap lalu ke letak dalam chiller ke"
@@ -617,13 +617,11 @@
     "title": "Isi ayam BB",
     "steps": [
      "Perap",
-     "Chiller",
-     "Tak apa"
+     "Letak dalam chiller"
     ],
     "revealQuotes": [
      "nak perap",
-     "dalam chiller",
-     "tak apa kata"
+     "dalam chiller"
     ]
    }
   },
