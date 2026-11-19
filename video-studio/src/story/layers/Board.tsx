@@ -177,7 +177,7 @@ export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps
               <Reveal at={t}>
                 <div style={{ width: 140, height: 80, borderRadius: 40, border: `5px solid ${fg}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT_STACKS.inter, fontWeight: 800, fontSize: 40, color: fg }}>{i + 1}</div>
               </Reveal>
-              <Reveal at={t + 2}><div style={H(66 * big)}>{s}</div></Reveal>
+              <Reveal at={t + 2}><div style={{ ...H(66 * big), whiteSpace: "nowrap" }}>{s}</div></Reveal>
             </div>
           );
         })}
