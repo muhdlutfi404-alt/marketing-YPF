@@ -12,6 +12,15 @@ export const SFX = {
   iceSparkle: "sfx/ice-sparkle.mp3",
   shutter: "sfx/shutter.mp3",
   windAmbience: "sfx/wind-ambience.mp3",
+  // food & UI set (scripts/generate-food-sfx.sh)
+  click: "sfx/click.mp3",
+  slice: "sfx/slice.mp3",
+  thud: "sfx/thud.mp3",
+  crumble: "sfx/crumble.mp3",
+  sizzle: "sfx/sizzle.mp3",
+  box: "sfx/box.mp3",
+  ding: "sfx/ding.mp3",
+  shimmer: "sfx/shimmer.mp3",
 } as const;
 
 export const MUSIC = {

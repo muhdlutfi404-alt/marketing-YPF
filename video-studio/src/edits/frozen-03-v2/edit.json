@@ -1,8 +1,8 @@
 {
- "_readme": "Chicken chop bajet: cara buat & boleh dapat 15–20 pinggan — cut from the frozen-03 raw recording (clean 1080p). ONE CANVAS style. Graphics only from spoken words.",
+ "_readme": "Chicken chop bajet: cara buat & 15–20 pinggan — cut from the frozen-03 raw recording (clean 1080p). YPF brand motion-graphics kit (src/story/scenes/ypf.tsx) on the ONE CANVAS system. Graphics only from spoken words or owner-confirmed facts; product shown only as real footage.",
  "project": "frozen-03-v2",
  "brand": "yapakcik-frozen",
- "title": "Chicken chop bajet: cara buat & boleh dapat 15–20 pinggan",
+ "title": "Chicken chop bajet: cara buat & 15–20 pinggan",
  "shots": [
   {
    "id": "b0",
@@ -92,7 +92,7 @@
    "label": "jimat bajet: sepaket 2 kilo RM26",
    "clip": "lv_0_20261119124959",
    "in": 100.3,
-   "out": 105.3,
+   "out": 105.25,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -104,13 +104,26 @@
      "type": "punch-in",
      "scale": 1.32,
      "duration": 0.01
-    },
+    }
+   ]
+  },
+  {
+   "id": "b3b",
+   "label": "CLOSE-UP pek sebenar (punch-in)",
+   "clip": "lv_0_20261119124959",
+   "in": 105.25,
+   "out": 108.8,
+   "audio": "keep",
+   "focus": {
+    "x": 0.36,
+    "y": 0.5
+   },
+   "zooms": [
     {
-     "at": {
-      "quote": "RM26 sahaja"
-     },
+     "at": 0,
      "type": "punch-in",
-     "scale": 1.48
+     "scale": 1.55,
+     "duration": 0.01
     }
    ]
   },
@@ -161,7 +174,7 @@
   },
   {
    "id": "b6",
-   "label": "pakat-pakat buat, makan ramai-ramai",
+   "label": "Mek Munah: katok, goreng, makan ramai-ramai",
    "clip": "lv_0_20261119124959",
    "in": 136.55,
    "out": 148.45,
@@ -202,26 +215,6 @@
      "at": 0,
      "type": "punch-in",
      "scale": 1.3,
-     "duration": 0.01
-    }
-   ]
-  },
-  {
-   "id": "b8",
-   "label": "close-up pek (real product)",
-   "clip": "lv_0_20261119124959",
-   "in": 157.4,
-   "out": 161.95,
-   "audio": "keep",
-   "focus": {
-    "x": 0.5,
-    "y": 0.33
-   },
-   "zooms": [
-    {
-     "at": 0,
-     "type": "punch-in",
-     "scale": 1.12,
      "duration": 0.01
     }
    ]
@@ -286,34 +279,23 @@
  "layers": [
   {
    "id": "hook",
-   "type": "typeset",
+   "type": "scene",
    "at": {
-    "quote": "ada 20 pinggan ataupun"
+    "quote": "kira buat chicken chop"
    },
-   "duration": 3.2,
+   "duration": 4.1,
    "source": "transcript",
    "evidence": {
     "quote": "kalau kira buat chicken chop kat dalam ada 20 pinggan ataupun 15 pingganlah"
    },
    "props": {
     "layout": "split",
-    "plate": "none",
-    "lines": [
-     {
-      "text": "chicken chop",
-      "size": "s",
-      "style": "script"
-     },
-     {
-      "text": "20 pinggan",
-      "size": "xl"
-     },
-     {
-      "text": "ataupun 15",
-      "size": "m",
-      "dim": true
-     }
-    ],
+    "kind": "plates",
+    "kicker": "chicken chop bajet",
+    "high": 20,
+    "low": 15,
+    "unit": "PINGGAN",
+    "caption": "ataupun 15?",
     "revealQuotes": [
      "kira buat chicken chop",
      "20 pinggan",
@@ -322,8 +304,8 @@
    }
   },
   {
-   "id": "cara",
-   "type": "board",
+   "id": "prep",
+   "type": "scene",
    "at": {
     "quote": "Sekeping tu kita belah dua",
     "offset": -0.2
@@ -335,13 +317,20 @@
    },
    "props": {
     "layout": "split",
-    "variant": "flow",
-    "title": "Chicken chop bajet",
+    "kind": "prep",
     "steps": [
      "Belah dua",
      "Katok-katok",
      "Tepung roti",
      "Goreng"
+    ],
+    "hits": [
+     2.72,
+     3.0,
+     5.05,
+     5.34,
+     5.56,
+     5.78
     ],
     "revealQuotes": [
      "kita belah dua",
@@ -353,27 +342,32 @@
   },
   {
    "id": "keping",
-   "type": "board",
+   "type": "scene",
    "at": {
     "quote": "26 ke 25 keping",
-    "offset": -0.3
+    "offset": -0.4
    },
-   "duration": 3.3,
-   "source": "transcript",
+   "duration": 3.6,
+   "source": "facts",
    "evidence": {
-    "quote": "sekilo ni dia ada dalam 26 ke 25 keping 23 gitulah"
+    "fact": "piecesPerKg"
    },
    "props": {
     "layout": "split",
-    "variant": "number",
+    "kind": "count",
+    "kicker": "dalam sekilo",
     "value": "23–26",
-    "unit": "keping",
-    "label": "dalam sekilo"
+    "unit": "KEPING",
+    "label": "SEKILO",
+    "max": 26,
+    "revealAt": [
+     0
+    ]
    }
   },
   {
    "id": "harga",
-   "type": "typeset",
+   "type": "scene",
    "at": {
     "quote": "jimat bajet kata",
     "offset": -0.3
@@ -385,147 +379,386 @@
    },
    "props": {
     "layout": "split",
-    "plate": "none",
-    "lines": [
-     {
-      "text": "jimat bajet",
-      "size": "s",
-      "style": "script"
-     },
-     {
-      "text": "sepaket 2 kilo",
-      "size": "m",
-      "dim": true
-     },
-     {
-      "text": "RM26",
-      "size": "xl"
-     }
+    "kind": "price",
+    "kicker": "jimat bajet",
+    "price": "RM26",
+    "chips": [
+     "2KG",
+     "SEPAKET"
     ],
     "revealQuotes": [
      "jimat bajet",
-     "sepaket ni 2 kilo",
-     "RM26 sahaja"
+     "RM26 sahaja",
+     "sepaket ni 2 kilo"
     ]
    }
   },
   {
-   "id": "ramai",
-   "type": "board",
+   "id": "real-pack",
+   "type": "scene",
+   "at": {
+    "quote": "Ni ni sepaket ni"
+   },
+   "duration": 3.4,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Ada sepaket ni 2 kilo RM26 sahaja sepaket ni ni sepaket ni"
+   },
+   "props": {
+    "kind": "track",
+    "label": "SEPAKET · 2KG",
+    "sub": "isi ayam fillet sebenar",
+    "track": [
+     [
+      0.0,
+      255,
+      1042,
+      486,
+      315
+     ],
+     [
+      0.1,
+      258,
+      1041,
+      483,
+      312
+     ],
+     [
+      0.2,
+      259,
+      1041,
+      475,
+      308
+     ],
+     [
+      0.3,
+      256,
+      1043,
+      467,
+      311
+     ],
+     [
+      0.4,
+      254,
+      1045,
+      459,
+      313
+     ],
+     [
+      0.5,
+      256,
+      1045,
+      455,
+      315
+     ],
+     [
+      0.6,
+      265,
+      1042,
+      453,
+      313
+     ],
+     [
+      0.7,
+      279,
+      1040,
+      455,
+      311
+     ],
+     [
+      0.8,
+      298,
+      1040,
+      459,
+      309
+     ],
+     [
+      0.9,
+      321,
+      1041,
+      461,
+      307
+     ],
+     [
+      1.0,
+      346,
+      1042,
+      459,
+      305
+     ],
+     [
+      1.1,
+      368,
+      1042,
+      455,
+      301
+     ],
+     [
+      1.2,
+      382,
+      1041,
+      451,
+      295
+     ],
+     [
+      1.3,
+      383,
+      1039,
+      449,
+      289
+     ],
+     [
+      1.4,
+      373,
+      1037,
+      448,
+      285
+     ],
+     [
+      1.5,
+      355,
+      1036,
+      449,
+      286
+     ],
+     [
+      1.6,
+      332,
+      1039,
+      453,
+      291
+     ],
+     [
+      1.7,
+      308,
+      1044,
+      461,
+      302
+     ],
+     [
+      1.8,
+      284,
+      1051,
+      469,
+      315
+     ],
+     [
+      1.9,
+      261,
+      1056,
+      475,
+      330
+     ],
+     [
+      2.0,
+      243,
+      1060,
+      473,
+      347
+     ],
+     [
+      2.1,
+      234,
+      1063,
+      467,
+      362
+     ],
+     [
+      2.2,
+      234,
+      1067,
+      469,
+      375
+     ],
+     [
+      2.3,
+      246,
+      1070,
+      493,
+      381
+     ],
+     [
+      2.4,
+      258,
+      1071,
+      517,
+      381
+     ],
+     [
+      2.5,
+      253,
+      1068,
+      466,
+      370
+     ],
+     [
+      2.6,
+      239,
+      1061,
+      398,
+      351
+     ],
+     [
+      2.7,
+      231,
+      1054,
+      332,
+      328
+     ],
+     [
+      2.8,
+      240,
+      1046,
+      335,
+      310
+     ],
+     [
+      2.9,
+      251,
+      1042,
+      340,
+      300
+     ],
+     [
+      3.0,
+      289,
+      1039,
+      415,
+      293
+     ],
+     [
+      3.1,
+      325,
+      1036,
+      488,
+      291
+     ],
+     [
+      3.2,
+      351,
+      1033,
+      553,
+      287
+     ],
+     [
+      3.3,
+      338,
+      1032,
+      541,
+      287
+     ],
+     [
+      3.4,
+      318,
+      1036,
+      522,
+      292
+     ],
+     [
+      3.5,
+      306,
+      1040,
+      511,
+      298
+     ]
+    ]
+   }
+  },
+  {
+   "id": "mek-munah",
+   "type": "scene",
    "at": {
     "quote": "Mek Munah ni bahagian"
    },
-   "duration": 7.6,
+   "duration": 3.0,
    "source": "transcript",
    "evidence": {
-    "quote": "Mek Munah ni bahagian katok ayam aa ni bahagian goreng atau pakat-pakat bagi pah tu pakat-pakat buat dan makan ramai-ramai"
+    "quote": "Mek Munah ni bahagian katok ayam"
    },
    "props": {
-    "layout": "split",
-    "variant": "flow",
-    "title": "Pakat-pakat",
-    "steps": [
-     "Katok ayam",
-     "Goreng",
-     "Makan ramai-ramai"
+    "kind": "nametag",
+    "name": "MEK MUNAH",
+    "role": "Bahagian katok ayam"
+   }
+  },
+  {
+   "id": "fry",
+   "type": "scene",
+   "at": {
+    "quote": "ni bahagian goreng"
+   },
+   "duration": 2.4,
+   "source": "transcript",
+   "evidence": {
+    "quote": "ni bahagian goreng"
+   },
+   "props": {
+    "kind": "labels",
+    "top": 300,
+    "items": [
+     {
+      "text": "FRY",
+      "icon": "pan"
+     }
     ],
-    "revealQuotes": [
-     "bahagian katok ayam",
-     "bahagian goreng",
-     "makan ramai-ramai"
+    "revealAt": [
+     0.3
     ]
    }
   },
   {
-   "id": "bakar",
-   "type": "typeset",
+   "id": "grill",
+   "type": "scene",
    "at": {
     "quote": "ataupun nak awak bakar"
    },
-   "duration": 4.6,
+   "duration": 3.2,
    "source": "transcript",
    "evidence": {
-    "quote": "siapa-siapa nak awak makan ataupun nak awak bakar"
+    "quote": "ataupun nak awak bakar nak awak bakar boleh"
    },
    "props": {
-    "plate": "none",
-    "position": "upper",
-    "lines": [
+    "kind": "labels",
+    "top": 300,
+    "items": [
      {
-      "text": "goreng",
-      "size": "l",
-      "dim": true
-     },
-     {
-      "text": "atau bakar",
-      "size": "l"
+      "text": "GRILL",
+      "icon": "flame"
      }
     ],
     "revealAt": [
-     0,
-     0.4
+     0.5
     ]
    }
   },
   {
-   "id": "cta-brand",
-   "type": "typeset",
+   "id": "endcard",
+   "type": "scene",
    "at": {
-    "quote": "boleh mari di YaPakCik Frozen",
-    "offset": -0.2
+    "quote": "Bagi siapa-siapa berminat",
+    "offset": -0.1
    },
-   "duration": 2.2,
+   "duration": 6.9,
    "source": "transcript",
    "evidence": {
-    "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen"
+    "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"
    },
    "props": {
     "layout": "split",
-    "plate": "none",
-    "lines": [
-     {
-      "text": "boleh mari di",
-      "size": "s",
-      "style": "script"
-     },
-     {
-      "text": "YaPakCik",
-      "size": "xl"
-     },
-     {
-      "text": "Frozen",
-      "size": "l",
-      "dim": true
-     }
-    ],
-    "revealAt": [
-     0,
-     0.3,
-     0.55
-    ]
-   }
-  },
-  {
-   "id": "cta-map",
-   "type": "board",
-   "at": {
-    "quote": "kita ada 2 cawangan"
-   },
-   "duration": 5.0,
-   "source": "transcript",
-   "evidence": {
-    "quote": "kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"
-   },
-   "props": {
-    "layout": "split",
-    "variant": "map",
-    "kicker": "YaPakCik Frozen",
-    "title": "2 cawangan",
+    "kind": "endcard",
+    "badge": "2 CAWANGAN",
     "pins": [
-     "Pasar Sumayyah, Tumpat",
-     "Kampung Kelaboran"
+     {
+      "name": "Pasar Sumayyah",
+      "area": "Tumpat"
+     },
+     {
+      "name": "Kampung Kelaboran"
+     }
     ],
     "revealQuotes": [
+     "Bagi siapa-siapa berminat",
+     "kita ada 2 cawangan",
      "di Pasar Sumayyah",
      "di Kampung Kelaboran"
     ]
@@ -537,7 +770,7 @@
   "style": "minimal",
   "combineMs": 900,
   "uppercase": false,
-  "position": 0.8,
+  "position": 0.7,
   "emphasis": {
    "rugi": "big",
    "untung": "big",
@@ -552,32 +785,27 @@
    "kuantiti": "big",
    "bakar": "script",
    "murah": "big",
-   "cawangan": "script"
+   "cawangan": "script",
+   "chop": "big"
   },
-  "hide": [
-   {
-    "clip": "lv_0_20261119124959",
-    "from": 156.31,
-    "to": 161.91,
-    "reason": "unclear speech — audio kept, no subtitle"
-   }
-  ]
+  "hide": []
  },
  "look": {
   "grade": "moody-true",
-  "gradeIntensity": 0.8,
+  "gradeIntensity": 0.7,
   "grain": true,
   "vignette": true,
   "breathing": 0.012,
   "coverBands": [],
-  "aiLabel": false
+  "aiLabel": false,
+  "canvas": "brand"
  },
  "audio": {
   "music": "music/story-documentary-bed.mp3",
-  "musicVolume": 0.32,
-  "duckTo": 0.14,
+  "musicVolume": 0.3,
+  "duckTo": 0.13,
   "sfx": "auto",
-  "sfxVolume": 0.5,
+  "sfxVolume": 0.55,
   "voiceTargetLufs": -16,
   "cues": []
  }

@@ -128,7 +128,8 @@ export type Layer = {
     | "progress"
     | "dial"
     | "board"
-    | "typeset";
+    | "typeset"
+    | "scene";
   at: TimeRef;
   /** seconds, or "quote" = until the anchored words finish (+ 0.6s) */
   duration?: number | "quote";
@@ -171,6 +172,8 @@ export type EditFile = {
     coverBands?: { y0: number; y1: number; clips?: string[] }[];
     /** small "LATAR: VISUAL AI" disclosure on scenes with generated backgrounds */
     aiLabel?: boolean;
+    /** ONE CANVAS stage behind split graphics: "paper" (minimal white) or "brand" (YaPakCik navy) */
+    canvas?: "paper" | "brand";
   };
   audio: {
     /** extra hand-placed sound effects, e.g. { "sfx": "riser", "at": { "quote": "Offal Exp" }, "volume": 0.4 } */
@@ -567,7 +570,7 @@ export const layerTexts = (l: Layer): string[] => {
     else if (Array.isArray(v)) v.forEach(walk);
     else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => {
       // non-visible technical fields
-      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size", "floorShadeFrom", "floorShade", "variant", "dark", "image", "dim", "layout"].includes(k)) return;
+      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size", "floorShadeFrom", "floorShade", "variant", "dark", "image", "dim", "layout", "kind", "icons", "track", "hits", "top", "icon", "y", "h"].includes(k)) return;
       walk(x);
     });
   };

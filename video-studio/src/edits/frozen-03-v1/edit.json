@@ -1,15 +1,42 @@
 {
- "_readme": "Chicken chop guna ayam apa? (cerita ayam seekor vs isi ayam fillet) — cut from the frozen-03 raw recording (clean 1080p). ONE CANVAS style. Graphics only from spoken words.",
+ "_readme": "Chicken chop guna ayam apa? — cut from the frozen-03 raw recording (clean 1080p). YPF brand motion-graphics kit (src/story/scenes/ypf.tsx) on the ONE CANVAS system. Graphics only from spoken words or owner-confirmed facts; product shown only as real footage.",
  "project": "frozen-03-v1",
  "brand": "yapakcik-frozen",
- "title": "Chicken chop guna ayam apa? (cerita ayam seekor vs isi ayam fillet)",
+ "title": "Chicken chop guna ayam apa?",
  "shots": [
   {
+   "id": "a0",
+   "label": "HOOK: chicken chop guna ayam seekor?",
+   "clip": "lv_0_20261119124959",
+   "in": 6.45,
+   "out": 9.15,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "guna ayam seekor"
+     },
+     "type": "punch-in",
+     "scale": 1.5
+    }
+   ]
+  },
+  {
    "id": "a1",
-   "label": "HOOK: tertanya-tanya",
+   "label": "tertanya-tanya",
    "clip": "lv_0_20261119124959",
    "in": 3.0,
-   "out": 9.15,
+   "out": 6.4,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -23,11 +50,9 @@
      "duration": 0.01
     },
     {
-     "at": {
-      "quote": "Ayam chicken chop guna"
-     },
-     "type": "punch-in",
-     "scale": 1.45
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.38
     }
    ]
   },
@@ -92,7 +117,7 @@
   },
   {
    "id": "a4",
-   "label": "ayam seekor = isi dada sahaja → rugi",
+   "label": "ayam seekor = isi dada → rugi",
    "clip": "lv_0_20261119124959",
    "in": 21.1,
    "out": 29.45,
@@ -114,19 +139,12 @@
      },
      "type": "punch-in",
      "scale": 1.42
-    },
-    {
-     "at": {
-      "quote": "Rugi"
-     },
-     "type": "punch-in",
-     "scale": 1.55
     }
    ]
   },
   {
    "id": "a5",
-   "label": "nak untung → isi ayam fillet",
+   "label": "nak untung → isi ayam fillet (real pack)",
    "clip": "lv_0_20261119124959",
    "in": 29.75,
    "out": 35.5,
@@ -141,13 +159,6 @@
      "type": "punch-in",
      "scale": 1.34,
      "duration": 0.01
-    },
-    {
-     "at": {
-      "quote": "Ambillah isi ayam fillet"
-     },
-     "type": "punch-in",
-     "scale": 1.46
     }
    ]
   },
@@ -255,23 +266,33 @@
  ],
  "layers": [
   {
-   "id": "open",
-   "type": "typeset",
+   "id": "hook",
+   "type": "scene",
    "at": {
-    "quote": "Ayam chicken chop guna ayam seekor"
+    "quote": "Ayam chicken chop guna"
    },
-   "duration": 2.6,
+   "duration": 2.65,
    "source": "transcript",
    "evidence": {
     "quote": "Ayam chicken chop guna ayam seekor kata"
    },
    "props": {
-    "layout": "split",
-    "plate": "none",
-    "lines": [
+    "kind": "hook",
+    "y": 120,
+    "h": 430,
+    "words": [
      {
-      "text": "chicken chop",
+      "text": "ayam",
+      "size": "s"
+     },
+     {
+      "text": "chicken",
       "size": "xl"
+     },
+     {
+      "text": "chop",
+      "size": "xl",
+      "style": "gold"
      },
      {
       "text": "guna ayam seekor?",
@@ -280,87 +301,47 @@
      }
     ],
     "revealQuotes": [
-     "chicken chop guna",
+     "Ayam chicken",
+     "chicken chop",
+     "chop guna",
      "ayam seekor kata"
     ]
    }
   },
   {
-   "id": "rugi",
-   "type": "typeset",
+   "id": "chicken",
+   "type": "scene",
    "at": {
-    "quote": "Kalau ayam seekor gini"
+    "quote": "Kalau ayam seekor gini",
+    "offset": -0.15
    },
-   "duration": 3.85,
+   "duration": 8.6,
    "source": "transcript",
    "evidence": {
-    "quote": "Kalau ayam seekor gini ada isi dada sahaja nak buat chicken chop rugi"
+    "quote": "Kalau ayam seekor gini ada isi dada sahaja nak buat chicken chop rugi jadi macam mana nak awak nak untung ambillah isi ayam fillet ni"
    },
    "props": {
     "layout": "split",
-    "plate": "none",
-    "lines": [
-     {
-      "text": "ayam seekor",
-      "size": "s",
-      "style": "script"
-     },
-     {
-      "text": "isi dada sahaja",
-      "size": "l"
-     },
-     {
-      "text": "rugi.",
-      "size": "xl"
-     }
-    ],
+    "kind": "chicken",
+    "leftTitle": "ayam seekor",
+    "breastLabel": "ISI DADA",
+    "breastSub": "sahaja",
+    "lossLabel": "RUGI",
+    "rightKicker": "nak untung?",
+    "hero": "FILLET",
+    "heroSub": "ISI AYAM",
     "revealQuotes": [
      "ayam seekor gini",
      "isi dada sahaja",
-     "Rugi"
-    ]
-   }
-  },
-  {
-   "id": "untung",
-   "type": "typeset",
-   "at": {
-    "quote": "nak awak nak untung",
-    "offset": -0.3
-   },
-   "duration": 3.9,
-   "source": "transcript",
-   "evidence": {
-    "quote": "Jadi macam mana nak awak nak untung ambillah isi ayam fillet ni"
-   },
-   "props": {
-    "layout": "split",
-    "plate": "none",
-    "lines": [
-     {
-      "text": "nak untung?",
-      "size": "m",
-      "style": "script"
-     },
-     {
-      "text": "isi ayam",
-      "size": "l"
-     },
-     {
-      "text": "fillet",
-      "size": "xl"
-     }
-    ],
-    "revealQuotes": [
+     "Rugi",
      "nak untung",
-     "Ambillah isi ayam",
-     "fillet ni"
+     "Ambillah isi ayam"
     ]
    }
   },
   {
-   "id": "boleh-buat",
-   "type": "board",
+   "id": "list",
+   "type": "scene",
    "at": {
     "quote": "boleh buat chicken chop bajet",
     "offset": -0.2
@@ -372,13 +353,19 @@
    },
    "props": {
     "layout": "split",
-    "variant": "checklist",
+    "kind": "list",
     "kicker": "isi ayam fillet boleh buat",
     "items": [
-     "Chicken chop bajet",
-     "Chicken tenders",
-     "Chicken popcorn",
-     "Ayam lidi"
+     "Chicken Chop Bajet",
+     "Chicken Tenders",
+     "Chicken Popcorn",
+     "Ayam Lidi"
+    ],
+    "icons": [
+     "fillet",
+     "strips",
+     "popcorn",
+     "skewer"
     ],
     "revealQuotes": [
      "chicken chop bajet",
@@ -389,64 +376,33 @@
    }
   },
   {
-   "id": "cta-brand",
-   "type": "typeset",
+   "id": "endcard",
+   "type": "scene",
    "at": {
-    "quote": "boleh mari di YaPakCik Frozen",
-    "offset": -0.2
+    "quote": "Bagi siapa-siapa berminat",
+    "offset": -0.1
    },
-   "duration": 2.2,
+   "duration": 6.9,
    "source": "transcript",
    "evidence": {
-    "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen"
+    "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"
    },
    "props": {
     "layout": "split",
-    "plate": "none",
-    "lines": [
+    "kind": "endcard",
+    "badge": "2 CAWANGAN",
+    "pins": [
      {
-      "text": "boleh mari di",
-      "size": "s",
-      "style": "script"
+      "name": "Pasar Sumayyah",
+      "area": "Tumpat"
      },
      {
-      "text": "YaPakCik",
-      "size": "xl"
-     },
-     {
-      "text": "Frozen",
-      "size": "l",
-      "dim": true
+      "name": "Kampung Kelaboran"
      }
     ],
-    "revealAt": [
-     0,
-     0.3,
-     0.55
-    ]
-   }
-  },
-  {
-   "id": "cta-map",
-   "type": "board",
-   "at": {
-    "quote": "kita ada 2 cawangan"
-   },
-   "duration": 5.0,
-   "source": "transcript",
-   "evidence": {
-    "quote": "kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"
-   },
-   "props": {
-    "layout": "split",
-    "variant": "map",
-    "kicker": "YaPakCik Frozen",
-    "title": "2 cawangan",
-    "pins": [
-     "Pasar Sumayyah, Tumpat",
-     "Kampung Kelaboran"
-    ],
     "revealQuotes": [
+     "Bagi siapa-siapa berminat",
+     "kita ada 2 cawangan",
      "di Pasar Sumayyah",
      "di Kampung Kelaboran"
     ]
@@ -458,7 +414,7 @@
   "style": "minimal",
   "combineMs": 900,
   "uppercase": false,
-  "position": 0.8,
+  "position": 0.7,
   "emphasis": {
    "rugi": "big",
    "untung": "big",
@@ -473,25 +429,27 @@
    "kuantiti": "big",
    "bakar": "script",
    "murah": "big",
-   "cawangan": "script"
+   "cawangan": "script",
+   "chop": "big"
   },
   "hide": []
  },
  "look": {
   "grade": "moody-true",
-  "gradeIntensity": 0.8,
+  "gradeIntensity": 0.7,
   "grain": true,
   "vignette": true,
   "breathing": 0.012,
   "coverBands": [],
-  "aiLabel": false
+  "aiLabel": false,
+  "canvas": "brand"
  },
  "audio": {
   "music": "music/story-documentary-bed.mp3",
-  "musicVolume": 0.32,
-  "duckTo": 0.14,
+  "musicVolume": 0.3,
+  "duckTo": 0.13,
   "sfx": "auto",
-  "sfxVolume": 0.5,
+  "sfxVolume": 0.55,
   "voiceTargetLufs": -16,
   "cues": []
  }

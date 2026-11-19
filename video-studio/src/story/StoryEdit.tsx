@@ -1,6 +1,8 @@
 import React, { useMemo } from "react";
 import { AbsoluteFill, interpolate, Sequence, useCurrentFrame, type CalculateMetadataFunction } from "remotion";
 import { CanvasFrame, canvasProgress, mergeSpans } from "./Canvas";
+import { YpfScene, sceneSfx } from "./scenes/ypf";
+import { zoomScaleAt } from "./engine";
 import { Audio } from "@remotion/media";
 import { SFX, type SfxName } from "../shared/audio/library";
 import { resolveMedia } from "../shared/utils/media";
@@ -109,6 +111,24 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
         return <Dial {...common} props={l.props as never} />;
       case "board":
         return <Board dur={dur} style={style} props={{ ...l.props, revealAt: l.props.revealAt ?? resolveRevealTimes(l, story.words)?.map((x) => x ?? 0) } as never} />;
+      case "scene": {
+        const rvSec: (number | null)[] = l.props.revealAt ?? resolveRevealTimes(l, story.words) ?? [];
+        const rv = rvSec.map((x) => Math.round((x ?? 0) * fps));
+        // map SOURCE pixels → screen at the current frame (follows the shot's zoom), for tracked callouts
+        const map = (x: number, y: number) => {
+          const t = frame / fps;
+          const s = [...story.shots].reverse().find((sh) => t >= sh.start && t < sh.start + sh.duration);
+          const c = s && clips[s.clip];
+          if (!s || !c) return { x, y, s: 1 };
+          const events = (s.zooms ?? []).map((z) => ({ ...z, at: resolveZoomTime(z, s, story.words) })).filter((z): z is typeof z & { at: number } => z.at !== null);
+          const z = zoomScaleAt(t - s.start, events, s.duration, s.breathing ?? edit.look.breathing ?? 0);
+          const cover = Math.max(width / c.width, height / c.height);
+          const fx = (s.focus?.x ?? 0.5) * width, fy = (s.focus?.y ?? 0.5) * height;
+          const sx = (x - c.width / 2) * cover + width / 2, sy = (y - c.height / 2) * cover + height / 2;
+          return { x: fx + (sx - fx) * z, y: fy + (sy - fy) * z, s: cover * z };
+        };
+        return <YpfScene dur={dur} rv={rv} props={l.props} split={isSplit(l)} map={map} />;
+      }
       case "typeset":
         return <Typeset {...common} props={{ ...l.props, revealAt: l.props.revealAt ?? resolveRevealTimes(l, story.words)?.map((x) => x ?? 0) } as never} />;
       default:
@@ -154,6 +174,10 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
         });
       }
       if (l.type === "callout") cues.push({ sfx: "pop", at, volume: 0.5 });
+      if (l.type === "scene") {
+        const rvSec: (number | null)[] = l.props.revealAt ?? resolveRevealTimes(l, story.words) ?? [];
+        for (const c of sceneSfx(l.props.kind, rvSec.map((x) => Math.round((x ?? 0) * fps)), l.props, fps, f(l.dur))) if (c.sfx in SFX) cues.push({ sfx: c.sfx as SfxName, at: at + c.at, volume: c.volume, playbackRate: c.playbackRate });
+      }
       if (l.type === "badge") cues.push({ sfx: brandSparkle, at, volume: 0.6 });
       if (l.type === "cta") cues.push({ sfx: brandSparkle, at: at + 4, volume: 0.7 });
       if (l.type === "lowerThird") cues.push({ sfx: "whoosh", at, volume: 0.22, playbackRate: 1.6 });
@@ -173,7 +197,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
 
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      <CanvasFrame p={canvasP}>
+      <CanvasFrame p={canvasP} theme={edit.look.canvas ?? "paper"}>
       {/* 1 · REAL FOOTAGE — the presenter's shots with original voice
              (composite shots: generated environment here, the real subject is added in step 1c) */}
       {story.shots.map((s, i) => {

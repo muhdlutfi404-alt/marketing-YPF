@@ -21,7 +21,7 @@ export const CANVAS = {
   shift: 360,
   scale: 0.94,
   /** area above the window where split graphics are laid out */
-  regionTop: 120,
+  regionTop: 160, // below TikTok's top tabs
   get regionBottom() {
     return this.top - 50;
   },
@@ -52,15 +52,22 @@ export const canvasProgress = (frame: number, spans: CanvasSpan[], fps: number):
   return Math.max(0, Math.min(1, p));
 };
 
-export const CanvasFrame: React.FC<{ p: number; children: React.ReactNode }> = ({ p, children }) => {
+/** "brand" = YaPakCik Frozen stage (deep navy + soft ice glow); "paper" = minimal white explainer */
+export type CanvasTheme = "paper" | "brand";
+export const BRAND_STAGE = "radial-gradient(120% 70% at 50% 18%, #13427e 0%, #0b2a52 38%, #06182f 78%, #040f20 100%)";
+
+export const CanvasFrame: React.FC<{ p: number; children: React.ReactNode; theme?: CanvasTheme }> = ({ p, children, theme = "paper" }) => {
   if (p <= 0.001) return <AbsoluteFill>{children}</AbsoluteFill>;
   const C = CANVAS;
   const t = C.top * p, sd = C.side * p, b = C.bottom * p, r = C.radius * p;
   return (
     <AbsoluteFill>
-      <AbsoluteFill style={{ background: C.paper, opacity: Math.min(1, p * 1.6) }} />
+      <AbsoluteFill style={{ background: theme === "brand" ? BRAND_STAGE : C.paper, opacity: Math.min(1, p * 1.6) }} />
+      {theme === "brand" ? (
+        <AbsoluteFill style={{ opacity: Math.min(1, p * 1.6), background: "radial-gradient(60% 30% at 50% 40%, rgba(41,182,246,0.16) 0%, rgba(41,182,246,0) 70%)" }} />
+      ) : null}
       {/* soft shadow under the window */}
-      <div style={{ position: "absolute", top: t, left: sd, right: sd, bottom: b, borderRadius: r, boxShadow: `0 ${30 * p}px ${70 * p}px rgba(0,0,0,${0.22 * p})` }} />
+      <div style={{ position: "absolute", top: t, left: sd, right: sd, bottom: b, borderRadius: r, boxShadow: theme === "brand" ? `0 ${30 * p}px ${80 * p}px rgba(0,0,0,${0.55 * p}), 0 0 0 ${3 * p}px rgba(205,238,255,${0.22 * p})` : `0 ${30 * p}px ${70 * p}px rgba(0,0,0,${0.22 * p})` }} />
       <AbsoluteFill style={{ clipPath: `inset(${t}px ${sd}px ${b}px ${sd}px round ${r}px)` }}>
         <AbsoluteFill style={{ transform: `translateY(${C.shift * p}px) scale(${1 - (1 - C.scale) * p})`, transformOrigin: "50% 50%" }}>{children}</AbsoluteFill>
       </AbsoluteFill>

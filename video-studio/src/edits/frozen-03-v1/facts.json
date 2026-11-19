@@ -34,6 +34,18 @@
   "value": "2 cawangan: Pasar Sumayyah, Tumpat; Kampung Kelaboran",
   "label": "Branches",
   "confirmed": true,
-  "note": "confirmed by owner for frozen-02"
+  "note": "owner confirmed"
+ },
+ "priceList": {
+  "value": "RM26 sepaket (2kg); RM149 sekotak (6 paket, 12kg); 5 kotak ke atas harga lebih murah; 10-20 kotak lebih murah lagi",
+  "label": "Harga isi ayam fillet",
+  "confirmed": true,
+  "note": "owner confirmed 2026-11-19"
+ },
+ "piecesPerKg": {
+  "value": "23-26 keping sekilo",
+  "label": "Keping sekilo",
+  "confirmed": true,
+  "note": "owner confirmed 2026-11-19"
  }
 }

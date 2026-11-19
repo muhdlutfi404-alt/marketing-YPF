@@ -1,32 +1,12 @@
 {
- "_readme": "Harga isi ayam fillet: runcit, borong & sekotak — cut from the frozen-03 raw recording (clean 1080p). ONE CANVAS style. Graphics only from spoken words.",
+ "_readme": "Harga isi ayam fillet: sepaket, sekotak & borong — cut from the frozen-03 raw recording (clean 1080p). YPF brand motion-graphics kit (src/story/scenes/ypf.tsx) on the ONE CANVAS system. Graphics only from spoken words or owner-confirmed facts; product shown only as real footage.",
  "project": "frozen-03-v3",
  "brand": "yapakcik-frozen",
- "title": "Harga isi ayam fillet: runcit, borong & sekotak",
+ "title": "Harga isi ayam fillet: sepaket, sekotak & borong",
  "shots": [
   {
-   "id": "c0",
-   "label": "HOOK: isi ayam fillet ni",
-   "clip": "lv_0_20261119124959",
-   "in": 0.6,
-   "out": 2.75,
-   "audio": "keep",
-   "focus": {
-    "x": 0.5,
-    "y": 0.33
-   },
-   "zooms": [
-    {
-     "at": 0,
-     "type": "punch-in",
-     "scale": 1.34,
-     "duration": 0.01
-    }
-   ]
-  },
-  {
    "id": "c1",
-   "label": "harga berapa?",
+   "label": "HOOK: harga berapa?",
    "clip": "lv_0_20261119124959",
    "in": 172.5,
    "out": 175.05,
@@ -74,14 +54,7 @@
       "quote": "RM26 sahaja sepaket ni"
      },
      "type": "punch-in",
-     "scale": 1.45
-    },
-    {
-     "at": {
-      "quote": "Harga kita berjualan"
-     },
-     "type": "punch-out",
-     "scale": 1.32
+     "scale": 1.42
     }
    ]
   },
@@ -108,7 +81,7 @@
       "quote": "orang kata 149"
      },
      "type": "punch-in",
-     "scale": 1.48
+     "scale": 1.46
     },
     {
      "at": {
@@ -165,146 +138,130 @@
  ],
  "layers": [
   {
-   "id": "q-harga",
-   "type": "typeset",
+   "id": "hook",
+   "type": "scene",
    "at": {
     "quote": "harga berapalah ni"
    },
-   "duration": 2.4,
+   "duration": 2.5,
    "source": "transcript",
    "evidence": {
     "quote": "Aa harga berapalah ni"
    },
    "props": {
-    "layout": "split",
-    "plate": "none",
-    "lines": [
-     {
-      "text": "isi ayam fillet",
-      "size": "s",
-      "style": "script"
-     },
+    "kind": "hook",
+    "y": 130,
+    "h": 400,
+    "words": [
      {
       "text": "harga",
       "size": "l"
      },
      {
       "text": "berapa?",
-      "size": "xl"
+      "size": "xl",
+      "style": "gold"
      }
     ],
-    "revealAt": [
-     0,
-     0.2,
-     0.5
-    ]
-   }
-  },
-  {
-   "id": "runcit",
-   "type": "board",
-   "at": {
-    "quote": "Harga kita jual di runcit"
-   },
-   "duration": 7.9,
-   "source": "transcript",
-   "evidence": {
-    "quote": "Harga kita jual di runcit lah ni ataupun borong RM26 sahaja sepaket ni"
-   },
-   "props": {
-    "layout": "split",
-    "variant": "number",
-    "value": "RM26",
-    "unit": "sepaket",
-    "label": "runcit ataupun borong"
-   }
-  },
-  {
-   "id": "tier",
-   "type": "board",
-   "at": {
-    "quote": "kalau kita nak ambil kotak"
-   },
-   "duration": 19.0,
-   "source": "transcript",
-   "evidence": {
-    "quote": "orang kata 149 sekotak tu deh sekotak tapi kalau kata ayam 5 kotak ke atas kita wi murah lagi kalau awak nak kata nak ambil banyak lagi kata 10 kotak 20 kotak sekali ambil"
-   },
-   "props": {
-    "layout": "split",
-    "variant": "flow",
-    "title": "Kita main kuantiti",
-    "steps": [
-     "RM149 sekotak",
-     "5 kotak ke atas",
-     "10 · 20 kotak"
-    ],
     "revealQuotes": [
-     "orang kata 149",
-     "5 kotak ke atas",
-     "kata 10 kotak"
+     "harga berapalah",
+     "berapalah ni"
     ]
    }
   },
   {
-   "id": "cta-brand",
-   "type": "typeset",
+   "id": "tiers",
+   "type": "scene",
    "at": {
-    "quote": "boleh mari di YaPakCik Frozen",
+    "quote": "ataupun borong",
     "offset": -0.2
    },
-   "duration": 2.2,
-   "source": "transcript",
+   "duration": 18.93,
+   "source": "facts",
    "evidence": {
-    "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen"
+    "fact": "priceList"
    },
    "props": {
     "layout": "split",
-    "plate": "none",
-    "lines": [
+    "kind": "tiers",
+    "kicker": "harga isi ayam fillet",
+    "tiers": [
      {
-      "text": "boleh mari di",
-      "size": "s",
-      "style": "script"
+      "price": "RM26",
+      "unit": "/ SEPAKET",
+      "chip": "2KG · RUNCIT & BORONG"
      },
      {
-      "text": "YaPakCik",
-      "size": "xl"
+      "price": "RM149",
+      "unit": "/ SEKOTAK",
+      "chip": "6 PAKET · 12KG"
      },
      {
-      "text": "Frozen",
-      "size": "l",
-      "dim": true
+      "price": "5 KOTAK KE ATAS",
+      "note": "HARGA LEBIH MURAH!"
      }
     ],
-    "revealAt": [
-     0,
-     0.3,
-     0.55
+    "revealQuotes": [
+     "RM26 sahaja sepaket ni",
+     "orang kata 149",
+     "5 kotak ke atas"
     ]
    }
   },
   {
-   "id": "cta-map",
-   "type": "board",
+   "id": "bulk",
+   "type": "scene",
    "at": {
-    "quote": "kita ada 2 cawangan"
+    "quote": "kata 10 kotak",
+    "offset": -0.2
    },
-   "duration": 5.0,
+   "duration": 6.4,
    "source": "transcript",
    "evidence": {
-    "quote": "kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"
+    "quote": "kata 10 kotak 20 kotak sekali ambil kita boleh wi murah lagi deh kita main kuantitilah ni"
    },
    "props": {
     "layout": "split",
-    "variant": "map",
-    "kicker": "YaPakCik Frozen",
-    "title": "2 cawangan",
+    "kind": "bulk",
+    "kicker": "ambil banyak lagi",
+    "from": 10,
+    "to": 20,
+    "unit": "KOTAK",
+    "note": "KITA MAIN KUANTITI",
+    "revealQuotes": [
+     "kata 10 kotak",
+     "20 kotak sekali"
+    ]
+   }
+  },
+  {
+   "id": "endcard",
+   "type": "scene",
+   "at": {
+    "quote": "Bagi siapa-siapa berminat",
+    "offset": -0.1
+   },
+   "duration": 6.9,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "endcard",
+    "badge": "2 CAWANGAN",
     "pins": [
-     "Pasar Sumayyah, Tumpat",
-     "Kampung Kelaboran"
+     {
+      "name": "Pasar Sumayyah",
+      "area": "Tumpat"
+     },
+     {
+      "name": "Kampung Kelaboran"
+     }
     ],
     "revealQuotes": [
+     "Bagi siapa-siapa berminat",
+     "kita ada 2 cawangan",
      "di Pasar Sumayyah",
      "di Kampung Kelaboran"
     ]
@@ -316,7 +273,7 @@
   "style": "minimal",
   "combineMs": 900,
   "uppercase": false,
-  "position": 0.8,
+  "position": 0.7,
   "emphasis": {
    "rugi": "big",
    "untung": "big",
@@ -331,25 +288,27 @@
    "kuantiti": "big",
    "bakar": "script",
    "murah": "big",
-   "cawangan": "script"
+   "cawangan": "script",
+   "chop": "big"
   },
   "hide": []
  },
  "look": {
   "grade": "moody-true",
-  "gradeIntensity": 0.8,
+  "gradeIntensity": 0.7,
   "grain": true,
   "vignette": true,
   "breathing": 0.012,
   "coverBands": [],
-  "aiLabel": false
+  "aiLabel": false,
+  "canvas": "brand"
  },
  "audio": {
   "music": "music/story-documentary-bed.mp3",
-  "musicVolume": 0.32,
-  "duckTo": 0.14,
+  "musicVolume": 0.3,
+  "duckTo": 0.13,
   "sfx": "auto",
-  "sfxVolume": 0.5,
+  "sfxVolume": 0.55,
   "voiceTargetLufs": -16,
   "cues": []
  }
