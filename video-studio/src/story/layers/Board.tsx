@@ -154,7 +154,7 @@ export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps
 
   if (props.variant === "flow" && props.steps) {
     const n = props.steps.length;
-    const gap = Math.min(250, 900 / Math.max(1, n));
+    const gap = split ? 150 : Math.min(250, 900 / Math.max(1, n));
     const top0 = 560;
     body = (
       <>
@@ -177,7 +177,7 @@ export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps
               <Reveal at={t}>
                 <div style={{ width: 140, height: 80, borderRadius: 40, border: `5px solid ${fg}`, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT_STACKS.inter, fontWeight: 800, fontSize: 40, color: fg }}>{i + 1}</div>
               </Reveal>
-              <Reveal at={t + 2}><div style={H(66)}>{s}</div></Reveal>
+              <Reveal at={t + 2}><div style={H(66 * big)}>{s}</div></Reveal>
             </div>
           );
         })}
@@ -262,7 +262,7 @@ export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps
   if (props.layout === "split") {
     // fit the full-screen layout's content box into the paper area above the presenter window
     const n = (props.steps ?? props.items ?? []).length;
-    const gapF = Math.min(250, 900 / Math.max(1, n));
+    const gapF = props.variant === "flow" ? 150 : Math.min(250, 900 / Math.max(1, n));
     const box: Record<BoardProps["variant"], [number, number]> = {
       tree: [500, props.footer ? 1220 : 1010],
       compare: [540, props.verdict ? 1420 : 1250],

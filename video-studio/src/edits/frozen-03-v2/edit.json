@@ -375,36 +375,37 @@
    "id": "harga",
    "type": "typeset",
    "at": {
-    "quote": "Ada sepaket ni 2 kilo"
+    "quote": "jimat bajet kata",
+    "offset": -0.3
    },
-   "duration": 3.1,
+   "duration": 5.0,
    "source": "transcript",
    "evidence": {
-    "quote": "Ada sepaket ni 2 kilo RM26 sahaja sepaket"
+    "quote": "Ha jimat bajet kata ada sepaket ni 2 kilo RM26 sahaja sepaket"
    },
    "props": {
     "layout": "split",
     "plate": "none",
     "lines": [
      {
-      "text": "sepaket 2 kilo",
+      "text": "jimat bajet",
       "size": "s",
       "style": "script"
      },
      {
-      "text": "RM26",
-      "size": "xl"
-     },
-     {
-      "text": "sahaja",
+      "text": "sepaket 2 kilo",
       "size": "m",
       "dim": true
+     },
+     {
+      "text": "RM26",
+      "size": "xl"
      }
     ],
     "revealQuotes": [
+     "jimat bajet",
      "sepaket ni 2 kilo",
-     "RM26 sahaja",
-     "sahaja sepaket"
+     "RM26 sahaja"
     ]
    }
   },
