@@ -96,43 +96,69 @@ const Kicker: React.FC<{ at: number; text?: string; top?: number }> = ({ at, tex
   ) : null;
 
 /* ───────────── illustrations (vector, clearly drawn) ───────────── */
-const Chicken: React.FC<{ glow: number; dim: number; cross: number }> = ({ glow, dim, cross }) => (
-  <svg viewBox="0 0 400 330" width={400} height={330} style={{ overflow: "visible" }}>
+/**
+ * Whole raw chicken, BREAST SIDE UP, seen from the side (how it sits on a tray or in a roasting pan):
+ * the big top dome is the breast (isi dada), legs/drumsticks at the cavity end, wing tucked at the front.
+ * `lift` raises the breast slightly off the bird (exploded view) so viewers see exactly which part it is.
+ */
+const BREAST_PATH = "M 150 122 C 200 94, 300 84, 372 116 C 406 140, 420 178, 418 204 C 360 214, 252 218, 168 208 C 154 182, 148 150, 150 122 Z";
+const Chicken: React.FC<{ glow: number; dim: number; lift: number }> = ({ glow, dim, lift }) => (
+  <svg viewBox="0 0 480 330" width={480} height={330} style={{ overflow: "visible" }}>
     <defs>
-      <radialGradient id="ck-body" cx="50%" cy="40%" r="65%">
-        <stop offset="0%" stopColor="#fbe0cc" />
-        <stop offset="100%" stopColor={YPF.skinDark} />
-      </radialGradient>
-      <radialGradient id="ck-breast" cx="50%" cy="45%" r="60%">
-        <stop offset="0%" stopColor="#fff3c2" />
-        <stop offset="100%" stopColor={YPF.gold} />
+      <linearGradient id="ck-skin" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#fbe3d3" />
+        <stop offset="55%" stopColor="#f3c7ae" />
+        <stop offset="100%" stopColor="#dc9d80" />
+      </linearGradient>
+      <linearGradient id="ck-leg" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor="#f7d2bd" />
+        <stop offset="100%" stopColor="#d99478" />
+      </linearGradient>
+      <linearGradient id="ck-breast-hi" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#ffe9a8" />
+        <stop offset="100%" stopColor="#f6b94a" />
+      </linearGradient>
+      <radialGradient id="ck-sheen" cx="50%" cy="30%" r="50%">
+        <stop offset="0%" stopColor="#ffffff" stopOpacity="0.55" />
+        <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
       </radialGradient>
     </defs>
-    <g style={{ filter: `saturate(${1 - dim * 0.8}) brightness(${1 - dim * 0.35})` }}>
-      {/* neck */}
-      <rect x={172} y={20} width={56} height={50} rx={24} fill="url(#ck-body)" stroke="#fff" strokeWidth={5} />
-      {/* wings */}
-      <path d="M 78 110 q -48 10 -46 60 q 30 4 58 -22 z" fill="url(#ck-body)" stroke="#fff" strokeWidth={5} />
-      <path d="M 322 110 q 48 10 46 60 q -30 4 -58 -22 z" fill="url(#ck-body)" stroke="#fff" strokeWidth={5} />
-      {/* legs (drumsticks tucked at the bottom) */}
-      <ellipse cx={118} cy={248} rx={44} ry={70} transform="rotate(38 118 248)" fill="url(#ck-body)" stroke="#fff" strokeWidth={5} />
-      <ellipse cx={282} cy={248} rx={44} ry={70} transform="rotate(-38 282 248)" fill="url(#ck-body)" stroke="#fff" strokeWidth={5} />
-      <circle cx={74} cy={300} r={15} fill="#fff7ef" stroke="#fff" strokeWidth={4} />
-      <circle cx={326} cy={300} r={15} fill="#fff7ef" stroke="#fff" strokeWidth={4} />
-      {/* body */}
-      <ellipse cx={200} cy={160} rx={132} ry={112} fill="url(#ck-body)" stroke="#fff" strokeWidth={6} />
-    </g>
-    {/* breast (isi dada) */}
-    <ellipse cx={200} cy={140} rx={78} ry={66} fill="url(#ck-breast)" opacity={glow} />
-    <ellipse cx={200} cy={140} rx={78 + 18 * glow} ry={66 + 16 * glow} fill="none" stroke={YPF.gold} strokeWidth={5} strokeDasharray="10 9" opacity={glow} />
-    <line x1={200} y1={78} x2={200} y2={205} stroke="#fff" strokeWidth={4} opacity={0.65} />
-    {/* waste: everything except the breast is crossed out */}
-    {cross > 0 ? (
-      <g opacity={cross}>
-        <path d={`M 40 40 L ${40 + 320 * cross} ${40 + 260 * cross}`} stroke={YPF.red} strokeWidth={12} strokeLinecap="round" />
-        <path d={`M 360 40 L ${360 - 320 * cross} ${40 + 260 * cross}`} stroke={YPF.red} strokeWidth={12} strokeLinecap="round" />
+    {/* tray shadow */}
+    <ellipse cx={245} cy={292} rx={205} ry={20} fill="rgba(0,0,0,0.35)" />
+    <g style={{ filter: `saturate(${1 - dim * 0.85}) brightness(${1 - dim * 0.4})` }}>
+      {/* far drumstick (behind) */}
+      <g transform="translate(26 -8)" opacity={0.85}>
+        <path d="M 92 206 C 74 170, 60 134, 52 106 C 48 92, 64 82, 76 94 C 94 120, 118 158, 136 194 Z" fill="#d99478" stroke="#b9745a" strokeWidth={3} />
+        <circle cx={54} cy={92} r={10} fill="#f3e3d3" stroke="#d9b9a2" strokeWidth={2} />
+        <circle cx={66} cy={84} r={9} fill="#f3e3d3" stroke="#d9b9a2" strokeWidth={2} />
       </g>
-    ) : null}
+      {/* near drumstick + knuckle bone (cavity end) */}
+      <path d="M 92 206 C 74 170, 60 134, 52 106 C 48 92, 64 82, 76 94 C 94 120, 118 158, 136 194 Z" fill="url(#ck-leg)" stroke="#c88466" strokeWidth={3} />
+      <circle cx={54} cy={92} r={10} fill="#fff4e8" stroke="#d9b9a2" strokeWidth={2} />
+      <circle cx={66} cy={84} r={9} fill="#fff4e8" stroke="#d9b9a2" strokeWidth={2} />
+      {/* body (back flat on the tray, breast dome on top) */}
+      <path d="M 70 250 C 60 170, 120 96, 240 88 C 360 82, 432 150, 426 230 C 423 262, 400 280, 360 284 L 120 286 C 90 284, 72 270, 70 250 Z" fill="url(#ck-skin)" stroke="#c88466" strokeWidth={3} />
+      {/* thigh */}
+      <ellipse cx={132} cy={222} rx={64} ry={52} transform="rotate(-12 132 222)" fill="url(#ck-leg)" stroke="#c88466" strokeWidth={3} />
+      {/* wing tucked at the front */}
+      <path d="M 300 222 C 338 204, 392 210, 412 238 C 384 252, 340 258, 304 252 C 297 243, 296 231, 300 222 Z" fill="url(#ck-leg)" stroke="#c88466" strokeWidth={3} />
+      <path d="M 412 238 C 424 236, 432 244, 428 252 C 420 254, 414 248, 412 238 Z" fill="#e8ab8f" />
+      {/* neck end */}
+      <path d="M 421 206 C 446 200, 456 226, 441 240 C 432 246, 424 240, 422 232 Z" fill="#eab298" stroke="#c88466" strokeWidth={3} />
+      {/* skin texture + sheen */}
+      {Array.from({ length: 55 }).map((_, i) => (
+        <circle key={i} cx={110 + random(`pp${i}`) * 300} cy={110 + random(`pq${i}`) * 160} r={1.6} fill="#c98a6e" opacity={0.35} />
+      ))}
+      <ellipse cx={270} cy={120} rx={120} ry={34} fill="url(#ck-sheen)" />
+    </g>
+    {/* the breast — highlighted and gently lifted */}
+    <path d={BREAST_PATH} fill="none" stroke={YPF.gold} strokeWidth={4} strokeDasharray="10 8" opacity={glow * lift} />
+    <g transform={`translate(${12 * lift} ${-34 * lift})`} opacity={glow}>
+      <path d={BREAST_PATH} fill="url(#ck-skin)" stroke="#c88466" strokeWidth={3} />
+      <path d={BREAST_PATH} fill="url(#ck-breast-hi)" opacity={0.55 + 0.25 * glow} />
+      <path d="M 170 140 C 240 112, 320 110, 398 150" stroke="#fff6e0" strokeWidth={4} fill="none" strokeLinecap="round" opacity={0.7} />
+      <path d={BREAST_PATH} fill="none" stroke={YPF.gold} strokeWidth={6} style={{ filter: `drop-shadow(0 0 ${14 * glow}px ${YPF.gold})` }} />
+    </g>
   </svg>
 );
 
@@ -245,24 +271,24 @@ const ChickenScene: React.FC<SceneProps> = ({ rv, props, dur }) => {
   return (
     <div style={{ position: "absolute", inset: 0 }}>
       {/* LEFT: ayam seekor */}
-      <div style={{ position: "absolute", top: 70, left: 540 - 200 - shift * 250, transform: `scale(${1.22 - shift * 0.5}) translateX(${stampShake}px)`, transformOrigin: "50% 30%" }}>
+      <div style={{ position: "absolute", top: 40, left: 130 - shift * 210, transform: `scale(${1.18 - shift * 0.55}) translateX(${stampShake}px)`, transformOrigin: "50% 30%" }}>
         <Pop at={tAppear}>
-          <div style={{ width: 400, textAlign: "center", fontFamily: HEAD, fontWeight: 800, fontSize: 40, color: YPF.ice, letterSpacing: 3, textTransform: "uppercase", marginBottom: 6 }}>{props.leftTitle ?? "Ayam seekor"}</div>
-          <Chicken glow={glow * (frame >= tRugi ? 1 : pulse)} dim={rugi * 0.8} cross={0} />
+          <div style={{ width: 480, textAlign: "center", fontFamily: HEAD, fontWeight: 800, fontSize: 40, color: YPF.ice, letterSpacing: 3, textTransform: "uppercase", marginBottom: 4 }}>{props.leftTitle ?? "Ayam seekor"}</div>
+          <Chicken glow={frame >= tBreast ? glow * (frame >= tRugi ? 1 : pulse) : 0} dim={rugi * 0.8} lift={glow} />
         </Pop>
         {/* breast label */}
-        <div style={{ position: "absolute", top: 150, left: 410, opacity: frame >= tBreast ? glow * (1 - shift) : 0, transform: `translateX(${(1 - glow) * 30}px)`, whiteSpace: "nowrap" }}>
-          <svg width={90} height={30} style={{ position: "absolute", left: -95, top: 26 }}>
-            <path d="M 88 15 L 8 15" stroke={YPF.gold} strokeWidth={5} strokeLinecap="round" />
-            <path d="M 20 4 L 6 15 L 20 26" stroke={YPF.gold} strokeWidth={5} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        <div style={{ position: "absolute", top: 40, left: 500, opacity: frame >= tBreast ? glow * (1 - shift) : 0, transform: `translateX(${(1 - glow) * 30}px)`, whiteSpace: "nowrap" }}>
+          <svg width={150} height={110} style={{ position: "absolute", left: -150, top: 44 }}>
+            <path d="M 140 10 C 90 10, 50 30, 22 86" stroke={YPF.gold} strokeWidth={5} fill="none" strokeLinecap="round" />
+            <path d="M 10 72 L 20 92 L 38 78" stroke={YPF.gold} strokeWidth={5} fill="none" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 48, color: YPF.gold, lineHeight: 1 }}>{props.breastLabel ?? "ISI DADA"}</div>
-          <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 34, color: YPF.white }}>{props.breastSub ?? "sahaja"}</div>
+          <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 50, color: YPF.gold, lineHeight: 1 }}>{props.breastLabel ?? "ISI DADA"}</div>
+          <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 30, color: YPF.white, marginTop: 4 }}>{props.breastSub ?? "sahaja"}</div>
         </div>
-        {/* RUGI stamp */}
+        {/* RUGI stamp (over the rest of the bird) */}
         {frame >= tRugi ? (
-          <div style={{ position: "absolute", top: 160, left: 60, transform: `rotate(-12deg) scale(${2.2 - 1.2 * rugi})`, opacity: Math.min(1, rugi * 2) }}>
-            <div style={{ border: `8px solid ${YPF.red}`, borderRadius: 18, padding: "6px 30px", fontFamily: HEAD, fontWeight: 900, fontSize: 104, color: YPF.red, letterSpacing: 6, background: "rgba(6,24,47,0.55)" }}>{props.lossLabel ?? "RUGI"}</div>
+          <div style={{ position: "absolute", top: 230, left: 40, transform: `rotate(-10deg) scale(${2.2 - 1.2 * rugi})`, opacity: Math.min(1, rugi * 2) }}>
+            <div style={{ border: `8px solid ${YPF.red}`, borderRadius: 18, padding: "4px 28px", fontFamily: HEAD, fontWeight: 900, fontSize: 96, color: YPF.red, letterSpacing: 6, background: "rgba(6,24,47,0.6)" }}>{props.lossLabel ?? "RUGI"}</div>
           </div>
         ) : null}
       </div>
@@ -356,115 +382,174 @@ const PlatesScene: React.FC<SceneProps> = ({ rv, props }) => {
   );
 };
 
+/**
+ * Side view of ONE breast fillet for the preparation steps.
+ *   cut  0→1  knife slices HORIZONTALLY through the middle, stopping before the far edge (butterfly cut)
+ *   open 0→1  the top half opens over the uncut "hinge" like a book → one wide, thinner piece (never two pieces)
+ *   thin 0→1  tenderiser hits make it wider and thinner
+ */
+const W_PIECE = 330, H_HALF = 52, HINGE = 0.93;
+const lensTop = `M 0 0 C ${W_PIECE * 0.12} ${-H_HALF * 1.35}, ${W_PIECE * 0.8} ${-H_HALF * 1.4}, ${W_PIECE} 0 Z`;
+const lensBot = `M 0 0 C ${W_PIECE * 0.12} ${H_HALF * 1.3}, ${W_PIECE * 0.8} ${H_HALF * 1.35}, ${W_PIECE} 0 Z`;
+const ButterflyPiece: React.FC<{ cut: number; open: number; thin: number; crumbs: number; golden: number }> = ({ cut, open, thin, crumbs, golden }) => {
+  const meat = golden > 0 ? `color-mix(in srgb, #f3bea2 ${100 - golden * 100}%, #c4762b)` : "#f3bea2";
+  const inner = golden > 0 ? `color-mix(in srgb, #f8d6c4 ${100 - golden * 100}%, #d08a3c)` : "#f8d6c4";
+  const hx = W_PIECE * HINGE;
+  const wTotal = W_PIECE + (hx - 0) * open; // width once opened
+  return (
+    <g transform={`translate(${-wTotal / 2} 0) scale(${1 + 0.14 * thin} ${1 - 0.38 * thin})`}>
+      <g transform={`translate(${(wTotal * 0.14 * thin) / -2 / (1 + 0.14 * thin)} 0)`}>
+        {/* once fully opened it is ONE wide, thinner piece (folded open at the hinge, never two pieces) */}
+        {open > 0.85 ? (
+          <g opacity={lin(open, 0.85, 1)}>
+            <path d={`M 0 ${-H_HALF * 0.1} C ${hx * 0.2} ${H_HALF * 1.15}, ${hx * 1.8} ${H_HALF * 1.15}, ${hx * 2} ${-H_HALF * 0.1} C ${hx * 1.5} ${-H_HALF * 0.32}, ${hx * 0.5} ${-H_HALF * 0.32}, 0 ${-H_HALF * 0.1} Z`} fill={inner} stroke="#fff" strokeWidth={4} />
+            <path d={`M ${hx} ${-H_HALF * 0.2} L ${hx} ${H_HALF * 0.55}`} stroke="#e0a688" strokeWidth={3} strokeDasharray="6 6" />
+            <path d={`M 30 ${H_HALF * 0.3} C ${hx * 0.6} ${H_HALF * 0.55}, ${hx * 1.4} ${H_HALF * 0.55}, ${hx * 2 - 30} ${H_HALF * 0.3}`} stroke="#fff" strokeOpacity={0.35} strokeWidth={3} fill="none" />
+          </g>
+        ) : null}
+        <g opacity={1 - lin(open, 0.85, 1)}>
+        {/* bottom half stays on the board */}
+        <path d={lensBot} fill={meat} stroke="#fff" strokeWidth={4} />
+        <path d={`M 20 ${H_HALF * 0.45} C 120 ${H_HALF * 0.7}, 220 ${H_HALF * 0.7}, 300 ${H_HALF * 0.4}`} stroke="#fff" strokeOpacity={0.35} strokeWidth={3} fill="none" />
+        {/* top half: hinged at the uncut edge, opens like a book */}
+        <g transform={`rotate(${180 * open} ${hx} 0)`}>
+          <path d={lensTop} fill={open > 0.5 ? inner : meat} stroke="#fff" strokeWidth={4} />
+          <path d={`M 24 ${-H_HALF * 0.5} C 120 ${-H_HALF * 0.8}, 220 ${-H_HALF * 0.8}, 300 ${-H_HALF * 0.45}`} stroke="#fff" strokeOpacity={0.35} strokeWidth={3} fill="none" />
+        </g>
+        </g>
+        {/* the cut line (stops before the hinge) */}
+        {cut > 0 && open < 0.05 ? <line x1={0} y1={0} x2={W_PIECE * HINGE * 0.95 * cut} y2={0} stroke={YPF.navy} strokeWidth={4} strokeLinecap="round" /> : null}
+        {crumbs > 0
+          ? Array.from({ length: 90 }).map((_, i) => {
+              const x = 10 + random(`bx${i}`) * (wTotal - 20);
+              return random(`bs${i}`) < crumbs ? <circle key={i} cx={x} cy={-4 - random(`by${i}`) * 8} r={3 + random(`br${i}`) * 3.5} fill={i % 3 ? YPF.crumb : "#f6c76a"} /> : null;
+            })
+          : null}
+      </g>
+    </g>
+  );
+};
+
 const PrepScene: React.FC<SceneProps> = ({ rv, props }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const steps: string[] = props.steps ?? ["Belah dua", "Katok-katok", "Tepung roti", "Goreng"];
+  const steps: string[] = props.steps ?? ["Belah untuk lebarkan", "Katok-katok", "Tepung roti", "Goreng"];
   const [tSplit = 0, tKatok = 40, tCrumb = 80, tFry = 110] = rv;
   const hits: number[] = (props.hits ?? []).map((s: number) => Math.round(s * fps));
   const active = frame >= tFry ? 3 : frame >= tCrumb ? 2 : frame >= tKatok ? 1 : 0;
-  const split = lin(frame, tSplit + 6, tSplit + 16) * (1 - 0.75 * lin(frame, tFry, tFry + 10));
-  // mallet: swings down at each hit
+  // step 1 timing scales to the time available before "katok-katok" is spoken
+  const T1 = Math.max(36, tKatok - tSplit);
+  const s0 = tSplit;
+  const cut = interpolate(frame, [s0 + T1 * 0.1, s0 + T1 * 0.42], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const open = interpolate(frame, [s0 + T1 * 0.46, s0 + T1 * 0.74], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const result = lin(frame, s0 + T1 * 0.74, s0 + T1 * 0.84);
   const lastHit = [...hits].reverse().find((h) => frame >= h - 4);
   const swing = lastHit !== undefined ? interpolate(frame - lastHit, [-4, 0, 6], [0, 1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 0;
   const hitCount = hits.filter((h) => frame >= h).length;
-  const flat = Math.min(1, hitCount / Math.max(1, hits.length));
+  const thin = Math.min(1, hitCount / Math.max(1, hits.length));
   const impact = lastHit !== undefined && frame >= lastHit ? 1 - lin(frame, lastHit, lastHit + 10) : 0;
-  const crumbs = lin(frame, tCrumb, tCrumb + 22);
+  const crumbs = lin(frame, tCrumb + 4, tCrumb + 26);
   const golden = lin(frame, tFry + 4, tFry + 40);
   const shake = impact > 0.5 ? Math.sin(frame * 5) * 6 * impact : 0;
+  const CX = 540, CY = 250, K = 1.22; // piece cut-line position in the stage, piece scale
+  const knifeX = interpolate(cut, [0, 1], [CX - (W_PIECE / 2) * K - 330, CX - (W_PIECE / 2) * K + W_PIECE * HINGE * 0.95 * K - 300]);
+  const compare = frame >= s0 + T1 * 0.8 && frame < tKatok + 24 ? Math.min(lin(frame, s0 + T1 * 0.8, s0 + T1 * 0.9), 1 - lin(frame, tKatok + 14, tKatok + 24)) : 0;
   return (
     <div style={{ position: "absolute", inset: 0 }}>
       {/* step chips */}
-      <div style={{ position: "absolute", top: 4, left: 40, right: 40, display: "flex", justifyContent: "center", gap: 12 }}>
-        {steps.map((s, i) => {
+      <div style={{ position: "absolute", top: 4, left: 30, right: 30, display: "flex", justifyContent: "center", gap: 10 }}>
+        {steps.map((st, i) => {
           const on = i === active, done = i < active;
           return (
             <Slide key={i} at={[tSplit, tKatok, tCrumb, tFry][i] ?? 0} dy={-20}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 18px", borderRadius: 999, background: on ? `linear-gradient(180deg, ${YPF.gold}, ${YPF.orange})` : "rgba(205,238,255,0.12)", border: `2px solid ${on ? "transparent" : "rgba(205,238,255,0.3)"}`, transform: `scale(${on ? 1.06 : 1})` }}>
-                <span style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 26, color: on ? YPF.navy : YPF.ice }}>{done ? "✓" : i + 1}</span>
-                <span style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 26, color: on ? YPF.navy : YPF.white, whiteSpace: "nowrap", textTransform: "uppercase" }}>{s}</span>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "8px 14px", borderRadius: 999, background: on ? `linear-gradient(180deg, ${YPF.gold}, ${YPF.orange})` : "rgba(205,238,255,0.12)", border: `2px solid ${on ? "transparent" : "rgba(205,238,255,0.3)"}`, transform: `scale(${on ? 1.05 : 1})` }}>
+                <span style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 21, color: on ? YPF.navy : YPF.ice }}>{done ? "✓" : i + 1}</span>
+                <span style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 21, color: on ? YPF.navy : YPF.white, whiteSpace: "nowrap", textTransform: "uppercase" }}>{st}</span>
               </div>
             </Slide>
           );
         })}
       </div>
       {/* stage */}
-      <div style={{ position: "absolute", top: 120, left: 0, width: 1080, height: 470, transform: `translateX(${shake}px)` }}>
-        {/* frying: pan + heat shimmer */}
-        {frame >= tFry ? (
-          <>
-            <div style={{ position: "absolute", left: 540 - 250, top: 70, opacity: lin(frame, tFry, tFry + 8) }}>
-              <PanIcon s={480} />
-            </div>
-            <svg width={1080} height={470} style={{ position: "absolute", inset: 0, opacity: lin(frame, tFry + 4, tFry + 14) }}>
-              {Array.from({ length: 5 }).map((_, k) => {
-                const x = 430 + k * 55, ph = frame / 6 + k;
-                const d = `M ${x} 170 C ${x + 14 * Math.sin(ph)} 130, ${x - 14 * Math.sin(ph + 1)} 90, ${x + 10 * Math.sin(ph + 2)} 40`;
-                return <path key={k} d={d} stroke={k % 2 ? YPF.gold : YPF.orange} strokeWidth={6} strokeLinecap="round" fill="none" opacity={0.55 + 0.35 * Math.sin(ph)} />;
+      <div style={{ position: "absolute", top: 90, left: 0, width: 1080, height: 470, transform: `translateX(${shake}px)` }}>
+        <svg width={1080} height={470} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
+          {/* frying pan (side view) under the piece */}
+          {frame >= tFry ? (
+            <g opacity={lin(frame, tFry, tFry + 8)}>
+              <ellipse cx={CX} cy={CY + 40} rx={360} ry={46} fill="rgba(255,138,31,0.28)" />
+              <path d={`M ${CX - 380} ${CY + 18} L ${CX + 380} ${CY + 18} L ${CX + 330} ${CY + 70} L ${CX - 330} ${CY + 70} Z`} fill="#2b2f36" stroke="#fff" strokeWidth={4} />
+              <rect x={CX + 380} y={CY + 22} width={150} height={20} rx={10} fill="#2b2f36" stroke="#fff" strokeWidth={3} />
+              {Array.from({ length: 6 }).map((_, k) => {
+                const x = CX - 250 + k * 100, ph = frame / 6 + k;
+                return <path key={k} d={`M ${x} ${CY - 50} C ${x + 14 * Math.sin(ph)} ${CY - 90}, ${x - 14 * Math.sin(ph + 1)} ${CY - 130}, ${x + 10 * Math.sin(ph + 2)} ${CY - 170}`} stroke={k % 2 ? YPF.gold : YPF.orange} strokeWidth={6} strokeLinecap="round" fill="none" opacity={(0.5 + 0.35 * Math.sin(ph)) * lin(frame, tFry + 6, tFry + 16)} />;
               })}
-            </svg>
-            <div style={{ position: "absolute", left: 300, top: 180, width: 480, height: 120, borderRadius: "50%", background: "radial-gradient(closest-side, rgba(255,138,31,0.45), rgba(255,138,31,0))", opacity: lin(frame, tFry, tFry + 14) }} />
-          </>
-        ) : null}
-        {/* the fillet (two halves once split) */}
-        <div style={{ position: "absolute", left: 540 - 150, top: 170, width: 300 }}>
-          <div style={{ position: "absolute", left: -split * 90, top: 0, clipPath: frame >= tSplit + 8 ? "inset(0 50% 0 0)" : undefined, transform: `rotate(${-split * 8}deg)` }}>
-            <Fillet w={300} flat={flat} crumbs={crumbs} golden={golden} />
-          </div>
-          {frame >= tSplit + 8 ? (
-            <div style={{ position: "absolute", left: split * 90, top: 0, clipPath: "inset(0 0 0 50%)", transform: `rotate(${split * 8}deg)` }}>
-              <Fillet w={300} flat={flat} crumbs={crumbs} golden={golden} />
-            </div>
+            </g>
+          ) : (
+            /* cutting board */
+            <rect x={CX - 400} y={CY + 52} width={800} height={26} rx={13} fill="#c9a27a" stroke="#fff" strokeWidth={3} opacity={0.9} />
+          )}
+          <g transform={`translate(${CX} ${CY}) scale(${K})`}>
+            <ButterflyPiece cut={cut} open={open} thin={thin} crumbs={crumbs} golden={golden} />
+          </g>
+          {/* width arrows once opened */}
+          {result > 0 && frame < tKatok ? (
+            <g opacity={result}>
+              <path d={`M ${CX - 300} ${CY - 70} L ${CX + 300} ${CY - 70}`} stroke={YPF.ice} strokeWidth={4} />
+              <path d={`M ${CX - 284} ${CY - 82} L ${CX - 300} ${CY - 70} L ${CX - 284} ${CY - 58} M ${CX + 284} ${CY - 82} L ${CX + 300} ${CY - 70} L ${CX + 284} ${CY - 58}`} stroke={YPF.ice} strokeWidth={4} fill="none" />
+            </g>
           ) : null}
-        </div>
-        {/* knife sweep */}
-        {frame >= tSplit && frame < tSplit + 26 ? (
-          <div style={{ position: "absolute", left: 400, top: interpolate(frame - tSplit, [0, 12], [20, 260], { extrapolateRight: "clamp" }), transform: "rotate(90deg)", opacity: 1 - lin(frame, tSplit + 18, tSplit + 26) }}>
+          {/* breadcrumbs falling */}
+          {frame >= tCrumb && frame < tFry + 10
+            ? Array.from({ length: 60 }).map((_, k) => {
+                const st = tCrumb + random(`fd${k}`) * 26;
+                const pr = (frame - st) / 18;
+                if (pr < 0 || pr > 1) return null;
+                return <circle key={k} cx={CX - 300 + random(`fx${k}`) * 600} cy={CY - 230 + pr * 220} r={3 + random(`fr${k}`) * 4} fill={k % 3 ? YPF.crumb : "#f6c76a"} opacity={1 - pr * 0.3} />;
+              })
+            : null}
+          {/* impact rings */}
+          {impact > 0 && frame < tCrumb ? (
+            <g>
+              {[0, 1].map((k) => <ellipse key={k} cx={CX} cy={CY - 10} rx={(150 + k * 70) * (1.5 - impact * 0.5)} ry={(30 + k * 16) * (1.5 - impact * 0.5)} fill="none" stroke={YPF.ice} strokeWidth={5 - k * 2} opacity={impact * (1 - k * 0.4)} />)}
+              {Array.from({ length: 6 }).map((_, k) => {
+                const ang = (k / 6) * Math.PI * 2, r0 = 200 + (1 - impact) * 60;
+                return <line key={k} x1={CX + Math.cos(ang) * r0} y1={CY - 10 + Math.sin(ang) * r0 * 0.35} x2={CX + Math.cos(ang) * (r0 + 40)} y2={CY - 10 + Math.sin(ang) * (r0 + 40) * 0.35} stroke={YPF.gold} strokeWidth={6} strokeLinecap="round" opacity={impact} />;
+              })}
+            </g>
+          ) : null}
+        </svg>
+        {/* knife slides in horizontally through the middle */}
+        {frame >= s0 && open < 0.3 ? (
+          <div style={{ position: "absolute", left: knifeX, top: CY - 40, transform: "scaleX(-1)", opacity: 1 - lin(open, 0, 0.3) }}>
             <Knife />
           </div>
         ) : null}
-        {frame >= tSplit + 8 && frame < tKatok ? (
-          <div style={{ position: "absolute", left: 536, top: 140, width: 8, height: 230, background: `linear-gradient(180deg, transparent, ${YPF.ice}, transparent)`, opacity: 1 - lin(frame, tSplit + 8, tSplit + 22) }} />
-        ) : null}
-        {/* mallet + impact rings */}
+        {/* mallet */}
         {frame >= tKatok - 6 && frame < tCrumb ? (
-          <>
-            <div style={{ position: "absolute", left: 600, top: -40, transformOrigin: "60px 240px", transform: `rotate(${30 - swing * 55}deg)`, opacity: Math.min(1, lin(frame, tKatok - 6, tKatok)) }}>
-              <Mallet />
-            </div>
-            {impact > 0 ? (
-              <svg width={1080} height={470} style={{ position: "absolute", inset: 0 }}>
-                {[0, 1].map((k) => (
-                  <ellipse key={k} cx={560} cy={240} rx={(80 + k * 50) * (1.6 - impact * 0.6)} ry={(26 + k * 16) * (1.6 - impact * 0.6)} fill="none" stroke={YPF.ice} strokeWidth={5 - k * 2} opacity={impact * (1 - k * 0.4)} />
-                ))}
-                {Array.from({ length: 6 }).map((_, k) => {
-                  const a = (k / 6) * Math.PI * 2;
-                  const r0 = 120 + (1 - impact) * 60;
-                  return <line key={k} x1={560 + Math.cos(a) * r0} y1={240 + Math.sin(a) * r0 * 0.45} x2={560 + Math.cos(a) * (r0 + 40)} y2={240 + Math.sin(a) * (r0 + 40) * 0.45} stroke={YPF.gold} strokeWidth={6} strokeLinecap="round" opacity={impact} />;
-                })}
-              </svg>
-            ) : null}
-          </>
-        ) : null}
-        {/* breadcrumbs falling */}
-        {frame >= tCrumb && frame < tFry + 10 ? (
-          <svg width={1080} height={470} style={{ position: "absolute", inset: 0 }}>
-            {Array.from({ length: 60 }).map((_, k) => {
-              const st = tCrumb + random(`fd${k}`) * 26;
-              const pr = (frame - st) / 18;
-              if (pr < 0 || pr > 1) return null;
-              const x = 400 + random(`fx${k}`) * 300, y = -20 + pr * 230;
-              return <circle key={k} cx={x} cy={y} r={3 + random(`fr${k}`) * 4} fill={k % 3 ? YPF.crumb : "#f6c76a"} opacity={1 - pr * 0.3} />;
-            })}
-          </svg>
+          <div style={{ position: "absolute", left: CX + 60, top: CY - 300, transformOrigin: "60px 240px", transform: `rotate(${30 - swing * 55}deg)`, opacity: lin(frame, tKatok - 6, tKatok) }}>
+            <Mallet />
+          </div>
         ) : null}
       </div>
+      {/* "this, not that" — butterfly vs cutting in two */}
+      {compare > 0 ? (
+        <div style={{ position: "absolute", top: 432, width: 1080, display: "flex", justifyContent: "center", gap: 22, opacity: compare }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 18px", borderRadius: 999, border: `3px solid ${YPF.red}`, background: "rgba(6,24,47,0.6)" }}>
+            <svg width={74} height={34} viewBox="0 0 74 34"><ellipse cx={18} cy={17} rx={16} ry={11} fill="#f3bea2" stroke="#fff" strokeWidth={2} /><ellipse cx={54} cy={17} rx={16} ry={11} fill="#f3bea2" stroke="#fff" strokeWidth={2} /><path d="M 6 4 L 68 30 M 68 4 L 6 30" stroke={YPF.red} strokeWidth={5} strokeLinecap="round" /></svg>
+            <span style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 27, color: YPF.white, whiteSpace: "nowrap" }}>BUKAN POTONG DUA</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 18px", borderRadius: 999, border: `3px solid ${YPF.gold}`, background: "rgba(6,24,47,0.6)" }}>
+            <svg width={84} height={34} viewBox="0 0 84 34"><path d="M 4 20 C 10 30, 34 30, 42 20 C 50 30, 74 30, 80 20 Z" fill="#f8d6c4" stroke="#fff" strokeWidth={2} /><path d="M 30 8 L 38 16 L 54 2" stroke={YPF.gold} strokeWidth={5} fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            <span style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 27, color: YPF.white, whiteSpace: "nowrap" }}>BELAH & BUKA</span>
+          </div>
+        </div>
+      ) : null}
       {/* big step word */}
-      <div style={{ position: "absolute", top: 520, width: 1080, textAlign: "center" }}>
+      <div style={{ position: "absolute", top: 500, width: 1080, textAlign: "center" }}>
         <Pop key={active} at={[tSplit, tKatok, tCrumb, tFry][active]}>
-          <span style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 64, color: YPF.white, letterSpacing: 1, textTransform: "uppercase" }}>{steps[active]}</span>
+          <span style={{ fontFamily: HEAD, fontWeight: 900, fontSize: active === 0 ? 56 : 64, color: YPF.white, letterSpacing: 1, textTransform: "uppercase" }}>{steps[active]}</span>
         </Pop>
+        {active === 0 && result > 0 ? <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 30, color: YPF.ice, letterSpacing: 3, opacity: result, marginTop: 4 }}>LEBAR &amp; NIPIS</div> : null}
       </div>
     </div>
   );

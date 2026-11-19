@@ -33,7 +33,7 @@
   },
   {
    "id": "b1",
-   "label": "cara: belah dua, katok, tepung, goreng",
+   "label": "cara: belah untuk lebarkan, katok, tepung, goreng",
    "clip": "lv_0_20261119124959",
    "in": 57.8,
    "out": 68.6,
@@ -319,7 +319,7 @@
     "layout": "split",
     "kind": "prep",
     "steps": [
-     "Belah dua",
+     "Belah untuk lebarkan",
      "Katok-katok",
      "Tepung roti",
      "Goreng"
@@ -333,7 +333,7 @@
      5.78
     ],
     "revealQuotes": [
-     "kita belah dua",
+     "Sekeping tu",
      "katok-katok dengan tuku",
      "bubuh tepung roti",
      "then goreng"
