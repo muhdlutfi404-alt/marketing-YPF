@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { AbsoluteFill, interpolate, Sequence, type CalculateMetadataFunction } from "remotion";
+import { AbsoluteFill, interpolate, Sequence, useCurrentFrame, type CalculateMetadataFunction } from "remotion";
+import { CanvasFrame, canvasProgress, mergeSpans } from "./Canvas";
 import { Audio } from "@remotion/media";
 import { SFX, type SfxName } from "../shared/audio/library";
 import { resolveMedia } from "../shared/utils/media";
@@ -34,6 +35,7 @@ export const calculateStoryMetadata: CalculateMetadataFunction<StoryEditProps> =
 };
 
 const FULLSCREEN_TYPES = new Set(["fullscreen", "statement", "chapter", "chart", "cta", "dial", "board"]);
+const isSplit = (l: ResolvedLayer) => l.props.layout === "split";
 
 export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
   const fps = FPS;
@@ -44,6 +46,13 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
   const story = useMemo(() => resolveStory(bundle), [bundle]);
   const pages = useMemo(() => buildCaptionPages(captionWords(story.words, edit.captions.hide), edit.captions.style === "minimal" ? { maxWords: 3, maxChars: 20, maxPageSec: 1.6 } : {}), [story.words, edit.captions.hide, edit.captions.style]);
   const f = (sec: number) => Math.round(sec * fps);
+  const frame = useCurrentFrame();
+  // ONE CANVAS: footage glides into a window while "split" graphics are on screen
+  const canvasSpans = useMemo(
+    () => mergeSpans(resolveStory(bundle).layers.filter((l) => l.props.layout === "split").map((l) => ({ from: Math.round(l.start * FPS), to: Math.round((l.start + l.dur) * FPS) })), Math.round(0.8 * FPS)),
+    [bundle],
+  );
+  const canvasP = canvasProgress(frame, canvasSpans, fps);
 
   // the real footage that is on screen at time t (for blurred plates behind full-screen graphics)
   const plateAt = (t: number): PlateSource => {
@@ -60,10 +69,10 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
   };
   const compShots = story.shots.filter((s) => compositeOf(s));
 
-  const isFull = (l: ResolvedLayer) => FULLSCREEN_TYPES.has(l.type) || (l.type === "counter" && l.props.fullscreen) || (l.type === "steps" && l.props.fullscreen);
+  const isFull = (l: ResolvedLayer) => (FULLSCREEN_TYPES.has(l.type) && !isSplit(l)) || (l.type === "counter" && l.props.fullscreen) || (l.type === "steps" && l.props.fullscreen);
   // captions hide while a full-screen statement shows the same words in big type
   const captionHidden = story.layers
-    .filter((l) => l.type === "statement" || l.type === "chapter" || l.type === "board" || (l.type === "typeset" && (l.props.plate ?? "none") !== "none") || l.props.hideCaptions)
+    .filter((l) => l.type === "statement" || l.type === "chapter" || (l.type === "board" && !isSplit(l)) || (l.type === "typeset" && ((l.props.plate ?? "none") !== "none" || isSplit(l))) || l.props.hideCaptions)
     .map((l) => ({ from: l.start, to: l.start + l.dur }));
 
   const renderLayer = (l: ResolvedLayer) => {
@@ -148,7 +157,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
       if (l.type === "badge") cues.push({ sfx: brandSparkle, at, volume: 0.6 });
       if (l.type === "cta") cues.push({ sfx: brandSparkle, at: at + 4, volume: 0.7 });
       if (l.type === "lowerThird") cues.push({ sfx: "whoosh", at, volume: 0.22, playbackRate: 1.6 });
-      if (l.type === "board" || (l.type === "typeset" && l.props.plate && l.props.plate !== "none")) {
+      if (l.type === "board" || (l.type === "typeset" && ((l.props.plate && l.props.plate !== "none") || isSplit(l)))) {
         cues.push({ sfx: "whoosh", at: at - 2, volume: 0.22, playbackRate: 1.4 });
         const rv = l.props.revealAt ?? resolveRevealTimes(l, story.words);
         (rv ?? []).forEach((r: number | null, i: number) => r !== null && r > 0.15 && cues.push({ sfx: "pop", at: at + Math.round(r * fps), volume: 0.28, playbackRate: 1.15 + i * 0.05 }));
@@ -164,6 +173,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
 
   return (
     <AbsoluteFill style={{ background: "#000" }}>
+      <CanvasFrame p={canvasP}>
       {/* 1 · REAL FOOTAGE — the presenter's shots with original voice
              (composite shots: generated environment here, the real subject is added in step 1c) */}
       {story.shots.map((s, i) => {
@@ -216,6 +226,7 @@ export const StoryEdit: React.FC<StoryEditProps> = (bundle) => {
       {/* 3 · Film finish over footage (below graphics) */}
       {edit.look.vignette ? <Vignette strength={0.45} /> : null}
       {edit.look.grain ? <FilmGrain opacity={0.06} /> : null}
+      </CanvasFrame>
 
       {/* 4 · Motion graphics (full-screen first, then overlays) */}
       {[...story.layers.filter((l) => l.type !== "broll" && !l.props.behind && isFull(l)), ...story.layers.filter((l) => l.type !== "broll" && !l.props.behind && !isFull(l))].map((l) => (

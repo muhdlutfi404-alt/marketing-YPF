@@ -1,5 +1,5 @@
 {
- "_readme": "frozen-02 — MASTER STYLE (premium minimal motion-graphics explainer). PREVIEW: CapCut captions in the source are covered by a thin band; the final will use the caption-free export. All graphics are built from the spoken words (transcript evidence). Product image = a still from the real footage.",
+ "_readme": "frozen-02 — ONE CANVAS style (owner request: mix everything into one clean, professional system). Presenter stays on screen; explainer graphics draw on paper above a rounded window of the real footage, then the window opens back to full. Clean (caption-free) export. All graphics come from spoken words / owner-confirmed facts.",
  "project": "frozen-02",
  "brand": "yapakcik-frozen",
  "title": "Isi ayam BB — premium motion-graphics explainer",
@@ -7,32 +7,13 @@
   {
    "id": "s1",
    "label": "HOOK: question",
-   "clip": "lv_0_20261119041524",
-   "in": 0.0,
+   "clip": "lv_0_20261119074840",
+   "in": 0,
    "out": 1.95,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
-   },
-   "zooms": [
-    {
-     "at": 0,
-     "type": "push",
-     "scale": 1.08
-    }
-   ]
-  },
-  {
-   "id": "s2",
-   "label": "answer: BB",
-   "clip": "lv_0_20261119041524",
-   "in": 2.0,
-   "out": 4.95,
-   "audio": "keep",
-   "focus": {
-    "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
@@ -42,11 +23,36 @@
      "duration": 0.01
     },
     {
+     "at": 0,
+     "type": "push",
+     "scale": 1.21
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "label": "answer: BB",
+   "clip": "lv_0_20261119074840",
+   "in": 2.0,
+   "out": 4.95,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.36
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.254,
+     "duration": 0.01
+    },
+    {
      "at": {
       "quote": "Boneless Breast"
      },
      "type": "punch-in",
-     "scale": 1.2
+     "scale": 1.344
     }
    ],
    "composite": {
@@ -68,19 +74,19 @@
   {
    "id": "s3",
    "label": "maksudnya apa",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 4.95,
    "out": 6.4,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.28,
+     "scale": 1.434,
      "duration": 0.01
     }
    ]
@@ -88,19 +94,25 @@
   {
    "id": "s4",
    "label": "tanpa tulang (board)",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 6.7,
    "out": 9.0,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
+     "type": "punch-in",
+     "scale": 1.12,
+     "duration": 0.01
+    },
+    {
+     "at": 0,
      "type": "zoom-out",
-     "scale": 1.0,
+     "scale": 1.12,
      "duration": 0.6
     }
    ]
@@ -108,19 +120,25 @@
   {
    "id": "s5",
    "label": "context: kedai makan",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 9.9,
    "out": 12.95,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
+     "type": "punch-in",
+     "scale": 1.12,
+     "duration": 0.01
+    },
+    {
+     "at": 0,
      "type": "push",
-     "scale": 1.1
+     "scale": 1.232
     }
    ],
    "transition": {
@@ -131,19 +149,19 @@
   {
    "id": "s6",
    "label": "sebab apa",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 13.4,
    "out": 17.8,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.18,
+     "scale": 1.322,
      "duration": 0.01
     },
     {
@@ -151,33 +169,33 @@
       "quote": "menjimatkan masa"
      },
      "type": "punch-in",
-     "scale": 1.3
+     "scale": 1.456
     },
     {
      "at": {
       "quote": "menguntungkan awak"
      },
      "type": "punch-out",
-     "scale": 1.08
+     "scale": 1.21
     }
    ]
   },
   {
    "id": "s7",
    "label": "dari segi apa",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 18.2,
    "out": 22.5,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.22,
+     "scale": 1.366,
      "duration": 0.01
     },
     {
@@ -185,45 +203,51 @@
       "quote": "kita kelik"
      },
      "type": "punch-out",
-     "scale": 1.05
+     "scale": 1.176
     }
    ]
   },
   {
    "id": "s8",
    "label": "ayam seekor vs BB (board)",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 22.85,
    "out": 28.6,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
+     "type": "punch-in",
+     "scale": 1.12,
+     "duration": 0.01
+    },
+    {
+     "at": 0,
      "type": "push",
-     "scale": 1.1
+     "scale": 1.232
     }
    ]
   },
   {
    "id": "s9",
    "label": "express / bukan sahaja kedai",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 30.0,
    "out": 37.35,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.2,
+     "scale": 1.344,
      "duration": 0.01
     },
     {
@@ -231,40 +255,46 @@
       "quote": "Dia bukan sahaja"
      },
      "type": "punch-out",
-     "scale": 1.05
+     "scale": 1.176
     },
     {
      "at": {
       "quote": "goreng mi pagi"
      },
      "type": "punch-in",
-     "scale": 1.18
+     "scale": 1.322
     }
    ]
   },
   {
    "id": "s10",
    "label": "anak-anak / jangan risau",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 38.35,
    "out": 49.9,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
+     "type": "punch-in",
+     "scale": 1.12,
+     "duration": 0.01
+    },
+    {
+     "at": 0,
      "type": "push",
-     "scale": 1.1
+     "scale": 1.232
     },
     {
      "at": {
       "quote": "jangan risau"
      },
      "type": "punch-in",
-     "scale": 1.25
+     "scale": 1.4
     }
    ],
    "transition": {
@@ -275,19 +305,19 @@
   {
    "id": "s11",
    "label": "dari Siam, permit, halal (board)",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 49.8,
    "out": 66.65,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.15,
+     "scale": 1.288,
      "duration": 0.01
     },
     {
@@ -295,33 +325,39 @@
       "quote": "Halal ha jadinya"
      },
      "type": "punch-in",
-     "scale": 1.25
+     "scale": 1.4
     },
     {
      "at": {
       "quote": "Kita tak runsinglah"
      },
      "type": "punch-out",
-     "scale": 1.06
+     "scale": 1.187
     }
    ]
   },
   {
    "id": "s12",
    "label": "perap / chiller (board)",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 78.25,
    "out": 87.05,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
+     "type": "punch-in",
+     "scale": 1.12,
+     "duration": 0.01
+    },
+    {
+     "at": 0,
      "type": "push",
-     "scale": 1.1
+     "scale": 1.232
     }
    ],
    "transition": {
@@ -332,19 +368,19 @@
   {
    "id": "s13",
    "label": "takik / bekal anak",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 87.0,
    "out": 99.3,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.16,
+     "scale": 1.299,
      "duration": 0.01
     },
     {
@@ -352,52 +388,58 @@
       "quote": "mi goreng ke"
      },
      "type": "punch-in",
-     "scale": 1.24
+     "scale": 1.389
     }
    ]
   },
   {
    "id": "s14",
    "label": "mudah / brand",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 99.24,
    "out": 108.45,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
+     "type": "punch-in",
+     "scale": 1.12,
+     "duration": 0.01
+    },
+    {
+     "at": 0,
      "type": "push",
-     "scale": 1.08
+     "scale": 1.21
     },
     {
      "at": {
       "quote": "Bagi siapa berminat"
      },
      "type": "punch-in",
-     "scale": 1.2
+     "scale": 1.344
     }
    ]
   },
   {
    "id": "s15",
    "label": "cawangan / CTA",
-   "clip": "lv_0_20261119041524",
+   "clip": "lv_0_20261119074840",
    "in": 108.4,
    "out": 131.3,
    "audio": "keep",
    "focus": {
     "x": 0.5,
-    "y": 0.42
+    "y": 0.36
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.14,
+     "scale": 1.277,
      "duration": 0.01
     },
     {
@@ -405,14 +447,14 @@
       "quote": "Awak boleh mari walk-in"
      },
      "type": "punch-in",
-     "scale": 1.22
+     "scale": 1.366
     },
     {
      "at": {
       "quote": "Comel molek"
      },
      "type": "punch-out",
-     "scale": 1.04
+     "scale": 1.165
     }
    ]
   }
@@ -422,14 +464,14 @@
    "id": "open-type",
    "type": "typeset",
    "at": 0,
-   "duration": 1.95,
+   "duration": 2.0,
    "source": "transcript",
    "evidence": {
     "quote": "gapo dio nama isi ayam BB"
    },
    "props": {
-    "plate": "blur",
-    "position": "center",
+    "layout": "split",
+    "plate": "none",
     "lines": [
      {
       "text": "Gapo dio nama",
@@ -443,7 +485,7 @@
     ],
     "revealAt": [
      0.1,
-     0.9
+     0.8
     ]
    }
   },
@@ -453,7 +495,7 @@
    "at": {
     "quote": "adalah Boneless Breast"
    },
-   "duration": 2.6,
+   "duration": 1.8,
    "source": "transcript",
    "evidence": {
     "quote": "Isi ayam BB ni adalah Boneless Breast"
@@ -471,17 +513,18 @@
    "id": "board-tanpa-tulang",
    "type": "board",
    "at": {
-    "quote": "Isi ayam tanpa tulang",
-    "offset": -0.35
+    "quote": "Boneless Breast tu maksudnya",
+    "offset": -0.1
    },
-   "duration": 2.9,
+   "duration": 3.75,
    "source": "transcript",
    "evidence": {
     "quote": "Boneless Breast tu maksudnya apa isi ayam tanpa tulang"
    },
    "props": {
+    "layout": "split",
     "variant": "tree",
-    "kicker": "maksudnya",
+    "kicker": "maksudnya?",
     "root": "BB",
     "children": [
      "Boneless",
@@ -491,8 +534,8 @@
     "revealAt": [
      0,
      0.25,
-     0.5,
-     0.6
+     0.55,
+     1.55
     ]
    }
   },
@@ -533,43 +576,28 @@
      4.96,
      5.31,
      6.2
-    ]
+    ],
+    "layout": "split"
    }
   },
   {
    "id": "board-anak",
    "type": "board",
    "at": {
-    "quote": "6, 7 tahun"
+    "quote": "6, 7 tahun",
+    "offset": -0.25
    },
-   "duration": 2.2,
+   "duration": 2.5,
    "source": "transcript",
    "evidence": {
     "quote": "musim jugalah anak 6 7 tahun"
    },
    "props": {
+    "layout": "split",
     "variant": "number",
     "value": "6–7",
     "unit": "tahun",
     "label": "anak-anak"
-   }
-  },
-  {
-   "id": "quote-risau",
-   "type": "board",
-   "at": {
-    "quote": "Isi ayam ni jangan risau",
-    "offset": 0.2
-   },
-   "duration": 2.0,
-   "source": "transcript",
-   "evidence": {
-    "quote": "Isi ayam ni jangan risau"
-   },
-   "props": {
-    "variant": "quote",
-    "text": "jangan risau",
-    "dark": true
    }
   },
   {
@@ -584,11 +612,11 @@
     "quote": "Kita mari daripada Siam mari dari Siam tapi ia sudah ditapis ha ada permit lah"
    },
    "props": {
+    "layout": "split",
     "variant": "checklist",
     "kicker": "isi ayam BB",
-    "image": "footage/ready/frozen-02/stills/pack.jpg",
     "items": [
-     "Mari dari Siam",
+     "Dari Siam (Thailand)",
      "Sudah ditapis",
      "Ada permit",
      "Halal"
@@ -622,7 +650,8 @@
     "revealQuotes": [
      "nak perap",
      "dalam chiller"
-    ]
+    ],
+    "layout": "split"
    }
   },
   {
@@ -668,14 +697,14 @@
     "quote": "boleh mari di YaPakCik Frozen",
     "offset": -0.2
    },
-   "duration": 2.4,
+   "duration": 5.75,
    "source": "transcript",
    "evidence": {
     "quote": "Bagi siapa berminat boleh mari di YaPakCik Frozen"
    },
    "props": {
-    "plate": "blur",
-    "position": "center",
+    "layout": "split",
+    "plate": "none",
     "lines": [
      {
       "text": "boleh mari di",
@@ -694,8 +723,8 @@
     ],
     "revealAt": [
      0,
-     0.4,
-     0.7
+     0.35,
+     0.6
     ]
    }
   },
@@ -721,7 +750,8 @@
     "revealQuotes": [
      "di Kelaboran",
      "di Pasar Sumayyah"
-    ]
+    ],
+    "layout": "split"
    }
   },
   {
@@ -794,13 +824,13 @@
   },
   "hide": [
    {
-    "clip": "lv_0_20261119041524",
+    "clip": "lv_0_20261119074840",
     "from": 41.4,
     "to": 44.3,
     "reason": "unclear speech — audio kept, no subtitle"
    },
    {
-    "clip": "lv_0_20261119041524",
+    "clip": "lv_0_20261119074840",
     "from": 57.52,
     "to": 60.1,
     "reason": "unclear speech — audio kept, no subtitle"
@@ -813,12 +843,7 @@
   "grain": true,
   "vignette": true,
   "breathing": 0.015,
-  "coverBands": [
-   {
-    "y0": 0.695,
-    "y1": 0.755
-   }
-  ],
+  "coverBands": [],
   "aiLabel": false
  },
  "audio": {

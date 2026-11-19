@@ -1,33 +1,56 @@
 {
-  "_readme": "Only facts confirmed by the business owner. Graphics with source 'facts' may ONLY show these values, and only when confirmed is true. Never guess.",
-  "brandName": {
-    "value": "YaPakCik Frozen",
-    "label": "Brand",
-    "confirmed": true
-  },
-  "presenterName": {
-    "value": "",
-    "label": "Presenter name",
-    "confirmed": false
-  },
-  "productName": {
-    "value": "",
-    "label": "Product name",
-    "confirmed": false
-  },
-  "price": {
-    "value": "",
-    "label": "Price",
-    "confirmed": false
-  },
-  "halal": {
-    "value": "",
-    "label": "Halal certification",
-    "confirmed": false
-  },
-  "contact": {
-    "value": "",
-    "label": "WhatsApp / order contact",
-    "confirmed": false
-  }
+ "_readme": "Only facts confirmed by the business owner. Graphics with source 'facts' may ONLY show these values, and only when confirmed is true. Never guess.",
+ "brandName": {
+  "value": "YaPakCik Frozen",
+  "label": "Brand",
+  "confirmed": true
+ },
+ "presenterName": {
+  "value": "",
+  "label": "Presenter name",
+  "confirmed": false
+ },
+ "productName": {
+  "value": "",
+  "label": "Product name",
+  "confirmed": false
+ },
+ "price": {
+  "value": "",
+  "label": "Price",
+  "confirmed": false
+ },
+ "halal": {
+  "value": "Halal (spoken in the video; owner confirmed it may be shown)",
+  "label": "Halal certification",
+  "confirmed": true
+ },
+ "contact": {
+  "value": "",
+  "label": "WhatsApp / order contact",
+  "confirmed": false
+ },
+ "origin": {
+  "value": "Dari Siam (Thailand)",
+  "label": "Origin",
+  "confirmed": true,
+  "note": "Owner: refer to it as 'dari Siam (Thailand)'"
+ },
+ "permit": {
+  "value": "Ada permit, sudah ditapis",
+  "label": "Import permit",
+  "confirmed": true,
+  "note": "spoken in the video; owner confirmed it may be shown"
+ },
+ "branches": {
+  "value": "2 cawangan: Kelaboran; Pasar Sumayyah, Tumpat",
+  "label": "Branches",
+  "confirmed": true,
+  "note": "owner confirmed spelling"
+ },
+ "_wordsConfirmed": {
+  "value": "Siam, lekat tulang ayam, bubuh, kerat-kerat, kelik, Kelaboran, Pasar Sumayyah Tumpat",
+  "confirmed": true,
+  "note": "owner confirmed all transcript words 2026-11-19"
+ }
 }

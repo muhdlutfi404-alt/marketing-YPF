@@ -3,6 +3,7 @@ import { AbsoluteFill, spring, useCurrentFrame } from "remotion";
 import { FONT_STACKS } from "../../shared/fonts";
 import type { StoryStyle } from "../styles";
 import { Plate, type PlateSource, useInOut } from "./common";
+import { CANVAS } from "../Canvas";
 
 /**
  * TYPESET — layered typography with a clear hierarchy (small linking words, big key words,
@@ -19,16 +20,17 @@ export const Typeset: React.FC<{
   fps: number;
   width: number;
   height: number;
-  props: { lines: TypeLine[]; revealAt?: number[]; plate?: "blur" | "white" | "none"; position?: "center" | "upper" | "lower"; hideCaptions?: boolean };
+  props: { lines: TypeLine[]; revealAt?: number[]; plate?: "blur" | "white" | "none"; position?: "center" | "upper" | "lower"; hideCaptions?: boolean; layout?: "full" | "split" };
 }> = ({ dur, style, plate, fps, width, height, props }) => {
   const frame = useCurrentFrame();
   const { exit, enter } = useInOut(dur, 8);
-  const onWhite = props.plate === "white";
+  const split = props.layout === "split";
+  const onWhite = props.plate === "white" || split;
   const color = onWhite ? "#111315" : "#ffffff";
-  const top = props.position === "upper" ? "16%" : props.position === "lower" ? "64%" : "40%";
+  const top = split ? `${((CANVAS.regionTop + CANVAS.regionBottom) / 2 / 1920) * 100}%` : props.position === "upper" ? "16%" : props.position === "lower" ? "64%" : "40%";
   const n = props.lines.length;
   return (
-    <AbsoluteFill style={{ opacity: exit }}>
+    <AbsoluteFill style={{ opacity: split ? Math.min(exit, Math.max(0, Math.min(1, (dur - 15 - frame) / 9))) : exit }}>
       {props.plate === "blur" ? (
         <AbsoluteFill style={{ opacity: Math.min(1, enter * 2) }}>
           <Plate kind="blur" source={plate} style={style} fps={fps} width={width} height={height} />

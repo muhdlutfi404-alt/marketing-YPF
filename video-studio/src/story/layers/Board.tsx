@@ -4,6 +4,7 @@ import { FONT_STACKS } from "../../shared/fonts";
 import { resolveMedia } from "../../shared/utils/media";
 import type { StoryStyle } from "../styles";
 import { useInOut } from "./common";
+import { CANVAS } from "../Canvas";
 
 /**
  * BOARD — full-screen "whiteboard" explainer scene (premium-explainer style):
@@ -38,6 +39,8 @@ export type BoardProps = {
   pins?: string[];
   revealAt?: number[];
   dark?: boolean;
+  /** "split" = ONE CANVAS mode: drawn on the paper above the presenter window (see Canvas.tsx) */
+  layout?: "full" | "split";
 };
 
 const INK = "#111315";
@@ -65,7 +68,12 @@ const Draw: React.FC<{ d: string; at: number; dur?: number; width?: number; colo
 
 export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps }> = ({ dur, style, props }) => {
   const { fps } = useVideoConfig();
+  const frame = useCurrentFrame();
   const { exit, enter } = useInOut(dur, 8);
+  const split = props.layout === "split";
+  // split: graphics clear away BEFORE the presenter window opens back to full screen
+  const splitExit = interpolate(frame, [dur - 24, dur - 15], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const big = split ? 1.25 : 1; // compare/flow text a size up in split (the layout is scaled to fit)
   const R = (i: number, fallback: number) => Math.round(((props.revealAt?.[i] ?? fallback) as number) * fps);
   const fg = props.dark ? "#f4f4f2" : INK;
   const bg = props.dark ? "#0e1012" : PAPER;
@@ -122,12 +130,12 @@ export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps
         {[{ c: L, ts: lt, x: 40, muted: true }, { c: Rt, ts: rt, x: W / 2 + 20, muted: false }].map(({ c, ts, x, muted }, ci) => (
           <div key={ci} style={{ position: "absolute", top: 560, left: x, width: W / 2 - 60, textAlign: "center" }}>
             <Reveal at={ci === 0 ? 3 : 8}>
-              <div style={{ ...small, textTransform: "uppercase", letterSpacing: 4, fontSize: 30, color: muted ? SOFT : accent }}>{c.title}</div>
+              <div style={{ ...small, textTransform: "uppercase", letterSpacing: 4, fontSize: 30 * big, color: muted ? SOFT : accent }}>{c.title}</div>
             </Reveal>
             <div style={{ display: "grid", gap: 26, marginTop: 40 }}>
               {c.items.map((it, i) => (
                 <Reveal key={i} at={ts[i]}>
-                  <div style={{ ...H(58, 700), color: muted ? SOFT : fg, textDecoration: muted ? "line-through" : undefined, textDecorationThickness: 4 }}>{it}</div>
+                  <div style={{ ...H(58 * big, 700), color: muted ? SOFT : fg, textDecoration: muted ? "line-through" : undefined, textDecorationThickness: 4 }}>{it}</div>
                 </Reveal>
               ))}
             </div>
@@ -180,12 +188,12 @@ export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps
   if (props.variant === "checklist" && props.items) {
     body = (
       <>
-        {props.image ? (
+        {props.image && props.layout !== "split" ? (
           <div style={{ position: "absolute", top: 420, left: 140, right: 140, height: 560, borderRadius: 36, overflow: "hidden", boxShadow: "0 30px 60px rgba(0,0,0,0.18)", transform: `scale(${0.94 + 0.06 * enter})`, opacity: Math.min(1, enter * 1.5) }}>
             <Img src={resolveMedia(props.image)} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
         ) : null}
-        <div style={{ position: "absolute", top: props.image ? 1040 : 640, left: 160, right: 100, display: "grid", gap: 30 }}>
+        <div style={{ position: "absolute", top: props.image && props.layout !== "split" ? 1040 : 640, left: 160, right: 100, display: "grid", gap: 30 }}>
           {props.items.map((it, i) => {
             const t = R(i, 0.6 + i * 0.6);
             return (
@@ -248,6 +256,34 @@ export const Board: React.FC<{ dur: number; style: StoryStyle; props: BoardProps
           </div>
         ))}
       </>
+    );
+  }
+
+  if (props.layout === "split") {
+    // fit the full-screen layout's content box into the paper area above the presenter window
+    const n = (props.steps ?? props.items ?? []).length;
+    const gapF = Math.min(250, 900 / Math.max(1, n));
+    const box: Record<BoardProps["variant"], [number, number]> = {
+      tree: [500, props.footer ? 1220 : 1010],
+      compare: [540, props.verdict ? 1420 : 1250],
+      flow: [540, 560 + (n - 1) * gapF + 90],
+      checklist: [620, 640 + n * 94],
+      number: [590, 940 + (props.unit ? 110 : 0) + (props.label ? 70 : 0)],
+      map: [930, 1120],
+      quote: [740, 860],
+    };
+    let [y0, y1] = box[props.variant];
+    if (header) y0 = Math.min(y0, 290);
+    const regionH = CANVAS.regionBottom - CANVAS.regionTop;
+    const k = Math.min(1, regionH / (y1 - y0));
+    const ty = CANVAS.regionTop + (regionH - (y1 - y0) * k) / 2 - y0 * k;
+    return (
+      <AbsoluteFill style={{ opacity: Math.min(enter * 2.5, splitExit) }}>
+        <div style={{ position: "absolute", left: 0, top: 0, width: W, height: 1920, transform: `translateY(${ty}px) scale(${k})`, transformOrigin: "50% 0" }}>
+          {header}
+          {body}
+        </div>
+      </AbsoluteFill>
     );
   }
 
