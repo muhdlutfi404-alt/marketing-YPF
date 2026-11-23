@@ -1,0 +1,40 @@
+{
+ "_readme": "Only facts confirmed by the business owner. Graphics with source 'facts' may ONLY show these values, and only when confirmed is true. Never guess.",
+ "brandName": {
+  "value": "YaPakCik Frozen",
+  "label": "Brand",
+  "confirmed": true
+ },
+ "presenterName": {
+  "value": "Ayoh Mad",
+  "label": "Presenter name",
+  "confirmed": true,
+  "note": "owner confirmed (frozen-01)"
+ },
+ "productName": {
+  "value": "",
+  "label": "Product name",
+  "confirmed": false
+ },
+ "price": {
+  "value": "",
+  "label": "Price",
+  "confirmed": false
+ },
+ "halal": {
+  "value": "",
+  "label": "Halal certification",
+  "confirmed": false
+ },
+ "contact": {
+  "value": "",
+  "label": "WhatsApp / order contact",
+  "confirmed": false
+ },
+ "branches": {
+  "value": "Pasar Sumayyah, Tumpat (pusat utama)",
+  "label": "Branches",
+  "confirmed": true,
+  "note": "owner confirmed"
+ }
+}

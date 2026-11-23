@@ -1,0 +1,437 @@
+{
+ "_readme": "Harga daging slice: runcit, untuk jual, sekotak — kenapa harga naik? — cut from the frozen-04 raw recording (clean 1080p). YPF brand motion kit on the ONE CANVAS system. Graphics only from spoken words or owner-confirmed facts; product shown only as real footage.",
+ "project": "frozen-04-v1",
+ "brand": "yapakcik-frozen",
+ "title": "Harga daging slice: runcit, untuk jual, sekotak — kenapa harga naik?",
+ "shots": [
+  {
+   "id": "h",
+   "label": "HOOK: harga naik?",
+   "clip": "lv_0_20261123141154",
+   "in": 22.15,
+   "out": 26.1,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "harga naik lah"
+     },
+     "type": "punch-in",
+     "scale": 1.52
+    }
+   ]
+  },
+  {
+   "id": "p1",
+   "label": "runcit 20, borong",
+   "clip": "lv_0_20261123141154",
+   "in": 0.0,
+   "out": 5.3,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.38
+    }
+   ],
+   "transition": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "p2",
+   "label": "runcit 20, untuk jual 19, kotak 18.50",
+   "clip": "lv_0_20261123141154",
+   "in": 6.85,
+   "out": 16.4,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "label": "harga untuk tarikh hari ni",
+   "clip": "lv_0_20261123141154",
+   "in": 16.5,
+   "out": 22.0,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "setakat hari ni"
+     },
+     "type": "punch-in",
+     "scale": 1.48
+    }
+   ]
+  },
+  {
+   "id": "e1",
+   "label": "bukan marketing; sentiasa berubah",
+   "clip": "lv_0_20261123141154",
+   "in": 26.15,
+   "out": 33.3,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "sentiasa berubah"
+     },
+     "type": "punch-in",
+     "scale": 1.44
+    }
+   ]
+  },
+  {
+   "id": "e2",
+   "label": "naik sokmo, terpaksa",
+   "clip": "lv_0_20261123141154",
+   "in": 33.35,
+   "out": 49.4,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "naik sokmo"
+     },
+     "type": "punch-in",
+     "scale": 1.48
+    },
+    {
+     "at": {
+      "quote": "Orang naik"
+     },
+     "type": "punch-out",
+     "scale": 1.32
+    },
+    {
+     "at": {
+      "quote": "tak leh nak buat apa"
+     },
+     "type": "punch-in",
+     "scale": 1.46
+    }
+   ]
+  },
+  {
+   "id": "1cta1",
+   "label": "CTA: mari YaPakCik Frozen",
+   "clip": "lv_0_20261123141154",
+   "in": 184.05,
+   "out": 187.55,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.38
+    }
+   ],
+   "transition": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "1cta2",
+   "label": "CTA: Pasar Sumayyah Tumpat",
+   "clip": "lv_0_20261123141154",
+   "in": 205.55,
+   "out": 207.2,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "1cta3",
+   "label": "CTA: pusat utama di Tumpat",
+   "clip": "lv_0_20261123141154",
+   "in": 215.75,
+   "out": 219.6,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.32,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.4
+    }
+   ]
+  }
+ ],
+ "layers": [
+  {
+   "id": "hook",
+   "type": "scene",
+   "at": {
+    "quote": "tanya naik pula tu"
+   },
+   "duration": 2.8,
+   "source": "transcript",
+   "evidence": {
+    "quote": "kalau awak tanya naik pula tu harga naik lah"
+   },
+   "props": {
+    "kind": "hook",
+    "y": 120,
+    "h": 400,
+    "words": [
+     {
+      "text": "harga",
+      "size": "l"
+     },
+     {
+      "text": "naik?",
+      "size": "xl",
+      "style": "gold"
+     }
+    ],
+    "revealQuotes": [
+     "harga naik lah",
+     "naik lah"
+    ]
+   }
+  },
+  {
+   "id": "tiers",
+   "type": "scene",
+   "at": {
+    "quote": "kita jual runcit 20",
+    "offset": -0.6
+   },
+   "duration": 15.4,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Kedai lah ni kita jual dia runcit 20 untuk orang jual kita tolak 19 kalau orang nak ambil kotak kita boleh wigo 18.50"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "tiers",
+    "kicker": "harga daging slice",
+    "tiers": [
+     {
+      "price": "RM20",
+      "unit": "/ RUNCIT"
+     },
+     {
+      "price": "RM19",
+      "unit": "/ UNTUK JUAL"
+     },
+     {
+      "price": "RM18.50",
+      "unit": "/ AMBIL KOTAK"
+     }
+    ],
+    "revealQuotes": [
+     "runcit 20",
+     "kita tolak 19",
+     "wigo 18.50"
+    ]
+   }
+  },
+  {
+   "id": "ayoh",
+   "type": "scene",
+   "at": {
+    "quote": "Bukan kata Ayoh Mad"
+   },
+   "duration": 3.0,
+   "source": "facts",
+   "evidence": {
+    "fact": "presenterName"
+   },
+   "props": {
+    "kind": "nametag",
+    "name": "AYOH MAD",
+    "role": "YaPakCik Frozen"
+   }
+  },
+  {
+   "id": "trend",
+   "type": "scene",
+   "at": {
+    "quote": "Pasal harga ni sentiasa",
+    "offset": -0.2
+   },
+   "duration": 9.6,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Pasal harga ni sentiasa berubah daging ni bukan kata kita ni sengaja nak naik tapi memang barang naik sokmo"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "trend",
+    "kicker": "harga daging",
+    "title": "NAIK SOKMO",
+    "sub": "harga sentiasa berubah",
+    "revealQuotes": [
+     "harga ni sentiasa berubah",
+     "naik sokmo"
+    ]
+   }
+  },
+  {
+   "id": "endcard",
+   "type": "scene",
+   "at": {
+    "quote": "Okey deh ha bagi siapa-siapa"
+   },
+   "duration": 8.75,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Pasar Sumayyah Tumpat aa pusat utama di Tumpat"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "endcard",
+    "badge": "PUSAT UTAMA",
+    "pins": [
+     {
+      "name": "Pasar Sumayyah",
+      "area": "Tumpat"
+     }
+    ],
+    "revealQuotes": [
+     "Okey deh ha bagi",
+     "boleh mari YaPakCik Frozen",
+     "Pasar Sumayyah Tumpat"
+    ]
+   }
+  }
+ ],
+ "captions": {
+  "enabled": true,
+  "style": "minimal",
+  "combineMs": 900,
+  "uppercase": false,
+  "position": 0.7,
+  "emphasis": {
+   "naik": "big",
+   "sokmo": "script",
+   "berubah": "script",
+   "bau": "big",
+   "hamis": "big",
+   "merah": "big",
+   "hitam": "big",
+   "gelap": "big",
+   "lama": "script",
+   "baru": "big",
+   "tips": "big",
+   "percuma": "big",
+   "cod": "big",
+   "runcit": "script",
+   "borong": "script"
+  },
+  "hide": []
+ },
+ "look": {
+  "grade": "moody-true",
+  "gradeIntensity": 0.7,
+  "grain": true,
+  "vignette": true,
+  "breathing": 0.012,
+  "coverBands": [],
+  "aiLabel": false,
+  "canvas": "brand"
+ },
+ "audio": {
+  "music": "music/story-documentary-bed.mp3",
+  "musicVolume": 0.3,
+  "duckTo": 0.13,
+  "sfx": "auto",
+  "sfxVolume": 0.55,
+  "voiceTargetLufs": -16,
+  "cues": []
+ }
+}

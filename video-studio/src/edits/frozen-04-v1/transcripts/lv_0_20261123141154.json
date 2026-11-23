@@ -1,0 +1,4213 @@
+{
+  "clip": "lv_0_20261123141154",
+  "source": "srt",
+  "estimatedWordTiming": true,
+  "srtFile": "lv_0_20261123141154.reconciled.srt",
+  "segments": [
+    {
+      "start": 0,
+      "end": 3,
+      "text": "Aa, kedai lah ni, kata kita jual runcit 20,",
+      "words": [
+        {
+          "text": " Aa,",
+          "start": 0,
+          "end": 0.257,
+          "prob": 1
+        },
+        {
+          "text": " kedai",
+          "start": 0.257,
+          "end": 0.686,
+          "prob": 1
+        },
+        {
+          "text": " lah",
+          "start": 0.686,
+          "end": 0.943,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 0.943,
+          "end": 1.2,
+          "prob": 1
+        },
+        {
+          "text": " kata",
+          "start": 1.2,
+          "end": 1.543,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 1.543,
+          "end": 1.886,
+          "prob": 1
+        },
+        {
+          "text": " jual",
+          "start": 1.886,
+          "end": 2.229,
+          "prob": 1
+        },
+        {
+          "text": " runcit",
+          "start": 2.229,
+          "end": 2.743,
+          "prob": 1
+        },
+        {
+          "text": " 20,",
+          "start": 2.743,
+          "end": 3,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 3.8,
+      "end": 5.2,
+      "text": "dan borong.",
+      "words": [
+        {
+          "text": " dan",
+          "start": 3.8,
+          "end": 4.22,
+          "prob": 1
+        },
+        {
+          "text": " borong.",
+          "start": 4.22,
+          "end": 5.2,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 6.9,
+      "end": 10.8,
+      "text": "Kedai lah ni kita jual dia runcit 20.",
+      "words": [
+        {
+          "text": " Kedai",
+          "start": 6.9,
+          "end": 7.55,
+          "prob": 1
+        },
+        {
+          "text": " lah",
+          "start": 7.55,
+          "end": 7.94,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 7.94,
+          "end": 8.2,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 8.2,
+          "end": 8.72,
+          "prob": 1
+        },
+        {
+          "text": " jual",
+          "start": 8.72,
+          "end": 9.24,
+          "prob": 1
+        },
+        {
+          "text": " dia",
+          "start": 9.24,
+          "end": 9.63,
+          "prob": 1
+        },
+        {
+          "text": " runcit",
+          "start": 9.63,
+          "end": 10.41,
+          "prob": 1
+        },
+        {
+          "text": " 20.",
+          "start": 10.41,
+          "end": 10.8,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 11.1,
+      "end": 13.1,
+      "text": "Untuk orang jual, kita tolak 19.",
+      "words": [
+        {
+          "text": " Untuk",
+          "start": 11.1,
+          "end": 11.47,
+          "prob": 1
+        },
+        {
+          "text": " orang",
+          "start": 11.47,
+          "end": 11.841,
+          "prob": 1
+        },
+        {
+          "text": " jual,",
+          "start": 11.841,
+          "end": 12.211,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 12.211,
+          "end": 12.507,
+          "prob": 1
+        },
+        {
+          "text": " tolak",
+          "start": 12.507,
+          "end": 12.878,
+          "prob": 1
+        },
+        {
+          "text": " 19.",
+          "start": 12.878,
+          "end": 13.1,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 13.3,
+      "end": 16.3,
+      "text": "Kalau orang nak ambil kotak, kita boleh wigo 18.50.",
+      "words": [
+        {
+          "text": " Kalau",
+          "start": 13.3,
+          "end": 13.649,
+          "prob": 1
+        },
+        {
+          "text": " orang",
+          "start": 13.649,
+          "end": 13.998,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 13.998,
+          "end": 14.207,
+          "prob": 1
+        },
+        {
+          "text": " ambil",
+          "start": 14.207,
+          "end": 14.556,
+          "prob": 1
+        },
+        {
+          "text": " kotak,",
+          "start": 14.556,
+          "end": 14.974,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 14.974,
+          "end": 15.253,
+          "prob": 1
+        },
+        {
+          "text": " boleh",
+          "start": 15.253,
+          "end": 15.602,
+          "prob": 1
+        },
+        {
+          "text": " wigo",
+          "start": 15.602,
+          "end": 15.881,
+          "prob": 1
+        },
+        {
+          "text": " 18.50.",
+          "start": 15.881,
+          "end": 16.3,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 16.6,
+      "end": 21.9,
+      "text": "Ni harga ni, kata untuk tarikh hari ni, setakat hari ni.",
+      "words": [
+        {
+          "text": " Ni",
+          "start": 16.6,
+          "end": 16.83,
+          "prob": 1
+        },
+        {
+          "text": " harga",
+          "start": 16.83,
+          "end": 17.407,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 17.407,
+          "end": 17.752,
+          "prob": 1
+        },
+        {
+          "text": " kata",
+          "start": 17.752,
+          "end": 18.213,
+          "prob": 1
+        },
+        {
+          "text": " untuk",
+          "start": 18.213,
+          "end": 18.789,
+          "prob": 1
+        },
+        {
+          "text": " tarikh",
+          "start": 18.789,
+          "end": 19.48,
+          "prob": 1
+        },
+        {
+          "text": " hari",
+          "start": 19.48,
+          "end": 19.941,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 19.941,
+          "end": 20.287,
+          "prob": 1
+        },
+        {
+          "text": " setakat",
+          "start": 20.287,
+          "end": 21.093,
+          "prob": 1
+        },
+        {
+          "text": " hari",
+          "start": 21.093,
+          "end": 21.554,
+          "prob": 1
+        },
+        {
+          "text": " ni.",
+          "start": 21.554,
+          "end": 21.9,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 22.2,
+      "end": 26.05,
+      "text": "Kalau macam, kalau awak tanya naik pula tu, harga naik lah.",
+      "words": [
+        {
+          "text": " Kalau",
+          "start": 22.2,
+          "end": 22.593,
+          "prob": 1
+        },
+        {
+          "text": " macam,",
+          "start": 22.593,
+          "end": 23.064,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 23.064,
+          "end": 23.457,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 23.457,
+          "end": 23.771,
+          "prob": 1
+        },
+        {
+          "text": " tanya",
+          "start": 23.771,
+          "end": 24.164,
+          "prob": 1
+        },
+        {
+          "text": " naik",
+          "start": 24.164,
+          "end": 24.479,
+          "prob": 1
+        },
+        {
+          "text": " pula",
+          "start": 24.479,
+          "end": 24.793,
+          "prob": 1
+        },
+        {
+          "text": " tu,",
+          "start": 24.793,
+          "end": 25.029,
+          "prob": 1
+        },
+        {
+          "text": " harga",
+          "start": 25.029,
+          "end": 25.421,
+          "prob": 1
+        },
+        {
+          "text": " naik",
+          "start": 25.421,
+          "end": 25.736,
+          "prob": 1
+        },
+        {
+          "text": " lah.",
+          "start": 25.736,
+          "end": 26.05,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 26.2,
+      "end": 30.2,
+      "text": "Bukan kata Ayoh Mad ni kata marketing ni pun, indah khabar rupa.",
+      "words": [
+        {
+          "text": " Bukan",
+          "start": 26.2,
+          "end": 26.577,
+          "prob": 1
+        },
+        {
+          "text": " kata",
+          "start": 26.577,
+          "end": 26.879,
+          "prob": 1
+        },
+        {
+          "text": " Ayoh",
+          "start": 26.879,
+          "end": 27.181,
+          "prob": 1
+        },
+        {
+          "text": " Mad",
+          "start": 27.181,
+          "end": 27.408,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 27.408,
+          "end": 27.558,
+          "prob": 1
+        },
+        {
+          "text": " kata",
+          "start": 27.558,
+          "end": 27.86,
+          "prob": 1
+        },
+        {
+          "text": " marketing",
+          "start": 27.86,
+          "end": 28.54,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 28.54,
+          "end": 28.691,
+          "prob": 1
+        },
+        {
+          "text": " pun,",
+          "start": 28.691,
+          "end": 28.992,
+          "prob": 1
+        },
+        {
+          "text": " indah",
+          "start": 28.992,
+          "end": 29.37,
+          "prob": 1
+        },
+        {
+          "text": " khabar",
+          "start": 29.37,
+          "end": 29.823,
+          "prob": 1
+        },
+        {
+          "text": " rupa.",
+          "start": 29.823,
+          "end": 30.2,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 30.55,
+      "end": 33.25,
+      "text": "Pasal harga ni sentiasa berubah, daging ni.",
+      "words": [
+        {
+          "text": " Pasal",
+          "start": 30.55,
+          "end": 30.915,
+          "prob": 1
+        },
+        {
+          "text": " harga",
+          "start": 30.915,
+          "end": 31.28,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 31.28,
+          "end": 31.426,
+          "prob": 1
+        },
+        {
+          "text": " sentiasa",
+          "start": 31.426,
+          "end": 32.009,
+          "prob": 1
+        },
+        {
+          "text": " berubah,",
+          "start": 32.009,
+          "end": 32.593,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 32.593,
+          "end": 33.031,
+          "prob": 1
+        },
+        {
+          "text": " ni.",
+          "start": 33.031,
+          "end": 33.25,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 33.39,
+      "end": 36.59,
+      "text": "Bukan kata kita ni sengaja nak naik, tapi memang barang naik sokmo.",
+      "words": [
+        {
+          "text": " Bukan",
+          "start": 33.39,
+          "end": 33.676,
+          "prob": 1
+        },
+        {
+          "text": " kata",
+          "start": 33.676,
+          "end": 33.904,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 33.904,
+          "end": 34.133,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 34.133,
+          "end": 34.247,
+          "prob": 1
+        },
+        {
+          "text": " sengaja",
+          "start": 34.247,
+          "end": 34.647,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 34.647,
+          "end": 34.819,
+          "prob": 1
+        },
+        {
+          "text": " naik,",
+          "start": 34.819,
+          "end": 35.104,
+          "prob": 1
+        },
+        {
+          "text": " tapi",
+          "start": 35.104,
+          "end": 35.333,
+          "prob": 1
+        },
+        {
+          "text": " memang",
+          "start": 35.333,
+          "end": 35.676,
+          "prob": 1
+        },
+        {
+          "text": " barang",
+          "start": 35.676,
+          "end": 36.019,
+          "prob": 1
+        },
+        {
+          "text": " naik",
+          "start": 36.019,
+          "end": 36.247,
+          "prob": 1
+        },
+        {
+          "text": " sokmo.",
+          "start": 36.247,
+          "end": 36.59,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 36.93,
+      "end": 38.91,
+      "text": "Ayoh Mad pun tak tahu nak handle ke mana.",
+      "words": [
+        {
+          "text": " Ayoh",
+          "start": 36.93,
+          "end": 37.17,
+          "prob": 1
+        },
+        {
+          "text": " Mad",
+          "start": 37.17,
+          "end": 37.35,
+          "prob": 1
+        },
+        {
+          "text": " pun",
+          "start": 37.35,
+          "end": 37.53,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 37.53,
+          "end": 37.71,
+          "prob": 1
+        },
+        {
+          "text": " tahu",
+          "start": 37.71,
+          "end": 37.95,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 37.95,
+          "end": 38.13,
+          "prob": 1
+        },
+        {
+          "text": " handle",
+          "start": 38.13,
+          "end": 38.49,
+          "prob": 1
+        },
+        {
+          "text": " ke",
+          "start": 38.49,
+          "end": 38.61,
+          "prob": 1
+        },
+        {
+          "text": " mana.",
+          "start": 38.61,
+          "end": 38.91,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 38.91,
+      "end": 40.01,
+      "text": "Naik semua.",
+      "words": [
+        {
+          "text": " Naik",
+          "start": 38.91,
+          "end": 39.35,
+          "prob": 1
+        },
+        {
+          "text": " semua.",
+          "start": 39.35,
+          "end": 40.01,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 40.01,
+      "end": 42.81,
+      "text": "Jadi lik kita ni, terpaksa.",
+      "words": [
+        {
+          "text": " Jadi",
+          "start": 40.01,
+          "end": 40.497,
+          "prob": 1
+        },
+        {
+          "text": " lik",
+          "start": 40.497,
+          "end": 40.862,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 40.862,
+          "end": 41.349,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 41.349,
+          "end": 41.714,
+          "prob": 1
+        },
+        {
+          "text": " terpaksa.",
+          "start": 41.714,
+          "end": 42.81,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 42.81,
+      "end": 44.41,
+      "text": "Orang naik, kita naiklah.",
+      "words": [
+        {
+          "text": " Orang",
+          "start": 42.81,
+          "end": 43.174,
+          "prob": 1
+        },
+        {
+          "text": " naik,",
+          "start": 43.174,
+          "end": 43.537,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 43.537,
+          "end": 43.828,
+          "prob": 1
+        },
+        {
+          "text": " naiklah.",
+          "start": 43.828,
+          "end": 44.41,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 44.41,
+      "end": 46.35,
+      "text": "Kita bukan nak sangat nak naik harga barang ni,",
+      "words": [
+        {
+          "text": " Kita",
+          "start": 44.41,
+          "end": 44.609,
+          "prob": 1
+        },
+        {
+          "text": " bukan",
+          "start": 44.609,
+          "end": 44.858,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 44.858,
+          "end": 45.007,
+          "prob": 1
+        },
+        {
+          "text": " sangat",
+          "start": 45.007,
+          "end": 45.305,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 45.305,
+          "end": 45.455,
+          "prob": 1
+        },
+        {
+          "text": " naik",
+          "start": 45.455,
+          "end": 45.654,
+          "prob": 1
+        },
+        {
+          "text": " harga",
+          "start": 45.654,
+          "end": 45.902,
+          "prob": 1
+        },
+        {
+          "text": " barang",
+          "start": 45.902,
+          "end": 46.201,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 46.201,
+          "end": 46.35,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 46.5,
+      "end": 47.94,
+      "text": "tapi dia memang naik.",
+      "words": [
+        {
+          "text": " tapi",
+          "start": 46.5,
+          "end": 46.82,
+          "prob": 1
+        },
+        {
+          "text": " dia",
+          "start": 46.82,
+          "end": 47.06,
+          "prob": 1
+        },
+        {
+          "text": " memang",
+          "start": 47.06,
+          "end": 47.54,
+          "prob": 1
+        },
+        {
+          "text": " naik.",
+          "start": 47.54,
+          "end": 47.94,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 47.94,
+      "end": 49.3,
+      "text": "Jadinya tak leh nak buat apa.",
+      "words": [
+        {
+          "text": " Jadinya",
+          "start": 47.94,
+          "end": 48.337,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 48.337,
+          "end": 48.507,
+          "prob": 1
+        },
+        {
+          "text": " leh",
+          "start": 48.507,
+          "end": 48.677,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 48.677,
+          "end": 48.847,
+          "prob": 1
+        },
+        {
+          "text": " buat",
+          "start": 48.847,
+          "end": 49.073,
+          "prob": 1
+        },
+        {
+          "text": " apa.",
+          "start": 49.073,
+          "end": 49.3,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 50.12,
+      "end": 51.72,
+      "text": "Ha, jadinya kalau awak nak",
+      "words": [
+        {
+          "text": " Ha,",
+          "start": 50.12,
+          "end": 50.338,
+          "prob": 1
+        },
+        {
+          "text": " jadinya",
+          "start": 50.338,
+          "end": 50.847,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 50.847,
+          "end": 51.211,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 51.211,
+          "end": 51.502,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 51.502,
+          "end": 51.72,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 51.72,
+      "end": 54.57,
+      "text": "daging slice hok mudah lembut,",
+      "words": [
+        {
+          "text": " daging",
+          "start": 51.72,
+          "end": 52.378,
+          "prob": 1
+        },
+        {
+          "text": " slice",
+          "start": 52.378,
+          "end": 52.926,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 52.926,
+          "end": 53.255,
+          "prob": 1
+        },
+        {
+          "text": " mudah",
+          "start": 53.255,
+          "end": 53.803,
+          "prob": 1
+        },
+        {
+          "text": " lembut,",
+          "start": 53.803,
+          "end": 54.57,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 54.57,
+      "end": 56.59,
+      "text": "hok tak bau, awak cari hok...",
+      "words": [
+        {
+          "text": " hok",
+          "start": 54.57,
+          "end": 54.823,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 54.823,
+          "end": 55.075,
+          "prob": 1
+        },
+        {
+          "text": " bau,",
+          "start": 55.075,
+          "end": 55.412,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 55.412,
+          "end": 55.748,
+          "prob": 1
+        },
+        {
+          "text": " cari",
+          "start": 55.748,
+          "end": 56.085,
+          "prob": 1
+        },
+        {
+          "text": " hok...",
+          "start": 56.085,
+          "end": 56.59,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 58.8,
+      "end": 59.6,
+      "text": "Okey.",
+      "words": [
+        {
+          "text": " Okey.",
+          "start": 58.8,
+          "end": 59.6,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 62.6,
+      "end": 65.6,
+      "text": "And so, lagi masalah kalau kita beli daging,",
+      "words": [
+        {
+          "text": " And",
+          "start": 62.6,
+          "end": 62.843,
+          "prob": 1
+        },
+        {
+          "text": " so,",
+          "start": 62.843,
+          "end": 63.086,
+          "prob": 1
+        },
+        {
+          "text": " lagi",
+          "start": 63.086,
+          "end": 63.411,
+          "prob": 1
+        },
+        {
+          "text": " masalah",
+          "start": 63.411,
+          "end": 63.978,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 63.978,
+          "end": 64.384,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 64.384,
+          "end": 64.708,
+          "prob": 1
+        },
+        {
+          "text": " beli",
+          "start": 64.708,
+          "end": 65.032,
+          "prob": 1
+        },
+        {
+          "text": " daging,",
+          "start": 65.032,
+          "end": 65.6,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 66.5,
+      "end": 68.97,
+      "text": "aa, slice ni kadang-kadang kita beli dia bau.",
+      "words": [
+        {
+          "text": " aa,",
+          "start": 66.5,
+          "end": 66.695,
+          "prob": 1
+        },
+        {
+          "text": " slice",
+          "start": 66.695,
+          "end": 67.02,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 67.02,
+          "end": 67.15,
+          "prob": 1
+        },
+        {
+          "text": " kadang-kadang",
+          "start": 67.15,
+          "end": 67.995,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 67.995,
+          "end": 68.255,
+          "prob": 1
+        },
+        {
+          "text": " beli",
+          "start": 68.255,
+          "end": 68.515,
+          "prob": 1
+        },
+        {
+          "text": " dia",
+          "start": 68.515,
+          "end": 68.71,
+          "prob": 1
+        },
+        {
+          "text": " bau.",
+          "start": 68.71,
+          "end": 68.97,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 69.41,
+      "end": 70.81,
+      "text": "Bau kuat, bau hamis.",
+      "words": [
+        {
+          "text": " Bau",
+          "start": 69.41,
+          "end": 69.657,
+          "prob": 1
+        },
+        {
+          "text": " kuat,",
+          "start": 69.657,
+          "end": 70.069,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 70.069,
+          "end": 70.316,
+          "prob": 1
+        },
+        {
+          "text": " hamis.",
+          "start": 70.316,
+          "end": 70.81,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 71.17,
+      "end": 72.99,
+      "text": "Ha, ya, tips, tips salah satunya,",
+      "words": [
+        {
+          "text": " Ha,",
+          "start": 71.17,
+          "end": 71.365,
+          "prob": 1
+        },
+        {
+          "text": " ya,",
+          "start": 71.365,
+          "end": 71.56,
+          "prob": 1
+        },
+        {
+          "text": " tips,",
+          "start": 71.56,
+          "end": 71.885,
+          "prob": 1
+        },
+        {
+          "text": " tips",
+          "start": 71.885,
+          "end": 72.145,
+          "prob": 1
+        },
+        {
+          "text": " salah",
+          "start": 72.145,
+          "end": 72.47,
+          "prob": 1
+        },
+        {
+          "text": " satunya,",
+          "start": 72.47,
+          "end": 72.99,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 73.07,
+      "end": 75.68,
+      "text": "hok kita biasa Ayoh Mad terima ni,",
+      "words": [
+        {
+          "text": " hok",
+          "start": 73.07,
+          "end": 73.35,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 73.35,
+          "end": 73.723,
+          "prob": 1
+        },
+        {
+          "text": " biasa",
+          "start": 73.723,
+          "end": 74.189,
+          "prob": 1
+        },
+        {
+          "text": " Ayoh",
+          "start": 74.189,
+          "end": 74.561,
+          "prob": 1
+        },
+        {
+          "text": " Mad",
+          "start": 74.561,
+          "end": 74.841,
+          "prob": 1
+        },
+        {
+          "text": " terima",
+          "start": 74.841,
+          "end": 75.4,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 75.4,
+          "end": 75.68,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 75.76,
+      "end": 78.5,
+      "text": "sebab biasa kita try belaka daging,",
+      "words": [
+        {
+          "text": " sebab",
+          "start": 75.76,
+          "end": 76.217,
+          "prob": 1
+        },
+        {
+          "text": " biasa",
+          "start": 76.217,
+          "end": 76.673,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 76.673,
+          "end": 77.039,
+          "prob": 1
+        },
+        {
+          "text": " try",
+          "start": 77.039,
+          "end": 77.313,
+          "prob": 1
+        },
+        {
+          "text": " belaka",
+          "start": 77.313,
+          "end": 77.861,
+          "prob": 1
+        },
+        {
+          "text": " daging,",
+          "start": 77.861,
+          "end": 78.5,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 78.56,
+      "end": 80.22,
+      "text": "sebelum kita nak jual tu, kita try dulu.",
+      "words": [
+        {
+          "text": " sebelum",
+          "start": 78.56,
+          "end": 78.912,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 78.912,
+          "end": 79.113,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 79.113,
+          "end": 79.264,
+          "prob": 1
+        },
+        {
+          "text": " jual",
+          "start": 79.264,
+          "end": 79.465,
+          "prob": 1
+        },
+        {
+          "text": " tu,",
+          "start": 79.465,
+          "end": 79.616,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 79.616,
+          "end": 79.818,
+          "prob": 1
+        },
+        {
+          "text": " try",
+          "start": 79.818,
+          "end": 79.968,
+          "prob": 1
+        },
+        {
+          "text": " dulu.",
+          "start": 79.968,
+          "end": 80.22,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 80.64,
+      "end": 82.6,
+      "text": "Lagu mana, buat apa daging, apa daging lembut.",
+      "words": [
+        {
+          "text": " Lagu",
+          "start": 80.64,
+          "end": 80.841,
+          "prob": 1
+        },
+        {
+          "text": " mana,",
+          "start": 80.841,
+          "end": 81.092,
+          "prob": 1
+        },
+        {
+          "text": " buat",
+          "start": 81.092,
+          "end": 81.293,
+          "prob": 1
+        },
+        {
+          "text": " apa",
+          "start": 81.293,
+          "end": 81.444,
+          "prob": 1
+        },
+        {
+          "text": " daging,",
+          "start": 81.444,
+          "end": 81.796,
+          "prob": 1
+        },
+        {
+          "text": " apa",
+          "start": 81.796,
+          "end": 81.947,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 81.947,
+          "end": 82.248,
+          "prob": 1
+        },
+        {
+          "text": " lembut.",
+          "start": 82.248,
+          "end": 82.6,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 82.66,
+      "end": 85.33,
+      "text": "Cuma ni hok sesuai tu, berdasarkan pengalaman Ayoh Mad lah.",
+      "words": [
+        {
+          "text": " Cuma",
+          "start": 82.66,
+          "end": 82.874,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 82.874,
+          "end": 82.98,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 82.98,
+          "end": 83.141,
+          "prob": 1
+        },
+        {
+          "text": " sesuai",
+          "start": 83.141,
+          "end": 83.461,
+          "prob": 1
+        },
+        {
+          "text": " tu,",
+          "start": 83.461,
+          "end": 83.621,
+          "prob": 1
+        },
+        {
+          "text": " berdasarkan",
+          "start": 83.621,
+          "end": 84.209,
+          "prob": 1
+        },
+        {
+          "text": " pengalaman",
+          "start": 84.209,
+          "end": 84.743,
+          "prob": 1
+        },
+        {
+          "text": " Ayoh",
+          "start": 84.743,
+          "end": 84.956,
+          "prob": 1
+        },
+        {
+          "text": " Mad",
+          "start": 84.956,
+          "end": 85.116,
+          "prob": 1
+        },
+        {
+          "text": " lah.",
+          "start": 85.116,
+          "end": 85.33,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 85.47,
+      "end": 88.45,
+      "text": "Cuma ni, buat apa daging-daging tu,",
+      "words": [
+        {
+          "text": " Cuma",
+          "start": 85.47,
+          "end": 85.867,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 85.867,
+          "end": 86.165,
+          "prob": 1
+        },
+        {
+          "text": " buat",
+          "start": 86.165,
+          "end": 86.563,
+          "prob": 1
+        },
+        {
+          "text": " apa",
+          "start": 86.563,
+          "end": 86.861,
+          "prob": 1
+        },
+        {
+          "text": " daging-daging",
+          "start": 86.861,
+          "end": 88.152,
+          "prob": 1
+        },
+        {
+          "text": " tu,",
+          "start": 88.152,
+          "end": 88.45,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 88.45,
+      "end": 89.27,
+      "text": "kadang-kadang boleh bau.",
+      "words": [
+        {
+          "text": " kadang-kadang",
+          "start": 88.45,
+          "end": 88.935,
+          "prob": 1
+        },
+        {
+          "text": " boleh",
+          "start": 88.935,
+          "end": 89.121,
+          "prob": 1
+        },
+        {
+          "text": " bau.",
+          "start": 89.121,
+          "end": 89.27,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 89.43,
+      "end": 92.05,
+      "text": "Bau boleh bau tu, biasanya stok lama.",
+      "words": [
+        {
+          "text": " Bau",
+          "start": 89.43,
+          "end": 89.684,
+          "prob": 1
+        },
+        {
+          "text": " boleh",
+          "start": 89.684,
+          "end": 90.106,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 90.106,
+          "end": 90.36,
+          "prob": 1
+        },
+        {
+          "text": " tu,",
+          "start": 90.36,
+          "end": 90.613,
+          "prob": 1
+        },
+        {
+          "text": " biasanya",
+          "start": 90.613,
+          "end": 91.289,
+          "prob": 1
+        },
+        {
+          "text": " stok",
+          "start": 91.289,
+          "end": 91.627,
+          "prob": 1
+        },
+        {
+          "text": " lama.",
+          "start": 91.627,
+          "end": 92.05,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 92.59,
+      "end": 94.95,
+      "text": "Stok lama ni, baru tu kita tengok,",
+      "words": [
+        {
+          "text": " Stok",
+          "start": 92.59,
+          "end": 92.927,
+          "prob": 1
+        },
+        {
+          "text": " lama",
+          "start": 92.927,
+          "end": 93.264,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 93.264,
+          "end": 93.517,
+          "prob": 1
+        },
+        {
+          "text": " baru",
+          "start": 93.517,
+          "end": 93.854,
+          "prob": 1
+        },
+        {
+          "text": " tu",
+          "start": 93.854,
+          "end": 94.023,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 94.023,
+          "end": 94.36,
+          "prob": 1
+        },
+        {
+          "text": " tengok,",
+          "start": 94.36,
+          "end": 94.95,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 95.09,
+      "end": 96.83,
+      "text": "kalau macam ni, kita stok baru,",
+      "words": [
+        {
+          "text": " kalau",
+          "start": 95.09,
+          "end": 95.425,
+          "prob": 1
+        },
+        {
+          "text": " macam",
+          "start": 95.425,
+          "end": 95.759,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 95.759,
+          "end": 95.96,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 95.96,
+          "end": 96.228,
+          "prob": 1
+        },
+        {
+          "text": " stok",
+          "start": 96.228,
+          "end": 96.495,
+          "prob": 1
+        },
+        {
+          "text": " baru,",
+          "start": 96.495,
+          "end": 96.83,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 96.9,
+      "end": 98.9,
+      "text": "dia daging merah molek gitu deh.",
+      "words": [
+        {
+          "text": " dia",
+          "start": 96.9,
+          "end": 97.122,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 97.122,
+          "end": 97.567,
+          "prob": 1
+        },
+        {
+          "text": " merah",
+          "start": 97.567,
+          "end": 97.937,
+          "prob": 1
+        },
+        {
+          "text": " molek",
+          "start": 97.937,
+          "end": 98.307,
+          "prob": 1
+        },
+        {
+          "text": " gitu",
+          "start": 98.307,
+          "end": 98.604,
+          "prob": 1
+        },
+        {
+          "text": " deh.",
+          "start": 98.604,
+          "end": 98.9,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 99,
+      "end": 101,
+      "text": "Aa, hok bau ni biasanya,",
+      "words": [
+        {
+          "text": " Aa,",
+          "start": 99,
+          "end": 99.3,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 99.3,
+          "end": 99.6,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 99.6,
+          "end": 99.9,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 99.9,
+          "end": 100.1,
+          "prob": 1
+        },
+        {
+          "text": " biasanya,",
+          "start": 100.1,
+          "end": 101,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 101.5,
+      "end": 103.8,
+      "text": "dia jadi hitam, dia jadi hitam.",
+      "words": [
+        {
+          "text": " dia",
+          "start": 101.5,
+          "end": 101.765,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 101.765,
+          "end": 102.119,
+          "prob": 1
+        },
+        {
+          "text": " hitam,",
+          "start": 102.119,
+          "end": 102.65,
+          "prob": 1
+        },
+        {
+          "text": " dia",
+          "start": 102.65,
+          "end": 102.915,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 102.915,
+          "end": 103.269,
+          "prob": 1
+        },
+        {
+          "text": " hitam.",
+          "start": 103.269,
+          "end": 103.8,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 104,
+      "end": 105.9,
+      "text": "Kita tengok kat belakang, tak jadi merah,",
+      "words": [
+        {
+          "text": " Kita",
+          "start": 104,
+          "end": 104.217,
+          "prob": 1
+        },
+        {
+          "text": " tengok",
+          "start": 104.217,
+          "end": 104.543,
+          "prob": 1
+        },
+        {
+          "text": " kat",
+          "start": 104.543,
+          "end": 104.706,
+          "prob": 1
+        },
+        {
+          "text": " belakang,",
+          "start": 104.706,
+          "end": 105.194,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 105.194,
+          "end": 105.357,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 105.357,
+          "end": 105.574,
+          "prob": 1
+        },
+        {
+          "text": " merah,",
+          "start": 105.574,
+          "end": 105.9,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 106,
+      "end": 107.9,
+      "text": "gelap sikit, nak jadi hitam sikit.",
+      "words": [
+        {
+          "text": " gelap",
+          "start": 106,
+          "end": 106.328,
+          "prob": 1
+        },
+        {
+          "text": " sikit,",
+          "start": 106.328,
+          "end": 106.721,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 106.721,
+          "end": 106.917,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 106.917,
+          "end": 107.179,
+          "prob": 1
+        },
+        {
+          "text": " hitam",
+          "start": 107.179,
+          "end": 107.507,
+          "prob": 1
+        },
+        {
+          "text": " sikit.",
+          "start": 107.507,
+          "end": 107.9,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 107.9,
+      "end": 109.61,
+      "text": "Tu maksudnya barang lamalah.",
+      "words": [
+        {
+          "text": " Tu",
+          "start": 107.9,
+          "end": 108.037,
+          "prob": 1
+        },
+        {
+          "text": " maksudnya",
+          "start": 108.037,
+          "end": 108.652,
+          "prob": 1
+        },
+        {
+          "text": " barang",
+          "start": 108.652,
+          "end": 109.063,
+          "prob": 1
+        },
+        {
+          "text": " lamalah.",
+          "start": 109.063,
+          "end": 109.61,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 109.61,
+      "end": 113.34,
+      "text": "Kalau awak nak, tak sanggup beli daging hok bau,",
+      "words": [
+        {
+          "text": " Kalau",
+          "start": 109.61,
+          "end": 110.076,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 110.076,
+          "end": 110.449,
+          "prob": 1
+        },
+        {
+          "text": " nak,",
+          "start": 110.449,
+          "end": 110.822,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 110.822,
+          "end": 111.102,
+          "prob": 1
+        },
+        {
+          "text": " sanggup",
+          "start": 111.102,
+          "end": 111.755,
+          "prob": 1
+        },
+        {
+          "text": " beli",
+          "start": 111.755,
+          "end": 112.128,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 112.128,
+          "end": 112.687,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 112.687,
+          "end": 112.967,
+          "prob": 1
+        },
+        {
+          "text": " bau,",
+          "start": 112.967,
+          "end": 113.34,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 113.8,
+      "end": 114.6,
+      "text": "risiko bau ada.",
+      "words": [
+        {
+          "text": " risiko",
+          "start": 113.8,
+          "end": 114.169,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 114.169,
+          "end": 114.354,
+          "prob": 1
+        },
+        {
+          "text": " ada.",
+          "start": 114.354,
+          "end": 114.6,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 114.6,
+      "end": 116.52,
+      "text": "Ada juga tak bau, walaupun dia hitam pun,",
+      "words": [
+        {
+          "text": " Ada",
+          "start": 114.6,
+          "end": 114.769,
+          "prob": 1
+        },
+        {
+          "text": " juga",
+          "start": 114.769,
+          "end": 114.995,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 114.995,
+          "end": 115.165,
+          "prob": 1
+        },
+        {
+          "text": " bau,",
+          "start": 115.165,
+          "end": 115.391,
+          "prob": 1
+        },
+        {
+          "text": " walaupun",
+          "start": 115.391,
+          "end": 115.842,
+          "prob": 1
+        },
+        {
+          "text": " dia",
+          "start": 115.842,
+          "end": 116.012,
+          "prob": 1
+        },
+        {
+          "text": " hitam",
+          "start": 116.012,
+          "end": 116.294,
+          "prob": 1
+        },
+        {
+          "text": " pun,",
+          "start": 116.294,
+          "end": 116.52,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 116.52,
+      "end": 117.8,
+      "text": "dia takde bau.",
+      "words": [
+        {
+          "text": " dia",
+          "start": 116.52,
+          "end": 116.84,
+          "prob": 1
+        },
+        {
+          "text": " takde",
+          "start": 116.84,
+          "end": 117.373,
+          "prob": 1
+        },
+        {
+          "text": " bau.",
+          "start": 117.373,
+          "end": 117.8,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 117.8,
+      "end": 119.04,
+      "text": "Ada setengah tu dia bau,",
+      "words": [
+        {
+          "text": " Ada",
+          "start": 117.8,
+          "end": 117.986,
+          "prob": 1
+        },
+        {
+          "text": " setengah",
+          "start": 117.986,
+          "end": 118.482,
+          "prob": 1
+        },
+        {
+          "text": " tu",
+          "start": 118.482,
+          "end": 118.606,
+          "prob": 1
+        },
+        {
+          "text": " dia",
+          "start": 118.606,
+          "end": 118.792,
+          "prob": 1
+        },
+        {
+          "text": " bau,",
+          "start": 118.792,
+          "end": 119.04,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 119.04,
+      "end": 120.54,
+      "text": "bau pula dia, jadi akan bau.",
+      "words": [
+        {
+          "text": " bau",
+          "start": 119.04,
+          "end": 119.236,
+          "prob": 1
+        },
+        {
+          "text": " pula",
+          "start": 119.236,
+          "end": 119.497,
+          "prob": 1
+        },
+        {
+          "text": " dia,",
+          "start": 119.497,
+          "end": 119.757,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 119.757,
+          "end": 120.018,
+          "prob": 1
+        },
+        {
+          "text": " akan",
+          "start": 120.018,
+          "end": 120.279,
+          "prob": 1
+        },
+        {
+          "text": " bau.",
+          "start": 120.279,
+          "end": 120.54,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 120.54,
+      "end": 121.42,
+      "text": "Bau hamis ada.",
+      "words": [
+        {
+          "text": " Bau",
+          "start": 120.54,
+          "end": 120.76,
+          "prob": 1
+        },
+        {
+          "text": " hamis",
+          "start": 120.76,
+          "end": 121.127,
+          "prob": 1
+        },
+        {
+          "text": " ada.",
+          "start": 121.127,
+          "end": 121.42,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 121.42,
+      "end": 124.2,
+      "text": "Ayoh Mad sendiri, dah daging bau,",
+      "words": [
+        {
+          "text": " Ayoh",
+          "start": 121.42,
+          "end": 121.817,
+          "prob": 1
+        },
+        {
+          "text": " Mad",
+          "start": 121.817,
+          "end": 122.115,
+          "prob": 1
+        },
+        {
+          "text": " sendiri,",
+          "start": 122.115,
+          "end": 122.909,
+          "prob": 1
+        },
+        {
+          "text": " dah",
+          "start": 122.909,
+          "end": 123.207,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 123.207,
+          "end": 123.803,
+          "prob": 1
+        },
+        {
+          "text": " bau,",
+          "start": 123.803,
+          "end": 124.2,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 124.2,
+      "end": 125.66,
+      "text": "tak minat kalau bau hamis.",
+      "words": [
+        {
+          "text": " tak",
+          "start": 124.2,
+          "end": 124.399,
+          "prob": 1
+        },
+        {
+          "text": " minat",
+          "start": 124.399,
+          "end": 124.731,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 124.731,
+          "end": 125.063,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 125.063,
+          "end": 125.262,
+          "prob": 1
+        },
+        {
+          "text": " hamis.",
+          "start": 125.262,
+          "end": 125.66,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 125.66,
+      "end": 126.74,
+      "text": "Kalau bau daging tu lain,",
+      "words": [
+        {
+          "text": " Kalau",
+          "start": 125.66,
+          "end": 125.917,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 125.917,
+          "end": 126.071,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 126.071,
+          "end": 126.38,
+          "prob": 1
+        },
+        {
+          "text": " tu",
+          "start": 126.38,
+          "end": 126.483,
+          "prob": 1
+        },
+        {
+          "text": " lain,",
+          "start": 126.483,
+          "end": 126.74,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 126.74,
+      "end": 127.52,
+      "text": "bau hamis lain, ha.",
+      "words": [
+        {
+          "text": " bau",
+          "start": 126.74,
+          "end": 126.886,
+          "prob": 1
+        },
+        {
+          "text": " hamis",
+          "start": 126.886,
+          "end": 127.13,
+          "prob": 1
+        },
+        {
+          "text": " lain,",
+          "start": 127.13,
+          "end": 127.374,
+          "prob": 1
+        },
+        {
+          "text": " ha.",
+          "start": 127.374,
+          "end": 127.52,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 130,
+      "end": 132.6,
+      "text": "Jadi kalau awak macam pengalaman pada,",
+      "words": [
+        {
+          "text": " Jadi",
+          "start": 130,
+          "end": 130.315,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 130.315,
+          "end": 130.709,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 130.709,
+          "end": 131.024,
+          "prob": 1
+        },
+        {
+          "text": " macam",
+          "start": 131.024,
+          "end": 131.418,
+          "prob": 1
+        },
+        {
+          "text": " pengalaman",
+          "start": 131.418,
+          "end": 132.206,
+          "prob": 1
+        },
+        {
+          "text": " pada,",
+          "start": 132.206,
+          "end": 132.6,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 132.8,
+      "end": 135.4,
+      "text": "beli daging hok... beli daging,",
+      "words": [
+        {
+          "text": " beli",
+          "start": 132.8,
+          "end": 133.185,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 133.185,
+          "end": 133.763,
+          "prob": 1
+        },
+        {
+          "text": " hok...",
+          "start": 133.763,
+          "end": 134.341,
+          "prob": 1
+        },
+        {
+          "text": " beli",
+          "start": 134.341,
+          "end": 134.726,
+          "prob": 1
+        },
+        {
+          "text": " daging,",
+          "start": 134.726,
+          "end": 135.4,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 136,
+      "end": 140,
+      "text": "kalau macam awak nak mengelak daripada beli daging kata bau,",
+      "words": [
+        {
+          "text": " kalau",
+          "start": 136,
+          "end": 136.392,
+          "prob": 1
+        },
+        {
+          "text": " macam",
+          "start": 136.392,
+          "end": 136.784,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 136.784,
+          "end": 137.098,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 137.098,
+          "end": 137.333,
+          "prob": 1
+        },
+        {
+          "text": " mengelak",
+          "start": 137.333,
+          "end": 137.961,
+          "prob": 1
+        },
+        {
+          "text": " daripada",
+          "start": 137.961,
+          "end": 138.588,
+          "prob": 1
+        },
+        {
+          "text": " beli",
+          "start": 138.588,
+          "end": 138.902,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 138.902,
+          "end": 139.373,
+          "prob": 1
+        },
+        {
+          "text": " kata",
+          "start": 139.373,
+          "end": 139.686,
+          "prob": 1
+        },
+        {
+          "text": " bau,",
+          "start": 139.686,
+          "end": 140,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 140.5,
+      "end": 144.16,
+      "text": "awak kata, cari hok daging hok merah gini.",
+      "words": [
+        {
+          "text": " awak",
+          "start": 140.5,
+          "end": 140.918,
+          "prob": 1
+        },
+        {
+          "text": " kata,",
+          "start": 140.918,
+          "end": 141.441,
+          "prob": 1
+        },
+        {
+          "text": " cari",
+          "start": 141.441,
+          "end": 141.859,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 141.859,
+          "end": 142.173,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 142.173,
+          "end": 142.801,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 142.801,
+          "end": 143.114,
+          "prob": 1
+        },
+        {
+          "text": " merah",
+          "start": 143.114,
+          "end": 143.637,
+          "prob": 1
+        },
+        {
+          "text": " gini.",
+          "start": 143.637,
+          "end": 144.16,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 144.16,
+      "end": 148,
+      "text": "Kata kalau kita tengok kat belakang gini jadi gelap,",
+      "words": [
+        {
+          "text": " Kata",
+          "start": 144.16,
+          "end": 144.509,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 144.509,
+          "end": 144.945,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 144.945,
+          "end": 145.295,
+          "prob": 1
+        },
+        {
+          "text": " tengok",
+          "start": 145.295,
+          "end": 145.818,
+          "prob": 1
+        },
+        {
+          "text": " kat",
+          "start": 145.818,
+          "end": 146.08,
+          "prob": 1
+        },
+        {
+          "text": " belakang",
+          "start": 146.08,
+          "end": 146.778,
+          "prob": 1
+        },
+        {
+          "text": " gini",
+          "start": 146.778,
+          "end": 147.127,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 147.127,
+          "end": 147.476,
+          "prob": 1
+        },
+        {
+          "text": " gelap,",
+          "start": 147.476,
+          "end": 148,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 148,
+      "end": 152.88,
+      "text": "daging merah tu jadi, nak jadi gelap tu,",
+      "words": [
+        {
+          "text": " daging",
+          "start": 148,
+          "end": 148.887,
+          "prob": 1
+        },
+        {
+          "text": " merah",
+          "start": 148.887,
+          "end": 149.627,
+          "prob": 1
+        },
+        {
+          "text": " tu",
+          "start": 149.627,
+          "end": 149.922,
+          "prob": 1
+        },
+        {
+          "text": " jadi,",
+          "start": 149.922,
+          "end": 150.662,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 150.662,
+          "end": 151.105,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 151.105,
+          "end": 151.697,
+          "prob": 1
+        },
+        {
+          "text": " gelap",
+          "start": 151.697,
+          "end": 152.436,
+          "prob": 1
+        },
+        {
+          "text": " tu,",
+          "start": 152.436,
+          "end": 152.88,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 152.88,
+      "end": 157.12,
+      "text": "tu maksudnya hok stok lamalah, kemungkinan bau hamis.",
+      "words": [
+        {
+          "text": " tu",
+          "start": 152.88,
+          "end": 153.064,
+          "prob": 1
+        },
+        {
+          "text": " maksudnya",
+          "start": 153.064,
+          "end": 153.894,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 153.894,
+          "end": 154.17,
+          "prob": 1
+        },
+        {
+          "text": " stok",
+          "start": 154.17,
+          "end": 154.539,
+          "prob": 1
+        },
+        {
+          "text": " lamalah,",
+          "start": 154.539,
+          "end": 155.277,
+          "prob": 1
+        },
+        {
+          "text": " kemungkinan",
+          "start": 155.277,
+          "end": 156.29,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 156.29,
+          "end": 156.567,
+          "prob": 1
+        },
+        {
+          "text": " hamis.",
+          "start": 156.567,
+          "end": 157.12,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 157.12,
+      "end": 160.52,
+      "text": "Jadi tak sedaplah, anak hok suka, jadi tak suka daging.",
+      "words": [
+        {
+          "text": " Jadi",
+          "start": 157.12,
+          "end": 157.416,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 157.416,
+          "end": 157.637,
+          "prob": 1
+        },
+        {
+          "text": " sedaplah,",
+          "start": 157.637,
+          "end": 158.303,
+          "prob": 1
+        },
+        {
+          "text": " anak",
+          "start": 158.303,
+          "end": 158.598,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 158.598,
+          "end": 158.82,
+          "prob": 1
+        },
+        {
+          "text": " suka,",
+          "start": 158.82,
+          "end": 159.19,
+          "prob": 1
+        },
+        {
+          "text": " jadi",
+          "start": 159.19,
+          "end": 159.485,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 159.485,
+          "end": 159.707,
+          "prob": 1
+        },
+        {
+          "text": " suka",
+          "start": 159.707,
+          "end": 160.003,
+          "prob": 1
+        },
+        {
+          "text": " daging.",
+          "start": 160.003,
+          "end": 160.52,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 160.52,
+      "end": 164,
+      "text": "Ha gitu, kalau nak mengelakkan daripada daging bau tu,",
+      "words": [
+        {
+          "text": " Ha",
+          "start": 160.52,
+          "end": 160.671,
+          "prob": 1
+        },
+        {
+          "text": " gitu,",
+          "start": 160.671,
+          "end": 161.05,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 161.05,
+          "end": 161.428,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 161.428,
+          "end": 161.655,
+          "prob": 1
+        },
+        {
+          "text": " mengelakkan",
+          "start": 161.655,
+          "end": 162.487,
+          "prob": 1
+        },
+        {
+          "text": " daripada",
+          "start": 162.487,
+          "end": 163.092,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 163.092,
+          "end": 163.546,
+          "prob": 1
+        },
+        {
+          "text": " bau",
+          "start": 163.546,
+          "end": 163.773,
+          "prob": 1
+        },
+        {
+          "text": " tu,",
+          "start": 163.773,
+          "end": 164,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 164,
+      "end": 168.09,
+      "text": "awak cari daging hok merah-merah gini, hok comel gini.",
+      "words": [
+        {
+          "text": " awak",
+          "start": 164,
+          "end": 164.356,
+          "prob": 1
+        },
+        {
+          "text": " cari",
+          "start": 164.356,
+          "end": 164.711,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 164.711,
+          "end": 165.245,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 165.245,
+          "end": 165.512,
+          "prob": 1
+        },
+        {
+          "text": " merah-merah",
+          "start": 165.512,
+          "end": 166.49,
+          "prob": 1
+        },
+        {
+          "text": " gini,",
+          "start": 166.49,
+          "end": 166.934,
+          "prob": 1
+        },
+        {
+          "text": " hok",
+          "start": 166.934,
+          "end": 167.201,
+          "prob": 1
+        },
+        {
+          "text": " comel",
+          "start": 167.201,
+          "end": 167.645,
+          "prob": 1
+        },
+        {
+          "text": " gini.",
+          "start": 167.645,
+          "end": 168.09,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 168.19,
+      "end": 171.51,
+      "text": "Mana cari daging merah comel?",
+      "words": [
+        {
+          "text": " Mana",
+          "start": 168.19,
+          "end": 168.721,
+          "prob": 1
+        },
+        {
+          "text": " cari",
+          "start": 168.721,
+          "end": 169.252,
+          "prob": 1
+        },
+        {
+          "text": " daging",
+          "start": 169.252,
+          "end": 170.049,
+          "prob": 1
+        },
+        {
+          "text": " merah",
+          "start": 170.049,
+          "end": 170.713,
+          "prob": 1
+        },
+        {
+          "text": " comel?",
+          "start": 170.713,
+          "end": 171.51,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 171.63,
+      "end": 172.86,
+      "text": "Cari di YaPakCik Frozen lah.",
+      "words": [
+        {
+          "text": " Cari",
+          "start": 171.63,
+          "end": 171.835,
+          "prob": 1
+        },
+        {
+          "text": " di",
+          "start": 171.835,
+          "end": 171.938,
+          "prob": 1
+        },
+        {
+          "text": " YaPakCik",
+          "start": 171.938,
+          "end": 172.348,
+          "prob": 1
+        },
+        {
+          "text": " Frozen",
+          "start": 172.348,
+          "end": 172.655,
+          "prob": 1
+        },
+        {
+          "text": " lah.",
+          "start": 172.655,
+          "end": 172.86,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 173.52,
+      "end": 177.34,
+      "text": "InsyaAllah, kita supply bagi yang baru setiap hari.",
+      "words": [
+        {
+          "text": " InsyaAllah,",
+          "start": 173.52,
+          "end": 174.475,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 174.475,
+          "end": 174.822,
+          "prob": 1
+        },
+        {
+          "text": " supply",
+          "start": 174.822,
+          "end": 175.343,
+          "prob": 1
+        },
+        {
+          "text": " bagi",
+          "start": 175.343,
+          "end": 175.69,
+          "prob": 1
+        },
+        {
+          "text": " yang",
+          "start": 175.69,
+          "end": 176.038,
+          "prob": 1
+        },
+        {
+          "text": " baru",
+          "start": 176.038,
+          "end": 176.385,
+          "prob": 1
+        },
+        {
+          "text": " setiap",
+          "start": 176.385,
+          "end": 176.906,
+          "prob": 1
+        },
+        {
+          "text": " hari.",
+          "start": 176.906,
+          "end": 177.34,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 177.6,
+      "end": 179.08,
+      "text": "Dan stok kita pun stok baru semua.",
+      "words": [
+        {
+          "text": " Dan",
+          "start": 177.6,
+          "end": 177.759,
+          "prob": 1
+        },
+        {
+          "text": " stok",
+          "start": 177.759,
+          "end": 177.97,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 177.97,
+          "end": 178.181,
+          "prob": 1
+        },
+        {
+          "text": " pun",
+          "start": 178.181,
+          "end": 178.34,
+          "prob": 1
+        },
+        {
+          "text": " stok",
+          "start": 178.34,
+          "end": 178.551,
+          "prob": 1
+        },
+        {
+          "text": " baru",
+          "start": 178.551,
+          "end": 178.763,
+          "prob": 1
+        },
+        {
+          "text": " semua.",
+          "start": 178.763,
+          "end": 179.08,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 179.68,
+      "end": 181.04,
+      "text": "Kita tak simpan stok lama.",
+      "words": [
+        {
+          "text": " Kita",
+          "start": 179.68,
+          "end": 179.927,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 179.927,
+          "end": 180.113,
+          "prob": 1
+        },
+        {
+          "text": " simpan",
+          "start": 180.113,
+          "end": 180.484,
+          "prob": 1
+        },
+        {
+          "text": " stok",
+          "start": 180.484,
+          "end": 180.731,
+          "prob": 1
+        },
+        {
+          "text": " lama.",
+          "start": 180.731,
+          "end": 181.04,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 184.11,
+      "end": 187.49,
+      "text": "Okey deh ha, bagi siapa-siapa berminat boleh mari YaPakCik Frozen.",
+      "words": [
+        {
+          "text": " Okey",
+          "start": 184.11,
+          "end": 184.347,
+          "prob": 1
+        },
+        {
+          "text": " deh",
+          "start": 184.347,
+          "end": 184.525,
+          "prob": 1
+        },
+        {
+          "text": " ha,",
+          "start": 184.525,
+          "end": 184.703,
+          "prob": 1
+        },
+        {
+          "text": " bagi",
+          "start": 184.703,
+          "end": 184.94,
+          "prob": 1
+        },
+        {
+          "text": " siapa-siapa",
+          "start": 184.94,
+          "end": 185.592,
+          "prob": 1
+        },
+        {
+          "text": " berminat",
+          "start": 185.592,
+          "end": 186.067,
+          "prob": 1
+        },
+        {
+          "text": " boleh",
+          "start": 186.067,
+          "end": 186.363,
+          "prob": 1
+        },
+        {
+          "text": " mari",
+          "start": 186.363,
+          "end": 186.601,
+          "prob": 1
+        },
+        {
+          "text": " YaPakCik",
+          "start": 186.601,
+          "end": 187.075,
+          "prob": 1
+        },
+        {
+          "text": " Frozen.",
+          "start": 187.075,
+          "end": 187.49,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 187.73,
+      "end": 190.17,
+      "text": "Harga semasa lah ni adalah runcit 20 ya,",
+      "words": [
+        {
+          "text": " Harga",
+          "start": 187.73,
+          "end": 188.1,
+          "prob": 1
+        },
+        {
+          "text": " semasa",
+          "start": 188.1,
+          "end": 188.543,
+          "prob": 1
+        },
+        {
+          "text": " lah",
+          "start": 188.543,
+          "end": 188.765,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 188.765,
+          "end": 188.913,
+          "prob": 1
+        },
+        {
+          "text": " adalah",
+          "start": 188.913,
+          "end": 189.357,
+          "prob": 1
+        },
+        {
+          "text": " runcit",
+          "start": 189.357,
+          "end": 189.8,
+          "prob": 1
+        },
+        {
+          "text": " 20",
+          "start": 189.8,
+          "end": 189.948,
+          "prob": 1
+        },
+        {
+          "text": " ya,",
+          "start": 189.948,
+          "end": 190.17,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 190.33,
+      "end": 192.43,
+      "text": "kalau orang jual, 19 ya.",
+      "words": [
+        {
+          "text": " kalau",
+          "start": 190.33,
+          "end": 190.855,
+          "prob": 1
+        },
+        {
+          "text": " orang",
+          "start": 190.855,
+          "end": 191.38,
+          "prob": 1
+        },
+        {
+          "text": " jual,",
+          "start": 191.38,
+          "end": 191.905,
+          "prob": 1
+        },
+        {
+          "text": " 19",
+          "start": 191.905,
+          "end": 192.115,
+          "prob": 1
+        },
+        {
+          "text": " ya.",
+          "start": 192.115,
+          "end": 192.43,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 193.8,
+      "end": 195.86,
+      "text": "Awak kena WhatsApp ko Ayoh Mad deh,",
+      "words": [
+        {
+          "text": " Awak",
+          "start": 193.8,
+          "end": 194.084,
+          "prob": 1
+        },
+        {
+          "text": " kena",
+          "start": 194.084,
+          "end": 194.368,
+          "prob": 1
+        },
+        {
+          "text": " WhatsApp",
+          "start": 194.368,
+          "end": 194.937,
+          "prob": 1
+        },
+        {
+          "text": " ko",
+          "start": 194.937,
+          "end": 195.079,
+          "prob": 1
+        },
+        {
+          "text": " Ayoh",
+          "start": 195.079,
+          "end": 195.363,
+          "prob": 1
+        },
+        {
+          "text": " Mad",
+          "start": 195.363,
+          "end": 195.576,
+          "prob": 1
+        },
+        {
+          "text": " deh,",
+          "start": 195.576,
+          "end": 195.86,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 195.86,
+      "end": 199.18,
+      "text": "PM ko Ayoh Mad di nombor tertera deh.",
+      "words": [
+        {
+          "text": " PM",
+          "start": 195.86,
+          "end": 196.081,
+          "prob": 1
+        },
+        {
+          "text": " ko",
+          "start": 196.081,
+          "end": 196.303,
+          "prob": 1
+        },
+        {
+          "text": " Ayoh",
+          "start": 196.303,
+          "end": 196.745,
+          "prob": 1
+        },
+        {
+          "text": " Mad",
+          "start": 196.745,
+          "end": 197.077,
+          "prob": 1
+        },
+        {
+          "text": " di",
+          "start": 197.077,
+          "end": 197.299,
+          "prob": 1
+        },
+        {
+          "text": " nombor",
+          "start": 197.299,
+          "end": 197.963,
+          "prob": 1
+        },
+        {
+          "text": " tertera",
+          "start": 197.963,
+          "end": 198.737,
+          "prob": 1
+        },
+        {
+          "text": " deh.",
+          "start": 198.737,
+          "end": 199.18,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 199.18,
+      "end": 200.32,
+      "text": "Aa, YaPakCik Frozen.",
+      "words": [
+        {
+          "text": " Aa,",
+          "start": 199.18,
+          "end": 199.37,
+          "prob": 1
+        },
+        {
+          "text": " YaPakCik",
+          "start": 199.37,
+          "end": 199.877,
+          "prob": 1
+        },
+        {
+          "text": " Frozen.",
+          "start": 199.877,
+          "end": 200.32,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 200.32,
+      "end": 204.02,
+      "text": "Then kalau awak berminat, boleh mari juga YaPakCik Frozen.",
+      "words": [
+        {
+          "text": " Then",
+          "start": 200.32,
+          "end": 200.616,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 200.616,
+          "end": 200.986,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 200.986,
+          "end": 201.282,
+          "prob": 1
+        },
+        {
+          "text": " berminat,",
+          "start": 201.282,
+          "end": 201.948,
+          "prob": 1
+        },
+        {
+          "text": " boleh",
+          "start": 201.948,
+          "end": 202.318,
+          "prob": 1
+        },
+        {
+          "text": " mari",
+          "start": 202.318,
+          "end": 202.614,
+          "prob": 1
+        },
+        {
+          "text": " juga",
+          "start": 202.614,
+          "end": 202.91,
+          "prob": 1
+        },
+        {
+          "text": " YaPakCik",
+          "start": 202.91,
+          "end": 203.502,
+          "prob": 1
+        },
+        {
+          "text": " Frozen.",
+          "start": 203.502,
+          "end": 204.02,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 204.02,
+      "end": 205.24,
+      "text": "YaPakCik Frozen ni mana?",
+      "words": [
+        {
+          "text": " YaPakCik",
+          "start": 204.02,
+          "end": 204.485,
+          "prob": 1
+        },
+        {
+          "text": " Frozen",
+          "start": 204.485,
+          "end": 204.833,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 204.833,
+          "end": 204.95,
+          "prob": 1
+        },
+        {
+          "text": " mana?",
+          "start": 204.95,
+          "end": 205.24,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 205.61,
+      "end": 207.15,
+      "text": "Pasar Sumayyah Tumpat.",
+      "words": [
+        {
+          "text": " Pasar",
+          "start": 205.61,
+          "end": 205.995,
+          "prob": 1
+        },
+        {
+          "text": " Sumayyah",
+          "start": 205.995,
+          "end": 206.611,
+          "prob": 1
+        },
+        {
+          "text": " Tumpat.",
+          "start": 206.611,
+          "end": 207.15,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 207.15,
+      "end": 209.13,
+      "text": "Pasar Sumayyah Tumpat ni, jare lah orang tak kenal,",
+      "words": [
+        {
+          "text": " Pasar",
+          "start": 207.15,
+          "end": 207.38,
+          "prob": 1
+        },
+        {
+          "text": " Sumayyah",
+          "start": 207.38,
+          "end": 207.749,
+          "prob": 1
+        },
+        {
+          "text": " Tumpat",
+          "start": 207.749,
+          "end": 208.025,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 208.025,
+          "end": 208.163,
+          "prob": 1
+        },
+        {
+          "text": " jare",
+          "start": 208.163,
+          "end": 208.347,
+          "prob": 1
+        },
+        {
+          "text": " lah",
+          "start": 208.347,
+          "end": 208.485,
+          "prob": 1
+        },
+        {
+          "text": " orang",
+          "start": 208.485,
+          "end": 208.716,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 208.716,
+          "end": 208.854,
+          "prob": 1
+        },
+        {
+          "text": " kenal,",
+          "start": 208.854,
+          "end": 209.13,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 210.67,
+      "end": 212.81,
+      "text": "tempat Pak Cik Etok jual sinilah, aa,",
+      "words": [
+        {
+          "text": " tempat",
+          "start": 210.67,
+          "end": 211.084,
+          "prob": 1
+        },
+        {
+          "text": " Pak",
+          "start": 211.084,
+          "end": 211.291,
+          "prob": 1
+        },
+        {
+          "text": " Cik",
+          "start": 211.291,
+          "end": 211.498,
+          "prob": 1
+        },
+        {
+          "text": " Etok",
+          "start": 211.498,
+          "end": 211.775,
+          "prob": 1
+        },
+        {
+          "text": " jual",
+          "start": 211.775,
+          "end": 212.051,
+          "prob": 1
+        },
+        {
+          "text": " sinilah,",
+          "start": 212.051,
+          "end": 212.603,
+          "prob": 1
+        },
+        {
+          "text": " aa,",
+          "start": 212.603,
+          "end": 212.81,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 212.81,
+      "end": 215.81,
+      "text": "duk jual ni, Pasar Sumayyah Tumpat ni lah,",
+      "words": [
+        {
+          "text": " duk",
+          "start": 212.81,
+          "end": 213.067,
+          "prob": 1
+        },
+        {
+          "text": " jual",
+          "start": 213.067,
+          "end": 213.41,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 213.41,
+          "end": 213.667,
+          "prob": 1
+        },
+        {
+          "text": " Pasar",
+          "start": 213.667,
+          "end": 214.096,
+          "prob": 1
+        },
+        {
+          "text": " Sumayyah",
+          "start": 214.096,
+          "end": 214.781,
+          "prob": 1
+        },
+        {
+          "text": " Tumpat",
+          "start": 214.781,
+          "end": 215.296,
+          "prob": 1
+        },
+        {
+          "text": " ni",
+          "start": 215.296,
+          "end": 215.467,
+          "prob": 1
+        },
+        {
+          "text": " lah,",
+          "start": 215.467,
+          "end": 215.81,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 215.81,
+      "end": 219.52,
+      "text": "aa, pusat utama, di Tumpat.",
+      "words": [
+        {
+          "text": " aa,",
+          "start": 215.81,
+          "end": 216.294,
+          "prob": 1
+        },
+        {
+          "text": " pusat",
+          "start": 216.294,
+          "end": 217.1,
+          "prob": 1
+        },
+        {
+          "text": " utama,",
+          "start": 217.1,
+          "end": 218.068,
+          "prob": 1
+        },
+        {
+          "text": " di",
+          "start": 218.068,
+          "end": 218.391,
+          "prob": 1
+        },
+        {
+          "text": " Tumpat.",
+          "start": 218.391,
+          "end": 219.52,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 219.52,
+      "end": 224.12,
+      "text": "Kita juga menyediakan perkhidmatan penghantaran secara percuma.",
+      "words": [
+        {
+          "text": " Kita",
+          "start": 219.52,
+          "end": 219.843,
+          "prob": 1
+        },
+        {
+          "text": " juga",
+          "start": 219.843,
+          "end": 220.166,
+          "prob": 1
+        },
+        {
+          "text": " menyediakan",
+          "start": 220.166,
+          "end": 221.053,
+          "prob": 1
+        },
+        {
+          "text": " perkhidmatan",
+          "start": 221.053,
+          "end": 222.022,
+          "prob": 1
+        },
+        {
+          "text": " penghantaran",
+          "start": 222.022,
+          "end": 222.99,
+          "prob": 1
+        },
+        {
+          "text": " secara",
+          "start": 222.99,
+          "end": 223.474,
+          "prob": 1
+        },
+        {
+          "text": " percuma.",
+          "start": 223.474,
+          "end": 224.12,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 225.73,
+      "end": 227.49,
+      "text": "Ada perkhidmatan penghantaran secara percuma.",
+      "words": [
+        {
+          "text": " Ada",
+          "start": 225.73,
+          "end": 225.859,
+          "prob": 1
+        },
+        {
+          "text": " perkhidmatan",
+          "start": 225.859,
+          "end": 226.374,
+          "prob": 1
+        },
+        {
+          "text": " penghantaran",
+          "start": 226.374,
+          "end": 226.889,
+          "prob": 1
+        },
+        {
+          "text": " secara",
+          "start": 226.889,
+          "end": 227.147,
+          "prob": 1
+        },
+        {
+          "text": " percuma.",
+          "start": 227.147,
+          "end": 227.49,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 227.49,
+      "end": 232.92,
+      "text": "Kalau penghantaran kita, kuantiti yang kita nak aa,",
+      "words": [
+        {
+          "text": " Kalau",
+          "start": 227.49,
+          "end": 228.107,
+          "prob": 1
+        },
+        {
+          "text": " penghantaran",
+          "start": 228.107,
+          "end": 229.588,
+          "prob": 1
+        },
+        {
+          "text": " kita,",
+          "start": 229.588,
+          "end": 230.205,
+          "prob": 1
+        },
+        {
+          "text": " kuantiti",
+          "start": 230.205,
+          "end": 231.192,
+          "prob": 1
+        },
+        {
+          "text": " yang",
+          "start": 231.192,
+          "end": 231.686,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 231.686,
+          "end": 232.18,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 232.18,
+          "end": 232.55,
+          "prob": 1
+        },
+        {
+          "text": " aa,",
+          "start": 232.55,
+          "end": 232.92,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 234,
+      "end": 237.86,
+      "text": "kita tak banyak mana, banyaknya 1,000 ke atas, pembelian 1,000 ke atas.",
+      "words": [
+        {
+          "text": " kita",
+          "start": 234,
+          "end": 234.257,
+          "prob": 1
+        },
+        {
+          "text": " tak",
+          "start": 234.257,
+          "end": 234.45,
+          "prob": 1
+        },
+        {
+          "text": " banyak",
+          "start": 234.45,
+          "end": 234.836,
+          "prob": 1
+        },
+        {
+          "text": " mana,",
+          "start": 234.836,
+          "end": 235.158,
+          "prob": 1
+        },
+        {
+          "text": " banyaknya",
+          "start": 235.158,
+          "end": 235.737,
+          "prob": 1
+        },
+        {
+          "text": " 1,000",
+          "start": 235.737,
+          "end": 236.059,
+          "prob": 1
+        },
+        {
+          "text": " ke",
+          "start": 236.059,
+          "end": 236.187,
+          "prob": 1
+        },
+        {
+          "text": " atas,",
+          "start": 236.187,
+          "end": 236.509,
+          "prob": 1
+        },
+        {
+          "text": " pembelian",
+          "start": 236.509,
+          "end": 237.088,
+          "prob": 1
+        },
+        {
+          "text": " 1,000",
+          "start": 237.088,
+          "end": 237.41,
+          "prob": 1
+        },
+        {
+          "text": " ke",
+          "start": 237.41,
+          "end": 237.538,
+          "prob": 1
+        },
+        {
+          "text": " atas.",
+          "start": 237.538,
+          "end": 237.86,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 237.86,
+      "end": 242.51,
+      "text": "Cemot mana barang, 1,000 kat atas, banyak mana.",
+      "words": [
+        {
+          "text": " Cemot",
+          "start": 237.86,
+          "end": 238.441,
+          "prob": 1
+        },
+        {
+          "text": " mana",
+          "start": 238.441,
+          "end": 238.906,
+          "prob": 1
+        },
+        {
+          "text": " barang,",
+          "start": 238.906,
+          "end": 239.72,
+          "prob": 1
+        },
+        {
+          "text": " 1,000",
+          "start": 239.72,
+          "end": 240.301,
+          "prob": 1
+        },
+        {
+          "text": " kat",
+          "start": 240.301,
+          "end": 240.65,
+          "prob": 1
+        },
+        {
+          "text": " atas,",
+          "start": 240.65,
+          "end": 241.231,
+          "prob": 1
+        },
+        {
+          "text": " banyak",
+          "start": 241.231,
+          "end": 241.929,
+          "prob": 1
+        },
+        {
+          "text": " mana.",
+          "start": 241.929,
+          "end": 242.51,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 242.51,
+      "end": 245.42,
+      "text": "Cuma kita tengok barang juga ada,",
+      "words": [
+        {
+          "text": " Cuma",
+          "start": 242.51,
+          "end": 242.926,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 242.926,
+          "end": 243.341,
+          "prob": 1
+        },
+        {
+          "text": " tengok",
+          "start": 243.341,
+          "end": 243.965,
+          "prob": 1
+        },
+        {
+          "text": " barang",
+          "start": 243.965,
+          "end": 244.589,
+          "prob": 1
+        },
+        {
+          "text": " juga",
+          "start": 244.589,
+          "end": 245.004,
+          "prob": 1
+        },
+        {
+          "text": " ada,",
+          "start": 245.004,
+          "end": 245.42,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 245.42,
+      "end": 247.94,
+      "text": "memang kalau 1,000 cas juga, COD.",
+      "words": [
+        {
+          "text": " memang",
+          "start": 245.42,
+          "end": 245.96,
+          "prob": 1
+        },
+        {
+          "text": " kalau",
+          "start": 245.96,
+          "end": 246.41,
+          "prob": 1
+        },
+        {
+          "text": " 1,000",
+          "start": 246.41,
+          "end": 246.86,
+          "prob": 1
+        },
+        {
+          "text": " cas",
+          "start": 246.86,
+          "end": 247.13,
+          "prob": 1
+        },
+        {
+          "text": " juga,",
+          "start": 247.13,
+          "end": 247.58,
+          "prob": 1
+        },
+        {
+          "text": " COD.",
+          "start": 247.58,
+          "end": 247.94,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 248.16,
+      "end": 252.6,
+      "text": "Ha jadinya, awak mudah, PM ko Ayoh Mad.",
+      "words": [
+        {
+          "text": " Ha",
+          "start": 248.16,
+          "end": 248.438,
+          "prob": 1
+        },
+        {
+          "text": " jadinya,",
+          "start": 248.438,
+          "end": 249.548,
+          "prob": 1
+        },
+        {
+          "text": " awak",
+          "start": 249.548,
+          "end": 250.103,
+          "prob": 1
+        },
+        {
+          "text": " mudah,",
+          "start": 250.103,
+          "end": 250.935,
+          "prob": 1
+        },
+        {
+          "text": " PM",
+          "start": 250.935,
+          "end": 251.213,
+          "prob": 1
+        },
+        {
+          "text": " ko",
+          "start": 251.213,
+          "end": 251.49,
+          "prob": 1
+        },
+        {
+          "text": " Ayoh",
+          "start": 251.49,
+          "end": 252.045,
+          "prob": 1
+        },
+        {
+          "text": " Mad.",
+          "start": 252.045,
+          "end": 252.6,
+          "prob": 1
+        }
+      ]
+    },
+    {
+      "start": 252.6,
+      "end": 257.17,
+      "text": "Lagu mana kita nak buat kira ni, untuk selesai masalah ni.",
+      "words": [
+        {
+          "text": " Lagu",
+          "start": 252.6,
+          "end": 252.981,
+          "prob": 1
+        },
+        {
+          "text": " mana",
+          "start": 252.981,
+          "end": 253.362,
+          "prob": 1
+        },
+        {
+          "text": " kita",
+          "start": 253.362,
+          "end": 253.742,
+          "prob": 1
+        },
+        {
+          "text": " nak",
+          "start": 253.742,
+          "end": 254.028,
+          "prob": 1
+        },
+        {
+          "text": " buat",
+          "start": 254.028,
+          "end": 254.409,
+          "prob": 1
+        },
+        {
+          "text": " kira",
+          "start": 254.409,
+          "end": 254.79,
+          "prob": 1
+        },
+        {
+          "text": " ni,",
+          "start": 254.79,
+          "end": 255.075,
+          "prob": 1
+        },
+        {
+          "text": " untuk",
+          "start": 255.075,
+          "end": 255.551,
+          "prob": 1
+        },
+        {
+          "text": " selesai",
+          "start": 255.551,
+          "end": 256.218,
+          "prob": 1
+        },
+        {
+          "text": " masalah",
+          "start": 256.218,
+          "end": 256.884,
+          "prob": 1
+        },
+        {
+          "text": " ni.",
+          "start": 256.884,
+          "end": 257.17,
+          "prob": 1
+        }
+      ]
+    }
+  ]
+}

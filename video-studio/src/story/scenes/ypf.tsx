@@ -800,6 +800,163 @@ const TrackCallout: React.FC<SceneProps & { map: (x: number, y: number) => { x: 
   );
 };
 
+
+/* ───────────── daging / sales scenes ───────────── */
+
+/** price trend: a line that keeps climbing ("naik sokmo") */
+const TrendScene: React.FC<SceneProps> = ({ rv, props }) => {
+  const frame = useCurrentFrame();
+  const [t0 = 0, t1 = 20] = rv;
+  const draw = interpolate(frame - t0, [0, 40], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+  const pts = [[0, 300], [110, 270], [200, 285], [300, 220], [390, 235], [480, 160], [560, 175], [650, 90], [740, 40]];
+  const d = pts.map((p, i) => `${i ? "L" : "M"} ${p[0]} ${p[1]}`).join(" ");
+  const last = pts[pts.length - 1];
+  return (
+    <div style={{ position: "absolute", inset: 0 }}>
+      <Kicker at={t0} text={props.kicker} top={0} />
+      <svg width={1080} height={460} style={{ position: "absolute", top: 70, left: 0, overflow: "visible" }}>
+        <g transform="translate(160 40)">
+          {[0, 1, 2, 3].map((k) => <line key={k} x1={0} y1={k * 100} x2={760} y2={k * 100} stroke="rgba(205,238,255,0.12)" strokeWidth={2} />)}
+          <path d={`${d} L ${last[0]} 330 L 0 330 Z`} fill="url(#tr-fill)" opacity={draw * 0.8} style={{ clipPath: `inset(0 ${100 - draw * 100}% 0 0)` }} />
+          <path d={d} stroke={YPF.red} strokeWidth={9} fill="none" strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - draw} />
+          {draw > 0.98 ? (
+            <g transform={`translate(${last[0]} ${last[1]})`}>
+              <circle r={16} fill={YPF.red} stroke="#fff" strokeWidth={4} />
+              <path d="M -26 -40 L 0 -74 L 26 -40 M 0 -74 L 0 -24" stroke="#fff" strokeWidth={8} fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            </g>
+          ) : null}
+          <defs>
+            <linearGradient id="tr-fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="rgba(255,77,46,0.45)" />
+              <stop offset="100%" stopColor="rgba(255,77,46,0)" />
+            </linearGradient>
+          </defs>
+        </g>
+      </svg>
+      <div style={{ position: "absolute", top: 70, left: 170 }}>
+        <Pop at={t1} from={1.4}>
+          <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 92, color: YPF.white, letterSpacing: -2, lineHeight: 0.95, textAlign: "left" }}>{props.title}</div>
+          {props.sub ? <div style={{ fontFamily: FONT_STACKS.playfairItalic, fontStyle: "italic", fontSize: 50, color: YPF.ice, marginTop: 6 }}>{props.sub}</div> : null}
+        </Pop>
+      </div>
+    </div>
+  );
+};
+
+/** drawn slice of beef: fresh (red) or old stock (dark) */
+const MeatSlice: React.FC<{ fresh: boolean; w?: number }> = ({ fresh, w = 300 }) => (
+  <svg viewBox="0 0 300 190" width={w} height={(w * 190) / 300}>
+    <defs>
+      <linearGradient id={fresh ? "ms-f" : "ms-o"} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stopColor={fresh ? "#e2484a" : "#6b3a3a"} />
+        <stop offset="100%" stopColor={fresh ? "#b8262f" : "#3b2224"} />
+      </linearGradient>
+    </defs>
+    <path d="M 20 110 C 10 60, 70 20, 150 22 C 230 24, 292 60, 282 112 C 274 158, 200 176, 140 172 C 70 168, 28 150, 20 110 Z" fill={`url(#${fresh ? "ms-f" : "ms-o"})`} stroke="#fff" strokeWidth={5} />
+    {[0, 1, 2, 3].map((k) => (
+      <path key={k} d={`M ${50 + k * 10} ${70 + k * 24} C ${110} ${54 + k * 24}, ${190} ${60 + k * 24}, ${250 - k * 8} ${76 + k * 22}`} stroke={fresh ? "#f6c9c4" : "#9b8a86"} strokeOpacity={0.75} strokeWidth={5} fill="none" strokeLinecap="round" />
+    ))}
+  </svg>
+);
+
+/** fresh vs old-stock comparison (✓ / ✗) */
+const MeatScene: React.FC<SceneProps> = ({ rv, props }) => {
+  const frame = useCurrentFrame();
+  const [tL = 0, tR = 30, tX = 50] = rv;
+  const L = props.left ?? {}, R = props.right ?? {};
+  const wave = (k: number) => `M ${k * 34} 0 C ${k * 34 + 14} -16, ${k * 34 - 6} -34, ${k * 34 + 8} -52`;
+  return (
+    <div style={{ position: "absolute", inset: 0 }}>
+      <Kicker at={tL} text={props.kicker} top={0} />
+      {[{ c: L, at: tL, x: 60, fresh: true }, { c: R, at: tR, x: 560, fresh: false }].map(({ c, at, x, fresh }, i) => (
+        <Slide key={i} at={at} dy={40} style={{ position: "absolute", top: 60, left: x, width: 460 }}>
+          <div style={{ borderRadius: 30, padding: "22px 20px 18px", background: "linear-gradient(180deg, rgba(205,238,255,0.13), rgba(205,238,255,0.04))", border: `3px solid ${fresh ? YPF.gold : "rgba(255,77,46,0.7)"}`, textAlign: "center", position: "relative" }}>
+            <div style={{ position: "relative", display: "inline-block" }}>
+              <MeatSlice fresh={fresh} w={300} />
+              {!fresh && frame >= tX ? (
+                <svg width={120} height={70} style={{ position: "absolute", left: 90, top: -40, overflow: "visible", opacity: lin(frame, tX, tX + 10) }}>
+                  {[0, 1, 2].map((k) => <path key={k} d={wave(k)} transform={`translate(20 ${60 - ((frame - tX + k * 8) % 24)})`} stroke="#b9c48a" strokeWidth={6} fill="none" strokeLinecap="round" opacity={0.85} />)}
+                </svg>
+              ) : null}
+            </div>
+            <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 46, color: fresh ? YPF.gold : "#ff8a7a", marginTop: 6, whiteSpace: "nowrap" }}>{c.title}</div>
+            <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 30, color: YPF.white, marginTop: 2, whiteSpace: "nowrap" }}>{c.sub}</div>
+            <div style={{ position: "absolute", top: -26, right: -18, width: 70, height: 70, borderRadius: 35, background: fresh ? YPF.gold : YPF.red, display: "flex", alignItems: "center", justifyContent: "center", border: "4px solid #fff" }}>
+              <span style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 40, color: fresh ? YPF.navy : "#fff" }}>{fresh ? "✓" : "✗"}</span>
+            </div>
+          </div>
+        </Slide>
+      ))}
+    </div>
+  );
+};
+
+/** PM / WhatsApp card */
+const ContactScene: React.FC<SceneProps> = ({ rv, props }) => {
+  const [t0 = 0, t1 = 12] = rv;
+  return (
+    <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      <Pop at={t0} from={0.7}>
+        <div style={{ display: "flex", alignItems: "center", gap: 28, background: "linear-gradient(180deg, rgba(205,238,255,0.16), rgba(205,238,255,0.05))", border: "3px solid rgba(205,238,255,0.35)", borderRadius: 40, padding: "30px 44px" }}>
+          <div style={{ width: 130, height: 130, borderRadius: 65, background: "#25d366", display: "flex", alignItems: "center", justifyContent: "center", border: "5px solid #fff", flex: "none" }}>
+            <svg width={70} height={70} viewBox="0 0 70 70"><path d="M 35 6 C 19 6, 6 19, 6 34 C 6 40, 8 45, 11 50 L 7 64 L 21 60 C 25 62, 30 63, 35 63 C 51 63, 64 50, 64 34 C 64 19, 51 6, 35 6 Z" fill="none" stroke="#fff" strokeWidth={5} /><path d="M 25 22 C 23 26, 25 34, 31 40 C 37 46, 44 48, 48 46 L 49 41 L 43 38 L 40 41 C 36 39, 32 35, 30 31 L 33 28 L 30 22 Z" fill="#fff" /></svg>
+          </div>
+          <div>
+            <div style={{ fontFamily: HEAD, fontWeight: 700, fontSize: 34, color: YPF.ice, letterSpacing: 4 }}>{props.kicker ?? "WHATSAPP / PM"}</div>
+            <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 86, color: YPF.white, lineHeight: 1 }}>{props.name ?? "AYOH MAD"}</div>
+          </div>
+        </div>
+      </Pop>
+      <Slide at={t1} dy={30}>
+        <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 64, marginTop: 26, letterSpacing: 2, ...GOLD_TEXT }}>{props.number}</div>
+      </Slide>
+    </div>
+  );
+};
+
+/** delivery van rolls in with boxes */
+const DeliveryScene: React.FC<SceneProps> = ({ rv, props }) => {
+  const frame = useCurrentFrame();
+  const [t0 = 0, t1 = 20, t2 = 40] = rv;
+  const x = interpolate(frame - t0, [0, 22], [-700, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  const bounce = frame - t0 > 22 ? Math.sin((frame - t0) / 2.2) * 2 : 0;
+  const wheel = (frame - t0) * 14;
+  return (
+    <div style={{ position: "absolute", inset: 0 }}>
+      <Kicker at={t0} text={props.kicker} top={0} />
+      <div style={{ position: "absolute", top: 80, left: 30 + x, transform: `translateY(${bounce}px) scale(0.9)`, transformOrigin: "0 0" }}>
+        <svg width={520} height={300} viewBox="0 0 520 300">
+          {/* speed lines */}
+          {frame - t0 < 26 ? [0, 1, 2].map((k) => <line key={k} x1={-60 - k * 30} y1={120 + k * 40} x2={-10} y2={120 + k * 40} stroke={YPF.ice} strokeWidth={6} strokeLinecap="round" opacity={0.6} />) : null}
+          <rect x={10} y={60} width={320} height={170} rx={18} fill="#f4f8fc" stroke="#fff" strokeWidth={4} />
+          <path d="M 330 110 L 420 110 L 480 170 L 480 230 L 330 230 Z" fill={YPF.blue} stroke="#fff" strokeWidth={4} />
+          <path d="M 350 125 L 410 125 L 450 168 L 350 168 Z" fill={YPF.ice} />
+          <text x={170} y={160} textAnchor="middle" fontFamily={HEAD} fontWeight={900} fontSize={44} fill={YPF.navy}>YaPakCik</text>
+          <text x={170} y={198} textAnchor="middle" fontFamily={HEAD} fontWeight={800} fontSize={22} letterSpacing={8} fill={YPF.blue}>FROZEN</text>
+          {[110, 400].map((cx) => (
+            <g key={cx} transform={`translate(${cx} 238) rotate(${wheel})`}>
+              <circle r={34} fill="#2b2f36" stroke="#fff" strokeWidth={4} />
+              <circle r={12} fill="#c7ced8" />
+              <line x1={-26} y1={0} x2={26} y2={0} stroke="#c7ced8" strokeWidth={4} />
+            </g>
+          ))}
+        </svg>
+      </div>
+      <div style={{ position: "absolute", top: 90, left: 530, width: 500 }}>
+        <Pop at={t1} from={1.4}>
+          <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 80, lineHeight: 0.95, ...GOLD_TEXT }}><Shine at={t1 + 8}>{props.title ?? "PERCUMA"}</Shine></div>
+          <div style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 40, color: YPF.white, marginTop: 6 }}>{props.sub}</div>
+        </Pop>
+        {props.chip ? (
+          <Slide at={t2} dy={24}>
+            <div style={{ display: "inline-block", fontFamily: HEAD, fontWeight: 900, fontSize: 40, color: YPF.navy, background: YPF.ice, padding: "8px 24px", borderRadius: 999, marginTop: 18 }}>{props.chip}</div>
+          </Slide>
+        ) : null}
+      </div>
+    </div>
+  );
+};
+
 /* ───────────── dispatcher ───────────── */
 export const YpfScene: React.FC<SceneProps & { map?: (x: number, y: number) => { x: number; y: number; s: number } }> = (sp) => {
   const kind = sp.props.kind as string;
@@ -816,7 +973,11 @@ export const YpfScene: React.FC<SceneProps & { map?: (x: number, y: number) => {
     kind === "price" ? <PriceScene {...sp} /> :
     kind === "tiers" ? <TiersScene {...sp} /> :
     kind === "bulk" ? <BulkScene {...sp} /> :
-    kind === "endcard" ? <EndScene {...sp} /> : null;
+    kind === "endcard" ? <EndScene {...sp} /> :
+    kind === "trend" ? <TrendScene {...sp} /> :
+    kind === "meat" ? <MeatScene {...sp} /> :
+    kind === "contact" ? <ContactScene {...sp} /> :
+    kind === "delivery" ? <DeliveryScene {...sp} /> : null;
   return <Region split={sp.split} dur={sp.dur}>{body}</Region>;
 };
 
@@ -867,6 +1028,18 @@ export const sceneSfx = (kind: string, rv: number[], props: Record<string, any>,
     case "endcard":
       out.push({ sfx: "shimmer", at: R(0) + 2, volume: 0.45 }, { sfx: "whoosh", at: R(1) - 2, volume: 0.3 });
       out.push({ sfx: "pop", at: R(2), volume: 0.5 }, { sfx: "pop", at: R(3), volume: 0.5, playbackRate: 1.15 });
+      break;
+    case "trend":
+      out.push({ sfx: "riser", at: R(0), volume: 0.25, playbackRate: 1.2 }, { sfx: "impact", at: R(1), volume: 0.4, playbackRate: 1.2 });
+      break;
+    case "meat":
+      out.push({ sfx: "pop", at: R(0), volume: 0.45 }, { sfx: "ding", at: R(0) + 8, volume: 0.35 }, { sfx: "whoosh", at: R(1) - 2, volume: 0.3, playbackRate: 1.4 }, { sfx: "pop", at: R(1), volume: 0.45, playbackRate: 0.85 });
+      break;
+    case "contact":
+      out.push({ sfx: "pop", at: R(0), volume: 0.5 }, { sfx: "click", at: R(1), volume: 0.5 });
+      break;
+    case "delivery":
+      out.push({ sfx: "whoosh", at: R(0), volume: 0.4, playbackRate: 0.8 }, { sfx: "shimmer", at: R(1) + 6, volume: 0.45 }, { sfx: "click", at: R(2), volume: 0.45 });
       break;
     case "nametag":
       out.push({ sfx: "whoosh", at: 0, volume: 0.3, playbackRate: 1.6 }, { sfx: "click", at: 8, volume: 0.45 });

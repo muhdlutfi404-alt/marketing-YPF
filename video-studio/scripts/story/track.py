@@ -2,7 +2,7 @@
 """
 TRACK — follow a real object (e.g. the chicken pack) in a clip, for callouts that move with it.
 
-    .venv/bin/python scripts/story/track.py <project> <clip> --from 33.5 --to 35.5 [--hsv 0,60,170,14,170,255] [--fps 10]
+    .venv/bin/python scripts/story/track.py <project> <clip> --from 33.5 --to 35.5 [--hsv 0,60,170,14,170,255] [--fps 10] [--ymax 1180]
 
 Colour tracking: pixels inside the HSV range, minus everything above the shirt collar (face/neck) and minus
 small blobs; the biggest remaining blob is the object. Positions are smoothed (median + moving
@@ -50,6 +50,9 @@ def main():
             last_face = int(rows_on[0]) + 25
         if last_face is not None:
             m[: last_face] = 0
+        ymax = arg("--ymax", 0)
+        if ymax:
+            m[ymax // 2:] = 0  # ignore everything below (e.g. products lying on the table)
         m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((7, 7), np.uint8))
         m = cv2.morphologyEx(m, cv2.MORPH_CLOSE, np.ones((15, 15), np.uint8))
         n, lab, stats, cent = cv2.connectedComponentsWithStats(m)
