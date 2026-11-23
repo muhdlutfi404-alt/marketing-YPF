@@ -625,8 +625,8 @@ const TiersScene: React.FC<SceneProps> = ({ rv, props }) => {
         i === active ? (
           <div key={i} style={{ position: "absolute", top: 140, width: 1080, display: "flex", flexDirection: "column", alignItems: "center" }}>
             <Pop at={rv[i] ?? 0} from={1.4}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 18, justifyContent: "center" }}>
-                <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: t.note ? 110 : 190, letterSpacing: -5, lineHeight: 1, whiteSpace: "nowrap", ...(t.note ? { color: YPF.white } : GOLD_TEXT) }}>
+              <div style={{ display: "flex", flexDirection: (t.price.length + (t.unit?.length ?? 0)) > 15 ? "column" : "row", alignItems: (t.price.length + (t.unit?.length ?? 0)) > 15 ? "center" : "baseline", gap: (t.price.length + (t.unit?.length ?? 0)) > 15 ? 0 : 18, justifyContent: "center" }}>
+                <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: t.note ? 110 : t.price.length > 5 ? 170 : 190, letterSpacing: -5, lineHeight: 1, whiteSpace: "nowrap", ...(t.note ? { color: YPF.white } : GOLD_TEXT) }}>
                   <Shine at={(rv[i] ?? 0) + 8}>{t.price}</Shine>
                 </div>
                 {t.unit ? <div style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 54, color: YPF.white, whiteSpace: "nowrap" }}>{t.unit}</div> : null}
