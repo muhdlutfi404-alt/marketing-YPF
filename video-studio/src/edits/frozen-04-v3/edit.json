@@ -257,9 +257,9 @@
     "offset": -0.1
    },
    "duration": 12.3,
-   "source": "transcript",
+   "source": "facts",
    "evidence": {
-    "quote": "banyaknya 1,000 ke atas pembelian 1,000 ke atas"
+    "fact": "delivery"
    },
    "props": {
     "layout": "split",
@@ -267,11 +267,36 @@
     "kicker": "YaPakCik Frozen",
     "title": "PERCUMA",
     "sub": "penghantaran",
-    "chip": "PEMBELIAN 1,000 KE ATAS",
+    "rows": [
+     {
+      "title": "Warga Tumpat",
+      "chips": [
+       {
+        "text": "PERCUMA",
+        "free": true
+       }
+      ]
+     },
+     {
+      "title": "Bachok · Ketereh · Melor",
+      "sub": "& kawasan berhampiran",
+      "chips": [
+       {
+        "text": "RM1,000 KE ATAS: PERCUMA",
+        "free": true
+       },
+       {
+        "text": "BAWAH RM1,000: RM20"
+       }
+      ]
+     }
+    ],
     "revealAt": [
      0,
      1.52,
-     10.88
+     4.48,
+     4.78,
+     10.01
     ]
    }
   },
@@ -328,14 +353,14 @@
     "offset": -0.1
    },
    "duration": 4.9,
-   "source": "transcript",
+   "source": "facts",
    "evidence": {
-    "quote": "Harga semasa lah ni adalah runcit 20 ya kalau orang jual 19 ya"
+    "fact": "priceList"
    },
    "props": {
     "layout": "split",
     "kind": "tiers",
-    "kicker": "harga semasa",
+    "kicker": "harga semasa · sepaket 900g",
     "tiers": [
      {
       "price": "RM20",
@@ -359,16 +384,16 @@
     "quote": "Awak kena WhatsApp"
    },
    "duration": 5.4,
-   "source": "placeholder",
+   "source": "facts",
    "evidence": {
-    "quote": "Awak kena WhatsApp ko Ayoh Mad deh PM ko Ayoh Mad di nombor tertera deh"
+    "fact": "whatsapp"
    },
    "props": {
     "layout": "split",
     "kind": "contact",
     "kicker": "WHATSAPP / PM",
     "name": "AYOH MAD",
-    "number": "[NOMBOR TELEFON]",
+    "number": "016-723 7170",
     "revealQuotes": [
      "WhatsApp ko Ayoh Mad",
      "di nombor tertera"

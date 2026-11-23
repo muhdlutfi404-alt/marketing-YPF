@@ -953,6 +953,24 @@ const DeliveryScene: React.FC<SceneProps> = ({ rv, props }) => {
           </Slide>
         ) : null}
       </div>
+      {/* delivery terms by area (owner-confirmed) */}
+      <div style={{ position: "absolute", top: 330, left: 60, right: 60, display: "grid", gap: 14 }}>
+        {(props.rows ?? []).map((r: { title: string; sub?: string; chips: { text: string; free?: boolean }[] }, k: number) => (
+          <Slide key={k} at={rv[3 + k] ?? t2 + k * 10} dx={-120} dy={0}>
+            <div style={{ display: "flex", alignItems: "center", gap: 18, background: "linear-gradient(90deg, rgba(205,238,255,0.16), rgba(205,238,255,0.04))", border: "2px solid rgba(205,238,255,0.28)", borderRadius: 24, padding: "14px 20px" }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 36, color: YPF.white, whiteSpace: "nowrap" }}>{r.title}</div>
+                {r.sub ? <div style={{ fontFamily: HEAD, fontWeight: 600, fontSize: 24, color: YPF.ice, whiteSpace: "nowrap" }}>{r.sub}</div> : null}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 8, alignItems: "flex-end" }}>
+                {r.chips.map((c, ci) => (
+                  <div key={ci} style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 28, color: YPF.navy, background: c.free ? `linear-gradient(180deg, ${YPF.gold}, ${YPF.orange})` : YPF.ice, padding: "6px 18px", borderRadius: 999, whiteSpace: "nowrap" }}>{c.text}</div>
+                ))}
+              </div>
+            </div>
+          </Slide>
+        ))}
+      </div>
     </div>
   );
 };
@@ -1040,6 +1058,7 @@ export const sceneSfx = (kind: string, rv: number[], props: Record<string, any>,
       break;
     case "delivery":
       out.push({ sfx: "whoosh", at: R(0), volume: 0.4, playbackRate: 0.8 }, { sfx: "shimmer", at: R(1) + 6, volume: 0.45 }, { sfx: "click", at: R(2), volume: 0.45 });
+      (props.rows ?? []).forEach((_: unknown, k: number) => out.push({ sfx: "click", at: R(3 + k, R(2) + k * 10), volume: 0.45, playbackRate: 1 + k * 0.08 }));
       break;
     case "nametag":
       out.push({ sfx: "whoosh", at: 0, volume: 0.3, playbackRate: 1.6 }, { sfx: "click", at: 8, volume: 0.45 });

@@ -617,6 +617,39 @@
    }
   },
   {
+   "id": "stok-baru",
+   "type": "scene",
+   "at": {
+    "quote": "supply bagi yang baru setiap hari",
+    "offset": -0.2
+   },
+   "duration": 5.0,
+   "source": "transcript",
+   "evidence": {
+    "quote": "InsyaAllah kita supply bagi yang baru setiap hari dan stok kita pun stok baru semua"
+   },
+   "props": {
+    "kind": "hook",
+    "y": 130,
+    "h": 400,
+    "words": [
+     {
+      "text": "stok baru",
+      "size": "l",
+      "style": "gold"
+     },
+     {
+      "text": "setiap hari",
+      "size": "m"
+     }
+    ],
+    "revealQuotes": [
+     "stok kita pun stok baru",
+     "baru setiap hari"
+    ]
+   }
+  },
+  {
    "id": "ypf",
    "type": "scene",
    "at": {

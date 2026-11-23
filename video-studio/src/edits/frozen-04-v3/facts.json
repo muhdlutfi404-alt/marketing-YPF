@@ -31,6 +31,24 @@
   "label": "WhatsApp / order contact",
   "confirmed": false
  },
+ "priceList": {
+  "value": "RM20 runcit; RM19 untuk orang jual; RM18.50 ambil kotak; sepaket 900g",
+  "label": "Harga daging slice",
+  "confirmed": true,
+  "note": "owner confirmed 2026-11-23"
+ },
+ "whatsapp": {
+  "value": "016-723 7170",
+  "label": "WhatsApp Ayoh Mad",
+  "confirmed": true,
+  "note": "owner supplied 2026-11-23 for the video"
+ },
+ "delivery": {
+  "value": "Warga Tumpat: penghantaran PERCUMA. Bachok, Ketereh, Melor & kawasan berhampiran: RM1,000 ke atas PERCUMA; bawah RM1,000 caj RM20",
+  "label": "Penghantaran",
+  "confirmed": true,
+  "note": "owner confirmed 2026-11-23"
+ },
  "branches": {
   "value": "Pasar Sumayyah, Tumpat (pusat utama)",
   "label": "Branches",

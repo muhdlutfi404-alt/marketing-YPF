@@ -291,14 +291,14 @@
     "offset": -0.6
    },
    "duration": 15.4,
-   "source": "transcript",
+   "source": "facts",
    "evidence": {
-    "quote": "Kedai lah ni kita jual dia runcit 20 untuk orang jual kita tolak 19 kalau orang nak ambil kotak kita boleh wigo 18.50"
+    "fact": "priceList"
    },
    "props": {
     "layout": "split",
     "kind": "tiers",
-    "kicker": "harga daging slice",
+    "kicker": "daging slice · sepaket 900g",
     "tiers": [
      {
       "price": "RM20",
