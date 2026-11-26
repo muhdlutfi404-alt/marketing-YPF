@@ -17,7 +17,9 @@ export const StoryCaptions: React.FC<{
   position?: number;
   hiddenRanges?: { from: number; to: number }[];
   emphasis?: Record<string, "big" | "script">;
-}> = ({ pages, style, variant, uppercase = false, position = 0.7, hiddenRanges = [], emphasis = {} }) => {
+  /** space between words (thick stroked captions need more than the default) */
+  wordGap?: string;
+}> = ({ pages, style, variant, uppercase = false, position = 0.7, hiddenRanges = [], emphasis = {}, wordGap = "0.25em" }) => {
   const frame = useCurrentFrame();
   const { fps, height } = useVideoConfig();
   const t = frame / fps;
@@ -52,7 +54,7 @@ export const StoryCaptions: React.FC<{
               key={i}
               style={{
                 display: "inline-block",
-                marginRight: "0.25em",
+                marginRight: wordGap,
                 ...emph(w.text),
                 color: variant === "minimal" ? (spoken ? "#fff" : "rgba(255,255,255,0.55)") : active ? style.colors.highlight : variant === "documentary" && !spoken ? "rgba(255,255,255,0.75)" : "#fff",
                 transform: active && variant === "bold" ? "scale(1.08)" : undefined,

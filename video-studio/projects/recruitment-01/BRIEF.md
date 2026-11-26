@@ -55,3 +55,13 @@ Posters are reference only: they show the AI-drawn cow logo (not official) and a
 - [ ] Full "Arahan Editing Untuk Claude" text
 - [ ] Official logo file
 - [ ] Confirm job details above + application channel + which title
+
+## Editing reference (owner, 2026-11-26) — Drive folder 1IUj…, file SVID_20261126_170236_1.mp4
+Screen recording of two TikTok creator videos (DausDK): (1) cartoon-avatar explainer, (2) talking head + fast B-roll.
+Applied to the animatic:
+- **Pacing**: a new picture every ~0.3–2 s (scene-detect on the reference). Animatic now has 30 short shots (avg ≈2 s) cut on spoken keywords.
+- **Many shots from one pose**: wide / medium / face close-up / hands, hard cuts with a small punch-in, slow push-in inside every shot.
+- **Sticker look**: white outline around the character, soft shadow.
+- **Captions**: bold, UPPERCASE, thick dark stroke, active keyword in colour, 2–3 words per page.
+- **Hook text** big at the top; kinetic keywords on screen.
+Not copied: the creator's character, artwork, layout or brand.

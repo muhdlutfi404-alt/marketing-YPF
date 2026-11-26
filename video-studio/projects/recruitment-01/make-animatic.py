@@ -30,26 +30,29 @@ def kw(text, after=0.0):
 L = lambda i: (T(vo[i]["start"]), T(vo[i]["end"]))
 REF = "characters/ayoh-mad/02-review/collage-2026-11-26/pose-{:02d}.png"
 POSE_T = {1: "buka gerai, subuh", 2: "angkat kotak stok", 3: "bungkus pesanan", 4: "malam, telefon", 5: "termenung", 6: "senyum yakin", 7: "tunjuk penonton", 8: "hulur tangan"}
-def S(id, a, b, pose, bg, push=0.04, character=True):
-    d = {"id": id, "from": round(a, 3), "to": round(b, 3), "pose": pose, "bg": bg, "push": push, "character": character}
+def S(id, a, b, pose, bg, push=0.04, character=True, frame="wide", cut=False):
+    d = {"id": id, "from": round(a, 3), "to": round(b, 3), "pose": pose, "bg": bg, "push": push, "character": character, "frame": frame, "cut": cut}
     if pose: d.update(poseRef=REF.format(pose), poseTitle=POSE_T[pose])
     return d
+def shots(prefix, a, b, pose, bg, frames, cuts_at):
+    """split [a,b] into short shots (reference pacing): one framing per shot, hard cuts inside a scene"""
+    pts = [a] + cuts_at + [b]
+    return [S(f"{prefix}{k+1}", pts[k], pts[k + 1], pose, bg, 0.05, True, frames[k], k > 0) for k in range(len(frames))]
 end_vo = L(14)[1]
 JOBS_AT, END_AT = end_vo + 0.8, end_vo + 10.8
 DUR = END_AT + 5.0
-scenes = [
-  S("s1", 0, L(0)[1], 6, "day", 0.03),
-  S("s2", L(1)[0], L(1)[1], 1, "dawn", 0.06),
-  S("s3", L(2)[0], L(2)[1], 2, "morning", 0.05),
-  S("s4", L(3)[0], L(3)[1], 3, "day", 0.04),
-  S("s5", L(4)[0], L(4)[1], 4, "night", 0.05),
-  S("s6", L(5)[0], L(6)[1], 5, "dusk", 0.06),
-  S("s7", L(7)[0], L(10)[1], 6, "day", 0.05),
-  S("s8", L(11)[0], L(11)[1], 7, "day", 0.08),
-  S("s9", L(12)[0], JOBS_AT, 8, "day", 0.05),
-  S("jobs", JOBS_AT, END_AT, None, "brand", 0, False),
-  S("end", END_AT, DUR, None, "brand", 0, False),
-]
+scenes = (
+  shots("s1", 0, L(0)[1], 6, "day", ["wide", "medium", "face"], [2.6, kw("frozen", L(0)[0]) + 0.1])
+  + shots("s2", L(1)[0], L(1)[1], 1, "dawn", ["wide", "face", "hands", "medium"], [kw("mungkin", L(1)[0]) + 0.2, kw("susahnya", L(1)[0]) - 0.1, kw("sampai", L(1)[0]) - 0.1])
+  + shots("s3", L(2)[0], L(2)[1], 2, "morning", ["medium", "face"], [kw("kena", L(2)[0]) - 0.1])
+  + shots("s4", L(3)[0], L(3)[1], 3, "day", ["medium", "hands", "face", "wide"], [kw("sediakan", L(3)[0]) - 0.1, kw("penghantaran", L(3)[0]) - 0.1, kw("cari", L(3)[0]) - 0.1])
+  + shots("s5", L(4)[0], L(4)[1], 4, "night", ["medium", "hands", "face"], [kw("fikir", L(4)[0]) - 0.1, kw("besarkan", L(4)[0]) - 0.2])
+  + shots("s6", L(5)[0], L(6)[1], 5, "dusk", ["wide", "face", "medium"], [kw("tak", L(5)[0] + 2.0) - 0.1, L(6)[0]])
+  + shots("s7", L(7)[0], L(10)[1], 6, "day", ["face", "medium", "hands", "wide"], [kw("dipercayai", L(7)[0]) - 0.3, L(8)[0], L(10)[0]])
+  + shots("s8", L(11)[0], L(11)[1], 7, "day", ["medium", "hands", "face"], [L(11)[0] + 0.9, kw("awak", L(11)[0]) - 0.05])
+  + shots("s9", L(12)[0], JOBS_AT, 8, "day", ["medium", "face", "hands", "wide"], [kw("jom", L(13)[0] - 0.3) - 0.1, kw("perjalanan", L(13)[0] - 0.3), L(14)[0]])
+  + [S("jobs", JOBS_AT, END_AT, None, "brand", 0, False), S("end", END_AT, DUR, None, "brand", 0, False)]
+)
 def hook(id, a, b, words_, rv, y=150, h=420):
     return {"id": id, "from": round(a, 3), "dur": round(b - a, 3), "kind": "hook", "rv": [round(x - a, 3) for x in rv], "props": {"y": y, "h": h, "words": words_}}
 layers = [

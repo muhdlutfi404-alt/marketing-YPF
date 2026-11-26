@@ -34,6 +34,12 @@ export type AnimaticScene = {
   bg: "dawn" | "morning" | "day" | "night" | "dusk" | "brand";
   character?: boolean;
   push?: number;
+  /** camera framing on the character art (reference style: many short shots from one pose) */
+  frame?: "wide" | "medium" | "face" | "hands";
+  /** hard cut with a small punch instead of a fade (shots of the same scene) */
+  cut?: boolean;
+  /** focus points on the art (0–1 of the image): face / hands; default = master avatar */
+  focus?: { face?: [number, number]; hands?: [number, number] };
 };
 export type AnimaticLayer = { id: string; from: number; dur: number; kind: string; split?: boolean; rv?: number[]; props: Record<string, any> }; // eslint-disable-line @typescript-eslint/no-explicit-any
 export type AnimaticProps = {
@@ -91,12 +97,26 @@ const Bokeh: React.FC<{ seed: string; light: boolean }> = ({ seed, light }) => {
   );
 };
 
+// character box on screen (wide framing): 1260×1260, bottom-aligned
+const BOX = { x: -90, y: 660, w: 1260, h: 1260 };
+const FRAMES: Record<NonNullable<AnimaticScene["frame"]>, { z: number; target: [number, number]; key: "face" | "hands" | "body" }> = {
+  wide: { z: 1, target: [540, 1290], key: "body" },
+  medium: { z: 1.45, target: [540, 1010], key: "body" },
+  face: { z: 2.2, target: [540, 790], key: "face" },
+  hands: { z: 1.9, target: [540, 1160], key: "hands" },
+};
 const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number }> = ({ scene, master, dur }) => {
   const frame = useCurrentFrame();
-  const fadeIn = interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
-  const fadeOut = interpolate(frame, [dur - 10, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const push = 1 + (scene.push ?? 0.04) * (frame / Math.max(1, dur));
+  const fadeIn = scene.cut ? 1 : interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
+  const fadeOut = scene.cut ? 1 : interpolate(frame, [dur - 10, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const punch = scene.cut ? 1 + 0.06 * Math.max(0, 1 - frame / 6) : 1;
+  const push = (1 + (scene.push ?? 0.04) * (frame / Math.max(1, dur))) * punch;
   const breathe = 1 + 0.006 * Math.sin(frame / 22);
+  const fr = FRAMES[scene.frame ?? "wide"];
+  const fp = fr.key === "face" ? scene.focus?.face ?? [0.48, 0.17] : fr.key === "hands" ? scene.focus?.hands ?? [0.3, 0.66] : [0.5, fr.z > 1 ? 0.36 : 0.5];
+  const z = fr.z * push * breathe;
+  const tx = fr.target[0] - BOX.x - fp[0] * BOX.w * z;
+  const ty = fr.target[1] - BOX.y - fp[1] * BOX.h * z;
   const placeholder = !scene.image;
   const light = scene.bg === "morning" || scene.bg === "day";
   return (
@@ -107,8 +127,15 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number }>
       {/* readable text zone at the top */}
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(6,24,47,0.62) 0%, rgba(6,24,47,0.35) 22%, rgba(6,24,47,0) 40%)" }} />
       {scene.character !== false ? (
-        <div style={{ position: "absolute", left: -90, right: -90, bottom: 0, height: 1260, transform: `scale(${push * breathe})`, transformOrigin: "50% 100%" }}>
-          <Img src={resolveMedia(scene.image ?? master)} style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "50% 100%", filter: scene.bg === "night" ? "brightness(0.78) saturate(0.9)" : scene.bg === "dusk" || scene.bg === "dawn" ? "sepia(0.12) saturate(1.05)" : undefined }} />
+        <div style={{ position: "absolute", left: BOX.x, top: BOX.y, width: BOX.w, height: BOX.h, transform: (scene.frame ?? "wide") === "wide" ? `scale(${push * breathe})` : `translate(${tx}px, ${ty}px) scale(${z})`, transformOrigin: (scene.frame ?? "wide") === "wide" ? "50% 100%" : "0 0" }}>
+          <Img
+            src={resolveMedia(scene.image ?? master)}
+            style={{
+              width: "100%", height: "100%", objectFit: "contain", objectPosition: "50% 100%",
+              // white "sticker" outline (reference style) + scene lighting
+              filter: `drop-shadow(0 0 0 #fff) drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(0 18px 30px rgba(0,0,0,0.35))${scene.bg === "night" ? " brightness(0.8) saturate(0.9)" : scene.bg === "dusk" || scene.bg === "dawn" ? " sepia(0.1) saturate(1.05)" : ""}`,
+            }}
+          />
         </div>
       ) : null}
       {scene.pose ? (
@@ -206,7 +233,7 @@ export const Animatic: React.FC<AnimaticProps> = (p) => {
   }, [p.words]);
   const hideCaps = p.layers.filter((l) => l.kind === "title" || l.kind === "jobs" || l.kind === "endcard-placeholder").map((l) => ({ from: l.from, to: l.from + l.dur }));
   const cues: SfxCue[] = [];
-  p.scenes.forEach((s, i) => i > 0 && cues.push({ sfx: "whoosh", at: f(s.from) - 3, volume: 0.25, playbackRate: 1.2 }));
+  p.scenes.forEach((s, i) => i > 0 && cues.push(s.cut ? { sfx: "click", at: f(s.from), volume: 0.3, playbackRate: 0.9 } : { sfx: "whoosh", at: f(s.from) - 3, volume: 0.25, playbackRate: 1.2 }));
   for (const l of p.layers) {
     if (["title", "jobs", "endcard-placeholder"].includes(l.kind)) {
       cues.push({ sfx: l.kind === "jobs" ? "riser" : "shimmer", at: Math.max(0, f(l.from) - (l.kind === "jobs" ? 30 : 0)), volume: 0.3 });
@@ -232,7 +259,7 @@ export const Animatic: React.FC<AnimaticProps> = (p) => {
           {["title", "jobs", "endcard-placeholder"].includes(l.kind) ? <Card dur={f(l.dur)} kind={l.kind} props={l.props} /> : <YpfScene dur={f(l.dur)} rv={(l.rv ?? []).map((x) => f(x))} props={{ ...l.props, kind: l.kind }} split={!!l.split} />}
         </Sequence>
       ))}
-      <StoryCaptions pages={pages} style={style} variant="minimal" position={0.7} hiddenRanges={hideCaps} emphasis={p.emphasis ?? {}} />
+      <StoryCaptions pages={pages} style={style} variant="bold" uppercase position={0.72} wordGap="0.45em" hiddenRanges={hideCaps} emphasis={p.emphasis ?? {}} />
       <div style={{ position: "absolute", top: 70, right: 40, fontFamily: FONT_STACKS.montserrat, fontWeight: 900, fontSize: 24, color: "#fff", background: "rgba(6,24,47,0.75)", padding: "6px 14px", borderRadius: 10, letterSpacing: 2 }}>ANIMATIC · DRAF</div>
       <Sequence from={voFrom} name="voice-over" layout="none">
         <Audio src={resolveMedia(p.vo.src)} />
