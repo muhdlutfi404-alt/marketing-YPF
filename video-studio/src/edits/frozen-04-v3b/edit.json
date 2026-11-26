@@ -1,0 +1,563 @@
+{
+ "_readme": "NEW VERSION of frozen-04-v3 (approved original untouched): on-screen hook at 0 s + cold open, pauses ≥0.35 s cut as jump cuts, own music.",
+ "project": "frozen-04-v3b",
+ "brand": "yapakcik-frozen",
+ "title": "Penghantaran percuma, harga semasa & PM Ayoh Mad — versi hook baru",
+ "shots": [
+  {
+   "id": "h",
+   "label": "HOOK: penghantaran percuma",
+   "clip": "lv_0_20261123141154",
+   "in": 219.47,
+   "out": 224.2,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "secara percuma"
+     },
+     "type": "punch-in",
+     "scale": 1.5
+    }
+   ],
+   "transition": {
+    "type": "zoom-punch",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "d1",
+   "label": "penghantaran: 1,000 ke atas",
+   "clip": "lv_0_20261123141154",
+   "in": 225.65,
+   "out": 237.95,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.38
+    }
+   ]
+  },
+  {
+   "id": "d2_1",
+   "label": "COD, PM Ayoh Mad",
+   "clip": "lv_0_20261123141154",
+   "in": 242.45,
+   "out": 248.05,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "COD"
+     },
+     "type": "punch-in",
+     "scale": 1.48
+    }
+   ]
+  },
+  {
+   "id": "d2_2",
+   "label": "COD, PM Ayoh Mad",
+   "clip": "lv_0_20261123141154",
+   "in": 248.46,
+   "out": 252.66,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.474,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "Ha jadinya"
+     },
+     "type": "punch-out",
+     "scale": 1.32
+    }
+   ]
+  },
+  {
+   "id": "d2_3",
+   "label": "COD, PM Ayoh Mad",
+   "clip": "lv_0_20261123141154",
+   "in": 252.93,
+   "out": 257.2,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "p",
+   "label": "harga semasa runcit 20 / jual 19",
+   "clip": "lv_0_20261123141154",
+   "in": 187.65,
+   "out": 192.5,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "runcit 20 ya"
+     },
+     "type": "punch-in",
+     "scale": 1.46
+    }
+   ],
+   "transition": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "w_1",
+   "label": "WhatsApp / PM Ayoh Mad",
+   "clip": "lv_0_20261123141154",
+   "in": 193.75,
+   "out": 195.96,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.32,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "w_2",
+   "label": "WhatsApp / PM Ayoh Mad",
+   "clip": "lv_0_20261123141154",
+   "in": 196.35,
+   "out": 196.78,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.452,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "w_3",
+   "label": "WhatsApp / PM Ayoh Mad",
+   "clip": "lv_0_20261123141154",
+   "in": 197.09,
+   "out": 199.25,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.32,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "3cta1",
+   "label": "CTA: mari YaPakCik Frozen",
+   "clip": "lv_0_20261123141154",
+   "in": 184.05,
+   "out": 187.55,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.38
+    }
+   ],
+   "transition": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  },
+  {
+   "id": "3cta2",
+   "label": "CTA: Pasar Sumayyah Tumpat",
+   "clip": "lv_0_20261123141154",
+   "in": 205.55,
+   "out": 207.2,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "3cta3",
+   "label": "CTA: pusat utama di Tumpat",
+   "clip": "lv_0_20261123141154",
+   "in": 215.75,
+   "out": 219.6,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.32,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.4
+    }
+   ]
+  }
+ ],
+ "layers": [
+  {
+   "id": "hook0",
+   "type": "scene",
+   "at": 0,
+   "duration": 3.4,
+   "source": "facts",
+   "evidence": {
+    "fact": "delivery"
+   },
+   "props": {
+    "kind": "hook",
+    "y": 110,
+    "h": 440,
+    "words": [
+     {
+      "text": "warga Tumpat",
+      "size": "s"
+     },
+     {
+      "text": "penghantaran",
+      "size": "m"
+     },
+     {
+      "text": "PERCUMA",
+      "size": "xl",
+      "style": "gold"
+     }
+    ],
+    "revealAt": [
+     0,
+     0.15,
+     0.9
+    ]
+   }
+  },
+  {
+   "id": "delivery",
+   "type": "scene",
+   "at": {
+    "quote": "Ada perkhidmatan penghantaran",
+    "offset": -0.1
+   },
+   "duration": 12.3,
+   "source": "facts",
+   "evidence": {
+    "fact": "delivery"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "delivery",
+    "kicker": "YaPakCik Frozen",
+    "title": "PERCUMA",
+    "sub": "penghantaran",
+    "rows": [
+     {
+      "title": "Warga Tumpat",
+      "chips": [
+       {
+        "text": "PERCUMA",
+        "free": true
+       }
+      ]
+     },
+     {
+      "title": "Bachok · Ketereh · Melor",
+      "sub": "& kawasan berhampiran",
+      "chips": [
+       {
+        "text": "RM1,000 KE ATAS: PERCUMA",
+        "free": true
+       },
+       {
+        "text": "BAWAH RM1,000: RM20"
+       }
+      ]
+     }
+    ],
+    "revealQuotes": [
+     "Ada perkhidmatan",
+     "percuma#2",
+     "kuantiti yang kita",
+     "kuantiti yang kita nak",
+     "pembelian 1,000"
+    ]
+   }
+  },
+  {
+   "id": "cod",
+   "type": "scene",
+   "at": {
+    "quote": "cas juga COD"
+   },
+   "duration": 2.2,
+   "source": "transcript",
+   "evidence": {
+    "quote": "cas juga COD"
+   },
+   "props": {
+    "kind": "hook",
+    "y": 140,
+    "h": 260,
+    "words": [
+     {
+      "text": "COD",
+      "size": "xl",
+      "style": "gold"
+     }
+    ],
+    "revealQuotes": [
+     "COD"
+    ]
+   }
+  },
+  {
+   "id": "pm",
+   "type": "scene",
+   "at": {
+    "quote": "PM ko Ayoh Mad",
+    "occurrence": 1
+   },
+   "duration": 3.0,
+   "source": "facts",
+   "evidence": {
+    "fact": "presenterName"
+   },
+   "props": {
+    "kind": "nametag",
+    "name": "PM AYOH MAD",
+    "role": "WhatsApp / PM"
+   }
+  },
+  {
+   "id": "harga",
+   "type": "scene",
+   "at": {
+    "quote": "Harga semasa lah ni",
+    "offset": -0.1
+   },
+   "duration": 4.9,
+   "source": "facts",
+   "evidence": {
+    "fact": "priceList"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "tiers",
+    "kicker": "harga semasa · sepaket 900g",
+    "tiers": [
+     {
+      "price": "RM20",
+      "unit": "/ RUNCIT"
+     },
+     {
+      "price": "RM19",
+      "unit": "/ UNTUK JUAL"
+     }
+    ],
+    "revealQuotes": [
+     "runcit 20 ya",
+     "orang jual 19 ya"
+    ]
+   }
+  },
+  {
+   "id": "contact",
+   "type": "scene",
+   "at": {
+    "quote": "Awak kena WhatsApp"
+   },
+   "duration": 5.4,
+   "source": "facts",
+   "evidence": {
+    "fact": "whatsapp"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "contact",
+    "kicker": "WHATSAPP / PM",
+    "name": "AYOH MAD",
+    "number": "016-723 7170",
+    "revealQuotes": [
+     "WhatsApp ko Ayoh Mad",
+     "di nombor tertera"
+    ]
+   }
+  },
+  {
+   "id": "endcard",
+   "type": "scene",
+   "at": {
+    "quote": "Okey deh ha bagi siapa-siapa"
+   },
+   "duration": 8.75,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Pasar Sumayyah Tumpat aa pusat utama di Tumpat"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "endcard",
+    "badge": "PUSAT UTAMA",
+    "pins": [
+     {
+      "name": "Pasar Sumayyah",
+      "area": "Tumpat"
+     }
+    ],
+    "revealQuotes": [
+     "Okey deh ha bagi",
+     "boleh mari YaPakCik Frozen",
+     "Pasar Sumayyah Tumpat"
+    ]
+   }
+  }
+ ],
+ "captions": {
+  "enabled": true,
+  "style": "minimal",
+  "combineMs": 900,
+  "uppercase": false,
+  "position": 0.7,
+  "emphasis": {
+   "naik": "big",
+   "sokmo": "script",
+   "berubah": "script",
+   "bau": "big",
+   "hamis": "big",
+   "merah": "big",
+   "hitam": "big",
+   "gelap": "big",
+   "lama": "script",
+   "baru": "big",
+   "tips": "big",
+   "percuma": "big",
+   "cod": "big",
+   "runcit": "script",
+   "borong": "script"
+  },
+  "hide": []
+ },
+ "look": {
+  "grade": "moody-true",
+  "gradeIntensity": 0.7,
+  "grain": true,
+  "vignette": true,
+  "breathing": 0.012,
+  "coverBands": [],
+  "aiLabel": false,
+  "canvas": "brand"
+ },
+ "audio": {
+  "music": "music/ypf-hantar.mp3",
+  "musicVolume": 0.26,
+  "duckTo": 0.12,
+  "sfx": "auto",
+  "sfxVolume": 0.55,
+  "voiceTargetLufs": -16,
+  "cues": []
+ }
+}

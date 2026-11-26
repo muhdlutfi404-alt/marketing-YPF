@@ -342,7 +342,9 @@ export const resolveRevealTimes = (l: ResolvedLayer, words: TimelineWord[]): (nu
   const qs: string[] | undefined = l.props.revealQuotes;
   if (!qs) return undefined;
   return qs.map((q) => {
-    const hit = findQuote(words, { quote: q });
+    // "words#2" = the 2nd time those words are spoken (e.g. after a cold open repeats a line)
+    const m = /^(.*)#(\d+)$/.exec(q);
+    const hit = m ? findQuote(words, { quote: m[1], occurrence: Number(m[2]) }) : findQuote(words, { quote: q });
     return hit ? Math.max(0, hit.start - l.start) : null;
   });
 };
