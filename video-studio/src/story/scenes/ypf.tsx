@@ -1086,8 +1086,8 @@ const IconBeat: React.FC<SceneProps> = ({ props, dur }) => {
   }
   return (
     <AbsoluteFill>
-      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", transform: `translateY(60px) scale(${(0.85 + 0.15 * p) * 1.55})`, transformOrigin: `${CX}px ${CY}px` }}>{art}</svg>
-      <div style={{ position: "absolute", top: CY + 470, width: 1080, textAlign: "center", opacity: Math.min(1, p * 1.3), transform: `translateY(${(1 - p) * 30}px)` }}>
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", transform: `translateY(${props.labelTop ? 220 : 60}px) scale(${(0.85 + 0.15 * p) * 1.55})`, transformOrigin: `${CX}px ${CY}px` }}>{art}</svg>
+      <div style={{ position: "absolute", top: props.labelTop ? 300 : CY + 470, width: 1080, textAlign: "center", opacity: Math.min(1, p * 1.3), transform: `translateY(${(1 - p) * 30}px)` }}>
         <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 92, color: YPF.white, letterSpacing: -1, lineHeight: 1, textTransform: "uppercase", padding: "0 60px" }}>{props.label}</div>
         {props.sub ? <div style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 40, marginTop: 8, ...GOLD_TEXT }}>{props.sub}</div> : null}
       </div>

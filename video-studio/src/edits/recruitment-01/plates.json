@@ -1,0 +1,7 @@
+{
+ "dawn-market": {"prompt": "empty covered wet market hall in Malaysia at dawn, white tiled stall counters, steel roof beams, soft blue and orange sunrise light coming through open sides, quiet atmosphere, digital painting, semi-realistic illustration, cinematic lighting, shallow depth of field", "seed": 11},
+ "morning-stall": {"prompt": "empty frozen food stall area inside a covered market, bright morning daylight, white chest freezers, white tiles, clean, digital painting, semi-realistic illustration, soft background blur", "seed": 21},
+ "night-stall": {"prompt": "empty market stall at night, one warm hanging lamp, deep blue shadows, closed shutters, quiet and lonely mood, digital painting, semi-realistic illustration, cinematic", "seed": 31},
+ "dusk-market": {"prompt": "open-sided market hall at sunset, golden orange and purple sky, long shadows across empty tiled floor, reflective mood, digital painting, semi-realistic illustration, cinematic", "seed": 41},
+ "day-market": {"prompt": "bright covered market hall in daytime, clean white tiled counters, soft natural daylight, steel roof, digital painting, semi-realistic illustration, blurred background, hopeful mood", "seed": 51}
+}

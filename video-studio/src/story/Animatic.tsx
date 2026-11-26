@@ -39,7 +39,14 @@ export type AnimaticScene = {
   /** hard cut with a small punch instead of a fade (shots of the same scene) */
   cut?: boolean;
   /** transition INTO this shot: hard cut (default when cut), quick whip-slide, or white flash */
-  trans?: "cut" | "whip" | "flash";
+  trans?: "cut" | "whip" | "flash" | "zoom" | "iris";
+  /** painted background plate (generated, no people/logos) instead of the flat gradient */
+  plate?: string;
+  /** colour grade for the whole shot: flashback (past), night, mono (freeze/interrupt), present */
+  grade?: "flashback" | "night" | "mono" | "present";
+  /** split-screen: two half-height shots (top, bottom) shown together */
+  split?: AnimaticScene[];
+  splitLabels?: [string, string];
   /** extra punch-in on this cut (emphasis), 0 = none */
   punch?: number;
   /** width/height of the art (for framing maths); default 1 (master) */
@@ -163,6 +170,9 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; l
   const fadeOut = trans === "fade" && !scene.cut ? interpolate(frame, [dur - 10, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1;
   const whip = trans === "whip" ? interpolate(frame, [0, 5], [1, 0], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) }) : 0;
   const flash = trans === "flash" ? interpolate(frame, [0, 5], [1, 0], { extrapolateRight: "clamp" }) : 0;
+  const ramp = trans === "zoom" ? interpolate(frame, [0, 7], [1, 0], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) }) : 0; // speed-ramp zoom in
+  const iris = trans === "iris" ? interpolate(frame, [0, 9], [0, 1], { extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) }) : 1;
+  const GRADE: Record<string, string> = { flashback: "sepia(0.22) saturate(0.86) contrast(1.06)", night: "saturate(0.85) hue-rotate(-8deg) brightness(0.92) contrast(1.05)", mono: "grayscale(1) contrast(1.15)", present: "saturate(1.08) contrast(1.04)" };
   const punch = 1 + (scene.punch ?? (scene.cut ? 0.03 : 0)) * Math.max(0, 1 - frame / 6);
   const push = (1 + (scene.push ?? 0.04) * (frame / Math.max(1, dur))) * punch;
   const breathe = 1 + 0.005 * Math.sin(frame / 22);
@@ -181,10 +191,17 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; l
   const placeholder = !scene.image;
   const light = scene.bg === "morning" || scene.bg === "day";
   return (
-    <AbsoluteFill style={{ opacity: Math.min(tIn, fadeOut), filter: tIn < 1 || whip > 0 ? `blur(${(1 - tIn) * 10 + whip * 14}px)` : undefined, transform: tIn < 1 ? `translateX(${(1 - tIn) * 60}px)` : whip > 0 ? `translateX(${whip * 1080}px)` : undefined }}>
+    <AbsoluteFill style={{ opacity: Math.min(tIn, fadeOut), filter: [scene.grade ? GRADE[scene.grade] : "", tIn < 1 || whip > 0 || ramp > 0 ? `blur(${(1 - tIn) * 10 + whip * 14 + ramp * 8}px)` : ""].join(" ").trim() || undefined, transform: tIn < 1 ? `translateX(${(1 - tIn) * 60}px)` : whip > 0 ? `translateX(${whip * 1080}px)` : ramp > 0 ? `scale(${1 + ramp * 0.35})` : undefined, clipPath: iris < 1 ? `circle(${iris * 120}% at 50% 42%)` : undefined }}>
       <AbsoluteFill style={{ background: BG[scene.bg] }} />
+      {scene.plate ? (
+        // painted plate, softly out of focus, moving slower than the character (parallax depth)
+        <AbsoluteFill style={{ transform: `translate(${tx * -0.04}px, ${ty * -0.03}px) scale(${1.08 + (z - 1) * 0.18 + frame * 0.0004})`, transformOrigin: "50% 55%" }}>
+          <Img src={resolveMedia(scene.plate)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: `blur(${isWide ? 3 : 7}px) brightness(0.92)` }} />
+        </AbsoluteFill>
+      ) : (
+        <SetLayer bg={scene.bg} z={z} frame={frame} />
+      )}
       <AbsoluteFill style={{ background: GLOW[scene.bg] }} />
-      <SetLayer bg={scene.bg} z={z} frame={frame} />
       <Bokeh seed={scene.id} light={light} />
       {/* readable text zone at the top */}
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(6,24,47,0.62) 0%, rgba(6,24,47,0.35) 22%, rgba(6,24,47,0) 40%)" }} />
@@ -218,6 +235,30 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; l
           ) : null}
         </>
       ) : null}
+    </AbsoluteFill>
+  );
+};
+
+/** two shots at once (e.g. "dalam masa yang sama"): each half shows the middle band of a full shot */
+const SplitScene: React.FC<{ scene: AnimaticScene; master: string; dur: number }> = ({ scene, master, dur }) => {
+  const frame = useCurrentFrame();
+  const halves = scene.split ?? [];
+  return (
+    <AbsoluteFill style={{ background: "#000" }}>
+      {halves.map((h, i) => {
+        const p = interpolate(frame - i * 4, [0, 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+        return (
+          <div key={i} style={{ position: "absolute", left: 0, top: i * 960, width: 1080, height: 960, overflow: "hidden", transform: `translateX(${(1 - p) * (i ? 1080 : -1080)}px)` }}>
+            <div style={{ position: "absolute", left: 0, top: -480, width: 1080, height: 1920 }}>
+              <PoseScene scene={{ ...h, cut: true, trans: "cut" }} master={master} dur={dur} labels={false} />
+            </div>
+            {scene.splitLabels ? (
+              <div style={{ position: "absolute", left: 40, top: i ? 30 : 880, fontFamily: FONT_STACKS.montserrat, fontWeight: 900, fontSize: 40, letterSpacing: 6, color: "#fff", background: "rgba(6,24,47,0.7)", padding: "6px 18px", borderRadius: 10 }}>{scene.splitLabels[i]}</div>
+            ) : null}
+          </div>
+        );
+      })}
+      <div style={{ position: "absolute", left: 0, top: 954, width: 1080, height: 12, background: "#fff" }} />
     </AbsoluteFill>
   );
 };
@@ -318,6 +359,8 @@ export const Animatic: React.FC<AnimaticProps> = (p) => {
     const tr = s.trans ?? (s.cut ? "cut" : "fade");
     if (tr === "whip") cues.push({ sfx: "whoosh", at: f(s.from) - 2, volume: 0.3, playbackRate: 1.4 });
     else if (tr === "flash") cues.push({ sfx: "impact", at: f(s.from), volume: 0.35, playbackRate: 1.3 });
+    else if (tr === "zoom") cues.push({ sfx: "riser", at: Math.max(0, f(s.from) - 8), volume: 0.18, playbackRate: 2.2 });
+    else if (tr === "iris") cues.push({ sfx: "shimmer", at: f(s.from), volume: 0.35 });
     else if (tr === "fade") cues.push({ sfx: "whoosh", at: f(s.from) - 3, volume: 0.2, playbackRate: 1.2 });
   });
   for (const l of p.layers) {
@@ -335,7 +378,7 @@ export const Animatic: React.FC<AnimaticProps> = (p) => {
     <AbsoluteFill style={{ background: "#000" }}>
       {p.scenes.map((s) => (
         <Sequence key={s.id} from={f(s.from)} durationInFrames={Math.max(1, f(s.to - s.from))} name={`scene ${s.id}`} premountFor={fps}>
-          <PoseScene scene={s} master={p.master} dur={f(s.to - s.from)} labels={p.labels ?? true} />
+          {s.split ? <SplitScene scene={s} master={p.master} dur={f(s.to - s.from)} /> : <PoseScene scene={s} master={p.master} dur={f(s.to - s.from)} labels={p.labels ?? true} />}
         </Sequence>
       ))}
       <Vignette strength={0.35} />
