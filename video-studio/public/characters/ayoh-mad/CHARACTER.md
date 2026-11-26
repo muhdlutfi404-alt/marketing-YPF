@@ -1,6 +1,6 @@
 # AYOH MAD — Master Character Reference (animation)
 
-**Master image:** `master.png` (1254×1254, supplied by the owner 2026-11-26).
+**Master image:** `00-master/master.png` (1254×1254, supplied by the owner 2026-11-26).
 This image is the single source of truth for the character. Every animated scene must match it.
 If a new pose/expression image does not match it, it is NOT used.
 
