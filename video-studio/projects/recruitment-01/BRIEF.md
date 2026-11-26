@@ -32,7 +32,7 @@ Section "2. Arahan Editing Untuk Claude" was cut off in the recording (only "Say
 | 10 | P8 hulur tangan | job cards appear |
 | 11 | end card | official logo + how to apply |
 
-## Job details — FROM THE OWNER'S POSTERS (to be confirmed before use)
+## Job details — FROM THE OWNER'S POSTERS (CONFIRMED by owner 2026-11-26: "ada kan tu")
 Posters are reference only: they show the AI-drawn cow logo (not official) and a different man (not Ayoh Mad) → not used as visuals.
 
 **Pembantu Bahagian Operasi**
@@ -54,7 +54,8 @@ Posters are reference only: they show the AI-drawn cow logo (not official) and a
 - [x] Voice-over recording — received 2026-11-26 (SVID_20261126_183014_1.mp4, speech 6.5–61.4 s, −15.5 LUFS, no clipping, room noise ≈ −37 dBFS). Timed lines: `vo-transcript.json`.
 - [ ] Full "Arahan Editing Untuk Claude" text
 - [ ] Official logo file
-- [ ] Confirm job details above + application channel + which title
+- [x] Job details confirmed (owner's two posters)
+- [ ] Application channel (posters only say "Hantar maklumat ringkas anda sekarang!") + which title
 
 ## Editing reference (owner, 2026-11-26) — Drive folder 1IUj…, file SVID_20261126_170236_1.mp4
 Screen recording of two TikTok creator videos (DausDK): (1) cartoon-avatar explainer, (2) talking head + fast B-roll.

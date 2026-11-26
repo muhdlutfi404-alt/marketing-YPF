@@ -69,7 +69,7 @@ layers = [
   hook("awak", L(11)[0], L(11)[1] + 0.3, [{"text": "mungkin orang itu", "size": "s"}, {"text": "awak", "size": "xl", "style": "gold"}], [L(11)[0] + 0.1, kw("awak", L(11)[0])]),
   hook("jom", kw("jom", L(13)[0] - 0.3) - 0.1, L(13)[1] + 0.2, [{"text": "jom sertai", "size": "l", "style": "gold"}, {"text": "perjalanan Ya Pakcik Frozen", "size": "s"}], [kw("jom", L(13)[0] - 0.3), kw("perjalanan", L(13)[0] - 0.3)]),
   hook("bersama", kw("kita", L(14)[0] - 0.3), L(14)[1] + 0.6, [{"text": "kita bina sesuatu yang lebih besar", "size": "s"}, {"text": "bersama-sama", "size": "l", "style": "gold"}], [kw("kita", L(14)[0] - 0.3), kw("bersama", L(14)[0])]),
-  {"id": "jobs", "from": JOBS_AT, "dur": round(END_AT - JOBS_AT, 3), "kind": "jobs", "props": {"at": [0.6, 3.6], "jobs": [
+  {"id": "jobs", "from": JOBS_AT, "dur": round(END_AT - JOBS_AT, 3), "kind": "jobs", "props": {"confirmed": True, "at": [0.6, 3.6], "jobs": [
      {"title": "PEMBANTU OPERASI", "points": ["Gaji basic RM50 – RM60 sehari", "7:30 pagi – 2:30 petang", "Urus stok frozen & delivery sekitar Tumpat", "Lelaki · umur 20–35 · lesen memandu"]},
      {"title": "TEAM SALES", "sub": "(BERPENGALAMAN)", "points": ["Gaji basic + komisen bulanan", "Pengalaman jualan min. 2 tahun", "Cari & jaga pelanggan kedai makan", "Lelaki · umur 20–35 · lesen memandu"]}]}},
   {"id": "end", "from": END_AT, "dur": 5.0, "kind": "endcard-placeholder", "props": {"headline": "JOM SERTAI KAMI", "apply": "CARA MEMOHON: MENUNGGU PENGESAHAN"}},

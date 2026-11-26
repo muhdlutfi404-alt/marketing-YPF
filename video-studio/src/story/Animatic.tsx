@@ -184,7 +184,7 @@ const Card: React.FC<{ dur: number; kind: string; props: Record<string, any> }> 
       <AbsoluteFill style={{ opacity: out }}>
         <div style={{ position: "absolute", top: 150, width: 1080, textAlign: "center", opacity: inP }}>
           <div style={{ fontFamily: H, fontWeight: 700, fontSize: 34, letterSpacing: 8, color: YPF.ice }}>KAMI MENCARI</div>
-          <div style={{ marginTop: 10 }}>{pending("MAKLUMAT MENUNGGU PENGESAHAN")}</div>
+          {props.confirmed ? null : <div style={{ marginTop: 10 }}>{pending("MAKLUMAT MENUNGGU PENGESAHAN")}</div>}
         </div>
         {jobs.map((j, i) => {
           const at = Math.round((props.at?.[i] ?? i * 2.5) * fps);
