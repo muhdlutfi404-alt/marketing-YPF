@@ -47,8 +47,9 @@ ART = {1: ("pose-01-buka-gerai-cut.png", 1199 / 971, (0.37, 0.25), (0.80, 0.40))
        6: ("pose-06-senyum-yakin-cut.png", 1254 / 928, (0.49, 0.20), (0.60, 0.82)), 7: ("pose-07-tunjuk-cut.png", 1254 / 928, (0.52, 0.23), (0.36, 0.64)),
        8: ("pose-08-hulur-tangan-cut.png", 1254 / 928, (0.53, 0.20), (0.31, 0.77))}
 scenes, layers = [], []
-PLATE = {"dawn": "generated/recruitment-01/dawn-market.png", "morning": "generated/recruitment-01/morning-stall.png", "day": "generated/recruitment-01/day-market.png",
-         "night": "generated/recruitment-01/night-stall.png", "dusk": "generated/recruitment-01/dusk-market.png"}
+# reviewed plates only (morning-stall and dusk-market were rejected: invented products / AI artifact)
+PLATE = {"dawn": "generated/recruitment-01/dawn-market.png", "morning": "generated/recruitment-01/day-market.png", "day": "generated/recruitment-01/day-market.png",
+         "night": "generated/recruitment-01/night-stall.png", "dusk": "generated/recruitment-01/dawn-market.png"}
 GRADE_NOW = ["present"]
 def mk(a, b, pose, frame, bg, trans="cut", punch=None, grade=None):
     d = {"id": f"v{len(scenes)+1}", "from": round(a, 3), "to": round(b, 3), "pose": pose, "bg": bg, "frame": frame, "cut": True, "trans": trans, "push": 0.018, "character": pose is not None,
@@ -114,11 +115,12 @@ text(kw("membantu", l8) - 0.1, L(11)[0] - 0.05, [{"text": "tingkatkan", "size": 
 # 7 · JEMPUTAN — "Mungkin orang itu adalah awak."
 l11 = L(11)[0]
 shot(l11, kw("awak", l11) - 0.05, 7, "medium", "day", "whip")
-shot(kw("awak", l11) - 0.05, L(12)[0], 7, "face", "day", "iris", punch=0.06)
-text(kw("mungkin", l11), L(12)[0] - 0.05, [{"text": "mungkin orang itu", "size": "s"}, {"text": "awak", "size": "xl", "style": "gold"}], [kw("mungkin", l11), kw("awak", l11)], y=100, h=360)
+AWAK_END = L(12)[0] + 0.5   # hold the "AWAK" close-up a little into the next line (J-cut) so the moment lands
+shot(kw("awak", l11) - 0.05, AWAK_END, 7, "face", "day", "iris", punch=0.06)
+text(kw("mungkin", l11), AWAK_END - 0.05, [{"text": "mungkin orang itu", "size": "s"}, {"text": "awak", "size": "xl", "style": "gold"}], [kw("mungkin", l11), kw("awak", l11)], y=100, h=360)
 #   "Kalau awak rasa awak orang yang kami cari, jom sertai perjalanan Ya Pakcik Frozen."
 l12 = L(12)[0]
-shot(l12, kw("jom", l12) - 0.1, 8, "medium", "day", "zoom")
+shot(AWAK_END, kw("jom", l12) - 0.1, 8, "medium", "day", "zoom")
 shot(kw("jom", l12) - 0.1, L(14)[0], 8, "face", "day", punch=0.04)
 text(kw("jom", l12) - 0.1, L(14)[0] - 0.05, [{"text": "jom sertai", "size": "l", "style": "gold"}, {"text": "perjalanan Ya Pakcik Frozen", "size": "s"}], [kw("jom", l12), kw("perjalanan", l12)])
 #   "Kita bina sesuatu yang lebih besar, bersama-sama."

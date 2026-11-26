@@ -1,0 +1,62 @@
+{
+ "dawn-market": {
+  "file": "generated/recruitment-01/dawn-market.png",
+  "prompt": "empty covered wet market hall in Malaysia at dawn, white tiled stall counters, steel roof beams, soft blue and orange sunrise light coming through open sides, quiet atmosphere, digital painting, semi-realistic illustration, cinematic lighting, shallow depth of field",
+  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+  "seed": 11,
+  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "license": "CreativeML OpenRAIL-M",
+  "kind": "AI-generated background (supporting visual, not real footage)",
+  "created": "2026-11-26T22:13:54",
+  "reviewed": true,
+  "reviewNote": "OK: empty hall, no people/text/products. Used for dawn and (warm-graded) dusk."
+ },
+ "morning-stall": {
+  "file": "generated/recruitment-01/morning-stall.png",
+  "prompt": "empty frozen food stall area inside a covered market, bright morning daylight, white chest freezers, white tiles, clean, digital painting, semi-realistic illustration, soft background blur",
+  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+  "seed": 21,
+  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "license": "CreativeML OpenRAIL-M",
+  "kind": "AI-generated background (supporting visual, not real footage)",
+  "created": "2026-11-26T22:17:39",
+  "reviewed": false,
+  "reviewNote": "REJECTED: shows invented products in the freezers (rule: never show AI products)."
+ },
+ "night-stall": {
+  "file": "generated/recruitment-01/night-stall.png",
+  "prompt": "empty market stall at night, one warm hanging lamp, deep blue shadows, closed shutters, quiet and lonely mood, digital painting, semi-realistic illustration, cinematic",
+  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+  "seed": 31,
+  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "license": "CreativeML OpenRAIL-M",
+  "kind": "AI-generated background (supporting visual, not real footage)",
+  "created": "2026-11-26T22:21:28",
+  "reviewed": true,
+  "reviewNote": "OK after darkening: daylight render, used only with the night grade (brightness down)."
+ },
+ "dusk-market": {
+  "file": "generated/recruitment-01/dusk-market.png",
+  "prompt": "open-sided market hall at sunset, golden orange and purple sky, long shadows across empty tiled floor, reflective mood, digital painting, semi-realistic illustration, cinematic",
+  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+  "seed": 41,
+  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "license": "CreativeML OpenRAIL-M",
+  "kind": "AI-generated background (supporting visual, not real footage)",
+  "created": "2026-11-26T22:25:14",
+  "reviewed": false,
+  "reviewNote": "REJECTED: AI artifact \u2014 the image repeats itself vertically."
+ },
+ "day-market": {
+  "file": "generated/recruitment-01/day-market.png",
+  "prompt": "bright covered market hall in daytime, clean white tiled counters, soft natural daylight, steel roof, digital painting, semi-realistic illustration, blurred background, hopeful mood",
+  "negative": "people, person, man, woman, face, hands, body, crowd, food, meat, dish, product, package, box, bottle, text, letters, watermark, logo, signage, brand, lowres, blurry, deformed, jpeg artifacts",
+  "seed": 51,
+  "model": "stable-diffusion-v1-5/stable-diffusion-v1-5",
+  "license": "CreativeML OpenRAIL-M",
+  "kind": "AI-generated background (supporting visual, not real footage)",
+  "created": "2026-11-26T22:29:00",
+  "reviewed": true,
+  "reviewNote": "OK: empty market hall, no people/text/products."
+ }
+}

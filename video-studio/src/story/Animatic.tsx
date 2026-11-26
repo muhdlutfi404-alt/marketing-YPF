@@ -191,12 +191,12 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; l
   const placeholder = !scene.image;
   const light = scene.bg === "morning" || scene.bg === "day";
   return (
-    <AbsoluteFill style={{ opacity: Math.min(tIn, fadeOut), filter: [scene.grade ? GRADE[scene.grade] : "", tIn < 1 || whip > 0 || ramp > 0 ? `blur(${(1 - tIn) * 10 + whip * 14 + ramp * 8}px)` : ""].join(" ").trim() || undefined, transform: tIn < 1 ? `translateX(${(1 - tIn) * 60}px)` : whip > 0 ? `translateX(${whip * 1080}px)` : ramp > 0 ? `scale(${1 + ramp * 0.35})` : undefined, clipPath: iris < 1 ? `circle(${iris * 120}% at 50% 42%)` : undefined }}>
+    <AbsoluteFill style={{ opacity: Math.min(tIn, fadeOut), filter: [scene.grade ? GRADE[scene.grade] : "", tIn < 1 || whip > 0 || ramp > 0 ? `blur(${(1 - tIn) * 10 + whip * 14 + ramp * 8}px)` : ""].join(" ").trim() || undefined, transform: tIn < 1 ? `translateX(${(1 - tIn) * 60}px)` : whip > 0 ? `translateX(${whip * 1080}px)` : ramp > 0 ? `scale(${1 + ramp * 0.35})` : undefined }}>
       <AbsoluteFill style={{ background: BG[scene.bg] }} />
       {scene.plate ? (
         // painted plate, softly out of focus, moving slower than the character (parallax depth)
         <AbsoluteFill style={{ transform: `translate(${tx * -0.04}px, ${ty * -0.03}px) scale(${1.08 + (z - 1) * 0.18 + frame * 0.0004})`, transformOrigin: "50% 55%" }}>
-          <Img src={resolveMedia(scene.plate)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: `blur(${isWide ? 3 : 7}px) brightness(0.92)` }} />
+          <Img src={resolveMedia(scene.plate)} style={{ width: "100%", height: "100%", objectFit: "cover", filter: `blur(${isWide ? 3 : 7}px) ${scene.bg === "night" ? "brightness(0.42) saturate(0.7) hue-rotate(10deg)" : scene.bg === "dusk" ? "brightness(0.8) sepia(0.45) saturate(1.3) hue-rotate(-12deg)" : scene.bg === "dawn" ? "brightness(0.85) sepia(0.25) saturate(1.1)" : "brightness(0.92)"}` }} />
         </AbsoluteFill>
       ) : (
         <SetLayer bg={scene.bg} z={z} frame={frame} />
@@ -219,6 +219,8 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; l
       ) : null}
       {scene.character !== false ? <LightLayer bg={scene.bg} frame={frame} dur={dur} /> : null}
       {flash > 0 ? <AbsoluteFill style={{ background: "#fff", opacity: flash }} /> : null}
+      {/* iris reveal as an overlay (a clip-path on the scaled art makes Chrome rasterise it soft) */}
+      {iris < 1 ? <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 42%, rgba(0,0,0,0) ${iris * 115}%, #04101f ${iris * 115 + 0.5}%)` }} /> : null}
       {labels && scene.pose ? (
         <>
           <div style={{ position: "absolute", top: 70, left: 40, display: "flex", alignItems: "center", gap: 12 }}>
