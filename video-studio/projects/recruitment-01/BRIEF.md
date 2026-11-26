@@ -55,7 +55,7 @@ Posters are reference only: they show the AI-drawn cow logo (not official) and a
 - [ ] Full "Arahan Editing Untuk Claude" text
 - [ ] Official logo file
 - [x] Job details confirmed (owner's two posters)
-- [ ] Application channel (posters only say "Hantar maklumat ringkas anda sekarang!") + which title
+- [x] Application: WhatsApp 016-723 7170 (owner 2026-11-26) · Title: "Di Sebalik Perjalanan Seorang Usahawan"
 
 ## Editing reference (owner, 2026-11-26) — Drive folder 1IUj…, file SVID_20261126_170236_1.mp4
 Screen recording of two TikTok creator videos (DausDK): (1) cartoon-avatar explainer, (2) talking head + fast B-roll.
@@ -74,3 +74,10 @@ Not copied: the creator's character, artwork, layout or brand.
 4. Title: **"DI SEBALIK PERJALANAN SEORANG USAHAWAN"**. Script 60–90 s, no invented facts → draft `SKRIP-v2-DRAF.md` for owner review before final recording.
 5. Jobs (on-screen): Pembantu Operasi — RM50–60/hari, 7:30–2:30, lelaki 20–35, lesen kereta/motosikal, sediakan barang & penghantaran sekitar Tumpat. Team Sales — gaji basic (rate NOT stated), komisen bulanan, utamakan berpengalaman, fokus pelanggan baharu & jualan.
 6. Workflow: poses → review each → fix → script → animatic + VO review → job info → final render only after approval.
+
+## Owner notes 2026-11-26 (2)
+- Every pose image is reviewed against master BEFORE it goes into the animatic.
+- Owner reviews the whole v2 script before recording a new VO.
+- Tone: natural, honest, touching — **not salesy**. (Script v2.1: job details on screen with music only, not in the narration.)
+- Keep the owner's real voice and Kelantan accent.
+- Final render only after assets, script, audio and job info are all approved.

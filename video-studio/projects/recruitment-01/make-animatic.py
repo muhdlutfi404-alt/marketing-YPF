@@ -72,7 +72,7 @@ layers = [
   {"id": "jobs", "from": JOBS_AT, "dur": round(END_AT - JOBS_AT, 3), "kind": "jobs", "props": {"confirmed": True, "at": [0.6, 3.6], "jobs": [
      {"title": "PEMBANTU OPERASI", "points": ["Gaji RM50 – RM60 sehari", "7:30 pagi – 2:30 petang", "Lelaki · umur 20–35", "Lesen kereta atau motosikal", "Sediakan barang & penghantaran sekitar Tumpat"]},
      {"title": "TEAM SALES", "points": ["Gaji basic", "Komisen setiap bulan", "Utamakan calon berpengalaman", "Fokus pelanggan baharu & tingkatkan jualan"]}]}},
-  {"id": "end", "from": END_AT, "dur": 5.0, "kind": "endcard-placeholder", "props": {"headline": "JOM SERTAI KAMI", "apply": "CARA MEMOHON: MENUNGGU PENGESAHAN"}},
+  {"id": "end", "from": END_AT, "dur": 5.0, "kind": "endcard-placeholder", "props": {"headline": "JOM SERTAI KAMI", "apply": "WHATSAPP 016-723 7170"}},
 ]
 # list reveal times from the spoken words
 for l in layers:
