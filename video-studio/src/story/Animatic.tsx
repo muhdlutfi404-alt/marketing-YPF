@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { AbsoluteFill, Img, interpolate, Sequence, useCurrentFrame, useVideoConfig, type CalculateMetadataFunction } from "remotion";
+import { AbsoluteFill, Easing, Img, interpolate, Sequence, useCurrentFrame, useVideoConfig, type CalculateMetadataFunction } from "remotion";
 import { Audio } from "@remotion/media";
 import { FONT_STACKS } from "../shared/fonts";
 import { MusicBed } from "../shared/audio/MusicBed";
@@ -38,6 +38,10 @@ export type AnimaticScene = {
   frame?: "wide" | "medium" | "face" | "hands";
   /** hard cut with a small punch instead of a fade (shots of the same scene) */
   cut?: boolean;
+  /** transition INTO this shot: hard cut (default when cut), quick whip-slide, or white flash */
+  trans?: "cut" | "whip" | "flash";
+  /** extra punch-in on this cut (emphasis), 0 = none */
+  punch?: number;
   /** width/height of the art (for framing maths); default 1 (master) */
   aspect?: number;
   /** focus points on the art (0–1 of the image): face / hands; default = master avatar */
@@ -154,9 +158,12 @@ const LightLayer: React.FC<{ bg: AnimaticScene["bg"]; frame: number; dur: number
 const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; labels: boolean }> = ({ scene, master, dur, labels }) => {
   const frame = useCurrentFrame();
   // scene transitions: soft slide + blur in, fade out; cuts inside a scene: hard cut with a small punch
-  const tIn = scene.cut ? 1 : interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
-  const fadeOut = scene.cut ? 1 : interpolate(frame, [dur - 10, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
-  const punch = scene.cut ? 1 + 0.06 * Math.max(0, 1 - frame / 6) : 1;
+  const trans = scene.trans ?? (scene.cut ? "cut" : "fade");
+  const tIn = trans === "fade" ? interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" }) : 1;
+  const fadeOut = trans === "fade" && !scene.cut ? interpolate(frame, [dur - 10, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) : 1;
+  const whip = trans === "whip" ? interpolate(frame, [0, 5], [1, 0], { extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) }) : 0;
+  const flash = trans === "flash" ? interpolate(frame, [0, 5], [1, 0], { extrapolateRight: "clamp" }) : 0;
+  const punch = 1 + (scene.punch ?? (scene.cut ? 0.03 : 0)) * Math.max(0, 1 - frame / 6);
   const push = (1 + (scene.push ?? 0.04) * (frame / Math.max(1, dur))) * punch;
   const breathe = 1 + 0.005 * Math.sin(frame / 22);
   const fr = FRAMES[scene.frame ?? "wide"];
@@ -174,7 +181,7 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; l
   const placeholder = !scene.image;
   const light = scene.bg === "morning" || scene.bg === "day";
   return (
-    <AbsoluteFill style={{ opacity: Math.min(tIn, fadeOut), filter: tIn < 1 ? `blur(${(1 - tIn) * 10}px)` : undefined, transform: tIn < 1 ? `translateX(${(1 - tIn) * 60}px)` : undefined }}>
+    <AbsoluteFill style={{ opacity: Math.min(tIn, fadeOut), filter: tIn < 1 || whip > 0 ? `blur(${(1 - tIn) * 10 + whip * 14}px)` : undefined, transform: tIn < 1 ? `translateX(${(1 - tIn) * 60}px)` : whip > 0 ? `translateX(${whip * 1080}px)` : undefined }}>
       <AbsoluteFill style={{ background: BG[scene.bg] }} />
       <AbsoluteFill style={{ background: GLOW[scene.bg] }} />
       <SetLayer bg={scene.bg} z={z} frame={frame} />
@@ -194,6 +201,7 @@ const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; l
         </AbsoluteFill>
       ) : null}
       {scene.character !== false ? <LightLayer bg={scene.bg} frame={frame} dur={dur} /> : null}
+      {flash > 0 ? <AbsoluteFill style={{ background: "#fff", opacity: flash }} /> : null}
       {labels && scene.pose ? (
         <>
           <div style={{ position: "absolute", top: 70, left: 40, display: "flex", alignItems: "center", gap: 12 }}>
@@ -246,12 +254,12 @@ const Card: React.FC<{ dur: number; kind: string; props: Record<string, any> }> 
           const at = Math.round((props.at?.[i] ?? i * 2.5) * fps);
           const p = interpolate(frame - at, [0, 14], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
           return (
-            <div key={i} style={{ position: "absolute", top: 330 + i * 640, left: 60, right: 60, opacity: p, transform: `translateX(${(1 - p) * (i ? 120 : -120)}px)`, borderRadius: 34, padding: "34px 40px", background: "linear-gradient(180deg, rgba(205,238,255,0.16), rgba(205,238,255,0.05))", border: `3px solid ${i ? YPF.gold : YPF.ice}` }}>
-              <div style={{ fontFamily: H, fontWeight: 900, fontSize: 66, color: "#fff", lineHeight: 1 }}>{j.title}</div>
+            <div key={i} style={{ position: "absolute", top: 300 + i * (props.big ? 760 : 640), left: 50, right: 50, opacity: p, transform: `translateX(${(1 - p) * (i ? 120 : -120)}px)`, borderRadius: 36, padding: props.big ? "40px 46px" : "34px 40px", background: "linear-gradient(180deg, rgba(205,238,255,0.16), rgba(205,238,255,0.05))", border: `3px solid ${i ? YPF.gold : YPF.ice}` }}>
+              <div style={{ fontFamily: H, fontWeight: 900, fontSize: props.big ? 80 : 66, color: "#fff", lineHeight: 1 }}>{j.title}</div>
               {j.sub ? <div style={{ fontFamily: H, fontWeight: 800, fontSize: 38, color: YPF.gold, marginTop: 6 }}>{j.sub}</div> : null}
-              <div style={{ marginTop: 22, display: "grid", gap: 12 }}>
+              <div style={{ marginTop: props.big ? 26 : 22, display: "grid", gap: props.big ? 16 : 12 }}>
                 {j.points.map((pt, k) => (
-                  <div key={k} style={{ display: "flex", gap: 14, alignItems: "flex-start", fontFamily: H, fontWeight: 600, fontSize: 34, color: "#fff", opacity: interpolate(frame - at - 8 - k * 6, [0, 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
+                  <div key={k} style={{ display: "flex", gap: 14, alignItems: "flex-start", fontFamily: H, fontWeight: 700, fontSize: props.big ? 42 : 34, lineHeight: 1.15, color: "#fff", opacity: interpolate(frame - at - 6 - k * 3, [0, 10], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) }}>
                     <span style={{ color: YPF.gold, fontWeight: 900 }}>✓</span>
                     <span>{pt}</span>
                   </div>
@@ -302,9 +310,16 @@ export const Animatic: React.FC<AnimaticProps> = (p) => {
     const words: TimelineWord[] = p.words.map((w) => ({ text: w.text, start: w.start, end: w.end, t0: w.start, t1: w.end, norm: w.text.toLowerCase().replace(/[^\p{L}\p{N}-]/gu, ""), shot: "vo", clip: "vo" }));
     return buildCaptionPages(words, { maxWords: 3, maxChars: 20, maxPageSec: 1.6 });
   }, [p.words]);
-  const hideCaps = p.layers.filter((l) => l.kind === "title" || l.kind === "jobs" || l.kind === "endcard-placeholder").map((l) => ({ from: l.from, to: l.from + l.dur }));
+  // captions step aside while a graphic already shows the same spoken words big on screen
+  const hideCaps = p.layers.filter((l) => l.kind === "title" || l.kind === "jobs" || l.kind === "endcard-placeholder" || l.kind === "icon" || l.props?.hideCaptions).map((l) => ({ from: l.from, to: l.from + l.dur }));
   const cues: SfxCue[] = [];
-  p.scenes.forEach((s, i) => i > 0 && cues.push(s.cut ? { sfx: "click", at: f(s.from), volume: 0.3, playbackRate: 0.9 } : { sfx: "whoosh", at: f(s.from) - 3, volume: 0.25, playbackRate: 1.2 }));
+  p.scenes.forEach((s, i) => {
+    if (i === 0) return;
+    const tr = s.trans ?? (s.cut ? "cut" : "fade");
+    if (tr === "whip") cues.push({ sfx: "whoosh", at: f(s.from) - 2, volume: 0.3, playbackRate: 1.4 });
+    else if (tr === "flash") cues.push({ sfx: "impact", at: f(s.from), volume: 0.35, playbackRate: 1.3 });
+    else if (tr === "fade") cues.push({ sfx: "whoosh", at: f(s.from) - 3, volume: 0.2, playbackRate: 1.2 });
+  });
   for (const l of p.layers) {
     if (["title", "jobs", "endcard-placeholder"].includes(l.kind)) {
       cues.push({ sfx: l.kind === "jobs" ? "riser" : "shimmer", at: Math.max(0, f(l.from) - (l.kind === "jobs" ? 30 : 0)), volume: 0.3 });

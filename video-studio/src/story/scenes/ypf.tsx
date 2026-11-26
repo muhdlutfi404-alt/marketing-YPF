@@ -78,6 +78,18 @@ const Shine: React.FC<{ at: number; children: React.ReactNode }> = ({ at, childr
   );
 };
 
+/** word gets crossed out (red line draws through it) */
+const Strike: React.FC<{ at: number; children: React.ReactNode }> = ({ at, children }) => {
+  const frame = useCurrentFrame();
+  const q = interpolate(frame - at, [0, 8], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  return (
+    <span style={{ position: "relative", display: "inline-block", opacity: 1 - 0.45 * q }}>
+      {children}
+      <span style={{ position: "absolute", left: "-4%", top: "48%", height: "0.12em", width: `${108 * q}%`, background: YPF.red, borderRadius: 8, transform: "rotate(-4deg)" }} />
+    </span>
+  );
+};
+
 /** region above the presenter window (split) or the whole frame */
 const Region: React.FC<{ split: boolean; dur: number; children: React.ReactNode }> = ({ split, dur, children }) => {
   const frame = useCurrentFrame();
@@ -251,7 +263,7 @@ const HookScene: React.FC<SceneProps> = ({ rv, props, split }) => {
               textShadow: w.style === "gold" || w.style === "ice" ? undefined : "0 6px 30px rgba(0,0,0,0.45)",
             }}
           >
-            {w.style === "gold" ? <Shine at={(rv[i] ?? 0) + 6}>{w.text}</Shine> : w.text}
+            {w.style === "gold" ? <Shine at={(rv[i] ?? 0) + 6}>{w.text}</Shine> : w.style === "strike" ? <Strike at={(rv[i] ?? 0) + 10}>{w.text}</Strike> : w.text}
           </div>
         </Pop>
       ))}
@@ -975,12 +987,121 @@ const DeliveryScene: React.FC<SceneProps> = ({ rv, props }) => {
   );
 };
 
+
+/* ───────────── icon beats (full-screen motion-graphic explainers, one idea each) ───────────── */
+const Person: React.FC<{ x: number; y: number; s?: number; c?: string; o?: number }> = ({ x, y, s = 1, c = YPF.ice, o = 1 }) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`} opacity={o}>
+    <circle cx={0} cy={-62} r={26} fill={c} />
+    <path d="M -42 40 C -42 -6, -22 -26, 0 -26 C 22 -26, 42 -6, 42 40 Z" fill={c} />
+  </g>
+);
+const IconBeat: React.FC<SceneProps> = ({ props, dur }) => {
+  const frame = useCurrentFrame();
+  const p = useP(0, 14, 12);
+  const t = (a: number, b: number) => interpolate(frame, [a, b], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) });
+  const icon: string = props.icon;
+  const CX = 540, CY = 760;
+  let art: React.ReactNode = null;
+  if (icon === "chat") {
+    art = (
+      <g>
+        <rect x={CX - 120} y={CY - 230} width={240} height={430} rx={36} fill="#14233d" stroke="#fff" strokeWidth={8} />
+        <rect x={CX - 100} y={CY - 190} width={200} height={340} rx={16} fill="#0d1a2e" />
+        {[0, 1, 2].map((k) => {
+          const q = t(4 + k * 6, 12 + k * 6);
+          const left = k % 2 === 0;
+          return <rect key={k} x={left ? CX - 88 : CX - 8} y={CY - 170 + k * 100} width={96 * q} height={64} rx={20} fill={left ? YPF.ice : "#25d366"} opacity={q} />;
+        })}
+        <circle cx={CX + 110} cy={CY - 220} r={34 * t(18, 24)} fill={YPF.red} />
+      </g>
+    );
+  } else if (icon === "box") {
+    art = (
+      <g>
+        {[0, 1, 2, 3, 4, 5].map((k) => {
+          const col = k % 3, row = Math.floor(k / 3);
+          const q = t(k * 3, k * 3 + 8);
+          return (
+            <g key={k} transform={`translate(${CX - 210 + col * 140} ${CY + 60 - row * 120 - (1 - q) * 160})`} opacity={q}>
+              <rect x={0} y={0} width={130} height={110} rx={8} fill="#c8955a" stroke="#fff" strokeWidth={5} />
+              <rect x={56} y={0} width={18} height={110} fill="#e9c48f" />
+            </g>
+          );
+        })}
+      </g>
+    );
+  } else if (icon === "van") {
+    const x = interpolate(frame, [0, 14, dur - 8, dur], [-700, 0, 10, 900], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.inOut(Easing.cubic) });
+    art = (
+      <g transform={`translate(${CX - 250 + x} ${CY - 150})`}>
+        {[0, 1, 2].map((k) => <line key={k} x1={-90 - k * 26} y1={110 + k * 46} x2={-20} y2={110 + k * 46} stroke={YPF.ice} strokeWidth={8} strokeLinecap="round" opacity={0.7} />)}
+        <rect x={0} y={60} width={320} height={170} rx={18} fill="#f4f8fc" stroke="#fff" strokeWidth={5} />
+        <path d="M 320 110 L 410 110 L 470 170 L 470 230 L 320 230 Z" fill={YPF.blue} stroke="#fff" strokeWidth={5} />
+        <path d="M 340 125 L 400 125 L 440 168 L 340 168 Z" fill={YPF.ice} />
+        {[100, 390].map((cx) => <g key={cx} transform={`translate(${cx} 238) rotate(${frame * 16})`}><circle r={36} fill="#2b2f36" stroke="#fff" strokeWidth={5} /><line x1={-26} y1={0} x2={26} y2={0} stroke="#c7ced8" strokeWidth={5} /></g>)}
+      </g>
+    );
+  } else if (icon === "search") {
+    const sx = interpolate(frame, [0, dur], [-160, 160]);
+    art = (
+      <g>
+        {[-220, -75, 75, 220].map((x, k) => <Person key={k} x={CX + x} y={CY + 60} s={1.1} c={Math.abs(sx - x) < 70 ? YPF.gold : "rgba(205,238,255,0.55)"} />)}
+        <g transform={`translate(${CX + sx} ${CY - 20})`}>
+          <circle r={95} fill="rgba(255,255,255,0.08)" stroke="#fff" strokeWidth={14} />
+          <line x1={66} y1={66} x2={150} y2={150} stroke="#fff" strokeWidth={22} strokeLinecap="round" />
+        </g>
+      </g>
+    );
+  } else if (icon === "growth") {
+    const q = t(0, 18);
+    art = (
+      <g>
+        {[0, 1, 2, 3].map((k) => { const h = (80 + k * 70) * t(k * 3, k * 3 + 10); return <rect key={k} x={CX - 230 + k * 120} y={CY + 170 - h} width={90} height={h} rx={10} fill={k === 3 ? YPF.gold : "rgba(205,238,255,0.6)"} />; })}
+        <path d={`M ${CX - 250} ${CY + 60} L ${CX - 80} ${CY - 10} L ${CX + 40} ${CY + 20} L ${CX + 230} ${CY - 170}`} stroke={YPF.gold} strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray="1" strokeDashoffset={1 - q} />
+        {q > 0.95 ? <path d={`M ${CX + 180} ${CY - 180} L ${CX + 240} ${CY - 180} L ${CX + 240} ${CY - 120}`} stroke={YPF.gold} strokeWidth={14} fill="none" strokeLinecap="round" strokeLinejoin="round" /> : null}
+      </g>
+    );
+  } else if (icon === "solo") {
+    art = (
+      <g>
+        <ellipse cx={CX} cy={CY + 130} rx={220 * p} ry={46 * p} fill="rgba(255,240,200,0.18)" />
+        <path d={`M ${CX - 60} ${CY - 330} L ${CX + 60} ${CY - 330} L ${CX + 230} ${CY + 130} L ${CX - 230} ${CY + 130} Z`} fill="rgba(255,240,200,0.10)" opacity={p} />
+        <Person x={CX} y={CY + 70} s={1.6} c={YPF.ice} />
+      </g>
+    );
+  } else if (icon === "team") {
+    art = (
+      <g>
+        <Person x={CX} y={CY + 70} s={1.6} c={YPF.gold} />
+        {[-1, 1].map((d, k) => { const q = t(6 + k * 4, 18 + k * 4); return <Person key={k} x={CX + d * (420 - 200 * q)} y={CY + 90} s={1.35} c={YPF.ice} o={q} />; })}
+      </g>
+    );
+  } else if (icon === "heart") {
+    const beat = 1 + 0.08 * Math.max(0, Math.sin(frame / 4));
+    art = (
+      <g transform={`translate(${CX} ${CY - 20}) scale(${p * beat})`}>
+        <path d="M 0 120 C -40 80, -170 20, -170 -60 C -170 -130, -90 -160, 0 -90 C 90 -160, 170 -130, 170 -60 C 170 20, 40 80, 0 120 Z" fill={YPF.red} stroke="#fff" strokeWidth={10} />
+      </g>
+    );
+  }
+  return (
+    <AbsoluteFill>
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, overflow: "visible", transform: `translateY(60px) scale(${(0.85 + 0.15 * p) * 1.55})`, transformOrigin: `${CX}px ${CY}px` }}>{art}</svg>
+      <div style={{ position: "absolute", top: CY + 470, width: 1080, textAlign: "center", opacity: Math.min(1, p * 1.3), transform: `translateY(${(1 - p) * 30}px)` }}>
+        <div style={{ fontFamily: HEAD, fontWeight: 900, fontSize: 92, color: YPF.white, letterSpacing: -1, lineHeight: 1, textTransform: "uppercase", padding: "0 60px" }}>{props.label}</div>
+        {props.sub ? <div style={{ fontFamily: HEAD, fontWeight: 800, fontSize: 40, marginTop: 8, ...GOLD_TEXT }}>{props.sub}</div> : null}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
 /* ───────────── dispatcher ───────────── */
 export const YpfScene: React.FC<SceneProps & { map?: (x: number, y: number) => { x: number; y: number; s: number } }> = (sp) => {
   const kind = sp.props.kind as string;
   if (kind === "nametag") return <NameTag {...sp} />;
   if (kind === "labels") return <Labels {...sp} />;
   if (kind === "track") return sp.map ? <TrackCallout {...sp} map={sp.map} /> : null;
+  if (kind === "icon") return <IconBeat {...sp} />;
   const body =
     kind === "hook" ? <HookScene {...sp} /> :
     kind === "chicken" ? <ChickenScene {...sp} /> :
@@ -1059,6 +1180,10 @@ export const sceneSfx = (kind: string, rv: number[], props: Record<string, any>,
     case "delivery":
       out.push({ sfx: "whoosh", at: R(0), volume: 0.4, playbackRate: 0.8 }, { sfx: "shimmer", at: R(1) + 6, volume: 0.45 }, { sfx: "click", at: R(2), volume: 0.45 });
       (props.rows ?? []).forEach((_: unknown, k: number) => out.push({ sfx: "click", at: R(3 + k, R(2) + k * 10), volume: 0.45, playbackRate: 1 + k * 0.08 }));
+      break;
+    case "icon":
+      out.push({ sfx: props.icon === "van" ? "whoosh" : "pop", at: 2, volume: props.icon === "van" ? 0.35 : 0.4, playbackRate: props.icon === "van" ? 0.9 : 1.05 });
+      if (props.icon === "box") for (let k = 0; k < 6; k++) out.push({ sfx: "box", at: k * 3 + 8, volume: 0.2 });
       break;
     case "nametag":
       out.push({ sfx: "whoosh", at: 0, volume: 0.3, playbackRate: 1.6 }, { sfx: "click", at: 8, volume: 0.45 });
