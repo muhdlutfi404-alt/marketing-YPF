@@ -54,12 +54,12 @@ def hook(id, a, b, words_, rv, y=150, h=420):
     return {"id": id, "from": round(a, 3), "dur": round(b - a, 3), "kind": "hook", "rv": [round(x - a, 3) for x in rv], "props": {"y": y, "h": h, "words": words_}}
 layers = [
   {"id": "title", "from": 0.0, "dur": 2.6, "kind": "title", "props": {"line2": "YA PAKCIK FROZEN", "pending": "TAJUK MENUNGGU PENGESAHAN"}},
-  hook("urus-sendiri", kw("urus", L(2)[0]) - 0.2, L(2)[1] + 0.3, [{"text": "urus", "size": "m"}, {"text": "sendiri", "size": "xl", "style": "gold"}], [kw("urus", L(2)[0]), kw("sendiri", L(2)[0])]),
+  hook("urus-sendiri", kw("kena", L(2)[0]) - 0.15, L(2)[1] + 0.3, [{"text": "kena urus", "size": "m"}, {"text": "sendiri", "size": "xl", "style": "gold"}], [kw("kena", L(2)[0]), kw("sendiri", L(2)[0])]),
   {"id": "tugas", "from": L(3)[0], "dur": round(L(3)[1] - L(3)[0] + 0.2, 3), "kind": "list", "split": True,
    "rv": [round(kw(k, L(3)[0]) - L(3)[0], 3) for k in ["urus", "sediakan", "penghantaran", "cari"]] if False else None,
    "props": {"kicker": "semua seorang diri", "items": ["Urus pelanggan", "Sediakan barang", "Penghantaran", "Cari pelanggan baru"], "icons": []}},
   hook("besarkan", kw("fikir", L(4)[0]) - 0.2, L(4)[1] + 0.2, [{"text": "fikir macam mana", "size": "s"}, {"text": "nak besarkan lagi", "size": "m", "style": "gold"}], [kw("fikir", L(4)[0]), kw("besarkan", L(4)[0])]),
-  hook("seorang-diri", kw("seorang", L(5)[0]) - 0.3, L(5)[1] + 0.1, [{"text": "tak boleh selamanya", "size": "s"}, {"text": "seorang diri", "size": "l", "style": "gold"}], [kw("tak", L(5)[0] + 2.0), kw("seorang", L(5)[0])]),
+  hook("seorang-diri", kw("tak", L(5)[0] + 2.0) - 0.2, L(5)[1] + 0.1, [{"text": "tak boleh selamanya", "size": "s"}, {"text": "seorang diri", "size": "l", "style": "gold"}], [kw("tak", L(5)[0] + 2.0), kw("seorang", L(5)[0])]),
   hook("bukan-sekadar", L(6)[0], L(6)[1] + 0.2, [{"text": "bukan sekadar", "size": "s"}, {"text": "mencari pekerja", "size": "m"}], [L(6)[0] + 0.1, kw("mencari", L(6)[0])]),
   hook("dipercayai", kw("seseorang", L(7)[0]) - 0.2, L(7)[1] + 0.3, [{"text": "seseorang yang", "size": "s"}, {"text": "boleh dipercayai", "size": "l", "style": "gold"}], [kw("seseorang", L(7)[0]), kw("dipercayai", L(7)[0])]),
   {"id": "nilai", "from": L(8)[0], "dur": round(L(10)[1] - L(8)[0] + 0.3, 3), "kind": "list", "split": True, "props": {"kicker": "sama-sama", "items": ["Menjaga servis pelanggan", "Meningkatkan jualan", "Membina Ya Pakcik Frozen"], "icons": []}},
