@@ -51,7 +51,7 @@ Posters are reference only: they show the AI-drawn cow logo (not official) and a
 
 ## Still needed
 - [ ] 8 Ayoh Mad pose images (POSES.md) — none received yet
-- [ ] Voice-over recording (owner's real voice)
+- [x] Voice-over recording — received 2026-11-26 (SVID_20261126_183014_1.mp4, speech 6.5–61.4 s, −15.5 LUFS, no clipping, room noise ≈ −37 dBFS). Timed lines: `vo-transcript.json`.
 - [ ] Full "Arahan Editing Untuk Claude" text
 - [ ] Official logo file
 - [ ] Confirm job details above + application channel + which title
