@@ -1,0 +1,57 @@
+# Recruitment animation 01 — "Di Sebalik Perjalanan …"
+
+Status: **collecting materials** (no editing yet). Character: Ayoh Mad (see `public/characters/ayoh-mad/`).
+
+## Voice-over script (owner, from the ChatGPT screen recording 2026-11-26 — to be read in the owner's real voice)
+Title on the script: **"Di Sebalik Perjalanan Ya Pakcik Frozen"** (owner's earlier brief: "Di Sebalik Perjalanan Seorang Usahawan" → owner to choose).
+
+1. Orang nampak Ya Pakcik Frozen hari ini…
+2. Tapi mungkin tak semua tahu betapa susahnya perjalanan untuk sampai ke tahap ini.
+3. Ada masa, semuanya Ayoh Mad kena urus sendiri.
+4. Urus pelanggan, sediakan barang, penghantaran, cari pelanggan baharu… dan dalam masa yang sama fikir macam mana nak besarkan lagi perniagaan ini.
+5. Ayoh Mad sedar, kalau nak pergi lebih jauh, tak boleh selamanya bergerak seorang diri.
+6. Ayoh Mad bukan sekadar mencari pekerja.
+7. Ayoh Mad sedang mencari seseorang yang boleh dipercayai.
+8. Seseorang yang sanggup sama-sama menjaga servis pelanggan, membantu meningkatkan jualan dan membina Ya Pakcik Frozen menjadi sebuah perniagaan yang lebih besar.
+9. Mungkin orang itu adalah awak.
+10. Kalau awak rasa awak orang yang kami cari, jom sertai perjalanan Ya Pakcik Frozen.
+11. Kita bina sesuatu yang lebih besar, bersama-sama.
+
+Section "2. Arahan Editing Untuk Claude" was cut off in the recording (only "Saya cadangkan jangan edit macam video…" visible) → owner to send the full text.
+
+## Storyboard (draft — pose ↔ line)
+| Line | Pose | Visual |
+|---|---|---|
+| 1 | P6 senyum yakin | warm open, title |
+| 2 | P1 subuh buka gerai | quiet dawn, slow push-in |
+| 3 | P2 angkat kotak | effort, small "SEORANG DIRI" type |
+| 4 | P3 bungkus pesanan → P4 malam telefon | task icons pop: pelanggan · barang · penghantaran · pelanggan baharu |
+| 5 | P5 termenung | dusk light, music lifts |
+| 6–8 | P5 → kinetic type | "BOLEH DIPERCAYAI", three values: servis pelanggan · jualan · membina |
+| 9 | P7 tunjuk | "MUNGKIN ORANG ITU… AWAK" |
+| 10 | P8 hulur tangan | job cards appear |
+| 11 | end card | official logo + how to apply |
+
+## Job details — FROM THE OWNER'S POSTERS (to be confirmed before use)
+Posters are reference only: they show the AI-drawn cow logo (not official) and a different man (not Ayoh Mad) → not used as visuals.
+
+**Pembantu Bahagian Operasi**
+- Gaji basic RM50 – RM60 sehari · Waktu operasi 7:30 pagi – 2:30 petang
+- Syarat: lelaki; umur 20–35; lesen memandu kereta dan/atau motosikal (aktif); boleh bekerja dalam pasukan; bertanggungjawab, jujur dan berdisiplin
+- Tugas: bantu proses keluar/masuk stok (frozen); susun & urus stok di stor serta ruang jualan; jaga kebersihan stor & kawasan kerja; sediakan barang & buat delivery sekitar kawasan Tumpat
+- Lokasi: Ya Pakcik Frozen (Tumpat, Kelantan)
+
+**Team Sales (Berpengalaman)**
+- Gaji basic (mengikut pengalaman) + komisen setiap bulan (berdasarkan prestasi jualan)
+- Syarat: lelaki; umur 20–35; pengalaman jualan/sales minimum 2 tahun; lesen memandu kereta/motosikal; mahir berkomunikasi & berunding; boleh bekerja berdikari dan dalam pasukan; faham asas pemasaran digital (FB/TikTok Ads — kelebihan)
+- Tugas: cari pelanggan baru (kedai makan, restoran, mee celup, nasi kerabu, kedai sup dll); jaga & kembangkan pelanggan sedia ada; follow-up order; capai sasaran jualan bulanan (KPI)
+- Kelebihan: komisen menarik; portfolio pelanggan sedia ada; sokongan pemasaran (ads & konten); latihan & bimbingan berterusan; peluang naik pangkat & insentif tambahan
+
+**Cara memohon:** posters say "Berminat? Hantar maklumat ringkas anda sekarang!" — channel not stated → owner to confirm (WhatsApp 016-723 7170?).
+
+## Still needed
+- [ ] 8 Ayoh Mad pose images (POSES.md) — none received yet
+- [ ] Voice-over recording (owner's real voice)
+- [ ] Full "Arahan Editing Untuk Claude" text
+- [ ] Official logo file
+- [ ] Confirm job details above + application channel + which title
