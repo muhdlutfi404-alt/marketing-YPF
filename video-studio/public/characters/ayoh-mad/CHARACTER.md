@@ -18,6 +18,11 @@ Real-footage videos keep the real presenter (owner's standing rule) unless the o
 | Outfit | **Royal-blue crew-neck T-shirt**; left chest: name **LUTFI** in white; right chest: white circular **YPF** logo with snowflake + "YA PAKCIK FROZEN"; small black wireless clip-on mic at the collar |
 | Art style | **Semi-realistic cartoon illustration**: clean dark line art, soft cel shading with gentle gradients, bright natural daylight palette, slight comic-style outlines |
 
+## Logo rule
+The wall sign in `master.png` (cow head + "YA PAKCIK FROZEN") was drawn by AI and is **NOT the official logo** (owner, 2026-11-26).
+Never reuse, crop or redraw it. Use the character cut-out on our own backgrounds, and ask for new poses without that sign.
+Only the official logo file supplied by the owner may be used in videos and promotional material.
+
 ## Context elements (may change per scene)
 - Setting: YaPakCik Frozen stall in a covered market (white tiled counters, roof structure, daylight).
 - Props: real products only as they look in real life (e.g. clear bag of raw chicken). Never invent packaging, labels or prices.
