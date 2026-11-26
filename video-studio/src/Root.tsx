@@ -17,6 +17,7 @@ import { amSampleEpisode } from "./projects/am-sample-episode";
 import { frozenSampleReelBM } from "./projects/frozen-sample-reel-bm";
 import { StoryEdit, calculateStoryMetadata } from "./story/StoryEdit";
 import { sampleBundle } from "./story/sampleBundle";
+import { Animatic, calculateAnimaticMetadata, type AnimaticProps } from "./story/Animatic";
 
 /**
  * THE MENU OF VIDEOS shown in Remotion Studio's left sidebar.
@@ -107,6 +108,18 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={sampleBundle}
           calculateMetadata={calculateStoryMetadata}
           durationInFrames={FPS * 30}
+          fps={FPS}
+          {...FORMATS.vertical}
+        />
+      </Folder>
+      {/* ANIMATION PROJECTS — story & timing animatics (character art + voice-over). */}
+      <Folder name="Animation">
+        <Composition
+          id="Animatic"
+          component={Animatic}
+          defaultProps={{ title: "sample", duration: 3, master: "characters/ayoh-mad/00-master/master-cutout.png", vo: { src: "sfx/pop.mp3", at: 0 }, music: { src: "music/story-documentary-bed.mp3", volume: 0.3, duckTo: 0.2 }, words: [], scenes: [{ id: "s", from: 0, to: 3, pose: 1, bg: "brand" }], layers: [] } as AnimaticProps}
+          calculateMetadata={calculateAnimaticMetadata}
+          durationInFrames={FPS * 3}
           fps={FPS}
           {...FORMATS.vertical}
         />
