@@ -38,6 +38,8 @@ export type AnimaticScene = {
   frame?: "wide" | "medium" | "face" | "hands";
   /** hard cut with a small punch instead of a fade (shots of the same scene) */
   cut?: boolean;
+  /** width/height of the art (for framing maths); default 1 (master) */
+  aspect?: number;
   /** focus points on the art (0–1 of the image): face / hands; default = master avatar */
   focus?: { face?: [number, number]; hands?: [number, number] };
 };
@@ -53,6 +55,10 @@ export type AnimaticProps = {
   layers: AnimaticLayer[];
   cues?: { sfx: string; at: number; volume?: number; playbackRate?: number }[];
   emphasis?: Record<string, "big" | "script">;
+  /** show POSE / PLACEHOLDER labels (animatic) — off for an editing preview */
+  labels?: boolean;
+  /** small corner tag, e.g. "ANIMATIC · DRAF" or "PREVIEW" */
+  tag?: string;
 };
 
 export const calculateAnimaticMetadata: CalculateMetadataFunction<AnimaticProps> = ({ props }) => ({
@@ -97,48 +103,98 @@ const Bokeh: React.FC<{ seed: string; light: boolean }> = ({ seed, light }) => {
   );
 };
 
-// character box on screen (wide framing): 1260×1260, bottom-aligned
-const BOX = { x: -90, y: 660, w: 1260, h: 1260 };
+// character art area on screen (wide framing), bottom-aligned
+const BOX = { x: -210, y: 520, w: 1500, h: 1400 };
 const FRAMES: Record<NonNullable<AnimaticScene["frame"]>, { z: number; target: [number, number]; key: "face" | "hands" | "body" }> = {
   wide: { z: 1, target: [540, 1290], key: "body" },
-  medium: { z: 1.45, target: [540, 1010], key: "body" },
-  face: { z: 2.2, target: [540, 790], key: "face" },
-  hands: { z: 1.9, target: [540, 1160], key: "hands" },
+  medium: { z: 1.35, target: [540, 1020], key: "body" },
+  face: { z: 1.95, target: [540, 800], key: "face" },
+  hands: { z: 1.7, target: [540, 1150], key: "hands" },
 };
-const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number }> = ({ scene, master, dur }) => {
+
+/** simple market-hall silhouettes behind the character, moving slower than the camera (parallax) */
+const SetLayer: React.FC<{ bg: AnimaticScene["bg"]; z: number; frame: number }> = ({ bg, z, frame }) => {
+  const dark = bg === "night" ? "rgba(0,0,0,0.35)" : bg === "dusk" || bg === "dawn" ? "rgba(40,20,50,0.35)" : "rgba(20,45,80,0.18)";
+  const pz = 1 + (z - 1) * 0.22; // background zooms much less than the character → depth
+  const drift = Math.sin(frame / 140) * 18;
+  return (
+    <AbsoluteFill style={{ transform: `translateX(${drift}px) scale(${pz})`, transformOrigin: "50% 60%" }}>
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
+        {/* roof beams */}
+        {[0, 1, 2, 3, 4].map((i) => <line key={`b${i}`} x1={-100 + i * 320} y1={0} x2={240 + i * 260} y2={520} stroke={dark} strokeWidth={14} />)}
+        <rect x={0} y={500} width={1080} height={18} fill={dark} />
+        {/* stall counters / shelves */}
+        {[0, 1, 2, 3].map((i) => (
+          <g key={`s${i}`} opacity={0.9}>
+            <rect x={i * 290 - 40} y={980 + (i % 2) * 40} width={240} height={420} rx={8} fill={dark} />
+            {[0, 1, 2].map((k) => <rect key={k} x={i * 290 - 30} y={1010 + (i % 2) * 40 + k * 110} width={220} height={10} fill="rgba(255,255,255,0.12)" />)}
+          </g>
+        ))}
+      </svg>
+    </AbsoluteFill>
+  );
+};
+
+/** moving light: rays at dawn/dusk, lamp flicker at night, soft sweep by day */
+const LightLayer: React.FC<{ bg: AnimaticScene["bg"]; frame: number; dur: number }> = ({ bg, frame, dur }) => {
+  if (bg === "night")
+    return <AbsoluteFill style={{ background: `radial-gradient(38% 26% at 72% 42%, rgba(255,190,110,${0.28 + 0.05 * Math.sin(frame / 7)}), rgba(255,190,110,0))` }} />;
+  const sweep = interpolate(frame, [0, Math.max(1, dur)], [-30, 130]);
+  const warm = bg === "dawn" || bg === "dusk";
+  return (
+    <>
+      {warm ? (
+        <AbsoluteFill style={{ opacity: 0.55, mixBlendMode: "screen", background: `repeating-conic-gradient(from ${200 + Math.sin(frame / 60) * 4}deg at 50% 78%, rgba(255,200,130,0.22) 0deg 5deg, rgba(255,200,130,0) 5deg 14deg)` }} />
+      ) : null}
+      <AbsoluteFill style={{ mixBlendMode: "soft-light", background: `linear-gradient(110deg, transparent ${sweep - 25}%, rgba(255,255,255,0.35) ${sweep}%, transparent ${sweep + 25}%)` }} />
+    </>
+  );
+};
+
+const PoseScene: React.FC<{ scene: AnimaticScene; master: string; dur: number; labels: boolean }> = ({ scene, master, dur, labels }) => {
   const frame = useCurrentFrame();
-  const fadeIn = scene.cut ? 1 : interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
+  // scene transitions: soft slide + blur in, fade out; cuts inside a scene: hard cut with a small punch
+  const tIn = scene.cut ? 1 : interpolate(frame, [0, 12], [0, 1], { extrapolateRight: "clamp" });
   const fadeOut = scene.cut ? 1 : interpolate(frame, [dur - 10, dur], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   const punch = scene.cut ? 1 + 0.06 * Math.max(0, 1 - frame / 6) : 1;
   const push = (1 + (scene.push ?? 0.04) * (frame / Math.max(1, dur))) * punch;
-  const breathe = 1 + 0.006 * Math.sin(frame / 22);
+  const breathe = 1 + 0.005 * Math.sin(frame / 22);
   const fr = FRAMES[scene.frame ?? "wide"];
-  const fp = fr.key === "face" ? scene.focus?.face ?? [0.48, 0.17] : fr.key === "hands" ? scene.focus?.hands ?? [0.3, 0.66] : [0.5, fr.z > 1 ? 0.36 : 0.5];
+  // where the art sits inside the box (contain, bottom-aligned)
+  const aspect = scene.aspect ?? 1;
+  const iw = Math.min(BOX.w, BOX.h * aspect), ih = iw / aspect;
+  const ix = BOX.x + (BOX.w - iw) / 2, iy = BOX.y + BOX.h - ih;
+  const fp: [number, number] = fr.key === "face" ? scene.focus?.face ?? [0.48, 0.17] : fr.key === "hands" ? scene.focus?.hands ?? [0.3, 0.66] : [0.5, fr.z > 1 ? 0.4 : 0.6];
+  const P = [ix + fp[0] * iw, iy + fp[1] * ih];
   const z = fr.z * push * breathe;
-  const tx = fr.target[0] - BOX.x - fp[0] * BOX.w * z;
-  const ty = fr.target[1] - BOX.y - fp[1] * BOX.h * z;
+  const isWide = (scene.frame ?? "wide") === "wide";
+  const tx = isWide ? 0 : fr.target[0] - P[0] * z;
+  // never show the art's bottom edge (art is cropped at the waist): keep it below the frame
+  const ty = isWide ? 0 : Math.max(fr.target[1] - P[1] * z, 1920 - (iy + ih) * z);
   const placeholder = !scene.image;
   const light = scene.bg === "morning" || scene.bg === "day";
   return (
-    <AbsoluteFill style={{ opacity: Math.min(fadeIn, fadeOut) }}>
+    <AbsoluteFill style={{ opacity: Math.min(tIn, fadeOut), filter: tIn < 1 ? `blur(${(1 - tIn) * 10}px)` : undefined, transform: tIn < 1 ? `translateX(${(1 - tIn) * 60}px)` : undefined }}>
       <AbsoluteFill style={{ background: BG[scene.bg] }} />
       <AbsoluteFill style={{ background: GLOW[scene.bg] }} />
+      <SetLayer bg={scene.bg} z={z} frame={frame} />
       <Bokeh seed={scene.id} light={light} />
       {/* readable text zone at the top */}
       <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(6,24,47,0.62) 0%, rgba(6,24,47,0.35) 22%, rgba(6,24,47,0) 40%)" }} />
       {scene.character !== false ? (
-        <div style={{ position: "absolute", left: BOX.x, top: BOX.y, width: BOX.w, height: BOX.h, transform: (scene.frame ?? "wide") === "wide" ? `scale(${push * breathe})` : `translate(${tx}px, ${ty}px) scale(${z})`, transformOrigin: (scene.frame ?? "wide") === "wide" ? "50% 100%" : "0 0" }}>
+        <AbsoluteFill style={{ transform: isWide ? `scale(${push * breathe})` : `translate(${tx}px, ${ty}px) scale(${z})`, transformOrigin: isWide ? "50% 100%" : "0 0" }}>
           <Img
             src={resolveMedia(scene.image ?? master)}
             style={{
-              width: "100%", height: "100%", objectFit: "contain", objectPosition: "50% 100%",
+              position: "absolute", left: ix, top: iy, width: iw, height: ih,
               // white "sticker" outline (reference style) + scene lighting
               filter: `drop-shadow(0 0 0 #fff) drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(0 18px 30px rgba(0,0,0,0.35))${scene.bg === "night" ? " brightness(0.8) saturate(0.9)" : scene.bg === "dusk" || scene.bg === "dawn" ? " sepia(0.1) saturate(1.05)" : ""}`,
             }}
           />
-        </div>
+        </AbsoluteFill>
       ) : null}
-      {scene.pose ? (
+      {scene.character !== false ? <LightLayer bg={scene.bg} frame={frame} dur={dur} /> : null}
+      {labels && scene.pose ? (
         <>
           <div style={{ position: "absolute", top: 70, left: 40, display: "flex", alignItems: "center", gap: 12 }}>
             <div style={{ fontFamily: FONT_STACKS.montserrat, fontWeight: 900, fontSize: 30, color: "#fff", background: placeholder ? "#ff4d2e" : "#2e9e5b", padding: "6px 16px", borderRadius: 10 }}>POSE {scene.pose}</div>
@@ -210,14 +266,29 @@ const Card: React.FC<{ dur: number; kind: string; props: Record<string, any> }> 
   // end card
   return (
     <AbsoluteFill style={{ opacity: Math.min(inP, out), alignItems: "center" }}>
-      <div style={{ position: "absolute", top: 420, width: 640, height: 300, left: 220, border: "4px dashed rgba(255,255,255,0.7)", borderRadius: 30, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
-        <div style={{ fontFamily: H, fontWeight: 900, fontSize: 44, color: "#fff" }}>LOGO RASMI</div>
-        <div style={{ fontFamily: H, fontWeight: 700, fontSize: 28, color: YPF.ice, marginTop: 8 }}>YaPakCik Frozen · menunggu fail</div>
-      </div>
+      {props.wordmark ? (
+        <div style={{ position: "absolute", top: 470, width: 1080, textAlign: "center", transform: `scale(${0.9 + 0.1 * inP})` }}>
+          <div style={{ fontFamily: H, fontWeight: 900, fontSize: 120, color: "#fff", letterSpacing: -2, lineHeight: 1 }}>YaPakCik</div>
+          <div style={{ fontFamily: H, fontWeight: 800, fontSize: 50, letterSpacing: 22, color: YPF.ice, marginTop: 6 }}>FROZEN</div>
+        </div>
+      ) : (
+        <div style={{ position: "absolute", top: 420, width: 640, height: 300, left: 220, border: "4px dashed rgba(255,255,255,0.7)", borderRadius: 30, display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column" }}>
+          <div style={{ fontFamily: H, fontWeight: 900, fontSize: 44, color: "#fff" }}>LOGO RASMI</div>
+          <div style={{ fontFamily: H, fontWeight: 700, fontSize: 28, color: YPF.ice, marginTop: 8 }}>YaPakCik Frozen · menunggu fail</div>
+        </div>
+      )}
       <div style={{ position: "absolute", top: 820, width: 1080, textAlign: "center" }}>
         <div style={{ fontFamily: H, fontWeight: 900, fontSize: 60, color: "#fff" }}>{props.headline ?? "JOM SERTAI KAMI"}</div>
         <div style={{ fontFamily: H, fontWeight: 700, fontSize: 36, color: YPF.ice, marginTop: 14 }}>Cara memohon:</div>
-        <div style={{ marginTop: 10 }}>{pending(props.apply ?? "MENUNGGU PENGESAHAN")}</div>
+        <div style={{ marginTop: 14 }}>
+          {props.wordmark ? (
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 16, background: "#25d366", padding: "16px 34px", borderRadius: 999, boxShadow: "0 16px 40px rgba(0,0,0,0.35)" }}>
+              <span style={{ fontFamily: H, fontWeight: 900, fontSize: 54, color: "#fff", letterSpacing: 1 }}>{props.apply}</span>
+            </div>
+          ) : (
+            pending(props.apply ?? "MENUNGGU PENGESAHAN")
+          )}
+        </div>
       </div>
     </AbsoluteFill>
   );
@@ -249,7 +320,7 @@ export const Animatic: React.FC<AnimaticProps> = (p) => {
     <AbsoluteFill style={{ background: "#000" }}>
       {p.scenes.map((s) => (
         <Sequence key={s.id} from={f(s.from)} durationInFrames={Math.max(1, f(s.to - s.from))} name={`scene ${s.id}`} premountFor={fps}>
-          <PoseScene scene={s} master={p.master} dur={f(s.to - s.from)} />
+          <PoseScene scene={s} master={p.master} dur={f(s.to - s.from)} labels={p.labels ?? true} />
         </Sequence>
       ))}
       <Vignette strength={0.35} />
@@ -260,7 +331,7 @@ export const Animatic: React.FC<AnimaticProps> = (p) => {
         </Sequence>
       ))}
       <StoryCaptions pages={pages} style={style} variant="bold" uppercase position={0.72} wordGap="0.45em" hiddenRanges={hideCaps} emphasis={p.emphasis ?? {}} />
-      <div style={{ position: "absolute", top: 70, right: 40, fontFamily: FONT_STACKS.montserrat, fontWeight: 900, fontSize: 24, color: "#fff", background: "rgba(6,24,47,0.75)", padding: "6px 14px", borderRadius: 10, letterSpacing: 2 }}>ANIMATIC · DRAF</div>
+      <div style={{ position: "absolute", top: 70, right: 40, fontFamily: FONT_STACKS.montserrat, fontWeight: 900, fontSize: 24, color: "#fff", background: "rgba(6,24,47,0.75)", padding: "6px 14px", borderRadius: 10, letterSpacing: 2 }}>{p.tag ?? "ANIMATIC · DRAF"}</div>
       <Sequence from={voFrom} name="voice-over" layout="none">
         <Audio src={resolveMedia(p.vo.src)} />
       </Sequence>
