@@ -66,3 +66,11 @@ Applied to the animatic:
 - **Captions**: bold, UPPERCASE, thick dark stroke, active keyword in colour, 2–3 words per page.
 - **Hook text** big at the top; kinetic keywords on screen.
 Not copied: the creator's character, artwork, layout or brand.
+
+## Owner decisions 2026-11-26 (final direction)
+1. Character: **Option B** — regenerate all 8 poses from `master.png` only; slim average build, youthful, not muscular; no labels/captions/text/signboards/fake notifications; one PNG per pose. Prompts: `public/characters/ayoh-mad/POSES.md` (BASE v2).
+2. Motion: **2.5D** (camera, parallax, light, cinematic moves, transitions, emotion-matched effects). No fake lip-sync / realistic body motion.
+3. Voice: **Version 1 only** — owner's real voice + Kelantan accent. No AI clone, no ElevenLabs for now.
+4. Title: **"DI SEBALIK PERJALANAN SEORANG USAHAWAN"**. Script 60–90 s, no invented facts → draft `SKRIP-v2-DRAF.md` for owner review before final recording.
+5. Jobs (on-screen): Pembantu Operasi — RM50–60/hari, 7:30–2:30, lelaki 20–35, lesen kereta/motosikal, sediakan barang & penghantaran sekitar Tumpat. Team Sales — gaji basic (rate NOT stated), komisen bulanan, utamakan berpengalaman, fokus pelanggan baharu & jualan.
+6. Workflow: poses → review each → fix → script → animatic + VO review → job info → final render only after approval.

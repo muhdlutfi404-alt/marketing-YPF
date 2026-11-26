@@ -56,7 +56,7 @@ scenes = (
 def hook(id, a, b, words_, rv, y=150, h=420):
     return {"id": id, "from": round(a, 3), "dur": round(b - a, 3), "kind": "hook", "rv": [round(x - a, 3) for x in rv], "props": {"y": y, "h": h, "words": words_}}
 layers = [
-  {"id": "title", "from": 0.0, "dur": 2.6, "kind": "title", "props": {"line2": "YA PAKCIK FROZEN", "pending": "TAJUK MENUNGGU PENGESAHAN"}},
+  {"id": "title", "from": 0.0, "dur": 2.6, "kind": "title", "props": {"line2": "SEORANG USAHAWAN"}},
   hook("urus-sendiri", kw("kena", L(2)[0]) - 0.15, L(2)[1] + 0.3, [{"text": "kena urus", "size": "m"}, {"text": "sendiri", "size": "xl", "style": "gold"}], [kw("kena", L(2)[0]), kw("sendiri", L(2)[0])]),
   {"id": "tugas", "from": L(3)[0], "dur": round(L(3)[1] - L(3)[0] + 0.2, 3), "kind": "list", "split": True,
    "rv": [round(kw(k, L(3)[0]) - L(3)[0], 3) for k in ["urus", "sediakan", "penghantaran", "cari"]] if False else None,
@@ -70,8 +70,8 @@ layers = [
   hook("jom", kw("jom", L(13)[0] - 0.3) - 0.1, L(13)[1] + 0.2, [{"text": "jom sertai", "size": "l", "style": "gold"}, {"text": "perjalanan Ya Pakcik Frozen", "size": "s"}], [kw("jom", L(13)[0] - 0.3), kw("perjalanan", L(13)[0] - 0.3)]),
   hook("bersama", kw("kita", L(14)[0] - 0.3), L(14)[1] + 0.6, [{"text": "kita bina sesuatu yang lebih besar", "size": "s"}, {"text": "bersama-sama", "size": "l", "style": "gold"}], [kw("kita", L(14)[0] - 0.3), kw("bersama", L(14)[0])]),
   {"id": "jobs", "from": JOBS_AT, "dur": round(END_AT - JOBS_AT, 3), "kind": "jobs", "props": {"confirmed": True, "at": [0.6, 3.6], "jobs": [
-     {"title": "PEMBANTU OPERASI", "points": ["Gaji basic RM50 – RM60 sehari", "7:30 pagi – 2:30 petang", "Urus stok frozen & delivery sekitar Tumpat", "Lelaki · umur 20–35 · lesen memandu"]},
-     {"title": "TEAM SALES", "sub": "(BERPENGALAMAN)", "points": ["Gaji basic + komisen bulanan", "Pengalaman jualan min. 2 tahun", "Cari & jaga pelanggan kedai makan", "Lelaki · umur 20–35 · lesen memandu"]}]}},
+     {"title": "PEMBANTU OPERASI", "points": ["Gaji RM50 – RM60 sehari", "7:30 pagi – 2:30 petang", "Lelaki · umur 20–35", "Lesen kereta atau motosikal", "Sediakan barang & penghantaran sekitar Tumpat"]},
+     {"title": "TEAM SALES", "points": ["Gaji basic", "Komisen setiap bulan", "Utamakan calon berpengalaman", "Fokus pelanggan baharu & tingkatkan jualan"]}]}},
   {"id": "end", "from": END_AT, "dur": 5.0, "kind": "endcard-placeholder", "props": {"headline": "JOM SERTAI KAMI", "apply": "CARA MEMOHON: MENUNGGU PENGESAHAN"}},
 ]
 # list reveal times from the spoken words
