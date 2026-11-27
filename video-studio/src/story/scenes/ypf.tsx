@@ -244,9 +244,18 @@ const BoxIcon: React.FC<{ s?: number }> = ({ s = 110 }) => (
 const HookScene: React.FC<SceneProps> = ({ rv, props, split }) => {
   // props.words: [{ text, size: "s"|"m"|"xl", style?: "gold"|"ice"|"script" }]
   const words: { text: string; size?: string; style?: string }[] = props.words ?? [];
-  const SZ: Record<string, number> = { s: 42, m: 70, l: 120, xl: 146 };
+  // props.scale enlarges the whole hook (new hook versions); props.backdrop adds a dark band so it reads over busy footage
+  const k = props.scale ?? 1;
+  const SZ: Record<string, number> = { s: 42 * k, m: 70 * k, l: 120 * k, xl: 146 * k };
+  const frame = useCurrentFrame();
+  const top = props.y ?? 170, hh = props.h ?? 520;
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: split ? 0 : (props.y ?? 170), height: split ? "100%" : (props.h ?? 520), display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 }}>
+    <>
+    {props.backdrop && !split ? (
+      <div style={{ position: "absolute", left: 0, right: 0, top: 0, height: top + hh + 160, opacity: interpolate(frame, [0, 4], [0, 1], { extrapolateRight: "clamp" }),
+        background: "linear-gradient(180deg, rgba(6,24,47,0.88) 0%, rgba(6,24,47,0.78) 62%, rgba(6,24,47,0) 100%)" }} />
+    ) : null}
+    <div style={{ position: "absolute", left: 0, right: 0, top: split ? 0 : top, height: split ? "100%" : hh, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 2 * k, padding: "0 50px", textAlign: "center" }}>
       {words.map((w, i) => (
         <Pop key={i} at={rv[i] ?? i * 6} from={w.size === "xl" ? 1.35 : 0.6}>
           <div
@@ -268,6 +277,7 @@ const HookScene: React.FC<SceneProps> = ({ rv, props, split }) => {
         </Pop>
       ))}
     </div>
+    </>
   );
 };
 

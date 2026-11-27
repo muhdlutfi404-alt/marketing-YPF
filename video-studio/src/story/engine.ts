@@ -572,7 +572,7 @@ export const layerTexts = (l: Layer): string[] => {
     else if (Array.isArray(v)) v.forEach(walk);
     else if (v && typeof v === "object") Object.entries(v).forEach(([k, x]) => {
       // non-visible technical fields
-      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size", "floorShadeFrom", "floorShade", "variant", "dark", "image", "dim", "layout", "kind", "icons", "track", "hits", "top", "icon", "y", "h"].includes(k)) return;
+      if (["clip", "src", "image", "icon", "plate", "kind", "style", "position", "color", "align", "focus", "zooms", "in", "variant", "revealQuotes", "revealAt", "highlight", "animation", "transition", "x", "y", "side", "volume", "breathing", "hideCaptions", "fullscreen", "bar", "decimals", "behind", "card", "count", "size", "floorShadeFrom", "floorShade", "variant", "dark", "image", "dim", "layout", "kind", "icons", "track", "hits", "top", "icon", "y", "h", "scale", "backdrop"].includes(k)) return;
       walk(x);
     });
   };

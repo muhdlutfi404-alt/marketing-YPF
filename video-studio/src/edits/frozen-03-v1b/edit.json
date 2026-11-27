@@ -1,0 +1,535 @@
+{
+ "_readme": "NEW VERSION of frozen-03-v1 (approved original untouched): on-screen hook at 0 s + cold open, pauses ≥0.35 s cut as jump cuts, own music.",
+ "project": "frozen-03-v1b",
+ "brand": "yapakcik-frozen",
+ "title": "Chicken chop guna ayam apa? — versi hook baru",
+ "shots": [
+  {
+   "id": "cold1",
+   "label": "COLD OPEN (hook)",
+   "clip": "lv_0_20261119124959",
+   "in": 25.55,
+   "out": 29.4,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.42,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a0",
+   "label": "HOOK: chicken chop guna ayam seekor?",
+   "clip": "lv_0_20261119124959",
+   "in": 6.45,
+   "out": 9.15,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "guna ayam seekor"
+     },
+     "type": "punch-in",
+     "scale": 1.5
+    }
+   ],
+   "transition": {
+    "type": "zoom-punch",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "a1",
+   "label": "tertanya-tanya",
+   "clip": "lv_0_20261119124959",
+   "in": 3.0,
+   "out": 6.4,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.38
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "label": "contoh beli ayam seekor",
+   "clip": "lv_0_20261119124959",
+   "in": 9.55,
+   "out": 13.1,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.44
+    }
+   ]
+  },
+  {
+   "id": "a3_1",
+   "label": "adik nak chicken chop (cerita)",
+   "clip": "lv_0_20261119124959",
+   "in": 13.1,
+   "out": 16.37,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.42,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a3_2",
+   "label": "adik nak chicken chop (cerita)",
+   "clip": "lv_0_20261119124959",
+   "in": 16.73,
+   "out": 18.89,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.562,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "Ma nak makan chicken chop"
+     },
+     "type": "punch-out",
+     "scale": 1.3
+    }
+   ]
+  },
+  {
+   "id": "a3_3",
+   "label": "adik nak chicken chop (cerita)",
+   "clip": "lv_0_20261119124959",
+   "in": 19.58,
+   "out": 20.95,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.42,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "Alah banyak kali"
+     },
+     "type": "punch-in",
+     "scale": 1.5
+    }
+   ]
+  },
+  {
+   "id": "a4_1",
+   "label": "ayam seekor = isi dada → rugi",
+   "clip": "lv_0_20261119124959",
+   "in": 21.1,
+   "out": 25.39,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a4_2",
+   "label": "ayam seekor = isi dada → rugi",
+   "clip": "lv_0_20261119124959",
+   "in": 25.87,
+   "out": 29.45,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.43,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "ada isi dada sahaja"
+     },
+     "type": "punch-in",
+     "scale": 1.42
+    }
+   ]
+  },
+  {
+   "id": "a5",
+   "label": "nak untung → isi ayam fillet (real pack)",
+   "clip": "lv_0_20261119124959",
+   "in": 29.75,
+   "out": 35.5,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a6",
+   "label": "boleh buat…",
+   "clip": "lv_0_20261119124959",
+   "in": 35.9,
+   "out": 38.75,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a7",
+   "label": "popcorn, ayam lidi",
+   "clip": "lv_0_20261119124959",
+   "in": 41.15,
+   "out": 52.65,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.42
+    }
+   ]
+  },
+  {
+   "id": "a8",
+   "label": "mudah buat kerja",
+   "clip": "lv_0_20261119124959",
+   "in": 53.45,
+   "out": 57.9,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": {
+      "quote": "chicken chop bajet pun"
+     },
+     "type": "punch-in",
+     "scale": 1.45
+    }
+   ]
+  },
+  {
+   "id": "acta",
+   "label": "CTA: YaPakCik Frozen, 2 cawangan",
+   "clip": "lv_0_20261119124959",
+   "in": 202.75,
+   "out": 209.7,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    },
+    {
+     "at": 0.02,
+     "type": "push",
+     "scale": 1.4
+    }
+   ],
+   "transition": {
+    "type": "fade",
+    "duration": 0.25
+   }
+  }
+ ],
+ "layers": [
+  {
+   "id": "hook0",
+   "type": "scene",
+   "at": 0,
+   "duration": 4.4,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Kalau ayam seekor gini ada isi dada sahaja nak buat chicken chop rugi"
+   },
+   "props": {
+    "kind": "hook",
+    "y": 70,
+    "h": 560,
+    "scale": 1.3,
+    "backdrop": true,
+    "words": [
+     {
+      "text": "ayam seekor",
+      "size": "s"
+     },
+     {
+      "text": "buat chicken chop?",
+      "size": "m"
+     },
+     {
+      "text": "RUGI",
+      "size": "xl",
+      "style": "gold"
+     }
+    ],
+    "revealAt": [
+     0,
+     0.4,
+     3.15
+    ]
+   }
+  },
+  {
+   "id": "chicken",
+   "type": "scene",
+   "at": {
+    "quote": "Kalau ayam seekor gini",
+    "occurrence": 2,
+    "offset": -0.15
+   },
+   "duration": 8.51,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Kalau ayam seekor gini ada isi dada sahaja nak buat chicken chop rugi jadi macam mana nak awak nak untung ambillah isi ayam fillet ni"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "chicken",
+    "leftTitle": "ayam seekor",
+    "breastLabel": "ISI DADA",
+    "breastSub": "sahaja",
+    "lossLabel": "RUGI",
+    "rightKicker": "nak untung?",
+    "hero": "FILLET",
+    "heroSub": "ISI AYAM",
+    "revealQuotes": [
+     "ayam seekor gini#2",
+     "isi dada sahaja#2",
+     "Rugi#2",
+     "nak untung",
+     "Ambillah isi ayam"
+    ]
+   }
+  },
+  {
+   "id": "list",
+   "type": "scene",
+   "at": {
+    "quote": "boleh buat chicken chop bajet",
+    "offset": -0.2
+   },
+   "duration": 14.6,
+   "source": "transcript",
+   "evidence": {
+    "quote": "boleh buat chicken chop bajet chicken tenders"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "list",
+    "kicker": "isi ayam fillet boleh buat",
+    "items": [
+     "Chicken Chop Bajet",
+     "Chicken Tenders",
+     "Chicken Popcorn",
+     "Ayam Lidi"
+    ],
+    "icons": [
+     "fillet",
+     "strips",
+     "popcorn",
+     "skewer"
+    ],
+    "revealQuotes": [
+     "chicken chop bajet",
+     "chicken tenders",
+     "chicken popcorn",
+     "ayam lidi lah"
+    ]
+   }
+  },
+  {
+   "id": "endcard",
+   "type": "scene",
+   "at": {
+    "quote": "Bagi siapa-siapa berminat",
+    "offset": -0.1
+   },
+   "duration": 6.9,
+   "source": "transcript",
+   "evidence": {
+    "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"
+   },
+   "props": {
+    "layout": "split",
+    "kind": "endcard",
+    "badge": "2 CAWANGAN",
+    "pins": [
+     {
+      "name": "Pasar Sumayyah",
+      "area": "Tumpat"
+     },
+     {
+      "name": "Kampung Kelaboran"
+     }
+    ],
+    "revealQuotes": [
+     "Bagi siapa-siapa berminat",
+     "kita ada 2 cawangan",
+     "di Pasar Sumayyah",
+     "di Kampung Kelaboran"
+    ]
+   }
+  }
+ ],
+ "captions": {
+  "enabled": true,
+  "style": "minimal",
+  "combineMs": 900,
+  "uppercase": false,
+  "position": 0.7,
+  "emphasis": {
+   "rugi": "big",
+   "untung": "big",
+   "fillet": "big",
+   "bajet": "script",
+   "mudah": "script",
+   "simple": "script",
+   "cepat": "big",
+   "jimat": "big",
+   "pinggan": "script",
+   "banyak": "big",
+   "kuantiti": "big",
+   "bakar": "script",
+   "murah": "big",
+   "cawangan": "script",
+   "chop": "big"
+  },
+  "hide": []
+ },
+ "look": {
+  "grade": "moody-true",
+  "gradeIntensity": 0.7,
+  "grain": true,
+  "vignette": true,
+  "breathing": 0.012,
+  "coverBands": [],
+  "aiLabel": false,
+  "canvas": "brand"
+ },
+ "audio": {
+  "music": "music/ypf-ayam.mp3",
+  "musicVolume": 0.26,
+  "duckTo": 0.12,
+  "sfx": "auto",
+  "sfxVolume": 0.55,
+  "voiceTargetLufs": -16,
+  "cues": []
+ }
+}

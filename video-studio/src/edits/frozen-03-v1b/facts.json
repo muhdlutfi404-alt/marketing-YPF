@@ -1,0 +1,51 @@
+{
+ "_readme": "Only facts confirmed by the business owner. Graphics with source 'facts' may ONLY show these values, and only when confirmed is true. Never guess.",
+ "brandName": {
+  "value": "YaPakCik Frozen",
+  "label": "Brand",
+  "confirmed": true
+ },
+ "presenterName": {
+  "value": "",
+  "label": "Presenter name",
+  "confirmed": false
+ },
+ "productName": {
+  "value": "",
+  "label": "Product name",
+  "confirmed": false
+ },
+ "price": {
+  "value": "",
+  "label": "Price",
+  "confirmed": false
+ },
+ "halal": {
+  "value": "",
+  "label": "Halal certification",
+  "confirmed": false
+ },
+ "contact": {
+  "value": "",
+  "label": "WhatsApp / order contact",
+  "confirmed": false
+ },
+ "branches": {
+  "value": "2 cawangan: Pasar Sumayyah, Tumpat; Kampung Kelaboran",
+  "label": "Branches",
+  "confirmed": true,
+  "note": "owner confirmed"
+ },
+ "priceList": {
+  "value": "RM26 sepaket (2kg); RM149 sekotak (6 paket, 12kg); 5 kotak ke atas harga lebih murah; 10-20 kotak lebih murah lagi",
+  "label": "Harga isi ayam fillet",
+  "confirmed": true,
+  "note": "owner confirmed 2026-11-19"
+ },
+ "piecesPerKg": {
+  "value": "23-26 keping sekilo",
+  "label": "Keping sekilo",
+  "confirmed": true,
+  "note": "owner confirmed 2026-11-19"
+ }
+}

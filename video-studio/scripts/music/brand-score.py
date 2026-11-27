@@ -2,7 +2,8 @@
 """Original short-form scores for YaPakCik Frozen videos (synthesised here, royalty-free).
    Each preset has its own tempo, key, instrument and groove so videos never share the same track.
    .venv/bin/python scripts/music/brand-score.py <preset> <out.wav> <duration_s>
-   presets: harga (punchy pluck, 100 BPM, Em) · tips (curious pizzicato, 88 BPM, Am) · hantar (bright upbeat, 112 BPM, C)"""
+   presets: harga (punchy pluck, 100 BPM, Em) · tips (curious pizzicato, 88 BPM, Am) · hantar (bright upbeat, 112 BPM, C)
+            ayam (playful marimba, 104 BPM, G) · bajet (warm bell + half-time, 92 BPM, D) · borong (driving pluck, 120 BPM, F#m)"""
 import sys, wave
 import numpy as np
 SR = 44100
@@ -10,6 +11,9 @@ PRESETS = {
   "harga":  {"bpm": 100, "chords": [[64, 67, 71], [60, 64, 67], [55, 59, 62], [62, 66, 69]], "inst": "pluck", "groove": "four", "clap": True},
   "tips":   {"bpm": 88,  "chords": [[57, 60, 64], [62, 65, 69], [64, 68, 71], [57, 60, 64]], "inst": "pizz", "groove": "half", "clap": False},
   "hantar": {"bpm": 112, "chords": [[60, 64, 67], [55, 59, 62], [57, 60, 64], [53, 57, 60]], "inst": "keys", "groove": "four", "clap": True},
+  "ayam":   {"bpm": 104, "chords": [[67, 71, 74], [64, 67, 71], [60, 64, 67], [62, 66, 69]], "inst": "marimba", "groove": "four", "clap": False},
+  "bajet":  {"bpm": 92,  "chords": [[62, 66, 69], [59, 62, 66], [55, 59, 62], [57, 61, 64]], "inst": "bell", "groove": "half", "clap": True},
+  "borong": {"bpm": 120, "chords": [[66, 69, 73], [62, 66, 69], [57, 61, 64], [64, 68, 71]], "inst": "pluck", "groove": "four", "clap": True},
 }
 preset, out, DUR = sys.argv[1], sys.argv[2], float(sys.argv[3])
 P = PRESETS[preset]; BEAT = 60 / P["bpm"]; BAR = 4 * BEAT
@@ -26,6 +30,10 @@ def tone(m, dur, kind, vel):
         env = np.exp(-x * 7); s = np.sin(2*np.pi*f*x) + 0.5*np.sin(2*np.pi*2*f*x) + 0.25*np.sign(np.sin(2*np.pi*f*x))*np.exp(-x*20)
     elif kind == "pizz":
         env = np.exp(-x * 11); s = np.sin(2*np.pi*f*x) + 0.3*np.sin(2*np.pi*3*f*x)
+    elif kind == "marimba":   # wooden mallet: fundamental + 4th partial, fast decay
+        env = np.exp(-x * 9); s = np.sin(2*np.pi*f*x) + 0.35*np.sin(2*np.pi*4*f*x)*np.exp(-x*30)
+    elif kind == "bell":      # soft FM bell
+        env = np.exp(-x * 4); s = np.sin(2*np.pi*f*x + 1.2*np.exp(-x*5)*np.sin(2*np.pi*3.5*f*x))
     else:                 # soft electric keys
         env = np.exp(-x * 3.5); s = np.sin(2*np.pi*f*x) + 0.4*np.sin(2*np.pi*2*f*x)*np.exp(-x*6)
     return (s * env * (1 - np.exp(-x * 500)) * vel).astype(np.float32)
