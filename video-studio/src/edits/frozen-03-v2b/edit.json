@@ -8,27 +8,71 @@
    "id": "cold1",
    "label": "COLD OPEN (hook)",
    "clip": "lv_0_20261119124959",
-   "in": 102.15,
+   "in": 102.7,
    "out": 105.3,
    "audio": "keep",
    "focus": {
-    "x": 0.55,
-    "y": 0.35
+    "x": 0.5,
+    "y": 0.42
    },
    "zooms": [
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.4,
+     "scale": 1.3,
      "duration": 0.01
     }
    ]
   },
   {
-   "id": "b0",
+   "id": "b0_1",
    "label": "HOOK: 20/15 pinggan",
    "clip": "lv_0_20261119124959",
    "in": 109.5,
+   "out": 109.95,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    }
+   ],
+   "transition": {
+    "type": "zoom-punch",
+    "duration": 0.2
+   }
+  },
+  {
+   "id": "b0_2",
+   "label": "HOOK: 20/15 pinggan",
+   "clip": "lv_0_20261119124959",
+   "in": 110.5,
+   "out": 113.44,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.474,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "b0_3",
+   "label": "HOOK: 20/15 pinggan",
+   "clip": "lv_0_20261119124959",
+   "in": 113.76,
    "out": 115.7,
    "audio": "keep",
    "focus": {
@@ -41,26 +85,15 @@
      "type": "punch-in",
      "scale": 1.34,
      "duration": 0.01
-    },
-    {
-     "at": {
-      "quote": "20 pinggan ataupun"
-     },
-     "type": "punch-in",
-     "scale": 1.48
     }
-   ],
-   "transition": {
-    "type": "zoom-punch",
-    "duration": 0.2
-   }
+   ]
   },
   {
    "id": "b1_1",
    "label": "cara: belah untuk lebarkan, katok, tepung, goreng",
    "clip": "lv_0_20261119124959",
    "in": 57.8,
-   "out": 63.94,
+   "out": 59.37,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -83,7 +116,47 @@
    "id": "b1_2",
    "label": "cara: belah untuk lebarkan, katok, tepung, goreng",
    "clip": "lv_0_20261119124959",
+   "in": 59.77,
+   "out": 63.94,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.43,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "b1_3",
+   "label": "cara: belah untuk lebarkan, katok, tepung, goreng",
+   "clip": "lv_0_20261119124959",
    "in": 64.35,
+   "out": 67.75,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "b1_4",
+   "label": "cara: belah untuk lebarkan, katok, tepung, goreng",
+   "clip": "lv_0_20261119124959",
+   "in": 68.08,
    "out": 68.6,
    "audio": "keep",
    "focus": {
@@ -100,11 +173,11 @@
    ]
   },
   {
-   "id": "b2",
+   "id": "b2_1",
    "label": "sekilo 23-26 keping",
    "clip": "lv_0_20261119124959",
    "in": 70.4,
-   "out": 78.85,
+   "out": 75.06,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -119,10 +192,30 @@
     },
     {
      "at": {
-      "quote": "26 ke 25 keping"
+      "quote": "26 ke"
      },
      "type": "punch-in",
      "scale": 1.5
+    }
+   ]
+  },
+  {
+   "id": "b2_2",
+   "label": "sekilo 23-26 keping",
+   "clip": "lv_0_20261119124959",
+   "in": 75.31,
+   "out": 78.85,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.496,
+     "duration": 0.01
     }
    ]
   },
@@ -147,11 +240,11 @@
    ]
   },
   {
-   "id": "b3b",
+   "id": "b3b_1",
    "label": "CLOSE-UP pek sebenar (punch-in)",
    "clip": "lv_0_20261119124959",
    "in": 105.25,
-   "out": 108.8,
+   "out": 105.95,
    "audio": "keep",
    "focus": {
     "x": 0.36,
@@ -162,6 +255,26 @@
      "at": 0,
      "type": "punch-in",
      "scale": 1.55,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "b3b_2",
+   "label": "CLOSE-UP pek sebenar (punch-in)",
+   "clip": "lv_0_20261119124959",
+   "in": 107.4,
+   "out": 108.8,
+   "audio": "keep",
+   "focus": {
+    "x": 0.36,
+    "y": 0.5
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.395,
      "duration": 0.01
     }
    ]
@@ -299,10 +412,50 @@
    ]
   },
   {
-   "id": "b9",
+   "id": "b9_1",
    "label": "makan / bakar / perap",
    "clip": "lv_0_20261119124959",
    "in": 161.85,
+   "out": 162.5,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "b9_2",
+   "label": "makan / bakar / perap",
+   "clip": "lv_0_20261119124959",
+   "in": 163.32,
+   "out": 164.65,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.474,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "b9_3",
+   "label": "makan / bakar / perap",
+   "clip": "lv_0_20261119124959",
+   "in": 164.91,
    "out": 171.5,
    "audio": "keep",
    "focus": {
@@ -326,11 +479,11 @@
    ]
   },
   {
-   "id": "bcta",
+   "id": "bcta_1",
    "label": "CTA: YaPakCik Frozen, 2 cawangan",
    "clip": "lv_0_20261119124959",
    "in": 202.75,
-   "out": 209.7,
+   "out": 206.43,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -342,17 +495,32 @@
      "type": "punch-in",
      "scale": 1.3,
      "duration": 0.01
-    },
-    {
-     "at": 0.02,
-     "type": "push",
-     "scale": 1.4
     }
    ],
    "transition": {
     "type": "fade",
     "duration": 0.25
    }
+  },
+  {
+   "id": "bcta_2",
+   "label": "CTA: YaPakCik Frozen, 2 cawangan",
+   "clip": "lv_0_20261119124959",
+   "in": 206.69,
+   "out": 209.7,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.43,
+     "duration": 0.01
+    }
+   ]
   }
  ],
  "layers": [
@@ -360,7 +528,7 @@
    "id": "hook0",
    "type": "scene",
    "at": 0,
-   "duration": 3.15,
+   "duration": 3.0,
    "source": "facts",
    "evidence": {
     "fact": "priceList"
@@ -388,8 +556,8 @@
     ],
     "revealAt": [
      0,
-     0.5,
-     1.6
+     0.9,
+     1.7
     ]
    }
   },
@@ -399,7 +567,7 @@
    "at": {
     "quote": "kira buat chicken chop"
    },
-   "duration": 4.1,
+   "duration": 3.78,
    "source": "transcript",
    "evidence": {
     "quote": "kalau kira buat chicken chop kat dalam ada 20 pinggan ataupun 15 pingganlah"
@@ -426,7 +594,7 @@
     "quote": "Sekeping tu kita belah dua",
     "offset": -0.2
    },
-   "duration": 10.49,
+   "duration": 9.76,
    "source": "transcript",
    "evidence": {
     "quote": "Sekeping tu kita belah dua kalau nak bagi pahu katok-katok dengan tuku lapik supit tu katok tuku-tuku-tuku pah tu bubuh tepung roti then goreng"
@@ -463,7 +631,7 @@
     "quote": "26 ke 25 keping",
     "offset": -0.4
    },
-   "duration": 3.6,
+   "duration": 3.35,
    "source": "facts",
    "evidence": {
     "fact": "piecesPerKg"
@@ -515,7 +683,7 @@
    "at": {
     "quote": "Ni ni sepaket ni"
    },
-   "duration": 3.4,
+   "duration": 1.95,
    "source": "transcript",
    "evidence": {
     "quote": "Ada sepaket ni 2 kilo RM26 sahaja sepaket ni ni sepaket ni"
@@ -854,7 +1022,7 @@
     "quote": "Bagi siapa-siapa berminat",
     "offset": -0.1
    },
-   "duration": 6.9,
+   "duration": 6.64,
    "source": "transcript",
    "evidence": {
     "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"

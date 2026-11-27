@@ -56,11 +56,11 @@
    }
   },
   {
-   "id": "a1",
+   "id": "a1_1",
    "label": "tertanya-tanya",
    "clip": "lv_0_20261119124959",
    "in": 3.0,
-   "out": 6.4,
+   "out": 3.66,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -72,11 +72,26 @@
      "type": "punch-in",
      "scale": 1.3,
      "duration": 0.01
-    },
+    }
+   ]
+  },
+  {
+   "id": "a1_2",
+   "label": "tertanya-tanya",
+   "clip": "lv_0_20261119124959",
+   "in": 4.6,
+   "out": 6.4,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
     {
-     "at": 0.02,
-     "type": "push",
-     "scale": 1.38
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.43,
+     "duration": 0.01
     }
    ]
   },
@@ -110,7 +125,7 @@
    "label": "adik nak chicken chop (cerita)",
    "clip": "lv_0_20261119124959",
    "in": 13.1,
-   "out": 16.37,
+   "out": 13.59,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -129,8 +144,8 @@
    "id": "a3_2",
    "label": "adik nak chicken chop (cerita)",
    "clip": "lv_0_20261119124959",
-   "in": 16.73,
-   "out": 18.89,
+   "in": 14.03,
+   "out": 16.37,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -141,6 +156,26 @@
      "at": 0,
      "type": "punch-in",
      "scale": 1.562,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a3_3",
+   "label": "adik nak chicken chop (cerita)",
+   "clip": "lv_0_20261119124959",
+   "in": 16.73,
+   "out": 17.77,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.42,
      "duration": 0.01
     },
     {
@@ -153,7 +188,27 @@
    ]
   },
   {
-   "id": "a3_3",
+   "id": "a3_4",
+   "label": "adik nak chicken chop (cerita)",
+   "clip": "lv_0_20261119124959",
+   "in": 18.01,
+   "out": 18.89,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.562,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a3_5",
    "label": "adik nak chicken chop (cerita)",
    "clip": "lv_0_20261119124959",
    "in": 19.58,
@@ -267,10 +322,50 @@
    ]
   },
   {
-   "id": "a7",
+   "id": "a7_1",
    "label": "popcorn, ayam lidi",
    "clip": "lv_0_20261119124959",
    "in": 41.15,
+   "out": 44.0,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a7_2",
+   "label": "popcorn, ayam lidi",
+   "clip": "lv_0_20261119124959",
+   "in": 44.25,
+   "out": 48.54,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.474,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "a7_3",
+   "label": "popcorn, ayam lidi",
+   "clip": "lv_0_20261119124959",
+   "in": 48.77,
    "out": 52.65,
    "audio": "keep",
    "focus": {
@@ -283,11 +378,6 @@
      "type": "punch-in",
      "scale": 1.34,
      "duration": 0.01
-    },
-    {
-     "at": 0.02,
-     "type": "push",
-     "scale": 1.42
     }
    ]
   },
@@ -319,11 +409,11 @@
    ]
   },
   {
-   "id": "acta",
+   "id": "acta_1",
    "label": "CTA: YaPakCik Frozen, 2 cawangan",
    "clip": "lv_0_20261119124959",
    "in": 202.75,
-   "out": 209.7,
+   "out": 206.43,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -335,17 +425,32 @@
      "type": "punch-in",
      "scale": 1.3,
      "duration": 0.01
-    },
-    {
-     "at": 0.02,
-     "type": "push",
-     "scale": 1.4
     }
    ],
    "transition": {
     "type": "fade",
     "duration": 0.25
    }
+  },
+  {
+   "id": "acta_2",
+   "label": "CTA: YaPakCik Frozen, 2 cawangan",
+   "clip": "lv_0_20261119124959",
+   "in": 206.69,
+   "out": 209.7,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.33
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.43,
+     "duration": 0.01
+    }
+   ]
   }
  ],
  "layers": [
@@ -425,7 +530,7 @@
     "quote": "boleh buat chicken chop bajet",
     "offset": -0.2
    },
-   "duration": 14.6,
+   "duration": 14.12,
    "source": "transcript",
    "evidence": {
     "quote": "boleh buat chicken chop bajet chicken tenders"
@@ -461,7 +566,7 @@
     "quote": "Bagi siapa-siapa berminat",
     "offset": -0.1
    },
-   "duration": 6.9,
+   "duration": 6.64,
    "source": "transcript",
    "evidence": {
     "quote": "Bagi siapa-siapa berminat boleh mari di YaPakCik Frozen kita ada 2 cawangan so di Pasar Sumayyah Tumpat dan satu lagi di Kampung Kelaboran"

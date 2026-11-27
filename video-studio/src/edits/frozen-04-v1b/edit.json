@@ -25,11 +25,11 @@
    ]
   },
   {
-   "id": "h",
+   "id": "h_1",
    "label": "HOOK: harga naik?",
    "clip": "lv_0_20261123141154",
    "in": 22.15,
-   "out": 26.1,
+   "out": 24.73,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -41,19 +41,32 @@
      "type": "punch-in",
      "scale": 1.36,
      "duration": 0.01
-    },
-    {
-     "at": {
-      "quote": "harga naik lah"
-     },
-     "type": "punch-in",
-     "scale": 1.52
     }
    ],
    "transition": {
     "type": "zoom-punch",
     "duration": 0.2
    }
+  },
+  {
+   "id": "h_2",
+   "label": "HOOK: harga naik?",
+   "clip": "lv_0_20261123141154",
+   "in": 25.38,
+   "out": 26.1,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.496,
+     "duration": 0.01
+    }
+   ]
   },
   {
    "id": "p1_1",
@@ -104,7 +117,7 @@
    "label": "runcit 20, borong",
    "clip": "lv_0_20261123141154",
    "in": 3.54,
-   "out": 5.3,
+   "out": 4.05,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -120,11 +133,31 @@
    ]
   },
   {
+   "id": "p1_4",
+   "label": "runcit 20, borong",
+   "clip": "lv_0_20261123141154",
+   "in": 4.39,
+   "out": 5.3,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.43,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
    "id": "p2_1",
    "label": "runcit 20, untuk jual 19, kotak 18.50",
    "clip": "lv_0_20261123141154",
    "in": 6.85,
-   "out": 10.5,
+   "out": 9.3,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -143,8 +176,8 @@
    "id": "p2_2",
    "label": "runcit 20, untuk jual 19, kotak 18.50",
    "clip": "lv_0_20261123141154",
-   "in": 10.85,
-   "out": 16.4,
+   "in": 9.85,
+   "out": 10.5,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -160,11 +193,31 @@
    ]
   },
   {
-   "id": "p3",
+   "id": "p2_3",
+   "label": "runcit 20, untuk jual 19, kotak 18.50",
+   "clip": "lv_0_20261123141154",
+   "in": 10.85,
+   "out": 16.4,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "p3_1",
    "label": "harga untuk tarikh hari ni",
    "clip": "lv_0_20261123141154",
    "in": 16.5,
-   "out": 22.0,
+   "out": 18.46,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -175,6 +228,66 @@
      "at": 0,
      "type": "punch-in",
      "scale": 1.36,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "p3_2",
+   "label": "harga untuk tarikh hari ni",
+   "clip": "lv_0_20261123141154",
+   "in": 18.99,
+   "out": 19.49,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.496,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "p3_3",
+   "label": "harga untuk tarikh hari ni",
+   "clip": "lv_0_20261123141154",
+   "in": 19.78,
+   "out": 20.22,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.36,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "p3_4",
+   "label": "harga untuk tarikh hari ni",
+   "clip": "lv_0_20261123141154",
+   "in": 20.87,
+   "out": 22.0,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.496,
      "duration": 0.01
     },
     {
@@ -187,10 +300,50 @@
    ]
   },
   {
-   "id": "e1",
+   "id": "e1_1",
    "label": "bukan marketing; sentiasa berubah",
    "clip": "lv_0_20261123141154",
    "in": 26.15,
+   "out": 28.88,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.3,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "e1_2",
+   "label": "bukan marketing; sentiasa berubah",
+   "clip": "lv_0_20261123141154",
+   "in": 29.12,
+   "out": 30.72,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.43,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "e1_3",
+   "label": "bukan marketing; sentiasa berubah",
+   "clip": "lv_0_20261123141154",
+   "in": 30.96,
    "out": 33.3,
    "audio": "keep",
    "focus": {
@@ -245,7 +398,7 @@
    "label": "naik sokmo, terpaksa",
    "clip": "lv_0_20261123141154",
    "in": 37.23,
-   "out": 46.46,
+   "out": 42.96,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -256,6 +409,26 @@
      "at": 0,
      "type": "punch-in",
      "scale": 1.474,
+     "duration": 0.01
+    }
+   ]
+  },
+  {
+   "id": "e2_3",
+   "label": "naik sokmo, terpaksa",
+   "clip": "lv_0_20261123141154",
+   "in": 43.32,
+   "out": 46.46,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
+    {
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.34,
      "duration": 0.01
     },
     {
@@ -268,7 +441,7 @@
    ]
   },
   {
-   "id": "e2_3",
+   "id": "e2_4",
    "label": "naik sokmo, terpaksa",
    "clip": "lv_0_20261123141154",
    "in": 46.85,
@@ -282,7 +455,7 @@
     {
      "at": 0,
      "type": "punch-in",
-     "scale": 1.34,
+     "scale": 1.474,
      "duration": 0.01
     },
     {
@@ -344,11 +517,11 @@
    ]
   },
   {
-   "id": "1cta3",
+   "id": "1cta3_1",
    "label": "CTA: pusat utama di Tumpat",
    "clip": "lv_0_20261123141154",
    "in": 215.75,
-   "out": 219.6,
+   "out": 217.37,
    "audio": "keep",
    "focus": {
     "x": 0.5,
@@ -360,11 +533,26 @@
      "type": "punch-in",
      "scale": 1.32,
      "duration": 0.01
-    },
+    }
+   ]
+  },
+  {
+   "id": "1cta3_2",
+   "label": "CTA: pusat utama di Tumpat",
+   "clip": "lv_0_20261123141154",
+   "in": 217.68,
+   "out": 219.6,
+   "audio": "keep",
+   "focus": {
+    "x": 0.5,
+    "y": 0.3
+   },
+   "zooms": [
     {
-     "at": 0.02,
-     "type": "push",
-     "scale": 1.4
+     "at": 0,
+     "type": "punch-in",
+     "scale": 1.452,
+     "duration": 0.01
     }
    ]
   }
@@ -413,7 +601,7 @@
    "at": {
     "quote": "tanya naik pula tu"
    },
-   "duration": 2.8,
+   "duration": 2.15,
    "source": "transcript",
    "evidence": {
     "quote": "kalau awak tanya naik pula tu harga naik lah"
@@ -446,7 +634,7 @@
     "quote": "kita jual runcit 20",
     "offset": -0.6
    },
-   "duration": 14.27,
+   "duration": 13.38,
    "source": "facts",
    "evidence": {
     "fact": "priceList"
@@ -482,7 +670,7 @@
    "at": {
     "quote": "Bukan kata Ayoh Mad"
    },
-   "duration": 3.0,
+   "duration": 2.76,
    "source": "facts",
    "evidence": {
     "fact": "presenterName"
@@ -500,7 +688,7 @@
     "quote": "Pasal harga ni sentiasa",
     "offset": -0.2
    },
-   "duration": 9.11,
+   "duration": 8.97,
    "source": "transcript",
    "evidence": {
     "quote": "Pasal harga ni sentiasa berubah daging ni bukan kata kita ni sengaja nak naik tapi memang barang naik sokmo"

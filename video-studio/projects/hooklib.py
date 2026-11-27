@@ -38,15 +38,19 @@ class HookKit:
             parts = [(x, y) for x, y in parts if y - x > 0.05] or [(a, b)]
             total = sum(y - x for x, y in parts)
             ws = seg["words"]; L = sum(max(1, len(w["text"].strip())) for w in ws)
-            def at(u):   # u in [0,total] → source time
-                for x, y in parts:
-                    if u <= y - x: return x + u
+            def at(u):   # u in [0,total] → (source time, part index)
+                for k, (x, y) in enumerate(parts):
+                    if u <= y - x: return x + u, k
                     u -= y - x
-                return parts[-1][1]
+                return parts[-1][1], len(parts) - 1
             u = 0.0
             for w in ws:
                 d = total * max(1, len(w["text"].strip())) / L
-                w["start"], w["end"] = round(at(u), 3), round(at(min(total, u + d * 0.92)), 3); u += d
+                (s0, k0), (s1, k1) = at(u), at(min(total, u + d * 0.92))
+                if k1 != k0:   # a word never straddles a pause: keep it in the part that holds most of it
+                    if parts[k0][1] - s0 >= s1 - parts[k1][0]: s1 = parts[k0][1]
+                    else: s0 = parts[k1][0]
+                w["start"], w["end"] = round(s0, 3), round(s1, 3); u += d
         tr["wordTimingNote"] = "words re-spread over speech parts only (projects/hooklib.py)"
         return tr
 
@@ -59,6 +63,18 @@ class HookKit:
             if [norm(x["text"]) for x in W[i:i + len(toks)]] == toks: return w["start"]
         return None
 
+    def fit_quote(self, q, lo, hi):
+        """the longest leading part of quote q whose words all sit inside [lo, hi] (a cut may split a quote)"""
+        toks = q.split()
+        W = self.WORDS
+        for i, w in enumerate(W):
+            if not (lo - 0.05 <= w["start"] <= hi): continue
+            if [norm(x["text"]) for x in W[i:i + len(toks)]] != [norm(t) for t in toks]: continue
+            n = len(toks)
+            while n > 0 and W[i + n - 1]["end"] > hi + 0.05: n -= 1
+            return " ".join(toks[:n]) if n >= min(2, len(toks)) else None
+        return None
+
     def tighten(self, shot, nosplit=()):
         a, b = shot["in"], shot["out"]
         # cut only true pauses: no (estimated) word may sit inside the removed part — subtitles and anchors stay intact
@@ -66,22 +82,31 @@ class HookKit:
                 and not any(s + 0.06 < w["end"] and w["start"] < e - 0.06 for w in self.WORDS)]
         if not cuts: return [shot]
         PAD = 0.06
+        # never create a piece shorter than 0.4 s (it would flash): skip the cut instead — nothing is ever dropped
+        kept, cur = [], a
+        for s, e in cuts:
+            if s + PAD - cur < 0.4: continue
+            kept.append((s, e)); cur = e - PAD
+        while kept and b - (kept[-1][1] - PAD) < 0.4: kept.pop()
+        cuts = kept
+        if not cuts: return [shot]
         self.cuts += [(s + PAD, e - PAD) for s, e in cuts]
         bounds, cur = [], a
         for s, e in cuts:
             bounds.append((cur, s + PAD)); cur = e - PAD
         bounds.append((cur, b))
-        bounds = [(round(x, 3), round(y, 3)) for x, y in bounds if y - x >= 0.3]
+        bounds = [(round(x, 3), round(y, 3)) for x, y in bounds]
         base = next((z for z in shot.get("zooms", []) if z.get("at") == 0), {"at": 0, "type": "punch-in", "scale": 1.3, "duration": 0.01})
         quoted = [z for z in shot.get("zooms", []) if isinstance(z.get("at"), dict)]
         pieces = []
         for k, (x, y) in enumerate(bounds):
             p = copy.deepcopy(shot); p["id"] = f"{shot['id']}_{k + 1}"; p["in"], p["out"] = x, y
-            b0 = dict(base); b0["scale"] = round(base.get("scale", 1.3) * (1.0 if k % 2 == 0 else 1.1), 3)   # jump cut: framing alternates
+            b0 = dict(base); sc = base.get("scale", 1.3)
+            b0["scale"] = round(sc * (1.0 if k % 2 == 0 else (0.9 if sc >= 1.45 else 1.1)), 3)   # jump cut: framing alternates (never past ~1.6×)
             zs = [b0]
             for z in quoted:
-                qt = self.quote_time(z["at"]["quote"], x, y)
-                if qt is not None and x <= qt <= y: zs.append(z)
+                q = self.fit_quote(z["at"]["quote"], x, y)
+                if q: zs.append({**z, "at": {**z["at"], "quote": q}})
             p["zooms"] = zs
             if k > 0: p.pop("transition", None)
             pieces.append(p)
